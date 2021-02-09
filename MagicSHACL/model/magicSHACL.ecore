@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="magicSHACL" nsURI="http://www.example.org/magicSHACL" nsPrefix="magicSHACL">
+  <eClassifiers xsi:type="ecore:EClass" name="DataGraph">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="triples" upperBound="-1"
+        eType="#//Triples" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Triples">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subject" lowerBound="1"
+        eType="#//Subject" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predicateobject" upperBound="-1"
+        eType="#//PredicateObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Graph">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataGraph" eType="#//DataGraph"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namespaces" upperBound="-1"
+        eType="#//Namespace" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shapesGraph" eType="#//ShapesGraph"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PropertyType">
+    <eLiterals name="ClassConstraintComponent" value="9" literal="sh:class"/>
+    <eLiterals name="MinCountConstraintComponent" value="1" literal="sh:minCount"/>
+    <eLiterals name="MaxCountConstraintComponent" value="2" literal="sh:maxCount"/>
+    <eLiterals name="NotConstraintComponent" value="3" literal="sh:not"/>
+    <eLiterals name="AndConstraintComponent" value="4" literal="sh:and"/>
+    <eLiterals name="OrConstraintComponent" value="5" literal="sh:or"/>
+    <eLiterals name="NodeConstraintComponent" value="6" literal="sh:node"/>
+    <eLiterals name="HasValueConstraintComponent" value="7" literal="sh:hasValue"/>
+    <eLiterals name="PredicatePath" value="8" literal="sh:path"/>
+    <eLiterals name="Property" literal="sh:property"/>
+    <eLiterals name="Name" value="11" literal="sh:name"/>
+    <eLiterals name="DatatypeConstraintComponent" value="11" literal="sh:datatype"/>
+    <eLiterals name="NodeKindConstraintComponent" value="12" literal="sh:nodeKind"/>
+    <eLiterals name="PatternConstraintComponent" value="13" literal="sh:pattern"/>
+    <eLiterals name="TargetClass" value="14" literal="sh:targetClass"/>
+    <eLiterals name="ClosedConstraintComponent" value="15" literal="sh:closed"/>
+    <eLiterals name="ClosedConstraintComponent_ignore" value="16" literal="sh:ignoredProperties"/>
+    <eLiterals name="InversePath" value="17" literal="sh:inversePath"/>
+    <eLiterals name="TargetNode" value="18" literal="sh:targetNode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Namespace">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Subject" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Predicate" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PredicateObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predicate" lowerBound="1"
+        eType="#//Predicate" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="object" lowerBound="1"
+        eType="#//Object" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShapeConstraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shapeName" lowerBound="1"
+        eType="#//ShapeName" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shapeExpressions" upperBound="-1"
+        eType="#//ShapeExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="IRI" instanceClassName="java.lang.String"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ShapesGraph">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shapeConstraints" upperBound="-1"
+        eType="#//ShapeConstraint" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShapeExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyValues" upperBound="-1"
+        eType="#//PropertyValues" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PropertyType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShapeName" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PropertyType"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyValues">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
+        eType="#//Property" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" lowerBound="1"
+        upperBound="-1" eType="#//Value" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated magicSHACL -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="magicSHACL.presentation.MagicSHACLModelWizardID"
+            name="%_UI_MagicSHACLModelWizard_label"
+            class="magicSHACL.presentation.MagicSHACLModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/MagicSHACLModelFile.gif">
+         <description>%_UI_MagicSHACLModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated magicSHACL -->
+      <editor
+            id="magicSHACL.presentation.MagicSHACLEditorID"
+            name="%_UI_MagicSHACLEditor_label"
+            icon="icons/full/obj16/MagicSHACLModelFile.gif"
+            extensions="magicshacl"
+            class="magicSHACL.presentation.MagicSHACLEditor"
+            contributorClass="magicSHACL.presentation.MagicSHACLActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

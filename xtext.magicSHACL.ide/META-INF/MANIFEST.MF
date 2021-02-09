@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: xtext.magicSHACL.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: xtext.magicSHACL.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: xtext.magicSHACL.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: xtext.magicSHACL,
+ MagicSHACL,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: xtext.magicSHACL.ide.contentassist.antlr,
+ xtext.magicSHACL.ide.contentassist.antlr.internal
