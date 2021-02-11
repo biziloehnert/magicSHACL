@@ -23,8 +23,8 @@ import java.util.ArrayList
  */
 class TurtleGenerator extends AbstractGenerator {
 	
-	private List<String> shapes;
-	private int shapesCounter;
+	List<String> shapes;
+	int shapesCounter;
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		shapes = new ArrayList();

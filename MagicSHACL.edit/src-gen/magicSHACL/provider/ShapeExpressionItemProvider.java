@@ -58,6 +58,7 @@ public class ShapeExpressionItemProvider extends ItemProviderAdapter implements 
 			super.getPropertyDescriptors(object);
 
 			addTypePropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -75,6 +76,22 @@ public class ShapeExpressionItemProvider extends ItemProviderAdapter implements 
 						getString("_UI_PropertyDescriptor_description", "_UI_ShapeExpression_type_feature",
 								"_UI_ShapeExpression_type"),
 						MagicSHACLPackage.Literals.SHAPE_EXPRESSION__TYPE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ShapeExpression_value_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ShapeExpression_value_feature",
+								"_UI_ShapeExpression_type"),
+						MagicSHACLPackage.Literals.SHAPE_EXPRESSION__VALUE, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -156,6 +173,7 @@ public class ShapeExpressionItemProvider extends ItemProviderAdapter implements 
 
 		switch (notification.getFeatureID(ShapeExpression.class)) {
 		case MagicSHACLPackage.SHAPE_EXPRESSION__TYPE:
+		case MagicSHACLPackage.SHAPE_EXPRESSION__VALUE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case MagicSHACLPackage.SHAPE_EXPRESSION__PROPERTY_VALUES:

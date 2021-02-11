@@ -2,21 +2,23 @@
  */
 package magicSHACL.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
 import magicSHACL.MagicSHACLPackage;
+import magicSHACL.PropertyValues;
 import magicSHACL.ShapeConstraint;
 import magicSHACL.ShapeExpression;
 import magicSHACL.ShapeName;
-
+import magicSHACL.ShapesGraph;
+import magicSHACL.Value;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -143,6 +145,56 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<ShapeName> adorn() {
+		ShapesGraph shapesGraph = (ShapesGraph) eContainer;
+		EList<ShapeName> adornedShapes = new BasicEList<ShapeName>();
+
+		TreeIterator<EObject> it = this.eAllContents();
+		while (it.hasNext()) {
+			EObject content = it.next();
+			if (content instanceof Value && shapesGraph.isShapeName(((Value) content).getName())) {
+				((Value) content).setAdorned(true);
+				ShapeName s = new ShapeNameImpl();
+				s.setName(((Value) content).getName());
+				s.setAdorned(true);
+				adornedShapes.add(s);
+			}
+		}
+		return adornedShapes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public ShapeConstraint generate(Value adornedShape) {
+		ShapeConstraint magicShapeConstraint = new ShapeConstraintImpl();
+		magicShapeConstraint.setShapeName(adornedShape.toShapeName().getMagicShapeName());
+
+		ShapeExpression magicShapeExpression = new ShapeExpressionImpl();
+		magicShapeExpression.getPropertyValues()
+				.add(((PropertyValues) adornedShape.eContainer()).getMagicPropertyValues(shapeName.getName()));
+
+		magicShapeConstraint.getShapeExpressions().add(magicShapeExpression);
+
+		return magicShapeConstraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void removeAdornments() {
+		this.shapeName.setAdorned(false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -224,6 +276,25 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 			return shapeExpressions != null && !shapeExpressions.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case MagicSHACLPackage.SHAPE_CONSTRAINT___ADORN:
+			return adorn();
+		case MagicSHACLPackage.SHAPE_CONSTRAINT___GENERATE__VALUE:
+			return generate((Value) arguments.get(0));
+		case MagicSHACLPackage.SHAPE_CONSTRAINT___REMOVE_ADORNMENTS:
+			removeAdornments();
+			return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ShapeConstraintImpl

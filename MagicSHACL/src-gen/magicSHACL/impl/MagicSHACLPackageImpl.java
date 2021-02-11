@@ -18,13 +18,15 @@ import magicSHACL.ShapeExpression;
 import magicSHACL.ShapeName;
 import magicSHACL.ShapesGraph;
 import magicSHACL.Subject;
+import magicSHACL.Target;
 import magicSHACL.Triples;
 import magicSHACL.Value;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -149,6 +151,13 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass targetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass shapeExpressionEClass = null;
 
 	/**
@@ -157,13 +166,6 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 	 * @generated
 	 */
 	private EEnum propertyTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType iriEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -453,6 +455,33 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getShapeConstraint__Adorn() {
+		return shapeConstraintEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getShapeConstraint__Generate__Value() {
+		return shapeConstraintEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getShapeConstraint__RemoveAdornments() {
+		return shapeConstraintEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getShapesGraph() {
 		return shapesGraphEClass;
 	}
@@ -471,8 +500,44 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getShapesGraph_Targets() {
+		return (EReference) shapesGraphEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getShapesGraph__IsShapeName__String() {
+		return shapesGraphEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getShapeName() {
 		return shapeNameEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getShapeName_Adorned() {
+		return (EAttribute) shapeNameEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getShapeName__GetMagicShapeName() {
+		return shapeNameEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -498,8 +563,35 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getProperty__ToAbstractString() {
+		return propertyEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getValue() {
 		return valueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getValue_Adorned() {
+		return (EAttribute) valueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getValue__ToShapeName() {
+		return valueEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -534,6 +626,69 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPropertyValues__GetMagicPropertyValues__String() {
+		return propertyValuesEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPropertyValues__GetPathValue() {
+		return propertyValuesEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTarget() {
+		return targetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTarget_Term() {
+		return (EAttribute) targetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTarget_Name() {
+		return (EAttribute) targetEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTarget__ToShapeName() {
+		return targetEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTarget__GetMagicQuerySeed() {
+		return targetEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getShapeExpression() {
 		return shapeExpressionEClass;
 	}
@@ -561,8 +716,8 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getPropertyType() {
-		return propertyTypeEEnum;
+	public EAttribute getShapeExpression_Value() {
+		return (EAttribute) shapeExpressionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -570,8 +725,17 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getIRI() {
-		return iriEDataType;
+	public EOperation getShapeExpression__ToAbstractString() {
+		return shapeExpressionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getPropertyType() {
+		return propertyTypeEEnum;
 	}
 
 	/**
@@ -636,30 +800,47 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 		shapeConstraintEClass = createEClass(SHAPE_CONSTRAINT);
 		createEReference(shapeConstraintEClass, SHAPE_CONSTRAINT__SHAPE_NAME);
 		createEReference(shapeConstraintEClass, SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS);
+		createEOperation(shapeConstraintEClass, SHAPE_CONSTRAINT___ADORN);
+		createEOperation(shapeConstraintEClass, SHAPE_CONSTRAINT___GENERATE__VALUE);
+		createEOperation(shapeConstraintEClass, SHAPE_CONSTRAINT___REMOVE_ADORNMENTS);
 
 		shapesGraphEClass = createEClass(SHAPES_GRAPH);
 		createEReference(shapesGraphEClass, SHAPES_GRAPH__SHAPE_CONSTRAINTS);
+		createEReference(shapesGraphEClass, SHAPES_GRAPH__TARGETS);
+		createEOperation(shapesGraphEClass, SHAPES_GRAPH___IS_SHAPE_NAME__STRING);
 
 		shapeExpressionEClass = createEClass(SHAPE_EXPRESSION);
 		createEReference(shapeExpressionEClass, SHAPE_EXPRESSION__PROPERTY_VALUES);
 		createEAttribute(shapeExpressionEClass, SHAPE_EXPRESSION__TYPE);
+		createEAttribute(shapeExpressionEClass, SHAPE_EXPRESSION__VALUE);
+		createEOperation(shapeExpressionEClass, SHAPE_EXPRESSION___TO_ABSTRACT_STRING);
 
 		shapeNameEClass = createEClass(SHAPE_NAME);
+		createEAttribute(shapeNameEClass, SHAPE_NAME__ADORNED);
+		createEOperation(shapeNameEClass, SHAPE_NAME___GET_MAGIC_SHAPE_NAME);
 
 		propertyEClass = createEClass(PROPERTY);
 		createEAttribute(propertyEClass, PROPERTY__TYPE);
+		createEOperation(propertyEClass, PROPERTY___TO_ABSTRACT_STRING);
 
 		valueEClass = createEClass(VALUE);
+		createEAttribute(valueEClass, VALUE__ADORNED);
+		createEOperation(valueEClass, VALUE___TO_SHAPE_NAME);
 
 		propertyValuesEClass = createEClass(PROPERTY_VALUES);
 		createEReference(propertyValuesEClass, PROPERTY_VALUES__PROPERTY);
 		createEReference(propertyValuesEClass, PROPERTY_VALUES__VALUES);
+		createEOperation(propertyValuesEClass, PROPERTY_VALUES___GET_MAGIC_PROPERTY_VALUES__STRING);
+		createEOperation(propertyValuesEClass, PROPERTY_VALUES___GET_PATH_VALUE);
+
+		targetEClass = createEClass(TARGET);
+		createEAttribute(targetEClass, TARGET__TERM);
+		createEAttribute(targetEClass, TARGET__NAME);
+		createEOperation(targetEClass, TARGET___TO_SHAPE_NAME);
+		createEOperation(targetEClass, TARGET___GET_MAGIC_QUERY_SEED);
 
 		// Create enums
 		propertyTypeEEnum = createEEnum(PROPERTY_TYPE);
-
-		// Create data types
-		iriEDataType = createEDataType(IRI);
 	}
 
 	/**
@@ -768,11 +949,30 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 				0, -1, ShapeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		EOperation op = initEOperation(getShapeConstraint__Adorn(), null, "adorn", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEEList());
+		EGenericType g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = initEOperation(getShapeConstraint__Generate__Value(), this.getShapeConstraint(), "generate", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getValue(), "AdornedShape", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getShapeConstraint__RemoveAdornments(), null, "removeAdornments", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(shapesGraphEClass, ShapesGraph.class, "ShapesGraph", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getShapesGraph_ShapeConstraints(), this.getShapeConstraint(), null, "shapeConstraints", null, 0,
 				-1, ShapesGraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getShapesGraph_Targets(), this.getTarget(), null, "targets", null, 0, -1, ShapesGraph.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getShapesGraph__IsShapeName__String(), theXMLTypePackage.getBoolean(), "isShapeName", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theXMLTypePackage.getString(), "ShapeName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(shapeExpressionEClass, ShapeExpression.class, "ShapeExpression", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -781,16 +981,34 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getShapeExpression_Type(), this.getPropertyType(), "type", null, 0, 1, ShapeExpression.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getShapeExpression_Value(), ecorePackage.getEString(), "value", null, 0, 1,
+				ShapeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getShapeExpression__ToAbstractString(), theXMLTypePackage.getString(), "toAbstractString", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
 
 		initEClass(shapeNameEClass, ShapeName.class, "ShapeName", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getShapeName_Adorned(), theXMLTypePackage.getBoolean(), "adorned", null, 0, 1, ShapeName.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getShapeName__GetMagicShapeName(), this.getShapeName(), "getMagicShapeName", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getProperty_Type(), this.getPropertyType(), "type", "", 0, 1, Property.class, !IS_TRANSIENT,
+		initEAttribute(getProperty_Type(), this.getPropertyType(), "type", null, 0, 1, Property.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getProperty__ToAbstractString(), theXMLTypePackage.getString(), "toAbstractString", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
 		initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getValue_Adorned(), theXMLTypePackage.getBoolean(), "adorned", null, 0, 1, Value.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getValue__ToShapeName(), this.getShapeName(), "toShapeName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(propertyValuesEClass, PropertyValues.class, "PropertyValues", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -800,6 +1018,23 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 		initEReference(getPropertyValues_Values(), this.getValue(), null, "values", null, 1, -1, PropertyValues.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getPropertyValues__GetMagicPropertyValues__String(), this.getPropertyValues(),
+				"getMagicPropertyValues", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theXMLTypePackage.getString(), "shapeName", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPropertyValues__GetPathValue(), this.getValue(), "getPathValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(targetEClass, Target.class, "Target", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTarget_Term(), ecorePackage.getEString(), "term", null, 0, 1, Target.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTarget_Name(), ecorePackage.getEString(), "name", null, 0, 1, Target.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getTarget__ToShapeName(), this.getShapeName(), "toShapeName", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getTarget__GetMagicQuerySeed(), this.getShapeConstraint(), "getMagicQuerySeed", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(propertyTypeEEnum, PropertyType.class, "PropertyType");
@@ -822,9 +1057,6 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.CLOSED_CONSTRAINT_COMPONENT_IGNORE);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.INVERSE_PATH);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.TARGET_NODE);
-
-		// Initialize data types
-		initEDataType(iriEDataType, String.class, "IRI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

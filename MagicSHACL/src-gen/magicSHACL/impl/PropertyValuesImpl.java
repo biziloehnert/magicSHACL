@@ -2,9 +2,11 @@
  */
 package magicSHACL.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import magicSHACL.MagicSHACLPackage;
 import magicSHACL.Property;
+import magicSHACL.PropertyType;
 import magicSHACL.PropertyValues;
 import magicSHACL.Value;
 
@@ -138,6 +140,47 @@ public class PropertyValuesImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public PropertyValues getMagicPropertyValues(String shapeName) {
+		PropertyValues magicPropertyValues = new PropertyValuesImpl();
+		Value path = getPathValue();
+		Property p = new PropertyImpl();
+
+		if (path != null) {
+			p.setType(property.getType() == PropertyType.INVERSE_PATH ? PropertyType.PREDICATE_PATH
+					: PropertyType.INVERSE_PATH);
+			magicPropertyValues.getValues().add(path);
+		} else
+			p.setType(PropertyType.PROPERTY);
+
+		Value v = new ValueImpl();
+		v.setName("magic_" + shapeName);
+
+		magicPropertyValues.setProperty(p);
+		magicPropertyValues.getValues().add(v);
+
+		return magicPropertyValues;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Value getPathValue() {
+		if (values.size() > 1
+				&& (property.getType() == PropertyType.PREDICATE_PATH || property.getType() == PropertyType.INVERSE_PATH
+						|| property.getType() == PropertyType.MAX_COUNT_CONSTRAINT_COMPONENT
+						|| property.getType() == PropertyType.MIN_COUNT_CONSTRAINT_COMPONENT))
+			return values.get(values.size() - 2);
+
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -219,6 +262,22 @@ public class PropertyValuesImpl extends MinimalEObjectImpl.Container implements 
 			return values != null && !values.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case MagicSHACLPackage.PROPERTY_VALUES___GET_MAGIC_PROPERTY_VALUES__STRING:
+			return getMagicPropertyValues((String) arguments.get(0));
+		case MagicSHACLPackage.PROPERTY_VALUES___GET_PATH_VALUE:
+			return getPathValue();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //PropertyValuesImpl

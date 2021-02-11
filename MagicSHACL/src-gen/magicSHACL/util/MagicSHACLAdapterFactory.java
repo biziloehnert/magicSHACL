@@ -16,6 +16,7 @@ import magicSHACL.ShapeExpression;
 import magicSHACL.ShapeName;
 import magicSHACL.ShapesGraph;
 import magicSHACL.Subject;
+import magicSHACL.Target;
 import magicSHACL.Triples;
 import magicSHACL.Value;
 
@@ -159,6 +160,11 @@ public class MagicSHACLAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter casePropertyValues(PropertyValues object) {
 			return createPropertyValuesAdapter();
+		}
+
+		@Override
+		public Adapter caseTarget(Target object) {
+			return createTargetAdapter();
 		}
 
 		@Override
@@ -387,6 +393,20 @@ public class MagicSHACLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropertyValuesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link magicSHACL.Target <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see magicSHACL.Target
+	 * @generated
+	 */
+	public Adapter createTargetAdapter() {
 		return null;
 	}
 

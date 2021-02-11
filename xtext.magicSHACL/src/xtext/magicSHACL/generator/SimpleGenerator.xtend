@@ -3,12 +3,19 @@
  */
 package xtext.magicSHACL.generator
 
+import java.util.ArrayList
+import java.util.List
+import java.util.Stack
+import magicSHACL.Node
+import magicSHACL.PropertyType
+import magicSHACL.ShapeConstraint
+import magicSHACL.ShapeExpression
+import magicSHACL.Target
+import magicSHACL.Value
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-
-import magicSHACL.ShapeConstraint;
 
 /**
  * Generates code from your model files on save.
@@ -16,12 +23,80 @@ import magicSHACL.ShapeConstraint;
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class SimpleGenerator extends AbstractGenerator {
-
-	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {	
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+	List<String> s
+	List<ShapeConstraint> magicShapes
+	List<String> modifiedShapes
+	Stack<Node> adornedShapes
+		 
+	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		if(!resource.URI.lastSegment.contains("_magic") && !resource.URI.path.contains("src-gen")){
+			s = new ArrayList
+			adornedShapes = new Stack	
+			magicShapes= new ArrayList
+			modifiedShapes= new ArrayList
+			
+			buildQuerySeeds(resource.allContents.filter(Target).toList)
+			while(!adornedShapes.empty()){
+				val s_a = adornedShapes.pop;
+				s.add(s_a.name)
+				for (r : resource.allContents.filter(ShapeConstraint).filter[c | c.shapeName.name == s_a.name].toIterable){
+					adorn(r)
+					generate(r)
+					modify(r)
+				} 
+			}
+			
+			fsa.generateFile(resource.URI.lastSegment.replace(".", "_magic."), '''
+				«FOR ms : magicShapes»«
+					ms.shapeName.name» :- «magicExpression(ms.shapeExpressions.get(0))» ;
+				«ENDFOR»
+				«FOR ms : modifiedShapes»«
+					ms» ;
+				«ENDFOR»
+ 			''');
+		}
+	}
+	
+	private def magicExpression(ShapeExpression exp){
+		val values = exp.propertyValues.get(0).values
+		val valueMagicShape = values.get(values.size-1).name
+		
+		if(exp.propertyValues.get(0).property.type == PropertyType.PREDICATE_PATH) {
+			val valuePath = values.get(values.size-2).name
+			return 'SOME ' + valuePath + ' ' + valueMagicShape
+		}if(exp.propertyValues.get(0).property.type == PropertyType.INVERSE_PATH){
+			val valuePath = values.get(values.size-2).name
+			return 'SOME ^' + valuePath + ' ' + valueMagicShape		
+		}
+		return valueMagicShape
+	}
+	
+	private def buildQuerySeeds(List<Target> targets){
+		for(Target t : targets){
+			adornedShapes.push(t.toShapeName)
+			magicShapes.add(t.getMagicQuerySeed)				
+		}
+	}
+	
+	private def adorn(ShapeConstraint r){
+		adornedShapes.addAll(r.adorn)
+	}
+	
+	
+	private def generate(ShapeConstraint r){
+		for(s_b : r.eAllContents.filter(Value).filter[v | v.isAdorned].toIterable){
+			magicShapes.add(r.generate(s_b))
+		}
+	}
+	
+	private def modify(ShapeConstraint r){
+		val shapeName = r.shapeName.name
+		val originalShape = shapeName + "_original :- " + r.shapeExpressions.get(0).toAbstractString
+		val modifiedShape = shapeName + " :- " + shapeName + "_magic AND " + shapeName + "_original"
+		
+		if(!modifiedShapes.contains(originalShape))
+			modifiedShapes.add(shapeName + "_original :- " + r.shapeExpressions.get(0).toAbstractString)	
+		if(!modifiedShapes.contains(modifiedShape))
+			modifiedShapes.add(shapeName + " :- " + shapeName + "_magic AND " + shapeName + "_original")
 	}
 }

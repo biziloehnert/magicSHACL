@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link magicSHACL.ShapeExpression#getPropertyValues <em>Property Values</em>}</li>
  *   <li>{@link magicSHACL.ShapeExpression#getType <em>Type</em>}</li>
+ *   <li>{@link magicSHACL.ShapeExpression#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see magicSHACL.MagicSHACLPackage#getShapeExpression()
@@ -60,5 +61,35 @@ public interface ShapeExpression extends EObject {
 	 * @generated
 	 */
 	void setType(PropertyType value);
+
+	/**
+	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value</em>' attribute.
+	 * @see #setValue(String)
+	 * @see magicSHACL.MagicSHACLPackage#getShapeExpression_Value()
+	 * @model
+	 * @generated
+	 */
+	String getValue();
+
+	/**
+	 * Sets the value of the '{@link magicSHACL.ShapeExpression#getValue <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value</em>' attribute.
+	 * @see #getValue()
+	 * @generated
+	 */
+	void setValue(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @generated
+	 */
+	String toAbstractString();
 
 } // ShapeExpression

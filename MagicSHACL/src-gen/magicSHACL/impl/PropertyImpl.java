@@ -2,11 +2,13 @@
  */
 package magicSHACL.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import magicSHACL.MagicSHACLPackage;
 import magicSHACL.Property;
 
 import magicSHACL.PropertyType;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -29,10 +31,10 @@ public class PropertyImpl extends NodeImpl implements Property {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getType()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final PropertyType TYPE_EDEFAULT = PropertyType.CLASS_CONSTRAINT_COMPONENT;
+	protected static final PropertyType TYPE_EDEFAULT = PropertyType.PROPERTY;
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -81,6 +83,30 @@ public class PropertyImpl extends NodeImpl implements Property {
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MagicSHACLPackage.PROPERTY__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String toAbstractString() {
+		switch (type) {
+		case PREDICATE_PATH:
+			return "SOME ";
+		case INVERSE_PATH:
+			return "SOME ^";
+		case MAX_COUNT_CONSTRAINT_COMPONENT:
+			return "MAX ";
+		case MIN_COUNT_CONSTRAINT_COMPONENT:
+			return "MIN ";
+		case AND_CONSTRAINT_COMPONENT:
+			return "AND ";
+		case OR_CONSTRAINT_COMPONENT:
+			return "OR ";
+		default:
+			return "";
+		}
 	}
 
 	public String getName() {
@@ -145,6 +171,20 @@ public class PropertyImpl extends NodeImpl implements Property {
 			return type != TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case MagicSHACLPackage.PROPERTY___TO_ABSTRACT_STRING:
+			return toAbstractString();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

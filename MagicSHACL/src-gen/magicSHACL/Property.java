@@ -22,7 +22,6 @@ public interface Property extends Node {
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The default value is <code>""</code>.
 	 * The literals are from the enumeration {@link magicSHACL.PropertyType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30,7 +29,7 @@ public interface Property extends Node {
 	 * @see magicSHACL.PropertyType
 	 * @see #setType(PropertyType)
 	 * @see magicSHACL.MagicSHACLPackage#getProperty_Type()
-	 * @model default=""
+	 * @model
 	 * @generated
 	 */
 	PropertyType getType();
@@ -45,4 +44,12 @@ public interface Property extends Node {
 	 * @generated
 	 */
 	void setType(PropertyType value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @generated
+	 */
+	String toAbstractString();
 } // Property

@@ -2,12 +2,15 @@
  */
 package magicSHACL.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import magicSHACL.MagicSHACLPackage;
 import magicSHACL.PropertyType;
 import magicSHACL.PropertyValues;
 import magicSHACL.ShapeExpression;
+import magicSHACL.Value;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link magicSHACL.impl.ShapeExpressionImpl#getPropertyValues <em>Property Values</em>}</li>
  *   <li>{@link magicSHACL.impl.ShapeExpressionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link magicSHACL.impl.ShapeExpressionImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -64,6 +68,26 @@ public class ShapeExpressionImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected PropertyType type = TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,6 +148,50 @@ public class ShapeExpressionImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MagicSHACLPackage.SHAPE_EXPRESSION__VALUE, oldValue,
+					value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String toAbstractString() {
+		String s = "";
+		for (PropertyValues propertyValue : propertyValues) {
+			if (propertyValue.getProperty().getType() == PropertyType.AND_CONSTRAINT_COMPONENT) {
+				for (Value value : propertyValue.getValues())
+					s += value.getName() + " AND ";
+				s = s.substring(0, s.length() - 5);
+			} else {
+				s += propertyValue.getProperty().toAbstractString();
+				for (Value value : propertyValue.getValues())
+					s += value.getName() + " ";
+			}
+		}
+
+		return s;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -145,6 +213,8 @@ public class ShapeExpressionImpl extends MinimalEObjectImpl.Container implements
 			return getPropertyValues();
 		case MagicSHACLPackage.SHAPE_EXPRESSION__TYPE:
 			return getType();
+		case MagicSHACLPackage.SHAPE_EXPRESSION__VALUE:
+			return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,6 +235,9 @@ public class ShapeExpressionImpl extends MinimalEObjectImpl.Container implements
 		case MagicSHACLPackage.SHAPE_EXPRESSION__TYPE:
 			setType((PropertyType) newValue);
 			return;
+		case MagicSHACLPackage.SHAPE_EXPRESSION__VALUE:
+			setValue((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -183,6 +256,9 @@ public class ShapeExpressionImpl extends MinimalEObjectImpl.Container implements
 		case MagicSHACLPackage.SHAPE_EXPRESSION__TYPE:
 			setType(TYPE_EDEFAULT);
 			return;
+		case MagicSHACLPackage.SHAPE_EXPRESSION__VALUE:
+			setValue(VALUE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -199,8 +275,24 @@ public class ShapeExpressionImpl extends MinimalEObjectImpl.Container implements
 			return propertyValues != null && !propertyValues.isEmpty();
 		case MagicSHACLPackage.SHAPE_EXPRESSION__TYPE:
 			return type != TYPE_EDEFAULT;
+		case MagicSHACLPackage.SHAPE_EXPRESSION__VALUE:
+			return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case MagicSHACLPackage.SHAPE_EXPRESSION___TO_ABSTRACT_STRING:
+			return toAbstractString();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -216,6 +308,8 @@ public class ShapeExpressionImpl extends MinimalEObjectImpl.Container implements
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (type: ");
 		result.append(type);
+		result.append(", value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

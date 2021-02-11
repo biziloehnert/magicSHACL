@@ -22,9 +22,9 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalTurtleParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_UNICODE", "RULE_PREFIX", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'a'", "'sh:property'", "'sh:path'", "'sh:minCount'", "'sh:maxCount'", "'sh:and'", "'sh:or'", "'sh:not'", "'sh:class'", "'sh:hasValue'", "'sh:nodeKind'", "'sh:node'", "'sh:datatype'", "'sh:pattern'", "'sh:closed'", "'sh:ignoredProperties'", "'sh:inversePath'", "'sh:name'", "'sh:targetClass'", "'sh:targetNode'", "'<>'", "'@prefix'", "'<'", "'>'", "'.'", "';'", "'sh:NodeShape'", "'['", "']'", "'('", "')'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_UNICODE", "RULE_STRING", "RULE_ID", "RULE_PREFIX", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'a'", "'sh:property'", "'sh:path'", "'sh:minCount'", "'sh:maxCount'", "'sh:and'", "'sh:or'", "'sh:not'", "'sh:class'", "'sh:hasValue'", "'sh:nodeKind'", "'sh:node'", "'sh:datatype'", "'sh:pattern'", "'sh:closed'", "'sh:ignoredProperties'", "'sh:inversePath'", "'sh:name'", "'sh:targetClass'", "'sh:targetNode'", "'<>'", "'.'", "'@prefix'", "'<'", "'>'", "';'", "'sh:NodeShape'", "'['", "']'", "'('", "')'"
     };
-    public static final int RULE_PREFIX=5;
+    public static final int RULE_PREFIX=7;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
@@ -32,12 +32,12 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
     public static final int T__18=18;
     public static final int T__13=13;
     public static final int T__14=14;
-    public static final int RULE_ID=7;
+    public static final int RULE_ID=6;
     public static final int RULE_UNICODE=4;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int T__28=28;
-    public static final int RULE_INT=6;
+    public static final int RULE_INT=8;
     public static final int T__29=29;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=9;
@@ -46,7 +46,7 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
     public static final int T__25=25;
     public static final int T__20=20;
     public static final int T__21=21;
-    public static final int RULE_STRING=8;
+    public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=10;
     public static final int T__37=37;
     public static final int T__38=38;
@@ -1264,22 +1264,99 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleValue"
 
 
+    // $ANTLR start "entryRuleEString"
+    // InternalTurtle.g:436:1: entryRuleEString : ruleEString EOF ;
+    public final void entryRuleEString() throws RecognitionException {
+        try {
+            // InternalTurtle.g:437:1: ( ruleEString EOF )
+            // InternalTurtle.g:438:1: ruleEString EOF
+            {
+             before(grammarAccess.getEStringRule()); 
+            pushFollow(FOLLOW_1);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getEStringRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleEString"
+
+
+    // $ANTLR start "ruleEString"
+    // InternalTurtle.g:445:1: ruleEString : ( ( rule__EString__Alternatives ) ) ;
+    public final void ruleEString() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalTurtle.g:449:2: ( ( ( rule__EString__Alternatives ) ) )
+            // InternalTurtle.g:450:2: ( ( rule__EString__Alternatives ) )
+            {
+            // InternalTurtle.g:450:2: ( ( rule__EString__Alternatives ) )
+            // InternalTurtle.g:451:3: ( rule__EString__Alternatives )
+            {
+             before(grammarAccess.getEStringAccess().getAlternatives()); 
+            // InternalTurtle.g:452:3: ( rule__EString__Alternatives )
+            // InternalTurtle.g:452:4: rule__EString__Alternatives
+            {
+            pushFollow(FOLLOW_2);
+            rule__EString__Alternatives();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getEStringAccess().getAlternatives()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleEString"
+
+
     // $ANTLR start "rulePropertyType"
-    // InternalTurtle.g:436:1: rulePropertyType : ( ( rule__PropertyType__Alternatives ) ) ;
+    // InternalTurtle.g:461:1: rulePropertyType : ( ( rule__PropertyType__Alternatives ) ) ;
     public final void rulePropertyType() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:440:1: ( ( ( rule__PropertyType__Alternatives ) ) )
-            // InternalTurtle.g:441:2: ( ( rule__PropertyType__Alternatives ) )
+            // InternalTurtle.g:465:1: ( ( ( rule__PropertyType__Alternatives ) ) )
+            // InternalTurtle.g:466:2: ( ( rule__PropertyType__Alternatives ) )
             {
-            // InternalTurtle.g:441:2: ( ( rule__PropertyType__Alternatives ) )
-            // InternalTurtle.g:442:3: ( rule__PropertyType__Alternatives )
+            // InternalTurtle.g:466:2: ( ( rule__PropertyType__Alternatives ) )
+            // InternalTurtle.g:467:3: ( rule__PropertyType__Alternatives )
             {
              before(grammarAccess.getPropertyTypeAccess().getAlternatives()); 
-            // InternalTurtle.g:443:3: ( rule__PropertyType__Alternatives )
-            // InternalTurtle.g:443:4: rule__PropertyType__Alternatives
+            // InternalTurtle.g:468:3: ( rule__PropertyType__Alternatives )
+            // InternalTurtle.g:468:4: rule__PropertyType__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__PropertyType__Alternatives();
@@ -1312,13 +1389,13 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Alternatives_2"
-    // InternalTurtle.g:451:1: rule__ShapeConstraint__Alternatives_2 : ( ( ( rule__ShapeConstraint__Group_2_0__0 ) ) | ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_2_1 ) ) );
+    // InternalTurtle.g:476:1: rule__ShapeConstraint__Alternatives_2 : ( ( ( rule__ShapeConstraint__Group_2_0__0 ) ) | ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_2_1 ) ) );
     public final void rule__ShapeConstraint__Alternatives_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:455:1: ( ( ( rule__ShapeConstraint__Group_2_0__0 ) ) | ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_2_1 ) ) )
+            // InternalTurtle.g:480:1: ( ( ( rule__ShapeConstraint__Group_2_0__0 ) ) | ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_2_1 ) ) )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1336,14 +1413,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalTurtle.g:456:2: ( ( rule__ShapeConstraint__Group_2_0__0 ) )
+                    // InternalTurtle.g:481:2: ( ( rule__ShapeConstraint__Group_2_0__0 ) )
                     {
-                    // InternalTurtle.g:456:2: ( ( rule__ShapeConstraint__Group_2_0__0 ) )
-                    // InternalTurtle.g:457:3: ( rule__ShapeConstraint__Group_2_0__0 )
+                    // InternalTurtle.g:481:2: ( ( rule__ShapeConstraint__Group_2_0__0 ) )
+                    // InternalTurtle.g:482:3: ( rule__ShapeConstraint__Group_2_0__0 )
                     {
                      before(grammarAccess.getShapeConstraintAccess().getGroup_2_0()); 
-                    // InternalTurtle.g:458:3: ( rule__ShapeConstraint__Group_2_0__0 )
-                    // InternalTurtle.g:458:4: rule__ShapeConstraint__Group_2_0__0
+                    // InternalTurtle.g:483:3: ( rule__ShapeConstraint__Group_2_0__0 )
+                    // InternalTurtle.g:483:4: rule__ShapeConstraint__Group_2_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ShapeConstraint__Group_2_0__0();
@@ -1361,14 +1438,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalTurtle.g:462:2: ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_2_1 ) )
+                    // InternalTurtle.g:487:2: ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_2_1 ) )
                     {
-                    // InternalTurtle.g:462:2: ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_2_1 ) )
-                    // InternalTurtle.g:463:3: ( rule__ShapeConstraint__ShapeExpressionsAssignment_2_1 )
+                    // InternalTurtle.g:487:2: ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_2_1 ) )
+                    // InternalTurtle.g:488:3: ( rule__ShapeConstraint__ShapeExpressionsAssignment_2_1 )
                     {
                      before(grammarAccess.getShapeConstraintAccess().getShapeExpressionsAssignment_2_1()); 
-                    // InternalTurtle.g:464:3: ( rule__ShapeConstraint__ShapeExpressionsAssignment_2_1 )
-                    // InternalTurtle.g:464:4: rule__ShapeConstraint__ShapeExpressionsAssignment_2_1
+                    // InternalTurtle.g:489:3: ( rule__ShapeConstraint__ShapeExpressionsAssignment_2_1 )
+                    // InternalTurtle.g:489:4: rule__ShapeConstraint__ShapeExpressionsAssignment_2_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__ShapeConstraint__ShapeExpressionsAssignment_2_1();
@@ -1403,13 +1480,13 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Alternatives_2_0_0"
-    // InternalTurtle.g:472:1: rule__ShapeConstraint__Alternatives_2_0_0 : ( ( RULE_UNICODE ) | ( 'a' ) );
+    // InternalTurtle.g:497:1: rule__ShapeConstraint__Alternatives_2_0_0 : ( ( RULE_UNICODE ) | ( 'a' ) );
     public final void rule__ShapeConstraint__Alternatives_2_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:476:1: ( ( RULE_UNICODE ) | ( 'a' ) )
+            // InternalTurtle.g:501:1: ( ( RULE_UNICODE ) | ( 'a' ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1427,10 +1504,10 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
             }
             switch (alt2) {
                 case 1 :
-                    // InternalTurtle.g:477:2: ( RULE_UNICODE )
+                    // InternalTurtle.g:502:2: ( RULE_UNICODE )
                     {
-                    // InternalTurtle.g:477:2: ( RULE_UNICODE )
-                    // InternalTurtle.g:478:3: RULE_UNICODE
+                    // InternalTurtle.g:502:2: ( RULE_UNICODE )
+                    // InternalTurtle.g:503:3: RULE_UNICODE
                     {
                      before(grammarAccess.getShapeConstraintAccess().getUNICODETerminalRuleCall_2_0_0_0()); 
                     match(input,RULE_UNICODE,FOLLOW_2); 
@@ -1442,10 +1519,10 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalTurtle.g:483:2: ( 'a' )
+                    // InternalTurtle.g:508:2: ( 'a' )
                     {
-                    // InternalTurtle.g:483:2: ( 'a' )
-                    // InternalTurtle.g:484:3: 'a'
+                    // InternalTurtle.g:508:2: ( 'a' )
+                    // InternalTurtle.g:509:3: 'a'
                     {
                      before(grammarAccess.getShapeConstraintAccess().getAKeyword_2_0_0_1()); 
                     match(input,13,FOLLOW_2); 
@@ -1474,25 +1551,25 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Alternatives"
-    // InternalTurtle.g:493:1: rule__ShapeExpression__Alternatives : ( ( ( rule__ShapeExpression__Group_0__0 ) ) | ( ( rule__ShapeExpression__Group_1__0 ) ) );
+    // InternalTurtle.g:518:1: rule__ShapeExpression__Alternatives : ( ( ( rule__ShapeExpression__Group_0__0 ) ) | ( ( rule__ShapeExpression__Group_1__0 ) ) );
     public final void rule__ShapeExpression__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:497:1: ( ( ( rule__ShapeExpression__Group_0__0 ) ) | ( ( rule__ShapeExpression__Group_1__0 ) ) )
+            // InternalTurtle.g:522:1: ( ( ( rule__ShapeExpression__Group_0__0 ) ) | ( ( rule__ShapeExpression__Group_1__0 ) ) )
             int alt3=2;
             alt3 = dfa3.predict(input);
             switch (alt3) {
                 case 1 :
-                    // InternalTurtle.g:498:2: ( ( rule__ShapeExpression__Group_0__0 ) )
+                    // InternalTurtle.g:523:2: ( ( rule__ShapeExpression__Group_0__0 ) )
                     {
-                    // InternalTurtle.g:498:2: ( ( rule__ShapeExpression__Group_0__0 ) )
-                    // InternalTurtle.g:499:3: ( rule__ShapeExpression__Group_0__0 )
+                    // InternalTurtle.g:523:2: ( ( rule__ShapeExpression__Group_0__0 ) )
+                    // InternalTurtle.g:524:3: ( rule__ShapeExpression__Group_0__0 )
                     {
                      before(grammarAccess.getShapeExpressionAccess().getGroup_0()); 
-                    // InternalTurtle.g:500:3: ( rule__ShapeExpression__Group_0__0 )
-                    // InternalTurtle.g:500:4: rule__ShapeExpression__Group_0__0
+                    // InternalTurtle.g:525:3: ( rule__ShapeExpression__Group_0__0 )
+                    // InternalTurtle.g:525:4: rule__ShapeExpression__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ShapeExpression__Group_0__0();
@@ -1510,14 +1587,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalTurtle.g:504:2: ( ( rule__ShapeExpression__Group_1__0 ) )
+                    // InternalTurtle.g:529:2: ( ( rule__ShapeExpression__Group_1__0 ) )
                     {
-                    // InternalTurtle.g:504:2: ( ( rule__ShapeExpression__Group_1__0 ) )
-                    // InternalTurtle.g:505:3: ( rule__ShapeExpression__Group_1__0 )
+                    // InternalTurtle.g:529:2: ( ( rule__ShapeExpression__Group_1__0 ) )
+                    // InternalTurtle.g:530:3: ( rule__ShapeExpression__Group_1__0 )
                     {
                      before(grammarAccess.getShapeExpressionAccess().getGroup_1()); 
-                    // InternalTurtle.g:506:3: ( rule__ShapeExpression__Group_1__0 )
-                    // InternalTurtle.g:506:4: rule__ShapeExpression__Group_1__0
+                    // InternalTurtle.g:531:3: ( rule__ShapeExpression__Group_1__0 )
+                    // InternalTurtle.g:531:4: rule__ShapeExpression__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ShapeExpression__Group_1__0();
@@ -1552,13 +1629,13 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Alternatives_1_1_0"
-    // InternalTurtle.g:514:1: rule__ShapeExpression__Alternatives_1_1_0 : ( ( RULE_UNICODE ) | ( 'a' ) );
+    // InternalTurtle.g:539:1: rule__ShapeExpression__Alternatives_1_1_0 : ( ( RULE_UNICODE ) | ( 'a' ) );
     public final void rule__ShapeExpression__Alternatives_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:518:1: ( ( RULE_UNICODE ) | ( 'a' ) )
+            // InternalTurtle.g:543:1: ( ( RULE_UNICODE ) | ( 'a' ) )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1576,10 +1653,10 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalTurtle.g:519:2: ( RULE_UNICODE )
+                    // InternalTurtle.g:544:2: ( RULE_UNICODE )
                     {
-                    // InternalTurtle.g:519:2: ( RULE_UNICODE )
-                    // InternalTurtle.g:520:3: RULE_UNICODE
+                    // InternalTurtle.g:544:2: ( RULE_UNICODE )
+                    // InternalTurtle.g:545:3: RULE_UNICODE
                     {
                      before(grammarAccess.getShapeExpressionAccess().getUNICODETerminalRuleCall_1_1_0_0()); 
                     match(input,RULE_UNICODE,FOLLOW_2); 
@@ -1591,10 +1668,10 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalTurtle.g:525:2: ( 'a' )
+                    // InternalTurtle.g:550:2: ( 'a' )
                     {
-                    // InternalTurtle.g:525:2: ( 'a' )
-                    // InternalTurtle.g:526:3: 'a'
+                    // InternalTurtle.g:550:2: ( 'a' )
+                    // InternalTurtle.g:551:3: 'a'
                     {
                      before(grammarAccess.getShapeExpressionAccess().getAKeyword_1_1_0_1()); 
                     match(input,13,FOLLOW_2); 
@@ -1623,13 +1700,13 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Alternatives_1_2_0"
-    // InternalTurtle.g:535:1: rule__ShapeExpression__Alternatives_1_2_0 : ( ( 'sh:property' ) | ( 'sh:path' ) );
+    // InternalTurtle.g:560:1: rule__ShapeExpression__Alternatives_1_2_0 : ( ( 'sh:property' ) | ( 'sh:path' ) );
     public final void rule__ShapeExpression__Alternatives_1_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:539:1: ( ( 'sh:property' ) | ( 'sh:path' ) )
+            // InternalTurtle.g:564:1: ( ( 'sh:property' ) | ( 'sh:path' ) )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1647,10 +1724,10 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalTurtle.g:540:2: ( 'sh:property' )
+                    // InternalTurtle.g:565:2: ( 'sh:property' )
                     {
-                    // InternalTurtle.g:540:2: ( 'sh:property' )
-                    // InternalTurtle.g:541:3: 'sh:property'
+                    // InternalTurtle.g:565:2: ( 'sh:property' )
+                    // InternalTurtle.g:566:3: 'sh:property'
                     {
                      before(grammarAccess.getShapeExpressionAccess().getShPropertyKeyword_1_2_0_0()); 
                     match(input,14,FOLLOW_2); 
@@ -1662,10 +1739,10 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalTurtle.g:546:2: ( 'sh:path' )
+                    // InternalTurtle.g:571:2: ( 'sh:path' )
                     {
-                    // InternalTurtle.g:546:2: ( 'sh:path' )
-                    // InternalTurtle.g:547:3: 'sh:path'
+                    // InternalTurtle.g:571:2: ( 'sh:path' )
+                    // InternalTurtle.g:572:3: 'sh:path'
                     {
                      before(grammarAccess.getShapeExpressionAccess().getShPathKeyword_1_2_0_1()); 
                     match(input,15,FOLLOW_2); 
@@ -1693,128 +1770,199 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__ShapeExpression__Alternatives_1_2_0"
 
 
-    // $ANTLR start "rule__PropertyType__Alternatives"
-    // InternalTurtle.g:556:1: rule__PropertyType__Alternatives : ( ( ( 'sh:minCount' ) ) | ( ( 'sh:maxCount' ) ) | ( ( 'sh:and' ) ) | ( ( 'sh:or' ) ) | ( ( 'sh:not' ) ) | ( ( 'sh:class' ) ) | ( ( 'sh:hasValue' ) ) | ( ( 'sh:nodeKind' ) ) | ( ( 'sh:node' ) ) | ( ( 'sh:datatype' ) ) | ( ( 'sh:pattern' ) ) | ( ( 'sh:closed' ) ) | ( ( 'sh:ignoredProperties' ) ) | ( ( 'sh:path' ) ) | ( ( 'sh:inversePath' ) ) | ( ( 'sh:property' ) ) | ( ( 'sh:name' ) ) | ( ( 'sh:targetClass' ) ) | ( ( 'sh:targetNode' ) ) );
-    public final void rule__PropertyType__Alternatives() throws RecognitionException {
+    // $ANTLR start "rule__EString__Alternatives"
+    // InternalTurtle.g:581:1: rule__EString__Alternatives : ( ( RULE_STRING ) | ( RULE_ID ) );
+    public final void rule__EString__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:560:1: ( ( ( 'sh:minCount' ) ) | ( ( 'sh:maxCount' ) ) | ( ( 'sh:and' ) ) | ( ( 'sh:or' ) ) | ( ( 'sh:not' ) ) | ( ( 'sh:class' ) ) | ( ( 'sh:hasValue' ) ) | ( ( 'sh:nodeKind' ) ) | ( ( 'sh:node' ) ) | ( ( 'sh:datatype' ) ) | ( ( 'sh:pattern' ) ) | ( ( 'sh:closed' ) ) | ( ( 'sh:ignoredProperties' ) ) | ( ( 'sh:path' ) ) | ( ( 'sh:inversePath' ) ) | ( ( 'sh:property' ) ) | ( ( 'sh:name' ) ) | ( ( 'sh:targetClass' ) ) | ( ( 'sh:targetNode' ) ) )
-            int alt6=19;
-            switch ( input.LA(1) ) {
-            case 16:
-                {
+            // InternalTurtle.g:585:1: ( ( RULE_STRING ) | ( RULE_ID ) )
+            int alt6=2;
+            int LA6_0 = input.LA(1);
+
+            if ( (LA6_0==RULE_STRING) ) {
                 alt6=1;
-                }
-                break;
-            case 17:
-                {
+            }
+            else if ( (LA6_0==RULE_ID) ) {
                 alt6=2;
-                }
-                break;
-            case 18:
-                {
-                alt6=3;
-                }
-                break;
-            case 19:
-                {
-                alt6=4;
-                }
-                break;
-            case 20:
-                {
-                alt6=5;
-                }
-                break;
-            case 21:
-                {
-                alt6=6;
-                }
-                break;
-            case 22:
-                {
-                alt6=7;
-                }
-                break;
-            case 23:
-                {
-                alt6=8;
-                }
-                break;
-            case 24:
-                {
-                alt6=9;
-                }
-                break;
-            case 25:
-                {
-                alt6=10;
-                }
-                break;
-            case 26:
-                {
-                alt6=11;
-                }
-                break;
-            case 27:
-                {
-                alt6=12;
-                }
-                break;
-            case 28:
-                {
-                alt6=13;
-                }
-                break;
-            case 15:
-                {
-                alt6=14;
-                }
-                break;
-            case 29:
-                {
-                alt6=15;
-                }
-                break;
-            case 14:
-                {
-                alt6=16;
-                }
-                break;
-            case 30:
-                {
-                alt6=17;
-                }
-                break;
-            case 31:
-                {
-                alt6=18;
-                }
-                break;
-            case 32:
-                {
-                alt6=19;
-                }
-                break;
-            default:
+            }
+            else {
                 NoViableAltException nvae =
                     new NoViableAltException("", 6, 0, input);
 
                 throw nvae;
             }
-
             switch (alt6) {
                 case 1 :
-                    // InternalTurtle.g:561:2: ( ( 'sh:minCount' ) )
+                    // InternalTurtle.g:586:2: ( RULE_STRING )
                     {
-                    // InternalTurtle.g:561:2: ( ( 'sh:minCount' ) )
-                    // InternalTurtle.g:562:3: ( 'sh:minCount' )
+                    // InternalTurtle.g:586:2: ( RULE_STRING )
+                    // InternalTurtle.g:587:3: RULE_STRING
+                    {
+                     before(grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall_0()); 
+                    match(input,RULE_STRING,FOLLOW_2); 
+                     after(grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalTurtle.g:592:2: ( RULE_ID )
+                    {
+                    // InternalTurtle.g:592:2: ( RULE_ID )
+                    // InternalTurtle.g:593:3: RULE_ID
+                    {
+                     before(grammarAccess.getEStringAccess().getIDTerminalRuleCall_1()); 
+                    match(input,RULE_ID,FOLLOW_2); 
+                     after(grammarAccess.getEStringAccess().getIDTerminalRuleCall_1()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EString__Alternatives"
+
+
+    // $ANTLR start "rule__PropertyType__Alternatives"
+    // InternalTurtle.g:602:1: rule__PropertyType__Alternatives : ( ( ( 'sh:minCount' ) ) | ( ( 'sh:maxCount' ) ) | ( ( 'sh:and' ) ) | ( ( 'sh:or' ) ) | ( ( 'sh:not' ) ) | ( ( 'sh:class' ) ) | ( ( 'sh:hasValue' ) ) | ( ( 'sh:nodeKind' ) ) | ( ( 'sh:node' ) ) | ( ( 'sh:datatype' ) ) | ( ( 'sh:pattern' ) ) | ( ( 'sh:closed' ) ) | ( ( 'sh:ignoredProperties' ) ) | ( ( 'sh:path' ) ) | ( ( 'sh:inversePath' ) ) | ( ( 'sh:property' ) ) | ( ( 'sh:name' ) ) | ( ( 'sh:targetClass' ) ) | ( ( 'sh:targetNode' ) ) );
+    public final void rule__PropertyType__Alternatives() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalTurtle.g:606:1: ( ( ( 'sh:minCount' ) ) | ( ( 'sh:maxCount' ) ) | ( ( 'sh:and' ) ) | ( ( 'sh:or' ) ) | ( ( 'sh:not' ) ) | ( ( 'sh:class' ) ) | ( ( 'sh:hasValue' ) ) | ( ( 'sh:nodeKind' ) ) | ( ( 'sh:node' ) ) | ( ( 'sh:datatype' ) ) | ( ( 'sh:pattern' ) ) | ( ( 'sh:closed' ) ) | ( ( 'sh:ignoredProperties' ) ) | ( ( 'sh:path' ) ) | ( ( 'sh:inversePath' ) ) | ( ( 'sh:property' ) ) | ( ( 'sh:name' ) ) | ( ( 'sh:targetClass' ) ) | ( ( 'sh:targetNode' ) ) )
+            int alt7=19;
+            switch ( input.LA(1) ) {
+            case 16:
+                {
+                alt7=1;
+                }
+                break;
+            case 17:
+                {
+                alt7=2;
+                }
+                break;
+            case 18:
+                {
+                alt7=3;
+                }
+                break;
+            case 19:
+                {
+                alt7=4;
+                }
+                break;
+            case 20:
+                {
+                alt7=5;
+                }
+                break;
+            case 21:
+                {
+                alt7=6;
+                }
+                break;
+            case 22:
+                {
+                alt7=7;
+                }
+                break;
+            case 23:
+                {
+                alt7=8;
+                }
+                break;
+            case 24:
+                {
+                alt7=9;
+                }
+                break;
+            case 25:
+                {
+                alt7=10;
+                }
+                break;
+            case 26:
+                {
+                alt7=11;
+                }
+                break;
+            case 27:
+                {
+                alt7=12;
+                }
+                break;
+            case 28:
+                {
+                alt7=13;
+                }
+                break;
+            case 15:
+                {
+                alt7=14;
+                }
+                break;
+            case 29:
+                {
+                alt7=15;
+                }
+                break;
+            case 14:
+                {
+                alt7=16;
+                }
+                break;
+            case 30:
+                {
+                alt7=17;
+                }
+                break;
+            case 31:
+                {
+                alt7=18;
+                }
+                break;
+            case 32:
+                {
+                alt7=19;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 7, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt7) {
+                case 1 :
+                    // InternalTurtle.g:607:2: ( ( 'sh:minCount' ) )
+                    {
+                    // InternalTurtle.g:607:2: ( ( 'sh:minCount' ) )
+                    // InternalTurtle.g:608:3: ( 'sh:minCount' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getMinCountConstraintComponentEnumLiteralDeclaration_0()); 
-                    // InternalTurtle.g:563:3: ( 'sh:minCount' )
-                    // InternalTurtle.g:563:4: 'sh:minCount'
+                    // InternalTurtle.g:609:3: ( 'sh:minCount' )
+                    // InternalTurtle.g:609:4: 'sh:minCount'
                     {
                     match(input,16,FOLLOW_2); 
 
@@ -1828,14 +1976,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalTurtle.g:567:2: ( ( 'sh:maxCount' ) )
+                    // InternalTurtle.g:613:2: ( ( 'sh:maxCount' ) )
                     {
-                    // InternalTurtle.g:567:2: ( ( 'sh:maxCount' ) )
-                    // InternalTurtle.g:568:3: ( 'sh:maxCount' )
+                    // InternalTurtle.g:613:2: ( ( 'sh:maxCount' ) )
+                    // InternalTurtle.g:614:3: ( 'sh:maxCount' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getMaxCountConstraintComponentEnumLiteralDeclaration_1()); 
-                    // InternalTurtle.g:569:3: ( 'sh:maxCount' )
-                    // InternalTurtle.g:569:4: 'sh:maxCount'
+                    // InternalTurtle.g:615:3: ( 'sh:maxCount' )
+                    // InternalTurtle.g:615:4: 'sh:maxCount'
                     {
                     match(input,17,FOLLOW_2); 
 
@@ -1849,14 +1997,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalTurtle.g:573:2: ( ( 'sh:and' ) )
+                    // InternalTurtle.g:619:2: ( ( 'sh:and' ) )
                     {
-                    // InternalTurtle.g:573:2: ( ( 'sh:and' ) )
-                    // InternalTurtle.g:574:3: ( 'sh:and' )
+                    // InternalTurtle.g:619:2: ( ( 'sh:and' ) )
+                    // InternalTurtle.g:620:3: ( 'sh:and' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getAndConstraintComponentEnumLiteralDeclaration_2()); 
-                    // InternalTurtle.g:575:3: ( 'sh:and' )
-                    // InternalTurtle.g:575:4: 'sh:and'
+                    // InternalTurtle.g:621:3: ( 'sh:and' )
+                    // InternalTurtle.g:621:4: 'sh:and'
                     {
                     match(input,18,FOLLOW_2); 
 
@@ -1870,14 +2018,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalTurtle.g:579:2: ( ( 'sh:or' ) )
+                    // InternalTurtle.g:625:2: ( ( 'sh:or' ) )
                     {
-                    // InternalTurtle.g:579:2: ( ( 'sh:or' ) )
-                    // InternalTurtle.g:580:3: ( 'sh:or' )
+                    // InternalTurtle.g:625:2: ( ( 'sh:or' ) )
+                    // InternalTurtle.g:626:3: ( 'sh:or' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getOrConstraintComponentEnumLiteralDeclaration_3()); 
-                    // InternalTurtle.g:581:3: ( 'sh:or' )
-                    // InternalTurtle.g:581:4: 'sh:or'
+                    // InternalTurtle.g:627:3: ( 'sh:or' )
+                    // InternalTurtle.g:627:4: 'sh:or'
                     {
                     match(input,19,FOLLOW_2); 
 
@@ -1891,14 +2039,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalTurtle.g:585:2: ( ( 'sh:not' ) )
+                    // InternalTurtle.g:631:2: ( ( 'sh:not' ) )
                     {
-                    // InternalTurtle.g:585:2: ( ( 'sh:not' ) )
-                    // InternalTurtle.g:586:3: ( 'sh:not' )
+                    // InternalTurtle.g:631:2: ( ( 'sh:not' ) )
+                    // InternalTurtle.g:632:3: ( 'sh:not' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getNotConstraintComponentEnumLiteralDeclaration_4()); 
-                    // InternalTurtle.g:587:3: ( 'sh:not' )
-                    // InternalTurtle.g:587:4: 'sh:not'
+                    // InternalTurtle.g:633:3: ( 'sh:not' )
+                    // InternalTurtle.g:633:4: 'sh:not'
                     {
                     match(input,20,FOLLOW_2); 
 
@@ -1912,14 +2060,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 6 :
-                    // InternalTurtle.g:591:2: ( ( 'sh:class' ) )
+                    // InternalTurtle.g:637:2: ( ( 'sh:class' ) )
                     {
-                    // InternalTurtle.g:591:2: ( ( 'sh:class' ) )
-                    // InternalTurtle.g:592:3: ( 'sh:class' )
+                    // InternalTurtle.g:637:2: ( ( 'sh:class' ) )
+                    // InternalTurtle.g:638:3: ( 'sh:class' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getClassConstraintComponentEnumLiteralDeclaration_5()); 
-                    // InternalTurtle.g:593:3: ( 'sh:class' )
-                    // InternalTurtle.g:593:4: 'sh:class'
+                    // InternalTurtle.g:639:3: ( 'sh:class' )
+                    // InternalTurtle.g:639:4: 'sh:class'
                     {
                     match(input,21,FOLLOW_2); 
 
@@ -1933,14 +2081,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 7 :
-                    // InternalTurtle.g:597:2: ( ( 'sh:hasValue' ) )
+                    // InternalTurtle.g:643:2: ( ( 'sh:hasValue' ) )
                     {
-                    // InternalTurtle.g:597:2: ( ( 'sh:hasValue' ) )
-                    // InternalTurtle.g:598:3: ( 'sh:hasValue' )
+                    // InternalTurtle.g:643:2: ( ( 'sh:hasValue' ) )
+                    // InternalTurtle.g:644:3: ( 'sh:hasValue' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getHasValueConstraintComponentEnumLiteralDeclaration_6()); 
-                    // InternalTurtle.g:599:3: ( 'sh:hasValue' )
-                    // InternalTurtle.g:599:4: 'sh:hasValue'
+                    // InternalTurtle.g:645:3: ( 'sh:hasValue' )
+                    // InternalTurtle.g:645:4: 'sh:hasValue'
                     {
                     match(input,22,FOLLOW_2); 
 
@@ -1954,14 +2102,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 8 :
-                    // InternalTurtle.g:603:2: ( ( 'sh:nodeKind' ) )
+                    // InternalTurtle.g:649:2: ( ( 'sh:nodeKind' ) )
                     {
-                    // InternalTurtle.g:603:2: ( ( 'sh:nodeKind' ) )
-                    // InternalTurtle.g:604:3: ( 'sh:nodeKind' )
+                    // InternalTurtle.g:649:2: ( ( 'sh:nodeKind' ) )
+                    // InternalTurtle.g:650:3: ( 'sh:nodeKind' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getNodeKindConstraintComponentEnumLiteralDeclaration_7()); 
-                    // InternalTurtle.g:605:3: ( 'sh:nodeKind' )
-                    // InternalTurtle.g:605:4: 'sh:nodeKind'
+                    // InternalTurtle.g:651:3: ( 'sh:nodeKind' )
+                    // InternalTurtle.g:651:4: 'sh:nodeKind'
                     {
                     match(input,23,FOLLOW_2); 
 
@@ -1975,14 +2123,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 9 :
-                    // InternalTurtle.g:609:2: ( ( 'sh:node' ) )
+                    // InternalTurtle.g:655:2: ( ( 'sh:node' ) )
                     {
-                    // InternalTurtle.g:609:2: ( ( 'sh:node' ) )
-                    // InternalTurtle.g:610:3: ( 'sh:node' )
+                    // InternalTurtle.g:655:2: ( ( 'sh:node' ) )
+                    // InternalTurtle.g:656:3: ( 'sh:node' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getNodeConstraintComponentEnumLiteralDeclaration_8()); 
-                    // InternalTurtle.g:611:3: ( 'sh:node' )
-                    // InternalTurtle.g:611:4: 'sh:node'
+                    // InternalTurtle.g:657:3: ( 'sh:node' )
+                    // InternalTurtle.g:657:4: 'sh:node'
                     {
                     match(input,24,FOLLOW_2); 
 
@@ -1996,14 +2144,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 10 :
-                    // InternalTurtle.g:615:2: ( ( 'sh:datatype' ) )
+                    // InternalTurtle.g:661:2: ( ( 'sh:datatype' ) )
                     {
-                    // InternalTurtle.g:615:2: ( ( 'sh:datatype' ) )
-                    // InternalTurtle.g:616:3: ( 'sh:datatype' )
+                    // InternalTurtle.g:661:2: ( ( 'sh:datatype' ) )
+                    // InternalTurtle.g:662:3: ( 'sh:datatype' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getDatatypeConstraintComponentEnumLiteralDeclaration_9()); 
-                    // InternalTurtle.g:617:3: ( 'sh:datatype' )
-                    // InternalTurtle.g:617:4: 'sh:datatype'
+                    // InternalTurtle.g:663:3: ( 'sh:datatype' )
+                    // InternalTurtle.g:663:4: 'sh:datatype'
                     {
                     match(input,25,FOLLOW_2); 
 
@@ -2017,14 +2165,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 11 :
-                    // InternalTurtle.g:621:2: ( ( 'sh:pattern' ) )
+                    // InternalTurtle.g:667:2: ( ( 'sh:pattern' ) )
                     {
-                    // InternalTurtle.g:621:2: ( ( 'sh:pattern' ) )
-                    // InternalTurtle.g:622:3: ( 'sh:pattern' )
+                    // InternalTurtle.g:667:2: ( ( 'sh:pattern' ) )
+                    // InternalTurtle.g:668:3: ( 'sh:pattern' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getPatternConstraintComponentEnumLiteralDeclaration_10()); 
-                    // InternalTurtle.g:623:3: ( 'sh:pattern' )
-                    // InternalTurtle.g:623:4: 'sh:pattern'
+                    // InternalTurtle.g:669:3: ( 'sh:pattern' )
+                    // InternalTurtle.g:669:4: 'sh:pattern'
                     {
                     match(input,26,FOLLOW_2); 
 
@@ -2038,14 +2186,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 12 :
-                    // InternalTurtle.g:627:2: ( ( 'sh:closed' ) )
+                    // InternalTurtle.g:673:2: ( ( 'sh:closed' ) )
                     {
-                    // InternalTurtle.g:627:2: ( ( 'sh:closed' ) )
-                    // InternalTurtle.g:628:3: ( 'sh:closed' )
+                    // InternalTurtle.g:673:2: ( ( 'sh:closed' ) )
+                    // InternalTurtle.g:674:3: ( 'sh:closed' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getClosedConstraintComponentEnumLiteralDeclaration_11()); 
-                    // InternalTurtle.g:629:3: ( 'sh:closed' )
-                    // InternalTurtle.g:629:4: 'sh:closed'
+                    // InternalTurtle.g:675:3: ( 'sh:closed' )
+                    // InternalTurtle.g:675:4: 'sh:closed'
                     {
                     match(input,27,FOLLOW_2); 
 
@@ -2059,14 +2207,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 13 :
-                    // InternalTurtle.g:633:2: ( ( 'sh:ignoredProperties' ) )
+                    // InternalTurtle.g:679:2: ( ( 'sh:ignoredProperties' ) )
                     {
-                    // InternalTurtle.g:633:2: ( ( 'sh:ignoredProperties' ) )
-                    // InternalTurtle.g:634:3: ( 'sh:ignoredProperties' )
+                    // InternalTurtle.g:679:2: ( ( 'sh:ignoredProperties' ) )
+                    // InternalTurtle.g:680:3: ( 'sh:ignoredProperties' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getClosedConstraintComponent_ignoreEnumLiteralDeclaration_12()); 
-                    // InternalTurtle.g:635:3: ( 'sh:ignoredProperties' )
-                    // InternalTurtle.g:635:4: 'sh:ignoredProperties'
+                    // InternalTurtle.g:681:3: ( 'sh:ignoredProperties' )
+                    // InternalTurtle.g:681:4: 'sh:ignoredProperties'
                     {
                     match(input,28,FOLLOW_2); 
 
@@ -2080,14 +2228,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 14 :
-                    // InternalTurtle.g:639:2: ( ( 'sh:path' ) )
+                    // InternalTurtle.g:685:2: ( ( 'sh:path' ) )
                     {
-                    // InternalTurtle.g:639:2: ( ( 'sh:path' ) )
-                    // InternalTurtle.g:640:3: ( 'sh:path' )
+                    // InternalTurtle.g:685:2: ( ( 'sh:path' ) )
+                    // InternalTurtle.g:686:3: ( 'sh:path' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getPredicatePathEnumLiteralDeclaration_13()); 
-                    // InternalTurtle.g:641:3: ( 'sh:path' )
-                    // InternalTurtle.g:641:4: 'sh:path'
+                    // InternalTurtle.g:687:3: ( 'sh:path' )
+                    // InternalTurtle.g:687:4: 'sh:path'
                     {
                     match(input,15,FOLLOW_2); 
 
@@ -2101,14 +2249,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 15 :
-                    // InternalTurtle.g:645:2: ( ( 'sh:inversePath' ) )
+                    // InternalTurtle.g:691:2: ( ( 'sh:inversePath' ) )
                     {
-                    // InternalTurtle.g:645:2: ( ( 'sh:inversePath' ) )
-                    // InternalTurtle.g:646:3: ( 'sh:inversePath' )
+                    // InternalTurtle.g:691:2: ( ( 'sh:inversePath' ) )
+                    // InternalTurtle.g:692:3: ( 'sh:inversePath' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getInversePathEnumLiteralDeclaration_14()); 
-                    // InternalTurtle.g:647:3: ( 'sh:inversePath' )
-                    // InternalTurtle.g:647:4: 'sh:inversePath'
+                    // InternalTurtle.g:693:3: ( 'sh:inversePath' )
+                    // InternalTurtle.g:693:4: 'sh:inversePath'
                     {
                     match(input,29,FOLLOW_2); 
 
@@ -2122,14 +2270,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 16 :
-                    // InternalTurtle.g:651:2: ( ( 'sh:property' ) )
+                    // InternalTurtle.g:697:2: ( ( 'sh:property' ) )
                     {
-                    // InternalTurtle.g:651:2: ( ( 'sh:property' ) )
-                    // InternalTurtle.g:652:3: ( 'sh:property' )
+                    // InternalTurtle.g:697:2: ( ( 'sh:property' ) )
+                    // InternalTurtle.g:698:3: ( 'sh:property' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getPropertyEnumLiteralDeclaration_15()); 
-                    // InternalTurtle.g:653:3: ( 'sh:property' )
-                    // InternalTurtle.g:653:4: 'sh:property'
+                    // InternalTurtle.g:699:3: ( 'sh:property' )
+                    // InternalTurtle.g:699:4: 'sh:property'
                     {
                     match(input,14,FOLLOW_2); 
 
@@ -2143,14 +2291,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 17 :
-                    // InternalTurtle.g:657:2: ( ( 'sh:name' ) )
+                    // InternalTurtle.g:703:2: ( ( 'sh:name' ) )
                     {
-                    // InternalTurtle.g:657:2: ( ( 'sh:name' ) )
-                    // InternalTurtle.g:658:3: ( 'sh:name' )
+                    // InternalTurtle.g:703:2: ( ( 'sh:name' ) )
+                    // InternalTurtle.g:704:3: ( 'sh:name' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getNameEnumLiteralDeclaration_16()); 
-                    // InternalTurtle.g:659:3: ( 'sh:name' )
-                    // InternalTurtle.g:659:4: 'sh:name'
+                    // InternalTurtle.g:705:3: ( 'sh:name' )
+                    // InternalTurtle.g:705:4: 'sh:name'
                     {
                     match(input,30,FOLLOW_2); 
 
@@ -2164,14 +2312,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 18 :
-                    // InternalTurtle.g:663:2: ( ( 'sh:targetClass' ) )
+                    // InternalTurtle.g:709:2: ( ( 'sh:targetClass' ) )
                     {
-                    // InternalTurtle.g:663:2: ( ( 'sh:targetClass' ) )
-                    // InternalTurtle.g:664:3: ( 'sh:targetClass' )
+                    // InternalTurtle.g:709:2: ( ( 'sh:targetClass' ) )
+                    // InternalTurtle.g:710:3: ( 'sh:targetClass' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getTargetClassEnumLiteralDeclaration_17()); 
-                    // InternalTurtle.g:665:3: ( 'sh:targetClass' )
-                    // InternalTurtle.g:665:4: 'sh:targetClass'
+                    // InternalTurtle.g:711:3: ( 'sh:targetClass' )
+                    // InternalTurtle.g:711:4: 'sh:targetClass'
                     {
                     match(input,31,FOLLOW_2); 
 
@@ -2185,14 +2333,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 19 :
-                    // InternalTurtle.g:669:2: ( ( 'sh:targetNode' ) )
+                    // InternalTurtle.g:715:2: ( ( 'sh:targetNode' ) )
                     {
-                    // InternalTurtle.g:669:2: ( ( 'sh:targetNode' ) )
-                    // InternalTurtle.g:670:3: ( 'sh:targetNode' )
+                    // InternalTurtle.g:715:2: ( ( 'sh:targetNode' ) )
+                    // InternalTurtle.g:716:3: ( 'sh:targetNode' )
                     {
                      before(grammarAccess.getPropertyTypeAccess().getTargetNodeEnumLiteralDeclaration_18()); 
-                    // InternalTurtle.g:671:3: ( 'sh:targetNode' )
-                    // InternalTurtle.g:671:4: 'sh:targetNode'
+                    // InternalTurtle.g:717:3: ( 'sh:targetNode' )
+                    // InternalTurtle.g:717:4: 'sh:targetNode'
                     {
                     match(input,32,FOLLOW_2); 
 
@@ -2223,14 +2371,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Graph__Group__0"
-    // InternalTurtle.g:679:1: rule__Graph__Group__0 : rule__Graph__Group__0__Impl rule__Graph__Group__1 ;
+    // InternalTurtle.g:725:1: rule__Graph__Group__0 : rule__Graph__Group__0__Impl rule__Graph__Group__1 ;
     public final void rule__Graph__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:683:1: ( rule__Graph__Group__0__Impl rule__Graph__Group__1 )
-            // InternalTurtle.g:684:2: rule__Graph__Group__0__Impl rule__Graph__Group__1
+            // InternalTurtle.g:729:1: ( rule__Graph__Group__0__Impl rule__Graph__Group__1 )
+            // InternalTurtle.g:730:2: rule__Graph__Group__0__Impl rule__Graph__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Graph__Group__0__Impl();
@@ -2261,21 +2409,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Graph__Group__0__Impl"
-    // InternalTurtle.g:691:1: rule__Graph__Group__0__Impl : ( () ) ;
+    // InternalTurtle.g:737:1: rule__Graph__Group__0__Impl : ( () ) ;
     public final void rule__Graph__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:695:1: ( ( () ) )
-            // InternalTurtle.g:696:1: ( () )
+            // InternalTurtle.g:741:1: ( ( () ) )
+            // InternalTurtle.g:742:1: ( () )
             {
-            // InternalTurtle.g:696:1: ( () )
-            // InternalTurtle.g:697:2: ()
+            // InternalTurtle.g:742:1: ( () )
+            // InternalTurtle.g:743:2: ()
             {
              before(grammarAccess.getGraphAccess().getGraphAction_0()); 
-            // InternalTurtle.g:698:2: ()
-            // InternalTurtle.g:698:3: 
+            // InternalTurtle.g:744:2: ()
+            // InternalTurtle.g:744:3: 
             {
             }
 
@@ -2298,14 +2446,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Graph__Group__1"
-    // InternalTurtle.g:706:1: rule__Graph__Group__1 : rule__Graph__Group__1__Impl rule__Graph__Group__2 ;
+    // InternalTurtle.g:752:1: rule__Graph__Group__1 : rule__Graph__Group__1__Impl rule__Graph__Group__2 ;
     public final void rule__Graph__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:710:1: ( rule__Graph__Group__1__Impl rule__Graph__Group__2 )
-            // InternalTurtle.g:711:2: rule__Graph__Group__1__Impl rule__Graph__Group__2
+            // InternalTurtle.g:756:1: ( rule__Graph__Group__1__Impl rule__Graph__Group__2 )
+            // InternalTurtle.g:757:2: rule__Graph__Group__1__Impl rule__Graph__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__Graph__Group__1__Impl();
@@ -2336,33 +2484,33 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Graph__Group__1__Impl"
-    // InternalTurtle.g:718:1: rule__Graph__Group__1__Impl : ( ( rule__Graph__NamespacesAssignment_1 )* ) ;
+    // InternalTurtle.g:764:1: rule__Graph__Group__1__Impl : ( ( rule__Graph__NamespacesAssignment_1 )* ) ;
     public final void rule__Graph__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:722:1: ( ( ( rule__Graph__NamespacesAssignment_1 )* ) )
-            // InternalTurtle.g:723:1: ( ( rule__Graph__NamespacesAssignment_1 )* )
+            // InternalTurtle.g:768:1: ( ( ( rule__Graph__NamespacesAssignment_1 )* ) )
+            // InternalTurtle.g:769:1: ( ( rule__Graph__NamespacesAssignment_1 )* )
             {
-            // InternalTurtle.g:723:1: ( ( rule__Graph__NamespacesAssignment_1 )* )
-            // InternalTurtle.g:724:2: ( rule__Graph__NamespacesAssignment_1 )*
+            // InternalTurtle.g:769:1: ( ( rule__Graph__NamespacesAssignment_1 )* )
+            // InternalTurtle.g:770:2: ( rule__Graph__NamespacesAssignment_1 )*
             {
              before(grammarAccess.getGraphAccess().getNamespacesAssignment_1()); 
-            // InternalTurtle.g:725:2: ( rule__Graph__NamespacesAssignment_1 )*
-            loop7:
+            // InternalTurtle.g:771:2: ( rule__Graph__NamespacesAssignment_1 )*
+            loop8:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-                if ( (LA7_0==34) ) {
-                    alt7=1;
+                if ( (LA8_0==35) ) {
+                    alt8=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt8) {
             	case 1 :
-            	    // InternalTurtle.g:725:3: rule__Graph__NamespacesAssignment_1
+            	    // InternalTurtle.g:771:3: rule__Graph__NamespacesAssignment_1
             	    {
             	    pushFollow(FOLLOW_4);
             	    rule__Graph__NamespacesAssignment_1();
@@ -2374,7 +2522,7 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop7;
+            	    break loop8;
                 }
             } while (true);
 
@@ -2401,14 +2549,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Graph__Group__2"
-    // InternalTurtle.g:733:1: rule__Graph__Group__2 : rule__Graph__Group__2__Impl rule__Graph__Group__3 ;
+    // InternalTurtle.g:779:1: rule__Graph__Group__2 : rule__Graph__Group__2__Impl rule__Graph__Group__3 ;
     public final void rule__Graph__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:737:1: ( rule__Graph__Group__2__Impl rule__Graph__Group__3 )
-            // InternalTurtle.g:738:2: rule__Graph__Group__2__Impl rule__Graph__Group__3
+            // InternalTurtle.g:783:1: ( rule__Graph__Group__2__Impl rule__Graph__Group__3 )
+            // InternalTurtle.g:784:2: rule__Graph__Group__2__Impl rule__Graph__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__Graph__Group__2__Impl();
@@ -2439,21 +2587,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Graph__Group__2__Impl"
-    // InternalTurtle.g:745:1: rule__Graph__Group__2__Impl : ( ( rule__Graph__DataGraphAssignment_2 ) ) ;
+    // InternalTurtle.g:791:1: rule__Graph__Group__2__Impl : ( ( rule__Graph__DataGraphAssignment_2 ) ) ;
     public final void rule__Graph__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:749:1: ( ( ( rule__Graph__DataGraphAssignment_2 ) ) )
-            // InternalTurtle.g:750:1: ( ( rule__Graph__DataGraphAssignment_2 ) )
+            // InternalTurtle.g:795:1: ( ( ( rule__Graph__DataGraphAssignment_2 ) ) )
+            // InternalTurtle.g:796:1: ( ( rule__Graph__DataGraphAssignment_2 ) )
             {
-            // InternalTurtle.g:750:1: ( ( rule__Graph__DataGraphAssignment_2 ) )
-            // InternalTurtle.g:751:2: ( rule__Graph__DataGraphAssignment_2 )
+            // InternalTurtle.g:796:1: ( ( rule__Graph__DataGraphAssignment_2 ) )
+            // InternalTurtle.g:797:2: ( rule__Graph__DataGraphAssignment_2 )
             {
              before(grammarAccess.getGraphAccess().getDataGraphAssignment_2()); 
-            // InternalTurtle.g:752:2: ( rule__Graph__DataGraphAssignment_2 )
-            // InternalTurtle.g:752:3: rule__Graph__DataGraphAssignment_2
+            // InternalTurtle.g:798:2: ( rule__Graph__DataGraphAssignment_2 )
+            // InternalTurtle.g:798:3: rule__Graph__DataGraphAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Graph__DataGraphAssignment_2();
@@ -2486,14 +2634,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Graph__Group__3"
-    // InternalTurtle.g:760:1: rule__Graph__Group__3 : rule__Graph__Group__3__Impl rule__Graph__Group__4 ;
+    // InternalTurtle.g:806:1: rule__Graph__Group__3 : rule__Graph__Group__3__Impl rule__Graph__Group__4 ;
     public final void rule__Graph__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:764:1: ( rule__Graph__Group__3__Impl rule__Graph__Group__4 )
-            // InternalTurtle.g:765:2: rule__Graph__Group__3__Impl rule__Graph__Group__4
+            // InternalTurtle.g:810:1: ( rule__Graph__Group__3__Impl rule__Graph__Group__4 )
+            // InternalTurtle.g:811:2: rule__Graph__Group__3__Impl rule__Graph__Group__4
             {
             pushFollow(FOLLOW_6);
             rule__Graph__Group__3__Impl();
@@ -2524,21 +2672,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Graph__Group__3__Impl"
-    // InternalTurtle.g:772:1: rule__Graph__Group__3__Impl : ( ( rule__Graph__ShapesGraphAssignment_3 ) ) ;
+    // InternalTurtle.g:818:1: rule__Graph__Group__3__Impl : ( ( rule__Graph__ShapesGraphAssignment_3 ) ) ;
     public final void rule__Graph__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:776:1: ( ( ( rule__Graph__ShapesGraphAssignment_3 ) ) )
-            // InternalTurtle.g:777:1: ( ( rule__Graph__ShapesGraphAssignment_3 ) )
+            // InternalTurtle.g:822:1: ( ( ( rule__Graph__ShapesGraphAssignment_3 ) ) )
+            // InternalTurtle.g:823:1: ( ( rule__Graph__ShapesGraphAssignment_3 ) )
             {
-            // InternalTurtle.g:777:1: ( ( rule__Graph__ShapesGraphAssignment_3 ) )
-            // InternalTurtle.g:778:2: ( rule__Graph__ShapesGraphAssignment_3 )
+            // InternalTurtle.g:823:1: ( ( rule__Graph__ShapesGraphAssignment_3 ) )
+            // InternalTurtle.g:824:2: ( rule__Graph__ShapesGraphAssignment_3 )
             {
              before(grammarAccess.getGraphAccess().getShapesGraphAssignment_3()); 
-            // InternalTurtle.g:779:2: ( rule__Graph__ShapesGraphAssignment_3 )
-            // InternalTurtle.g:779:3: rule__Graph__ShapesGraphAssignment_3
+            // InternalTurtle.g:825:2: ( rule__Graph__ShapesGraphAssignment_3 )
+            // InternalTurtle.g:825:3: rule__Graph__ShapesGraphAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Graph__ShapesGraphAssignment_3();
@@ -2571,17 +2719,22 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Graph__Group__4"
-    // InternalTurtle.g:787:1: rule__Graph__Group__4 : rule__Graph__Group__4__Impl ;
+    // InternalTurtle.g:833:1: rule__Graph__Group__4 : rule__Graph__Group__4__Impl rule__Graph__Group__5 ;
     public final void rule__Graph__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:791:1: ( rule__Graph__Group__4__Impl )
-            // InternalTurtle.g:792:2: rule__Graph__Group__4__Impl
+            // InternalTurtle.g:837:1: ( rule__Graph__Group__4__Impl rule__Graph__Group__5 )
+            // InternalTurtle.g:838:2: rule__Graph__Group__4__Impl rule__Graph__Group__5
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_7);
             rule__Graph__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Graph__Group__5();
 
             state._fsp--;
 
@@ -2604,17 +2757,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Graph__Group__4__Impl"
-    // InternalTurtle.g:798:1: rule__Graph__Group__4__Impl : ( '<>' ) ;
+    // InternalTurtle.g:845:1: rule__Graph__Group__4__Impl : ( '<>' ) ;
     public final void rule__Graph__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:802:1: ( ( '<>' ) )
-            // InternalTurtle.g:803:1: ( '<>' )
+            // InternalTurtle.g:849:1: ( ( '<>' ) )
+            // InternalTurtle.g:850:1: ( '<>' )
             {
-            // InternalTurtle.g:803:1: ( '<>' )
-            // InternalTurtle.g:804:2: '<>'
+            // InternalTurtle.g:850:1: ( '<>' )
+            // InternalTurtle.g:851:2: '<>'
             {
              before(grammarAccess.getGraphAccess().getLessThanSignGreaterThanSignKeyword_4()); 
             match(input,33,FOLLOW_2); 
@@ -2640,17 +2793,281 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Graph__Group__4__Impl"
 
 
+    // $ANTLR start "rule__Graph__Group__5"
+    // InternalTurtle.g:860:1: rule__Graph__Group__5 : rule__Graph__Group__5__Impl ;
+    public final void rule__Graph__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalTurtle.g:864:1: ( rule__Graph__Group__5__Impl )
+            // InternalTurtle.g:865:2: rule__Graph__Group__5__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Graph__Group__5__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Graph__Group__5"
+
+
+    // $ANTLR start "rule__Graph__Group__5__Impl"
+    // InternalTurtle.g:871:1: rule__Graph__Group__5__Impl : ( ( rule__Graph__Group_5__0 )? ) ;
+    public final void rule__Graph__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalTurtle.g:875:1: ( ( ( rule__Graph__Group_5__0 )? ) )
+            // InternalTurtle.g:876:1: ( ( rule__Graph__Group_5__0 )? )
+            {
+            // InternalTurtle.g:876:1: ( ( rule__Graph__Group_5__0 )? )
+            // InternalTurtle.g:877:2: ( rule__Graph__Group_5__0 )?
+            {
+             before(grammarAccess.getGraphAccess().getGroup_5()); 
+            // InternalTurtle.g:878:2: ( rule__Graph__Group_5__0 )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
+
+            if ( ((LA9_0>=RULE_STRING && LA9_0<=RULE_ID)||LA9_0==34) ) {
+                alt9=1;
+            }
+            switch (alt9) {
+                case 1 :
+                    // InternalTurtle.g:878:3: rule__Graph__Group_5__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Graph__Group_5__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getGraphAccess().getGroup_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Graph__Group__5__Impl"
+
+
+    // $ANTLR start "rule__Graph__Group_5__0"
+    // InternalTurtle.g:887:1: rule__Graph__Group_5__0 : rule__Graph__Group_5__0__Impl rule__Graph__Group_5__1 ;
+    public final void rule__Graph__Group_5__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalTurtle.g:891:1: ( rule__Graph__Group_5__0__Impl rule__Graph__Group_5__1 )
+            // InternalTurtle.g:892:2: rule__Graph__Group_5__0__Impl rule__Graph__Group_5__1
+            {
+            pushFollow(FOLLOW_7);
+            rule__Graph__Group_5__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Graph__Group_5__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Graph__Group_5__0"
+
+
+    // $ANTLR start "rule__Graph__Group_5__0__Impl"
+    // InternalTurtle.g:899:1: rule__Graph__Group_5__0__Impl : ( ( ruleEString )* ) ;
+    public final void rule__Graph__Group_5__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalTurtle.g:903:1: ( ( ( ruleEString )* ) )
+            // InternalTurtle.g:904:1: ( ( ruleEString )* )
+            {
+            // InternalTurtle.g:904:1: ( ( ruleEString )* )
+            // InternalTurtle.g:905:2: ( ruleEString )*
+            {
+             before(grammarAccess.getGraphAccess().getEStringParserRuleCall_5_0()); 
+            // InternalTurtle.g:906:2: ( ruleEString )*
+            loop10:
+            do {
+                int alt10=2;
+                int LA10_0 = input.LA(1);
+
+                if ( ((LA10_0>=RULE_STRING && LA10_0<=RULE_ID)) ) {
+                    alt10=1;
+                }
+
+
+                switch (alt10) {
+            	case 1 :
+            	    // InternalTurtle.g:906:3: ruleEString
+            	    {
+            	    pushFollow(FOLLOW_8);
+            	    ruleEString();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop10;
+                }
+            } while (true);
+
+             after(grammarAccess.getGraphAccess().getEStringParserRuleCall_5_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Graph__Group_5__0__Impl"
+
+
+    // $ANTLR start "rule__Graph__Group_5__1"
+    // InternalTurtle.g:914:1: rule__Graph__Group_5__1 : rule__Graph__Group_5__1__Impl ;
+    public final void rule__Graph__Group_5__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalTurtle.g:918:1: ( rule__Graph__Group_5__1__Impl )
+            // InternalTurtle.g:919:2: rule__Graph__Group_5__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Graph__Group_5__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Graph__Group_5__1"
+
+
+    // $ANTLR start "rule__Graph__Group_5__1__Impl"
+    // InternalTurtle.g:925:1: rule__Graph__Group_5__1__Impl : ( '.' ) ;
+    public final void rule__Graph__Group_5__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalTurtle.g:929:1: ( ( '.' ) )
+            // InternalTurtle.g:930:1: ( '.' )
+            {
+            // InternalTurtle.g:930:1: ( '.' )
+            // InternalTurtle.g:931:2: '.'
+            {
+             before(grammarAccess.getGraphAccess().getFullStopKeyword_5_1()); 
+            match(input,34,FOLLOW_2); 
+             after(grammarAccess.getGraphAccess().getFullStopKeyword_5_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Graph__Group_5__1__Impl"
+
+
     // $ANTLR start "rule__Namespace__Group__0"
-    // InternalTurtle.g:814:1: rule__Namespace__Group__0 : rule__Namespace__Group__0__Impl rule__Namespace__Group__1 ;
+    // InternalTurtle.g:941:1: rule__Namespace__Group__0 : rule__Namespace__Group__0__Impl rule__Namespace__Group__1 ;
     public final void rule__Namespace__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:818:1: ( rule__Namespace__Group__0__Impl rule__Namespace__Group__1 )
-            // InternalTurtle.g:819:2: rule__Namespace__Group__0__Impl rule__Namespace__Group__1
+            // InternalTurtle.g:945:1: ( rule__Namespace__Group__0__Impl rule__Namespace__Group__1 )
+            // InternalTurtle.g:946:2: rule__Namespace__Group__0__Impl rule__Namespace__Group__1
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_9);
             rule__Namespace__Group__0__Impl();
 
             state._fsp--;
@@ -2679,20 +3096,20 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Namespace__Group__0__Impl"
-    // InternalTurtle.g:826:1: rule__Namespace__Group__0__Impl : ( '@prefix' ) ;
+    // InternalTurtle.g:953:1: rule__Namespace__Group__0__Impl : ( '@prefix' ) ;
     public final void rule__Namespace__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:830:1: ( ( '@prefix' ) )
-            // InternalTurtle.g:831:1: ( '@prefix' )
+            // InternalTurtle.g:957:1: ( ( '@prefix' ) )
+            // InternalTurtle.g:958:1: ( '@prefix' )
             {
-            // InternalTurtle.g:831:1: ( '@prefix' )
-            // InternalTurtle.g:832:2: '@prefix'
+            // InternalTurtle.g:958:1: ( '@prefix' )
+            // InternalTurtle.g:959:2: '@prefix'
             {
              before(grammarAccess.getNamespaceAccess().getPrefixKeyword_0()); 
-            match(input,34,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getNamespaceAccess().getPrefixKeyword_0()); 
 
             }
@@ -2716,16 +3133,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Namespace__Group__1"
-    // InternalTurtle.g:841:1: rule__Namespace__Group__1 : rule__Namespace__Group__1__Impl rule__Namespace__Group__2 ;
+    // InternalTurtle.g:968:1: rule__Namespace__Group__1 : rule__Namespace__Group__1__Impl rule__Namespace__Group__2 ;
     public final void rule__Namespace__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:845:1: ( rule__Namespace__Group__1__Impl rule__Namespace__Group__2 )
-            // InternalTurtle.g:846:2: rule__Namespace__Group__1__Impl rule__Namespace__Group__2
+            // InternalTurtle.g:972:1: ( rule__Namespace__Group__1__Impl rule__Namespace__Group__2 )
+            // InternalTurtle.g:973:2: rule__Namespace__Group__1__Impl rule__Namespace__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_10);
             rule__Namespace__Group__1__Impl();
 
             state._fsp--;
@@ -2754,21 +3171,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Namespace__Group__1__Impl"
-    // InternalTurtle.g:853:1: rule__Namespace__Group__1__Impl : ( ( rule__Namespace__PrefixAssignment_1 ) ) ;
+    // InternalTurtle.g:980:1: rule__Namespace__Group__1__Impl : ( ( rule__Namespace__PrefixAssignment_1 ) ) ;
     public final void rule__Namespace__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:857:1: ( ( ( rule__Namespace__PrefixAssignment_1 ) ) )
-            // InternalTurtle.g:858:1: ( ( rule__Namespace__PrefixAssignment_1 ) )
+            // InternalTurtle.g:984:1: ( ( ( rule__Namespace__PrefixAssignment_1 ) ) )
+            // InternalTurtle.g:985:1: ( ( rule__Namespace__PrefixAssignment_1 ) )
             {
-            // InternalTurtle.g:858:1: ( ( rule__Namespace__PrefixAssignment_1 ) )
-            // InternalTurtle.g:859:2: ( rule__Namespace__PrefixAssignment_1 )
+            // InternalTurtle.g:985:1: ( ( rule__Namespace__PrefixAssignment_1 ) )
+            // InternalTurtle.g:986:2: ( rule__Namespace__PrefixAssignment_1 )
             {
              before(grammarAccess.getNamespaceAccess().getPrefixAssignment_1()); 
-            // InternalTurtle.g:860:2: ( rule__Namespace__PrefixAssignment_1 )
-            // InternalTurtle.g:860:3: rule__Namespace__PrefixAssignment_1
+            // InternalTurtle.g:987:2: ( rule__Namespace__PrefixAssignment_1 )
+            // InternalTurtle.g:987:3: rule__Namespace__PrefixAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Namespace__PrefixAssignment_1();
@@ -2801,14 +3218,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Namespace__Group__2"
-    // InternalTurtle.g:868:1: rule__Namespace__Group__2 : rule__Namespace__Group__2__Impl rule__Namespace__Group__3 ;
+    // InternalTurtle.g:995:1: rule__Namespace__Group__2 : rule__Namespace__Group__2__Impl rule__Namespace__Group__3 ;
     public final void rule__Namespace__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:872:1: ( rule__Namespace__Group__2__Impl rule__Namespace__Group__3 )
-            // InternalTurtle.g:873:2: rule__Namespace__Group__2__Impl rule__Namespace__Group__3
+            // InternalTurtle.g:999:1: ( rule__Namespace__Group__2__Impl rule__Namespace__Group__3 )
+            // InternalTurtle.g:1000:2: rule__Namespace__Group__2__Impl rule__Namespace__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__Namespace__Group__2__Impl();
@@ -2839,20 +3256,20 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Namespace__Group__2__Impl"
-    // InternalTurtle.g:880:1: rule__Namespace__Group__2__Impl : ( '<' ) ;
+    // InternalTurtle.g:1007:1: rule__Namespace__Group__2__Impl : ( '<' ) ;
     public final void rule__Namespace__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:884:1: ( ( '<' ) )
-            // InternalTurtle.g:885:1: ( '<' )
+            // InternalTurtle.g:1011:1: ( ( '<' ) )
+            // InternalTurtle.g:1012:1: ( '<' )
             {
-            // InternalTurtle.g:885:1: ( '<' )
-            // InternalTurtle.g:886:2: '<'
+            // InternalTurtle.g:1012:1: ( '<' )
+            // InternalTurtle.g:1013:2: '<'
             {
              before(grammarAccess.getNamespaceAccess().getLessThanSignKeyword_2()); 
-            match(input,35,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getNamespaceAccess().getLessThanSignKeyword_2()); 
 
             }
@@ -2876,16 +3293,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Namespace__Group__3"
-    // InternalTurtle.g:895:1: rule__Namespace__Group__3 : rule__Namespace__Group__3__Impl rule__Namespace__Group__4 ;
+    // InternalTurtle.g:1022:1: rule__Namespace__Group__3 : rule__Namespace__Group__3__Impl rule__Namespace__Group__4 ;
     public final void rule__Namespace__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:899:1: ( rule__Namespace__Group__3__Impl rule__Namespace__Group__4 )
-            // InternalTurtle.g:900:2: rule__Namespace__Group__3__Impl rule__Namespace__Group__4
+            // InternalTurtle.g:1026:1: ( rule__Namespace__Group__3__Impl rule__Namespace__Group__4 )
+            // InternalTurtle.g:1027:2: rule__Namespace__Group__3__Impl rule__Namespace__Group__4
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_11);
             rule__Namespace__Group__3__Impl();
 
             state._fsp--;
@@ -2914,21 +3331,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Namespace__Group__3__Impl"
-    // InternalTurtle.g:907:1: rule__Namespace__Group__3__Impl : ( ( rule__Namespace__NamespaceAssignment_3 ) ) ;
+    // InternalTurtle.g:1034:1: rule__Namespace__Group__3__Impl : ( ( rule__Namespace__NamespaceAssignment_3 ) ) ;
     public final void rule__Namespace__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:911:1: ( ( ( rule__Namespace__NamespaceAssignment_3 ) ) )
-            // InternalTurtle.g:912:1: ( ( rule__Namespace__NamespaceAssignment_3 ) )
+            // InternalTurtle.g:1038:1: ( ( ( rule__Namespace__NamespaceAssignment_3 ) ) )
+            // InternalTurtle.g:1039:1: ( ( rule__Namespace__NamespaceAssignment_3 ) )
             {
-            // InternalTurtle.g:912:1: ( ( rule__Namespace__NamespaceAssignment_3 ) )
-            // InternalTurtle.g:913:2: ( rule__Namespace__NamespaceAssignment_3 )
+            // InternalTurtle.g:1039:1: ( ( rule__Namespace__NamespaceAssignment_3 ) )
+            // InternalTurtle.g:1040:2: ( rule__Namespace__NamespaceAssignment_3 )
             {
              before(grammarAccess.getNamespaceAccess().getNamespaceAssignment_3()); 
-            // InternalTurtle.g:914:2: ( rule__Namespace__NamespaceAssignment_3 )
-            // InternalTurtle.g:914:3: rule__Namespace__NamespaceAssignment_3
+            // InternalTurtle.g:1041:2: ( rule__Namespace__NamespaceAssignment_3 )
+            // InternalTurtle.g:1041:3: rule__Namespace__NamespaceAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Namespace__NamespaceAssignment_3();
@@ -2961,16 +3378,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Namespace__Group__4"
-    // InternalTurtle.g:922:1: rule__Namespace__Group__4 : rule__Namespace__Group__4__Impl rule__Namespace__Group__5 ;
+    // InternalTurtle.g:1049:1: rule__Namespace__Group__4 : rule__Namespace__Group__4__Impl rule__Namespace__Group__5 ;
     public final void rule__Namespace__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:926:1: ( rule__Namespace__Group__4__Impl rule__Namespace__Group__5 )
-            // InternalTurtle.g:927:2: rule__Namespace__Group__4__Impl rule__Namespace__Group__5
+            // InternalTurtle.g:1053:1: ( rule__Namespace__Group__4__Impl rule__Namespace__Group__5 )
+            // InternalTurtle.g:1054:2: rule__Namespace__Group__4__Impl rule__Namespace__Group__5
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_12);
             rule__Namespace__Group__4__Impl();
 
             state._fsp--;
@@ -2999,20 +3416,20 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Namespace__Group__4__Impl"
-    // InternalTurtle.g:934:1: rule__Namespace__Group__4__Impl : ( '>' ) ;
+    // InternalTurtle.g:1061:1: rule__Namespace__Group__4__Impl : ( '>' ) ;
     public final void rule__Namespace__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:938:1: ( ( '>' ) )
-            // InternalTurtle.g:939:1: ( '>' )
+            // InternalTurtle.g:1065:1: ( ( '>' ) )
+            // InternalTurtle.g:1066:1: ( '>' )
             {
-            // InternalTurtle.g:939:1: ( '>' )
-            // InternalTurtle.g:940:2: '>'
+            // InternalTurtle.g:1066:1: ( '>' )
+            // InternalTurtle.g:1067:2: '>'
             {
              before(grammarAccess.getNamespaceAccess().getGreaterThanSignKeyword_4()); 
-            match(input,36,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getNamespaceAccess().getGreaterThanSignKeyword_4()); 
 
             }
@@ -3036,14 +3453,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Namespace__Group__5"
-    // InternalTurtle.g:949:1: rule__Namespace__Group__5 : rule__Namespace__Group__5__Impl ;
+    // InternalTurtle.g:1076:1: rule__Namespace__Group__5 : rule__Namespace__Group__5__Impl ;
     public final void rule__Namespace__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:953:1: ( rule__Namespace__Group__5__Impl )
-            // InternalTurtle.g:954:2: rule__Namespace__Group__5__Impl
+            // InternalTurtle.g:1080:1: ( rule__Namespace__Group__5__Impl )
+            // InternalTurtle.g:1081:2: rule__Namespace__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Namespace__Group__5__Impl();
@@ -3069,20 +3486,20 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Namespace__Group__5__Impl"
-    // InternalTurtle.g:960:1: rule__Namespace__Group__5__Impl : ( '.' ) ;
+    // InternalTurtle.g:1087:1: rule__Namespace__Group__5__Impl : ( '.' ) ;
     public final void rule__Namespace__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:964:1: ( ( '.' ) )
-            // InternalTurtle.g:965:1: ( '.' )
+            // InternalTurtle.g:1091:1: ( ( '.' ) )
+            // InternalTurtle.g:1092:1: ( '.' )
             {
-            // InternalTurtle.g:965:1: ( '.' )
-            // InternalTurtle.g:966:2: '.'
+            // InternalTurtle.g:1092:1: ( '.' )
+            // InternalTurtle.g:1093:2: '.'
             {
              before(grammarAccess.getNamespaceAccess().getFullStopKeyword_5()); 
-            match(input,37,FOLLOW_2); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getNamespaceAccess().getFullStopKeyword_5()); 
 
             }
@@ -3106,14 +3523,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataGraph__Group__0"
-    // InternalTurtle.g:976:1: rule__DataGraph__Group__0 : rule__DataGraph__Group__0__Impl rule__DataGraph__Group__1 ;
+    // InternalTurtle.g:1103:1: rule__DataGraph__Group__0 : rule__DataGraph__Group__0__Impl rule__DataGraph__Group__1 ;
     public final void rule__DataGraph__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:980:1: ( rule__DataGraph__Group__0__Impl rule__DataGraph__Group__1 )
-            // InternalTurtle.g:981:2: rule__DataGraph__Group__0__Impl rule__DataGraph__Group__1
+            // InternalTurtle.g:1107:1: ( rule__DataGraph__Group__0__Impl rule__DataGraph__Group__1 )
+            // InternalTurtle.g:1108:2: rule__DataGraph__Group__0__Impl rule__DataGraph__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__DataGraph__Group__0__Impl();
@@ -3144,21 +3561,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataGraph__Group__0__Impl"
-    // InternalTurtle.g:988:1: rule__DataGraph__Group__0__Impl : ( () ) ;
+    // InternalTurtle.g:1115:1: rule__DataGraph__Group__0__Impl : ( () ) ;
     public final void rule__DataGraph__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:992:1: ( ( () ) )
-            // InternalTurtle.g:993:1: ( () )
+            // InternalTurtle.g:1119:1: ( ( () ) )
+            // InternalTurtle.g:1120:1: ( () )
             {
-            // InternalTurtle.g:993:1: ( () )
-            // InternalTurtle.g:994:2: ()
+            // InternalTurtle.g:1120:1: ( () )
+            // InternalTurtle.g:1121:2: ()
             {
              before(grammarAccess.getDataGraphAccess().getDataGraphAction_0()); 
-            // InternalTurtle.g:995:2: ()
-            // InternalTurtle.g:995:3: 
+            // InternalTurtle.g:1122:2: ()
+            // InternalTurtle.g:1122:3: 
             {
             }
 
@@ -3181,14 +3598,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataGraph__Group__1"
-    // InternalTurtle.g:1003:1: rule__DataGraph__Group__1 : rule__DataGraph__Group__1__Impl ;
+    // InternalTurtle.g:1130:1: rule__DataGraph__Group__1 : rule__DataGraph__Group__1__Impl ;
     public final void rule__DataGraph__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1007:1: ( rule__DataGraph__Group__1__Impl )
-            // InternalTurtle.g:1008:2: rule__DataGraph__Group__1__Impl
+            // InternalTurtle.g:1134:1: ( rule__DataGraph__Group__1__Impl )
+            // InternalTurtle.g:1135:2: rule__DataGraph__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DataGraph__Group__1__Impl();
@@ -3214,50 +3631,50 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataGraph__Group__1__Impl"
-    // InternalTurtle.g:1014:1: rule__DataGraph__Group__1__Impl : ( ( rule__DataGraph__TriplesAssignment_1 )* ) ;
+    // InternalTurtle.g:1141:1: rule__DataGraph__Group__1__Impl : ( ( rule__DataGraph__TriplesAssignment_1 )* ) ;
     public final void rule__DataGraph__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1018:1: ( ( ( rule__DataGraph__TriplesAssignment_1 )* ) )
-            // InternalTurtle.g:1019:1: ( ( rule__DataGraph__TriplesAssignment_1 )* )
+            // InternalTurtle.g:1145:1: ( ( ( rule__DataGraph__TriplesAssignment_1 )* ) )
+            // InternalTurtle.g:1146:1: ( ( rule__DataGraph__TriplesAssignment_1 )* )
             {
-            // InternalTurtle.g:1019:1: ( ( rule__DataGraph__TriplesAssignment_1 )* )
-            // InternalTurtle.g:1020:2: ( rule__DataGraph__TriplesAssignment_1 )*
+            // InternalTurtle.g:1146:1: ( ( rule__DataGraph__TriplesAssignment_1 )* )
+            // InternalTurtle.g:1147:2: ( rule__DataGraph__TriplesAssignment_1 )*
             {
              before(grammarAccess.getDataGraphAccess().getTriplesAssignment_1()); 
-            // InternalTurtle.g:1021:2: ( rule__DataGraph__TriplesAssignment_1 )*
-            loop8:
+            // InternalTurtle.g:1148:2: ( rule__DataGraph__TriplesAssignment_1 )*
+            loop11:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA8_0==RULE_UNICODE) ) {
-                    int LA8_2 = input.LA(2);
+                if ( (LA11_0==RULE_UNICODE) ) {
+                    int LA11_2 = input.LA(2);
 
-                    if ( (LA8_2==RULE_UNICODE) ) {
-                        int LA8_3 = input.LA(3);
+                    if ( (LA11_2==RULE_UNICODE) ) {
+                        int LA11_3 = input.LA(3);
 
-                        if ( (LA8_3==RULE_UNICODE) ) {
-                            alt8=1;
+                        if ( (LA11_3==RULE_UNICODE) ) {
+                            alt11=1;
                         }
 
 
                     }
-                    else if ( (LA8_2==37) ) {
-                        alt8=1;
+                    else if ( (LA11_2==34) ) {
+                        alt11=1;
                     }
 
 
                 }
 
 
-                switch (alt8) {
+                switch (alt11) {
             	case 1 :
-            	    // InternalTurtle.g:1021:3: rule__DataGraph__TriplesAssignment_1
+            	    // InternalTurtle.g:1148:3: rule__DataGraph__TriplesAssignment_1
             	    {
-            	    pushFollow(FOLLOW_11);
+            	    pushFollow(FOLLOW_13);
             	    rule__DataGraph__TriplesAssignment_1();
 
             	    state._fsp--;
@@ -3267,7 +3684,7 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop8;
+            	    break loop11;
                 }
             } while (true);
 
@@ -3294,16 +3711,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Triples__Group__0"
-    // InternalTurtle.g:1030:1: rule__Triples__Group__0 : rule__Triples__Group__0__Impl rule__Triples__Group__1 ;
+    // InternalTurtle.g:1157:1: rule__Triples__Group__0 : rule__Triples__Group__0__Impl rule__Triples__Group__1 ;
     public final void rule__Triples__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1034:1: ( rule__Triples__Group__0__Impl rule__Triples__Group__1 )
-            // InternalTurtle.g:1035:2: rule__Triples__Group__0__Impl rule__Triples__Group__1
+            // InternalTurtle.g:1161:1: ( rule__Triples__Group__0__Impl rule__Triples__Group__1 )
+            // InternalTurtle.g:1162:2: rule__Triples__Group__0__Impl rule__Triples__Group__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_14);
             rule__Triples__Group__0__Impl();
 
             state._fsp--;
@@ -3332,21 +3749,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Triples__Group__0__Impl"
-    // InternalTurtle.g:1042:1: rule__Triples__Group__0__Impl : ( ( rule__Triples__SubjectAssignment_0 ) ) ;
+    // InternalTurtle.g:1169:1: rule__Triples__Group__0__Impl : ( ( rule__Triples__SubjectAssignment_0 ) ) ;
     public final void rule__Triples__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1046:1: ( ( ( rule__Triples__SubjectAssignment_0 ) ) )
-            // InternalTurtle.g:1047:1: ( ( rule__Triples__SubjectAssignment_0 ) )
+            // InternalTurtle.g:1173:1: ( ( ( rule__Triples__SubjectAssignment_0 ) ) )
+            // InternalTurtle.g:1174:1: ( ( rule__Triples__SubjectAssignment_0 ) )
             {
-            // InternalTurtle.g:1047:1: ( ( rule__Triples__SubjectAssignment_0 ) )
-            // InternalTurtle.g:1048:2: ( rule__Triples__SubjectAssignment_0 )
+            // InternalTurtle.g:1174:1: ( ( rule__Triples__SubjectAssignment_0 ) )
+            // InternalTurtle.g:1175:2: ( rule__Triples__SubjectAssignment_0 )
             {
              before(grammarAccess.getTriplesAccess().getSubjectAssignment_0()); 
-            // InternalTurtle.g:1049:2: ( rule__Triples__SubjectAssignment_0 )
-            // InternalTurtle.g:1049:3: rule__Triples__SubjectAssignment_0
+            // InternalTurtle.g:1176:2: ( rule__Triples__SubjectAssignment_0 )
+            // InternalTurtle.g:1176:3: rule__Triples__SubjectAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Triples__SubjectAssignment_0();
@@ -3379,16 +3796,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Triples__Group__1"
-    // InternalTurtle.g:1057:1: rule__Triples__Group__1 : rule__Triples__Group__1__Impl rule__Triples__Group__2 ;
+    // InternalTurtle.g:1184:1: rule__Triples__Group__1 : rule__Triples__Group__1__Impl rule__Triples__Group__2 ;
     public final void rule__Triples__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1061:1: ( rule__Triples__Group__1__Impl rule__Triples__Group__2 )
-            // InternalTurtle.g:1062:2: rule__Triples__Group__1__Impl rule__Triples__Group__2
+            // InternalTurtle.g:1188:1: ( rule__Triples__Group__1__Impl rule__Triples__Group__2 )
+            // InternalTurtle.g:1189:2: rule__Triples__Group__1__Impl rule__Triples__Group__2
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_14);
             rule__Triples__Group__1__Impl();
 
             state._fsp--;
@@ -3417,35 +3834,35 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Triples__Group__1__Impl"
-    // InternalTurtle.g:1069:1: rule__Triples__Group__1__Impl : ( ( rule__Triples__PredicateobjectAssignment_1 )* ) ;
+    // InternalTurtle.g:1196:1: rule__Triples__Group__1__Impl : ( ( rule__Triples__PredicateobjectAssignment_1 )* ) ;
     public final void rule__Triples__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1073:1: ( ( ( rule__Triples__PredicateobjectAssignment_1 )* ) )
-            // InternalTurtle.g:1074:1: ( ( rule__Triples__PredicateobjectAssignment_1 )* )
+            // InternalTurtle.g:1200:1: ( ( ( rule__Triples__PredicateobjectAssignment_1 )* ) )
+            // InternalTurtle.g:1201:1: ( ( rule__Triples__PredicateobjectAssignment_1 )* )
             {
-            // InternalTurtle.g:1074:1: ( ( rule__Triples__PredicateobjectAssignment_1 )* )
-            // InternalTurtle.g:1075:2: ( rule__Triples__PredicateobjectAssignment_1 )*
+            // InternalTurtle.g:1201:1: ( ( rule__Triples__PredicateobjectAssignment_1 )* )
+            // InternalTurtle.g:1202:2: ( rule__Triples__PredicateobjectAssignment_1 )*
             {
              before(grammarAccess.getTriplesAccess().getPredicateobjectAssignment_1()); 
-            // InternalTurtle.g:1076:2: ( rule__Triples__PredicateobjectAssignment_1 )*
-            loop9:
+            // InternalTurtle.g:1203:2: ( rule__Triples__PredicateobjectAssignment_1 )*
+            loop12:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt12=2;
+                int LA12_0 = input.LA(1);
 
-                if ( (LA9_0==RULE_UNICODE) ) {
-                    alt9=1;
+                if ( (LA12_0==RULE_UNICODE) ) {
+                    alt12=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt12) {
             	case 1 :
-            	    // InternalTurtle.g:1076:3: rule__Triples__PredicateobjectAssignment_1
+            	    // InternalTurtle.g:1203:3: rule__Triples__PredicateobjectAssignment_1
             	    {
-            	    pushFollow(FOLLOW_11);
+            	    pushFollow(FOLLOW_13);
             	    rule__Triples__PredicateobjectAssignment_1();
 
             	    state._fsp--;
@@ -3455,7 +3872,7 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop12;
                 }
             } while (true);
 
@@ -3482,14 +3899,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Triples__Group__2"
-    // InternalTurtle.g:1084:1: rule__Triples__Group__2 : rule__Triples__Group__2__Impl ;
+    // InternalTurtle.g:1211:1: rule__Triples__Group__2 : rule__Triples__Group__2__Impl ;
     public final void rule__Triples__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1088:1: ( rule__Triples__Group__2__Impl )
-            // InternalTurtle.g:1089:2: rule__Triples__Group__2__Impl
+            // InternalTurtle.g:1215:1: ( rule__Triples__Group__2__Impl )
+            // InternalTurtle.g:1216:2: rule__Triples__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Triples__Group__2__Impl();
@@ -3515,20 +3932,20 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Triples__Group__2__Impl"
-    // InternalTurtle.g:1095:1: rule__Triples__Group__2__Impl : ( '.' ) ;
+    // InternalTurtle.g:1222:1: rule__Triples__Group__2__Impl : ( '.' ) ;
     public final void rule__Triples__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1099:1: ( ( '.' ) )
-            // InternalTurtle.g:1100:1: ( '.' )
+            // InternalTurtle.g:1226:1: ( ( '.' ) )
+            // InternalTurtle.g:1227:1: ( '.' )
             {
-            // InternalTurtle.g:1100:1: ( '.' )
-            // InternalTurtle.g:1101:2: '.'
+            // InternalTurtle.g:1227:1: ( '.' )
+            // InternalTurtle.g:1228:2: '.'
             {
              before(grammarAccess.getTriplesAccess().getFullStopKeyword_2()); 
-            match(input,37,FOLLOW_2); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getTriplesAccess().getFullStopKeyword_2()); 
 
             }
@@ -3552,16 +3969,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PredicateObject__Group__0"
-    // InternalTurtle.g:1111:1: rule__PredicateObject__Group__0 : rule__PredicateObject__Group__0__Impl rule__PredicateObject__Group__1 ;
+    // InternalTurtle.g:1238:1: rule__PredicateObject__Group__0 : rule__PredicateObject__Group__0__Impl rule__PredicateObject__Group__1 ;
     public final void rule__PredicateObject__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1115:1: ( rule__PredicateObject__Group__0__Impl rule__PredicateObject__Group__1 )
-            // InternalTurtle.g:1116:2: rule__PredicateObject__Group__0__Impl rule__PredicateObject__Group__1
+            // InternalTurtle.g:1242:1: ( rule__PredicateObject__Group__0__Impl rule__PredicateObject__Group__1 )
+            // InternalTurtle.g:1243:2: rule__PredicateObject__Group__0__Impl rule__PredicateObject__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__PredicateObject__Group__0__Impl();
 
             state._fsp--;
@@ -3590,21 +4007,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PredicateObject__Group__0__Impl"
-    // InternalTurtle.g:1123:1: rule__PredicateObject__Group__0__Impl : ( ( rule__PredicateObject__Group_0__0 ) ) ;
+    // InternalTurtle.g:1250:1: rule__PredicateObject__Group__0__Impl : ( ( rule__PredicateObject__Group_0__0 ) ) ;
     public final void rule__PredicateObject__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1127:1: ( ( ( rule__PredicateObject__Group_0__0 ) ) )
-            // InternalTurtle.g:1128:1: ( ( rule__PredicateObject__Group_0__0 ) )
+            // InternalTurtle.g:1254:1: ( ( ( rule__PredicateObject__Group_0__0 ) ) )
+            // InternalTurtle.g:1255:1: ( ( rule__PredicateObject__Group_0__0 ) )
             {
-            // InternalTurtle.g:1128:1: ( ( rule__PredicateObject__Group_0__0 ) )
-            // InternalTurtle.g:1129:2: ( rule__PredicateObject__Group_0__0 )
+            // InternalTurtle.g:1255:1: ( ( rule__PredicateObject__Group_0__0 ) )
+            // InternalTurtle.g:1256:2: ( rule__PredicateObject__Group_0__0 )
             {
              before(grammarAccess.getPredicateObjectAccess().getGroup_0()); 
-            // InternalTurtle.g:1130:2: ( rule__PredicateObject__Group_0__0 )
-            // InternalTurtle.g:1130:3: rule__PredicateObject__Group_0__0
+            // InternalTurtle.g:1257:2: ( rule__PredicateObject__Group_0__0 )
+            // InternalTurtle.g:1257:3: rule__PredicateObject__Group_0__0
             {
             pushFollow(FOLLOW_2);
             rule__PredicateObject__Group_0__0();
@@ -3637,14 +4054,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PredicateObject__Group__1"
-    // InternalTurtle.g:1138:1: rule__PredicateObject__Group__1 : rule__PredicateObject__Group__1__Impl ;
+    // InternalTurtle.g:1265:1: rule__PredicateObject__Group__1 : rule__PredicateObject__Group__1__Impl ;
     public final void rule__PredicateObject__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1142:1: ( rule__PredicateObject__Group__1__Impl )
-            // InternalTurtle.g:1143:2: rule__PredicateObject__Group__1__Impl
+            // InternalTurtle.g:1269:1: ( rule__PredicateObject__Group__1__Impl )
+            // InternalTurtle.g:1270:2: rule__PredicateObject__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PredicateObject__Group__1__Impl();
@@ -3670,17 +4087,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PredicateObject__Group__1__Impl"
-    // InternalTurtle.g:1149:1: rule__PredicateObject__Group__1__Impl : ( ';' ) ;
+    // InternalTurtle.g:1276:1: rule__PredicateObject__Group__1__Impl : ( ';' ) ;
     public final void rule__PredicateObject__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1153:1: ( ( ';' ) )
-            // InternalTurtle.g:1154:1: ( ';' )
+            // InternalTurtle.g:1280:1: ( ( ';' ) )
+            // InternalTurtle.g:1281:1: ( ';' )
             {
-            // InternalTurtle.g:1154:1: ( ';' )
-            // InternalTurtle.g:1155:2: ';'
+            // InternalTurtle.g:1281:1: ( ';' )
+            // InternalTurtle.g:1282:2: ';'
             {
              before(grammarAccess.getPredicateObjectAccess().getSemicolonKeyword_1()); 
             match(input,38,FOLLOW_2); 
@@ -3707,14 +4124,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PredicateObject__Group_0__0"
-    // InternalTurtle.g:1165:1: rule__PredicateObject__Group_0__0 : rule__PredicateObject__Group_0__0__Impl rule__PredicateObject__Group_0__1 ;
+    // InternalTurtle.g:1292:1: rule__PredicateObject__Group_0__0 : rule__PredicateObject__Group_0__0__Impl rule__PredicateObject__Group_0__1 ;
     public final void rule__PredicateObject__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1169:1: ( rule__PredicateObject__Group_0__0__Impl rule__PredicateObject__Group_0__1 )
-            // InternalTurtle.g:1170:2: rule__PredicateObject__Group_0__0__Impl rule__PredicateObject__Group_0__1
+            // InternalTurtle.g:1296:1: ( rule__PredicateObject__Group_0__0__Impl rule__PredicateObject__Group_0__1 )
+            // InternalTurtle.g:1297:2: rule__PredicateObject__Group_0__0__Impl rule__PredicateObject__Group_0__1
             {
             pushFollow(FOLLOW_5);
             rule__PredicateObject__Group_0__0__Impl();
@@ -3745,21 +4162,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PredicateObject__Group_0__0__Impl"
-    // InternalTurtle.g:1177:1: rule__PredicateObject__Group_0__0__Impl : ( ( rule__PredicateObject__PredicateAssignment_0_0 ) ) ;
+    // InternalTurtle.g:1304:1: rule__PredicateObject__Group_0__0__Impl : ( ( rule__PredicateObject__PredicateAssignment_0_0 ) ) ;
     public final void rule__PredicateObject__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1181:1: ( ( ( rule__PredicateObject__PredicateAssignment_0_0 ) ) )
-            // InternalTurtle.g:1182:1: ( ( rule__PredicateObject__PredicateAssignment_0_0 ) )
+            // InternalTurtle.g:1308:1: ( ( ( rule__PredicateObject__PredicateAssignment_0_0 ) ) )
+            // InternalTurtle.g:1309:1: ( ( rule__PredicateObject__PredicateAssignment_0_0 ) )
             {
-            // InternalTurtle.g:1182:1: ( ( rule__PredicateObject__PredicateAssignment_0_0 ) )
-            // InternalTurtle.g:1183:2: ( rule__PredicateObject__PredicateAssignment_0_0 )
+            // InternalTurtle.g:1309:1: ( ( rule__PredicateObject__PredicateAssignment_0_0 ) )
+            // InternalTurtle.g:1310:2: ( rule__PredicateObject__PredicateAssignment_0_0 )
             {
              before(grammarAccess.getPredicateObjectAccess().getPredicateAssignment_0_0()); 
-            // InternalTurtle.g:1184:2: ( rule__PredicateObject__PredicateAssignment_0_0 )
-            // InternalTurtle.g:1184:3: rule__PredicateObject__PredicateAssignment_0_0
+            // InternalTurtle.g:1311:2: ( rule__PredicateObject__PredicateAssignment_0_0 )
+            // InternalTurtle.g:1311:3: rule__PredicateObject__PredicateAssignment_0_0
             {
             pushFollow(FOLLOW_2);
             rule__PredicateObject__PredicateAssignment_0_0();
@@ -3792,14 +4209,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PredicateObject__Group_0__1"
-    // InternalTurtle.g:1192:1: rule__PredicateObject__Group_0__1 : rule__PredicateObject__Group_0__1__Impl ;
+    // InternalTurtle.g:1319:1: rule__PredicateObject__Group_0__1 : rule__PredicateObject__Group_0__1__Impl ;
     public final void rule__PredicateObject__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1196:1: ( rule__PredicateObject__Group_0__1__Impl )
-            // InternalTurtle.g:1197:2: rule__PredicateObject__Group_0__1__Impl
+            // InternalTurtle.g:1323:1: ( rule__PredicateObject__Group_0__1__Impl )
+            // InternalTurtle.g:1324:2: rule__PredicateObject__Group_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PredicateObject__Group_0__1__Impl();
@@ -3825,21 +4242,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PredicateObject__Group_0__1__Impl"
-    // InternalTurtle.g:1203:1: rule__PredicateObject__Group_0__1__Impl : ( ( rule__PredicateObject__ObjectAssignment_0_1 ) ) ;
+    // InternalTurtle.g:1330:1: rule__PredicateObject__Group_0__1__Impl : ( ( rule__PredicateObject__ObjectAssignment_0_1 ) ) ;
     public final void rule__PredicateObject__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1207:1: ( ( ( rule__PredicateObject__ObjectAssignment_0_1 ) ) )
-            // InternalTurtle.g:1208:1: ( ( rule__PredicateObject__ObjectAssignment_0_1 ) )
+            // InternalTurtle.g:1334:1: ( ( ( rule__PredicateObject__ObjectAssignment_0_1 ) ) )
+            // InternalTurtle.g:1335:1: ( ( rule__PredicateObject__ObjectAssignment_0_1 ) )
             {
-            // InternalTurtle.g:1208:1: ( ( rule__PredicateObject__ObjectAssignment_0_1 ) )
-            // InternalTurtle.g:1209:2: ( rule__PredicateObject__ObjectAssignment_0_1 )
+            // InternalTurtle.g:1335:1: ( ( rule__PredicateObject__ObjectAssignment_0_1 ) )
+            // InternalTurtle.g:1336:2: ( rule__PredicateObject__ObjectAssignment_0_1 )
             {
              before(grammarAccess.getPredicateObjectAccess().getObjectAssignment_0_1()); 
-            // InternalTurtle.g:1210:2: ( rule__PredicateObject__ObjectAssignment_0_1 )
-            // InternalTurtle.g:1210:3: rule__PredicateObject__ObjectAssignment_0_1
+            // InternalTurtle.g:1337:2: ( rule__PredicateObject__ObjectAssignment_0_1 )
+            // InternalTurtle.g:1337:3: rule__PredicateObject__ObjectAssignment_0_1
             {
             pushFollow(FOLLOW_2);
             rule__PredicateObject__ObjectAssignment_0_1();
@@ -3872,14 +4289,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Subject__Group__0"
-    // InternalTurtle.g:1219:1: rule__Subject__Group__0 : rule__Subject__Group__0__Impl rule__Subject__Group__1 ;
+    // InternalTurtle.g:1346:1: rule__Subject__Group__0 : rule__Subject__Group__0__Impl rule__Subject__Group__1 ;
     public final void rule__Subject__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1223:1: ( rule__Subject__Group__0__Impl rule__Subject__Group__1 )
-            // InternalTurtle.g:1224:2: rule__Subject__Group__0__Impl rule__Subject__Group__1
+            // InternalTurtle.g:1350:1: ( rule__Subject__Group__0__Impl rule__Subject__Group__1 )
+            // InternalTurtle.g:1351:2: rule__Subject__Group__0__Impl rule__Subject__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__Subject__Group__0__Impl();
@@ -3910,21 +4327,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Subject__Group__0__Impl"
-    // InternalTurtle.g:1231:1: rule__Subject__Group__0__Impl : ( () ) ;
+    // InternalTurtle.g:1358:1: rule__Subject__Group__0__Impl : ( () ) ;
     public final void rule__Subject__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1235:1: ( ( () ) )
-            // InternalTurtle.g:1236:1: ( () )
+            // InternalTurtle.g:1362:1: ( ( () ) )
+            // InternalTurtle.g:1363:1: ( () )
             {
-            // InternalTurtle.g:1236:1: ( () )
-            // InternalTurtle.g:1237:2: ()
+            // InternalTurtle.g:1363:1: ( () )
+            // InternalTurtle.g:1364:2: ()
             {
              before(grammarAccess.getSubjectAccess().getSubjectAction_0()); 
-            // InternalTurtle.g:1238:2: ()
-            // InternalTurtle.g:1238:3: 
+            // InternalTurtle.g:1365:2: ()
+            // InternalTurtle.g:1365:3: 
             {
             }
 
@@ -3947,14 +4364,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Subject__Group__1"
-    // InternalTurtle.g:1246:1: rule__Subject__Group__1 : rule__Subject__Group__1__Impl ;
+    // InternalTurtle.g:1373:1: rule__Subject__Group__1 : rule__Subject__Group__1__Impl ;
     public final void rule__Subject__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1250:1: ( rule__Subject__Group__1__Impl )
-            // InternalTurtle.g:1251:2: rule__Subject__Group__1__Impl
+            // InternalTurtle.g:1377:1: ( rule__Subject__Group__1__Impl )
+            // InternalTurtle.g:1378:2: rule__Subject__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Subject__Group__1__Impl();
@@ -3980,21 +4397,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Subject__Group__1__Impl"
-    // InternalTurtle.g:1257:1: rule__Subject__Group__1__Impl : ( ( rule__Subject__NameAssignment_1 ) ) ;
+    // InternalTurtle.g:1384:1: rule__Subject__Group__1__Impl : ( ( rule__Subject__NameAssignment_1 ) ) ;
     public final void rule__Subject__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1261:1: ( ( ( rule__Subject__NameAssignment_1 ) ) )
-            // InternalTurtle.g:1262:1: ( ( rule__Subject__NameAssignment_1 ) )
+            // InternalTurtle.g:1388:1: ( ( ( rule__Subject__NameAssignment_1 ) ) )
+            // InternalTurtle.g:1389:1: ( ( rule__Subject__NameAssignment_1 ) )
             {
-            // InternalTurtle.g:1262:1: ( ( rule__Subject__NameAssignment_1 ) )
-            // InternalTurtle.g:1263:2: ( rule__Subject__NameAssignment_1 )
+            // InternalTurtle.g:1389:1: ( ( rule__Subject__NameAssignment_1 ) )
+            // InternalTurtle.g:1390:2: ( rule__Subject__NameAssignment_1 )
             {
              before(grammarAccess.getSubjectAccess().getNameAssignment_1()); 
-            // InternalTurtle.g:1264:2: ( rule__Subject__NameAssignment_1 )
-            // InternalTurtle.g:1264:3: rule__Subject__NameAssignment_1
+            // InternalTurtle.g:1391:2: ( rule__Subject__NameAssignment_1 )
+            // InternalTurtle.g:1391:3: rule__Subject__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Subject__NameAssignment_1();
@@ -4027,14 +4444,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Predicate__Group__0"
-    // InternalTurtle.g:1273:1: rule__Predicate__Group__0 : rule__Predicate__Group__0__Impl rule__Predicate__Group__1 ;
+    // InternalTurtle.g:1400:1: rule__Predicate__Group__0 : rule__Predicate__Group__0__Impl rule__Predicate__Group__1 ;
     public final void rule__Predicate__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1277:1: ( rule__Predicate__Group__0__Impl rule__Predicate__Group__1 )
-            // InternalTurtle.g:1278:2: rule__Predicate__Group__0__Impl rule__Predicate__Group__1
+            // InternalTurtle.g:1404:1: ( rule__Predicate__Group__0__Impl rule__Predicate__Group__1 )
+            // InternalTurtle.g:1405:2: rule__Predicate__Group__0__Impl rule__Predicate__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__Predicate__Group__0__Impl();
@@ -4065,21 +4482,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Predicate__Group__0__Impl"
-    // InternalTurtle.g:1285:1: rule__Predicate__Group__0__Impl : ( () ) ;
+    // InternalTurtle.g:1412:1: rule__Predicate__Group__0__Impl : ( () ) ;
     public final void rule__Predicate__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1289:1: ( ( () ) )
-            // InternalTurtle.g:1290:1: ( () )
+            // InternalTurtle.g:1416:1: ( ( () ) )
+            // InternalTurtle.g:1417:1: ( () )
             {
-            // InternalTurtle.g:1290:1: ( () )
-            // InternalTurtle.g:1291:2: ()
+            // InternalTurtle.g:1417:1: ( () )
+            // InternalTurtle.g:1418:2: ()
             {
              before(grammarAccess.getPredicateAccess().getPredicateAction_0()); 
-            // InternalTurtle.g:1292:2: ()
-            // InternalTurtle.g:1292:3: 
+            // InternalTurtle.g:1419:2: ()
+            // InternalTurtle.g:1419:3: 
             {
             }
 
@@ -4102,14 +4519,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Predicate__Group__1"
-    // InternalTurtle.g:1300:1: rule__Predicate__Group__1 : rule__Predicate__Group__1__Impl ;
+    // InternalTurtle.g:1427:1: rule__Predicate__Group__1 : rule__Predicate__Group__1__Impl ;
     public final void rule__Predicate__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1304:1: ( rule__Predicate__Group__1__Impl )
-            // InternalTurtle.g:1305:2: rule__Predicate__Group__1__Impl
+            // InternalTurtle.g:1431:1: ( rule__Predicate__Group__1__Impl )
+            // InternalTurtle.g:1432:2: rule__Predicate__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Predicate__Group__1__Impl();
@@ -4135,21 +4552,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Predicate__Group__1__Impl"
-    // InternalTurtle.g:1311:1: rule__Predicate__Group__1__Impl : ( ( rule__Predicate__NameAssignment_1 ) ) ;
+    // InternalTurtle.g:1438:1: rule__Predicate__Group__1__Impl : ( ( rule__Predicate__NameAssignment_1 ) ) ;
     public final void rule__Predicate__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1315:1: ( ( ( rule__Predicate__NameAssignment_1 ) ) )
-            // InternalTurtle.g:1316:1: ( ( rule__Predicate__NameAssignment_1 ) )
+            // InternalTurtle.g:1442:1: ( ( ( rule__Predicate__NameAssignment_1 ) ) )
+            // InternalTurtle.g:1443:1: ( ( rule__Predicate__NameAssignment_1 ) )
             {
-            // InternalTurtle.g:1316:1: ( ( rule__Predicate__NameAssignment_1 ) )
-            // InternalTurtle.g:1317:2: ( rule__Predicate__NameAssignment_1 )
+            // InternalTurtle.g:1443:1: ( ( rule__Predicate__NameAssignment_1 ) )
+            // InternalTurtle.g:1444:2: ( rule__Predicate__NameAssignment_1 )
             {
              before(grammarAccess.getPredicateAccess().getNameAssignment_1()); 
-            // InternalTurtle.g:1318:2: ( rule__Predicate__NameAssignment_1 )
-            // InternalTurtle.g:1318:3: rule__Predicate__NameAssignment_1
+            // InternalTurtle.g:1445:2: ( rule__Predicate__NameAssignment_1 )
+            // InternalTurtle.g:1445:3: rule__Predicate__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Predicate__NameAssignment_1();
@@ -4182,14 +4599,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Object__Group__0"
-    // InternalTurtle.g:1327:1: rule__Object__Group__0 : rule__Object__Group__0__Impl rule__Object__Group__1 ;
+    // InternalTurtle.g:1454:1: rule__Object__Group__0 : rule__Object__Group__0__Impl rule__Object__Group__1 ;
     public final void rule__Object__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1331:1: ( rule__Object__Group__0__Impl rule__Object__Group__1 )
-            // InternalTurtle.g:1332:2: rule__Object__Group__0__Impl rule__Object__Group__1
+            // InternalTurtle.g:1458:1: ( rule__Object__Group__0__Impl rule__Object__Group__1 )
+            // InternalTurtle.g:1459:2: rule__Object__Group__0__Impl rule__Object__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__Object__Group__0__Impl();
@@ -4220,21 +4637,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Object__Group__0__Impl"
-    // InternalTurtle.g:1339:1: rule__Object__Group__0__Impl : ( () ) ;
+    // InternalTurtle.g:1466:1: rule__Object__Group__0__Impl : ( () ) ;
     public final void rule__Object__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1343:1: ( ( () ) )
-            // InternalTurtle.g:1344:1: ( () )
+            // InternalTurtle.g:1470:1: ( ( () ) )
+            // InternalTurtle.g:1471:1: ( () )
             {
-            // InternalTurtle.g:1344:1: ( () )
-            // InternalTurtle.g:1345:2: ()
+            // InternalTurtle.g:1471:1: ( () )
+            // InternalTurtle.g:1472:2: ()
             {
              before(grammarAccess.getObjectAccess().getObjectAction_0()); 
-            // InternalTurtle.g:1346:2: ()
-            // InternalTurtle.g:1346:3: 
+            // InternalTurtle.g:1473:2: ()
+            // InternalTurtle.g:1473:3: 
             {
             }
 
@@ -4257,14 +4674,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Object__Group__1"
-    // InternalTurtle.g:1354:1: rule__Object__Group__1 : rule__Object__Group__1__Impl ;
+    // InternalTurtle.g:1481:1: rule__Object__Group__1 : rule__Object__Group__1__Impl ;
     public final void rule__Object__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1358:1: ( rule__Object__Group__1__Impl )
-            // InternalTurtle.g:1359:2: rule__Object__Group__1__Impl
+            // InternalTurtle.g:1485:1: ( rule__Object__Group__1__Impl )
+            // InternalTurtle.g:1486:2: rule__Object__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Object__Group__1__Impl();
@@ -4290,21 +4707,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Object__Group__1__Impl"
-    // InternalTurtle.g:1365:1: rule__Object__Group__1__Impl : ( ( rule__Object__NameAssignment_1 ) ) ;
+    // InternalTurtle.g:1492:1: rule__Object__Group__1__Impl : ( ( rule__Object__NameAssignment_1 ) ) ;
     public final void rule__Object__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1369:1: ( ( ( rule__Object__NameAssignment_1 ) ) )
-            // InternalTurtle.g:1370:1: ( ( rule__Object__NameAssignment_1 ) )
+            // InternalTurtle.g:1496:1: ( ( ( rule__Object__NameAssignment_1 ) ) )
+            // InternalTurtle.g:1497:1: ( ( rule__Object__NameAssignment_1 ) )
             {
-            // InternalTurtle.g:1370:1: ( ( rule__Object__NameAssignment_1 ) )
-            // InternalTurtle.g:1371:2: ( rule__Object__NameAssignment_1 )
+            // InternalTurtle.g:1497:1: ( ( rule__Object__NameAssignment_1 ) )
+            // InternalTurtle.g:1498:2: ( rule__Object__NameAssignment_1 )
             {
              before(grammarAccess.getObjectAccess().getNameAssignment_1()); 
-            // InternalTurtle.g:1372:2: ( rule__Object__NameAssignment_1 )
-            // InternalTurtle.g:1372:3: rule__Object__NameAssignment_1
+            // InternalTurtle.g:1499:2: ( rule__Object__NameAssignment_1 )
+            // InternalTurtle.g:1499:3: rule__Object__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Object__NameAssignment_1();
@@ -4337,14 +4754,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapesGraph__Group__0"
-    // InternalTurtle.g:1381:1: rule__ShapesGraph__Group__0 : rule__ShapesGraph__Group__0__Impl rule__ShapesGraph__Group__1 ;
+    // InternalTurtle.g:1508:1: rule__ShapesGraph__Group__0 : rule__ShapesGraph__Group__0__Impl rule__ShapesGraph__Group__1 ;
     public final void rule__ShapesGraph__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1385:1: ( rule__ShapesGraph__Group__0__Impl rule__ShapesGraph__Group__1 )
-            // InternalTurtle.g:1386:2: rule__ShapesGraph__Group__0__Impl rule__ShapesGraph__Group__1
+            // InternalTurtle.g:1512:1: ( rule__ShapesGraph__Group__0__Impl rule__ShapesGraph__Group__1 )
+            // InternalTurtle.g:1513:2: rule__ShapesGraph__Group__0__Impl rule__ShapesGraph__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__ShapesGraph__Group__0__Impl();
@@ -4375,21 +4792,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapesGraph__Group__0__Impl"
-    // InternalTurtle.g:1393:1: rule__ShapesGraph__Group__0__Impl : ( () ) ;
+    // InternalTurtle.g:1520:1: rule__ShapesGraph__Group__0__Impl : ( () ) ;
     public final void rule__ShapesGraph__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1397:1: ( ( () ) )
-            // InternalTurtle.g:1398:1: ( () )
+            // InternalTurtle.g:1524:1: ( ( () ) )
+            // InternalTurtle.g:1525:1: ( () )
             {
-            // InternalTurtle.g:1398:1: ( () )
-            // InternalTurtle.g:1399:2: ()
+            // InternalTurtle.g:1525:1: ( () )
+            // InternalTurtle.g:1526:2: ()
             {
              before(grammarAccess.getShapesGraphAccess().getShapesGraphAction_0()); 
-            // InternalTurtle.g:1400:2: ()
-            // InternalTurtle.g:1400:3: 
+            // InternalTurtle.g:1527:2: ()
+            // InternalTurtle.g:1527:3: 
             {
             }
 
@@ -4412,14 +4829,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapesGraph__Group__1"
-    // InternalTurtle.g:1408:1: rule__ShapesGraph__Group__1 : rule__ShapesGraph__Group__1__Impl ;
+    // InternalTurtle.g:1535:1: rule__ShapesGraph__Group__1 : rule__ShapesGraph__Group__1__Impl ;
     public final void rule__ShapesGraph__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1412:1: ( rule__ShapesGraph__Group__1__Impl )
-            // InternalTurtle.g:1413:2: rule__ShapesGraph__Group__1__Impl
+            // InternalTurtle.g:1539:1: ( rule__ShapesGraph__Group__1__Impl )
+            // InternalTurtle.g:1540:2: rule__ShapesGraph__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ShapesGraph__Group__1__Impl();
@@ -4445,35 +4862,35 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapesGraph__Group__1__Impl"
-    // InternalTurtle.g:1419:1: rule__ShapesGraph__Group__1__Impl : ( ( rule__ShapesGraph__ShapeConstraintsAssignment_1 )* ) ;
+    // InternalTurtle.g:1546:1: rule__ShapesGraph__Group__1__Impl : ( ( rule__ShapesGraph__ShapeConstraintsAssignment_1 )* ) ;
     public final void rule__ShapesGraph__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1423:1: ( ( ( rule__ShapesGraph__ShapeConstraintsAssignment_1 )* ) )
-            // InternalTurtle.g:1424:1: ( ( rule__ShapesGraph__ShapeConstraintsAssignment_1 )* )
+            // InternalTurtle.g:1550:1: ( ( ( rule__ShapesGraph__ShapeConstraintsAssignment_1 )* ) )
+            // InternalTurtle.g:1551:1: ( ( rule__ShapesGraph__ShapeConstraintsAssignment_1 )* )
             {
-            // InternalTurtle.g:1424:1: ( ( rule__ShapesGraph__ShapeConstraintsAssignment_1 )* )
-            // InternalTurtle.g:1425:2: ( rule__ShapesGraph__ShapeConstraintsAssignment_1 )*
+            // InternalTurtle.g:1551:1: ( ( rule__ShapesGraph__ShapeConstraintsAssignment_1 )* )
+            // InternalTurtle.g:1552:2: ( rule__ShapesGraph__ShapeConstraintsAssignment_1 )*
             {
              before(grammarAccess.getShapesGraphAccess().getShapeConstraintsAssignment_1()); 
-            // InternalTurtle.g:1426:2: ( rule__ShapesGraph__ShapeConstraintsAssignment_1 )*
-            loop10:
+            // InternalTurtle.g:1553:2: ( rule__ShapesGraph__ShapeConstraintsAssignment_1 )*
+            loop13:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( (LA10_0==RULE_UNICODE) ) {
-                    alt10=1;
+                if ( (LA13_0==RULE_UNICODE) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt13) {
             	case 1 :
-            	    // InternalTurtle.g:1426:3: rule__ShapesGraph__ShapeConstraintsAssignment_1
+            	    // InternalTurtle.g:1553:3: rule__ShapesGraph__ShapeConstraintsAssignment_1
             	    {
-            	    pushFollow(FOLLOW_11);
+            	    pushFollow(FOLLOW_13);
             	    rule__ShapesGraph__ShapeConstraintsAssignment_1();
 
             	    state._fsp--;
@@ -4483,7 +4900,7 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop13;
                 }
             } while (true);
 
@@ -4510,14 +4927,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group__0"
-    // InternalTurtle.g:1435:1: rule__ShapeConstraint__Group__0 : rule__ShapeConstraint__Group__0__Impl rule__ShapeConstraint__Group__1 ;
+    // InternalTurtle.g:1562:1: rule__ShapeConstraint__Group__0 : rule__ShapeConstraint__Group__0__Impl rule__ShapeConstraint__Group__1 ;
     public final void rule__ShapeConstraint__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1439:1: ( rule__ShapeConstraint__Group__0__Impl rule__ShapeConstraint__Group__1 )
-            // InternalTurtle.g:1440:2: rule__ShapeConstraint__Group__0__Impl rule__ShapeConstraint__Group__1
+            // InternalTurtle.g:1566:1: ( rule__ShapeConstraint__Group__0__Impl rule__ShapeConstraint__Group__1 )
+            // InternalTurtle.g:1567:2: rule__ShapeConstraint__Group__0__Impl rule__ShapeConstraint__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__ShapeConstraint__Group__0__Impl();
@@ -4548,21 +4965,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group__0__Impl"
-    // InternalTurtle.g:1447:1: rule__ShapeConstraint__Group__0__Impl : ( () ) ;
+    // InternalTurtle.g:1574:1: rule__ShapeConstraint__Group__0__Impl : ( () ) ;
     public final void rule__ShapeConstraint__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1451:1: ( ( () ) )
-            // InternalTurtle.g:1452:1: ( () )
+            // InternalTurtle.g:1578:1: ( ( () ) )
+            // InternalTurtle.g:1579:1: ( () )
             {
-            // InternalTurtle.g:1452:1: ( () )
-            // InternalTurtle.g:1453:2: ()
+            // InternalTurtle.g:1579:1: ( () )
+            // InternalTurtle.g:1580:2: ()
             {
              before(grammarAccess.getShapeConstraintAccess().getShapeConstraintAction_0()); 
-            // InternalTurtle.g:1454:2: ()
-            // InternalTurtle.g:1454:3: 
+            // InternalTurtle.g:1581:2: ()
+            // InternalTurtle.g:1581:3: 
             {
             }
 
@@ -4585,16 +5002,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group__1"
-    // InternalTurtle.g:1462:1: rule__ShapeConstraint__Group__1 : rule__ShapeConstraint__Group__1__Impl rule__ShapeConstraint__Group__2 ;
+    // InternalTurtle.g:1589:1: rule__ShapeConstraint__Group__1 : rule__ShapeConstraint__Group__1__Impl rule__ShapeConstraint__Group__2 ;
     public final void rule__ShapeConstraint__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1466:1: ( rule__ShapeConstraint__Group__1__Impl rule__ShapeConstraint__Group__2 )
-            // InternalTurtle.g:1467:2: rule__ShapeConstraint__Group__1__Impl rule__ShapeConstraint__Group__2
+            // InternalTurtle.g:1593:1: ( rule__ShapeConstraint__Group__1__Impl rule__ShapeConstraint__Group__2 )
+            // InternalTurtle.g:1594:2: rule__ShapeConstraint__Group__1__Impl rule__ShapeConstraint__Group__2
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_16);
             rule__ShapeConstraint__Group__1__Impl();
 
             state._fsp--;
@@ -4623,21 +5040,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group__1__Impl"
-    // InternalTurtle.g:1474:1: rule__ShapeConstraint__Group__1__Impl : ( ( rule__ShapeConstraint__ShapeNameAssignment_1 ) ) ;
+    // InternalTurtle.g:1601:1: rule__ShapeConstraint__Group__1__Impl : ( ( rule__ShapeConstraint__ShapeNameAssignment_1 ) ) ;
     public final void rule__ShapeConstraint__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1478:1: ( ( ( rule__ShapeConstraint__ShapeNameAssignment_1 ) ) )
-            // InternalTurtle.g:1479:1: ( ( rule__ShapeConstraint__ShapeNameAssignment_1 ) )
+            // InternalTurtle.g:1605:1: ( ( ( rule__ShapeConstraint__ShapeNameAssignment_1 ) ) )
+            // InternalTurtle.g:1606:1: ( ( rule__ShapeConstraint__ShapeNameAssignment_1 ) )
             {
-            // InternalTurtle.g:1479:1: ( ( rule__ShapeConstraint__ShapeNameAssignment_1 ) )
-            // InternalTurtle.g:1480:2: ( rule__ShapeConstraint__ShapeNameAssignment_1 )
+            // InternalTurtle.g:1606:1: ( ( rule__ShapeConstraint__ShapeNameAssignment_1 ) )
+            // InternalTurtle.g:1607:2: ( rule__ShapeConstraint__ShapeNameAssignment_1 )
             {
              before(grammarAccess.getShapeConstraintAccess().getShapeNameAssignment_1()); 
-            // InternalTurtle.g:1481:2: ( rule__ShapeConstraint__ShapeNameAssignment_1 )
-            // InternalTurtle.g:1481:3: rule__ShapeConstraint__ShapeNameAssignment_1
+            // InternalTurtle.g:1608:2: ( rule__ShapeConstraint__ShapeNameAssignment_1 )
+            // InternalTurtle.g:1608:3: rule__ShapeConstraint__ShapeNameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__ShapeConstraint__ShapeNameAssignment_1();
@@ -4670,16 +5087,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group__2"
-    // InternalTurtle.g:1489:1: rule__ShapeConstraint__Group__2 : rule__ShapeConstraint__Group__2__Impl rule__ShapeConstraint__Group__3 ;
+    // InternalTurtle.g:1616:1: rule__ShapeConstraint__Group__2 : rule__ShapeConstraint__Group__2__Impl rule__ShapeConstraint__Group__3 ;
     public final void rule__ShapeConstraint__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1493:1: ( rule__ShapeConstraint__Group__2__Impl rule__ShapeConstraint__Group__3 )
-            // InternalTurtle.g:1494:2: rule__ShapeConstraint__Group__2__Impl rule__ShapeConstraint__Group__3
+            // InternalTurtle.g:1620:1: ( rule__ShapeConstraint__Group__2__Impl rule__ShapeConstraint__Group__3 )
+            // InternalTurtle.g:1621:2: rule__ShapeConstraint__Group__2__Impl rule__ShapeConstraint__Group__3
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_17);
             rule__ShapeConstraint__Group__2__Impl();
 
             state._fsp--;
@@ -4708,21 +5125,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group__2__Impl"
-    // InternalTurtle.g:1501:1: rule__ShapeConstraint__Group__2__Impl : ( ( rule__ShapeConstraint__Alternatives_2 ) ) ;
+    // InternalTurtle.g:1628:1: rule__ShapeConstraint__Group__2__Impl : ( ( rule__ShapeConstraint__Alternatives_2 ) ) ;
     public final void rule__ShapeConstraint__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1505:1: ( ( ( rule__ShapeConstraint__Alternatives_2 ) ) )
-            // InternalTurtle.g:1506:1: ( ( rule__ShapeConstraint__Alternatives_2 ) )
+            // InternalTurtle.g:1632:1: ( ( ( rule__ShapeConstraint__Alternatives_2 ) ) )
+            // InternalTurtle.g:1633:1: ( ( rule__ShapeConstraint__Alternatives_2 ) )
             {
-            // InternalTurtle.g:1506:1: ( ( rule__ShapeConstraint__Alternatives_2 ) )
-            // InternalTurtle.g:1507:2: ( rule__ShapeConstraint__Alternatives_2 )
+            // InternalTurtle.g:1633:1: ( ( rule__ShapeConstraint__Alternatives_2 ) )
+            // InternalTurtle.g:1634:2: ( rule__ShapeConstraint__Alternatives_2 )
             {
              before(grammarAccess.getShapeConstraintAccess().getAlternatives_2()); 
-            // InternalTurtle.g:1508:2: ( rule__ShapeConstraint__Alternatives_2 )
-            // InternalTurtle.g:1508:3: rule__ShapeConstraint__Alternatives_2
+            // InternalTurtle.g:1635:2: ( rule__ShapeConstraint__Alternatives_2 )
+            // InternalTurtle.g:1635:3: rule__ShapeConstraint__Alternatives_2
             {
             pushFollow(FOLLOW_2);
             rule__ShapeConstraint__Alternatives_2();
@@ -4755,16 +5172,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group__3"
-    // InternalTurtle.g:1516:1: rule__ShapeConstraint__Group__3 : rule__ShapeConstraint__Group__3__Impl rule__ShapeConstraint__Group__4 ;
+    // InternalTurtle.g:1643:1: rule__ShapeConstraint__Group__3 : rule__ShapeConstraint__Group__3__Impl rule__ShapeConstraint__Group__4 ;
     public final void rule__ShapeConstraint__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1520:1: ( rule__ShapeConstraint__Group__3__Impl rule__ShapeConstraint__Group__4 )
-            // InternalTurtle.g:1521:2: rule__ShapeConstraint__Group__3__Impl rule__ShapeConstraint__Group__4
+            // InternalTurtle.g:1647:1: ( rule__ShapeConstraint__Group__3__Impl rule__ShapeConstraint__Group__4 )
+            // InternalTurtle.g:1648:2: rule__ShapeConstraint__Group__3__Impl rule__ShapeConstraint__Group__4
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_17);
             rule__ShapeConstraint__Group__3__Impl();
 
             state._fsp--;
@@ -4793,35 +5210,35 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group__3__Impl"
-    // InternalTurtle.g:1528:1: rule__ShapeConstraint__Group__3__Impl : ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_3 )* ) ;
+    // InternalTurtle.g:1655:1: rule__ShapeConstraint__Group__3__Impl : ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_3 )* ) ;
     public final void rule__ShapeConstraint__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1532:1: ( ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_3 )* ) )
-            // InternalTurtle.g:1533:1: ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_3 )* )
+            // InternalTurtle.g:1659:1: ( ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_3 )* ) )
+            // InternalTurtle.g:1660:1: ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_3 )* )
             {
-            // InternalTurtle.g:1533:1: ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_3 )* )
-            // InternalTurtle.g:1534:2: ( rule__ShapeConstraint__ShapeExpressionsAssignment_3 )*
+            // InternalTurtle.g:1660:1: ( ( rule__ShapeConstraint__ShapeExpressionsAssignment_3 )* )
+            // InternalTurtle.g:1661:2: ( rule__ShapeConstraint__ShapeExpressionsAssignment_3 )*
             {
              before(grammarAccess.getShapeConstraintAccess().getShapeExpressionsAssignment_3()); 
-            // InternalTurtle.g:1535:2: ( rule__ShapeConstraint__ShapeExpressionsAssignment_3 )*
-            loop11:
+            // InternalTurtle.g:1662:2: ( rule__ShapeConstraint__ShapeExpressionsAssignment_3 )*
+            loop14:
             do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
+                int alt14=2;
+                int LA14_0 = input.LA(1);
 
-                if ( ((LA11_0>=14 && LA11_0<=32)) ) {
-                    alt11=1;
+                if ( ((LA14_0>=14 && LA14_0<=32)) ) {
+                    alt14=1;
                 }
 
 
-                switch (alt11) {
+                switch (alt14) {
             	case 1 :
-            	    // InternalTurtle.g:1535:3: rule__ShapeConstraint__ShapeExpressionsAssignment_3
+            	    // InternalTurtle.g:1662:3: rule__ShapeConstraint__ShapeExpressionsAssignment_3
             	    {
-            	    pushFollow(FOLLOW_16);
+            	    pushFollow(FOLLOW_18);
             	    rule__ShapeConstraint__ShapeExpressionsAssignment_3();
 
             	    state._fsp--;
@@ -4831,7 +5248,7 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop11;
+            	    break loop14;
                 }
             } while (true);
 
@@ -4858,14 +5275,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group__4"
-    // InternalTurtle.g:1543:1: rule__ShapeConstraint__Group__4 : rule__ShapeConstraint__Group__4__Impl ;
+    // InternalTurtle.g:1670:1: rule__ShapeConstraint__Group__4 : rule__ShapeConstraint__Group__4__Impl ;
     public final void rule__ShapeConstraint__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1547:1: ( rule__ShapeConstraint__Group__4__Impl )
-            // InternalTurtle.g:1548:2: rule__ShapeConstraint__Group__4__Impl
+            // InternalTurtle.g:1674:1: ( rule__ShapeConstraint__Group__4__Impl )
+            // InternalTurtle.g:1675:2: rule__ShapeConstraint__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ShapeConstraint__Group__4__Impl();
@@ -4891,20 +5308,20 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group__4__Impl"
-    // InternalTurtle.g:1554:1: rule__ShapeConstraint__Group__4__Impl : ( '.' ) ;
+    // InternalTurtle.g:1681:1: rule__ShapeConstraint__Group__4__Impl : ( '.' ) ;
     public final void rule__ShapeConstraint__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1558:1: ( ( '.' ) )
-            // InternalTurtle.g:1559:1: ( '.' )
+            // InternalTurtle.g:1685:1: ( ( '.' ) )
+            // InternalTurtle.g:1686:1: ( '.' )
             {
-            // InternalTurtle.g:1559:1: ( '.' )
-            // InternalTurtle.g:1560:2: '.'
+            // InternalTurtle.g:1686:1: ( '.' )
+            // InternalTurtle.g:1687:2: '.'
             {
              before(grammarAccess.getShapeConstraintAccess().getFullStopKeyword_4()); 
-            match(input,37,FOLLOW_2); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getShapeConstraintAccess().getFullStopKeyword_4()); 
 
             }
@@ -4928,16 +5345,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group_2_0__0"
-    // InternalTurtle.g:1570:1: rule__ShapeConstraint__Group_2_0__0 : rule__ShapeConstraint__Group_2_0__0__Impl rule__ShapeConstraint__Group_2_0__1 ;
+    // InternalTurtle.g:1697:1: rule__ShapeConstraint__Group_2_0__0 : rule__ShapeConstraint__Group_2_0__0__Impl rule__ShapeConstraint__Group_2_0__1 ;
     public final void rule__ShapeConstraint__Group_2_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1574:1: ( rule__ShapeConstraint__Group_2_0__0__Impl rule__ShapeConstraint__Group_2_0__1 )
-            // InternalTurtle.g:1575:2: rule__ShapeConstraint__Group_2_0__0__Impl rule__ShapeConstraint__Group_2_0__1
+            // InternalTurtle.g:1701:1: ( rule__ShapeConstraint__Group_2_0__0__Impl rule__ShapeConstraint__Group_2_0__1 )
+            // InternalTurtle.g:1702:2: rule__ShapeConstraint__Group_2_0__0__Impl rule__ShapeConstraint__Group_2_0__1
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_19);
             rule__ShapeConstraint__Group_2_0__0__Impl();
 
             state._fsp--;
@@ -4966,21 +5383,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group_2_0__0__Impl"
-    // InternalTurtle.g:1582:1: rule__ShapeConstraint__Group_2_0__0__Impl : ( ( rule__ShapeConstraint__Alternatives_2_0_0 ) ) ;
+    // InternalTurtle.g:1709:1: rule__ShapeConstraint__Group_2_0__0__Impl : ( ( rule__ShapeConstraint__Alternatives_2_0_0 ) ) ;
     public final void rule__ShapeConstraint__Group_2_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1586:1: ( ( ( rule__ShapeConstraint__Alternatives_2_0_0 ) ) )
-            // InternalTurtle.g:1587:1: ( ( rule__ShapeConstraint__Alternatives_2_0_0 ) )
+            // InternalTurtle.g:1713:1: ( ( ( rule__ShapeConstraint__Alternatives_2_0_0 ) ) )
+            // InternalTurtle.g:1714:1: ( ( rule__ShapeConstraint__Alternatives_2_0_0 ) )
             {
-            // InternalTurtle.g:1587:1: ( ( rule__ShapeConstraint__Alternatives_2_0_0 ) )
-            // InternalTurtle.g:1588:2: ( rule__ShapeConstraint__Alternatives_2_0_0 )
+            // InternalTurtle.g:1714:1: ( ( rule__ShapeConstraint__Alternatives_2_0_0 ) )
+            // InternalTurtle.g:1715:2: ( rule__ShapeConstraint__Alternatives_2_0_0 )
             {
              before(grammarAccess.getShapeConstraintAccess().getAlternatives_2_0_0()); 
-            // InternalTurtle.g:1589:2: ( rule__ShapeConstraint__Alternatives_2_0_0 )
-            // InternalTurtle.g:1589:3: rule__ShapeConstraint__Alternatives_2_0_0
+            // InternalTurtle.g:1716:2: ( rule__ShapeConstraint__Alternatives_2_0_0 )
+            // InternalTurtle.g:1716:3: rule__ShapeConstraint__Alternatives_2_0_0
             {
             pushFollow(FOLLOW_2);
             rule__ShapeConstraint__Alternatives_2_0_0();
@@ -5013,16 +5430,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group_2_0__1"
-    // InternalTurtle.g:1597:1: rule__ShapeConstraint__Group_2_0__1 : rule__ShapeConstraint__Group_2_0__1__Impl rule__ShapeConstraint__Group_2_0__2 ;
+    // InternalTurtle.g:1724:1: rule__ShapeConstraint__Group_2_0__1 : rule__ShapeConstraint__Group_2_0__1__Impl rule__ShapeConstraint__Group_2_0__2 ;
     public final void rule__ShapeConstraint__Group_2_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1601:1: ( rule__ShapeConstraint__Group_2_0__1__Impl rule__ShapeConstraint__Group_2_0__2 )
-            // InternalTurtle.g:1602:2: rule__ShapeConstraint__Group_2_0__1__Impl rule__ShapeConstraint__Group_2_0__2
+            // InternalTurtle.g:1728:1: ( rule__ShapeConstraint__Group_2_0__1__Impl rule__ShapeConstraint__Group_2_0__2 )
+            // InternalTurtle.g:1729:2: rule__ShapeConstraint__Group_2_0__1__Impl rule__ShapeConstraint__Group_2_0__2
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__ShapeConstraint__Group_2_0__1__Impl();
 
             state._fsp--;
@@ -5051,17 +5468,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group_2_0__1__Impl"
-    // InternalTurtle.g:1609:1: rule__ShapeConstraint__Group_2_0__1__Impl : ( 'sh:NodeShape' ) ;
+    // InternalTurtle.g:1736:1: rule__ShapeConstraint__Group_2_0__1__Impl : ( 'sh:NodeShape' ) ;
     public final void rule__ShapeConstraint__Group_2_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1613:1: ( ( 'sh:NodeShape' ) )
-            // InternalTurtle.g:1614:1: ( 'sh:NodeShape' )
+            // InternalTurtle.g:1740:1: ( ( 'sh:NodeShape' ) )
+            // InternalTurtle.g:1741:1: ( 'sh:NodeShape' )
             {
-            // InternalTurtle.g:1614:1: ( 'sh:NodeShape' )
-            // InternalTurtle.g:1615:2: 'sh:NodeShape'
+            // InternalTurtle.g:1741:1: ( 'sh:NodeShape' )
+            // InternalTurtle.g:1742:2: 'sh:NodeShape'
             {
              before(grammarAccess.getShapeConstraintAccess().getShNodeShapeKeyword_2_0_1()); 
             match(input,39,FOLLOW_2); 
@@ -5088,14 +5505,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group_2_0__2"
-    // InternalTurtle.g:1624:1: rule__ShapeConstraint__Group_2_0__2 : rule__ShapeConstraint__Group_2_0__2__Impl ;
+    // InternalTurtle.g:1751:1: rule__ShapeConstraint__Group_2_0__2 : rule__ShapeConstraint__Group_2_0__2__Impl ;
     public final void rule__ShapeConstraint__Group_2_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1628:1: ( rule__ShapeConstraint__Group_2_0__2__Impl )
-            // InternalTurtle.g:1629:2: rule__ShapeConstraint__Group_2_0__2__Impl
+            // InternalTurtle.g:1755:1: ( rule__ShapeConstraint__Group_2_0__2__Impl )
+            // InternalTurtle.g:1756:2: rule__ShapeConstraint__Group_2_0__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ShapeConstraint__Group_2_0__2__Impl();
@@ -5121,17 +5538,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__Group_2_0__2__Impl"
-    // InternalTurtle.g:1635:1: rule__ShapeConstraint__Group_2_0__2__Impl : ( ';' ) ;
+    // InternalTurtle.g:1762:1: rule__ShapeConstraint__Group_2_0__2__Impl : ( ';' ) ;
     public final void rule__ShapeConstraint__Group_2_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1639:1: ( ( ';' ) )
-            // InternalTurtle.g:1640:1: ( ';' )
+            // InternalTurtle.g:1766:1: ( ( ';' ) )
+            // InternalTurtle.g:1767:1: ( ';' )
             {
-            // InternalTurtle.g:1640:1: ( ';' )
-            // InternalTurtle.g:1641:2: ';'
+            // InternalTurtle.g:1767:1: ( ';' )
+            // InternalTurtle.g:1768:2: ';'
             {
              before(grammarAccess.getShapeConstraintAccess().getSemicolonKeyword_2_0_2()); 
             match(input,38,FOLLOW_2); 
@@ -5158,14 +5575,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeName__Group__0"
-    // InternalTurtle.g:1651:1: rule__ShapeName__Group__0 : rule__ShapeName__Group__0__Impl rule__ShapeName__Group__1 ;
+    // InternalTurtle.g:1778:1: rule__ShapeName__Group__0 : rule__ShapeName__Group__0__Impl rule__ShapeName__Group__1 ;
     public final void rule__ShapeName__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1655:1: ( rule__ShapeName__Group__0__Impl rule__ShapeName__Group__1 )
-            // InternalTurtle.g:1656:2: rule__ShapeName__Group__0__Impl rule__ShapeName__Group__1
+            // InternalTurtle.g:1782:1: ( rule__ShapeName__Group__0__Impl rule__ShapeName__Group__1 )
+            // InternalTurtle.g:1783:2: rule__ShapeName__Group__0__Impl rule__ShapeName__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__ShapeName__Group__0__Impl();
@@ -5196,21 +5613,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeName__Group__0__Impl"
-    // InternalTurtle.g:1663:1: rule__ShapeName__Group__0__Impl : ( () ) ;
+    // InternalTurtle.g:1790:1: rule__ShapeName__Group__0__Impl : ( () ) ;
     public final void rule__ShapeName__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1667:1: ( ( () ) )
-            // InternalTurtle.g:1668:1: ( () )
+            // InternalTurtle.g:1794:1: ( ( () ) )
+            // InternalTurtle.g:1795:1: ( () )
             {
-            // InternalTurtle.g:1668:1: ( () )
-            // InternalTurtle.g:1669:2: ()
+            // InternalTurtle.g:1795:1: ( () )
+            // InternalTurtle.g:1796:2: ()
             {
              before(grammarAccess.getShapeNameAccess().getShapeNameAction_0()); 
-            // InternalTurtle.g:1670:2: ()
-            // InternalTurtle.g:1670:3: 
+            // InternalTurtle.g:1797:2: ()
+            // InternalTurtle.g:1797:3: 
             {
             }
 
@@ -5233,14 +5650,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeName__Group__1"
-    // InternalTurtle.g:1678:1: rule__ShapeName__Group__1 : rule__ShapeName__Group__1__Impl ;
+    // InternalTurtle.g:1805:1: rule__ShapeName__Group__1 : rule__ShapeName__Group__1__Impl ;
     public final void rule__ShapeName__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1682:1: ( rule__ShapeName__Group__1__Impl )
-            // InternalTurtle.g:1683:2: rule__ShapeName__Group__1__Impl
+            // InternalTurtle.g:1809:1: ( rule__ShapeName__Group__1__Impl )
+            // InternalTurtle.g:1810:2: rule__ShapeName__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ShapeName__Group__1__Impl();
@@ -5266,21 +5683,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeName__Group__1__Impl"
-    // InternalTurtle.g:1689:1: rule__ShapeName__Group__1__Impl : ( ( rule__ShapeName__NameAssignment_1 ) ) ;
+    // InternalTurtle.g:1816:1: rule__ShapeName__Group__1__Impl : ( ( rule__ShapeName__NameAssignment_1 ) ) ;
     public final void rule__ShapeName__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1693:1: ( ( ( rule__ShapeName__NameAssignment_1 ) ) )
-            // InternalTurtle.g:1694:1: ( ( rule__ShapeName__NameAssignment_1 ) )
+            // InternalTurtle.g:1820:1: ( ( ( rule__ShapeName__NameAssignment_1 ) ) )
+            // InternalTurtle.g:1821:1: ( ( rule__ShapeName__NameAssignment_1 ) )
             {
-            // InternalTurtle.g:1694:1: ( ( rule__ShapeName__NameAssignment_1 ) )
-            // InternalTurtle.g:1695:2: ( rule__ShapeName__NameAssignment_1 )
+            // InternalTurtle.g:1821:1: ( ( rule__ShapeName__NameAssignment_1 ) )
+            // InternalTurtle.g:1822:2: ( rule__ShapeName__NameAssignment_1 )
             {
              before(grammarAccess.getShapeNameAccess().getNameAssignment_1()); 
-            // InternalTurtle.g:1696:2: ( rule__ShapeName__NameAssignment_1 )
-            // InternalTurtle.g:1696:3: rule__ShapeName__NameAssignment_1
+            // InternalTurtle.g:1823:2: ( rule__ShapeName__NameAssignment_1 )
+            // InternalTurtle.g:1823:3: rule__ShapeName__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__ShapeName__NameAssignment_1();
@@ -5313,16 +5730,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_0__0"
-    // InternalTurtle.g:1705:1: rule__ShapeExpression__Group_0__0 : rule__ShapeExpression__Group_0__0__Impl rule__ShapeExpression__Group_0__1 ;
+    // InternalTurtle.g:1832:1: rule__ShapeExpression__Group_0__0 : rule__ShapeExpression__Group_0__0__Impl rule__ShapeExpression__Group_0__1 ;
     public final void rule__ShapeExpression__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1709:1: ( rule__ShapeExpression__Group_0__0__Impl rule__ShapeExpression__Group_0__1 )
-            // InternalTurtle.g:1710:2: rule__ShapeExpression__Group_0__0__Impl rule__ShapeExpression__Group_0__1
+            // InternalTurtle.g:1836:1: ( rule__ShapeExpression__Group_0__0__Impl rule__ShapeExpression__Group_0__1 )
+            // InternalTurtle.g:1837:2: rule__ShapeExpression__Group_0__0__Impl rule__ShapeExpression__Group_0__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_20);
             rule__ShapeExpression__Group_0__0__Impl();
 
             state._fsp--;
@@ -5351,21 +5768,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_0__0__Impl"
-    // InternalTurtle.g:1717:1: rule__ShapeExpression__Group_0__0__Impl : ( () ) ;
+    // InternalTurtle.g:1844:1: rule__ShapeExpression__Group_0__0__Impl : ( () ) ;
     public final void rule__ShapeExpression__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1721:1: ( ( () ) )
-            // InternalTurtle.g:1722:1: ( () )
+            // InternalTurtle.g:1848:1: ( ( () ) )
+            // InternalTurtle.g:1849:1: ( () )
             {
-            // InternalTurtle.g:1722:1: ( () )
-            // InternalTurtle.g:1723:2: ()
+            // InternalTurtle.g:1849:1: ( () )
+            // InternalTurtle.g:1850:2: ()
             {
              before(grammarAccess.getShapeExpressionAccess().getShapeExpressionAction_0_0()); 
-            // InternalTurtle.g:1724:2: ()
-            // InternalTurtle.g:1724:3: 
+            // InternalTurtle.g:1851:2: ()
+            // InternalTurtle.g:1851:3: 
             {
             }
 
@@ -5388,14 +5805,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_0__1"
-    // InternalTurtle.g:1732:1: rule__ShapeExpression__Group_0__1 : rule__ShapeExpression__Group_0__1__Impl ;
+    // InternalTurtle.g:1859:1: rule__ShapeExpression__Group_0__1 : rule__ShapeExpression__Group_0__1__Impl ;
     public final void rule__ShapeExpression__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1736:1: ( rule__ShapeExpression__Group_0__1__Impl )
-            // InternalTurtle.g:1737:2: rule__ShapeExpression__Group_0__1__Impl
+            // InternalTurtle.g:1863:1: ( rule__ShapeExpression__Group_0__1__Impl )
+            // InternalTurtle.g:1864:2: rule__ShapeExpression__Group_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ShapeExpression__Group_0__1__Impl();
@@ -5421,21 +5838,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_0__1__Impl"
-    // InternalTurtle.g:1743:1: rule__ShapeExpression__Group_0__1__Impl : ( ( rule__ShapeExpression__PropertyValuesAssignment_0_1 ) ) ;
+    // InternalTurtle.g:1870:1: rule__ShapeExpression__Group_0__1__Impl : ( ( rule__ShapeExpression__PropertyValuesAssignment_0_1 ) ) ;
     public final void rule__ShapeExpression__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1747:1: ( ( ( rule__ShapeExpression__PropertyValuesAssignment_0_1 ) ) )
-            // InternalTurtle.g:1748:1: ( ( rule__ShapeExpression__PropertyValuesAssignment_0_1 ) )
+            // InternalTurtle.g:1874:1: ( ( ( rule__ShapeExpression__PropertyValuesAssignment_0_1 ) ) )
+            // InternalTurtle.g:1875:1: ( ( rule__ShapeExpression__PropertyValuesAssignment_0_1 ) )
             {
-            // InternalTurtle.g:1748:1: ( ( rule__ShapeExpression__PropertyValuesAssignment_0_1 ) )
-            // InternalTurtle.g:1749:2: ( rule__ShapeExpression__PropertyValuesAssignment_0_1 )
+            // InternalTurtle.g:1875:1: ( ( rule__ShapeExpression__PropertyValuesAssignment_0_1 ) )
+            // InternalTurtle.g:1876:2: ( rule__ShapeExpression__PropertyValuesAssignment_0_1 )
             {
              before(grammarAccess.getShapeExpressionAccess().getPropertyValuesAssignment_0_1()); 
-            // InternalTurtle.g:1750:2: ( rule__ShapeExpression__PropertyValuesAssignment_0_1 )
-            // InternalTurtle.g:1750:3: rule__ShapeExpression__PropertyValuesAssignment_0_1
+            // InternalTurtle.g:1877:2: ( rule__ShapeExpression__PropertyValuesAssignment_0_1 )
+            // InternalTurtle.g:1877:3: rule__ShapeExpression__PropertyValuesAssignment_0_1
             {
             pushFollow(FOLLOW_2);
             rule__ShapeExpression__PropertyValuesAssignment_0_1();
@@ -5468,16 +5885,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1__0"
-    // InternalTurtle.g:1759:1: rule__ShapeExpression__Group_1__0 : rule__ShapeExpression__Group_1__0__Impl rule__ShapeExpression__Group_1__1 ;
+    // InternalTurtle.g:1886:1: rule__ShapeExpression__Group_1__0 : rule__ShapeExpression__Group_1__0__Impl rule__ShapeExpression__Group_1__1 ;
     public final void rule__ShapeExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1763:1: ( rule__ShapeExpression__Group_1__0__Impl rule__ShapeExpression__Group_1__1 )
-            // InternalTurtle.g:1764:2: rule__ShapeExpression__Group_1__0__Impl rule__ShapeExpression__Group_1__1
+            // InternalTurtle.g:1890:1: ( rule__ShapeExpression__Group_1__0__Impl rule__ShapeExpression__Group_1__1 )
+            // InternalTurtle.g:1891:2: rule__ShapeExpression__Group_1__0__Impl rule__ShapeExpression__Group_1__1
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_21);
             rule__ShapeExpression__Group_1__0__Impl();
 
             state._fsp--;
@@ -5506,21 +5923,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1__0__Impl"
-    // InternalTurtle.g:1771:1: rule__ShapeExpression__Group_1__0__Impl : ( ( rule__ShapeExpression__Group_1_0__0 ) ) ;
+    // InternalTurtle.g:1898:1: rule__ShapeExpression__Group_1__0__Impl : ( ( rule__ShapeExpression__Group_1_0__0 ) ) ;
     public final void rule__ShapeExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1775:1: ( ( ( rule__ShapeExpression__Group_1_0__0 ) ) )
-            // InternalTurtle.g:1776:1: ( ( rule__ShapeExpression__Group_1_0__0 ) )
+            // InternalTurtle.g:1902:1: ( ( ( rule__ShapeExpression__Group_1_0__0 ) ) )
+            // InternalTurtle.g:1903:1: ( ( rule__ShapeExpression__Group_1_0__0 ) )
             {
-            // InternalTurtle.g:1776:1: ( ( rule__ShapeExpression__Group_1_0__0 ) )
-            // InternalTurtle.g:1777:2: ( rule__ShapeExpression__Group_1_0__0 )
+            // InternalTurtle.g:1903:1: ( ( rule__ShapeExpression__Group_1_0__0 ) )
+            // InternalTurtle.g:1904:2: ( rule__ShapeExpression__Group_1_0__0 )
             {
              before(grammarAccess.getShapeExpressionAccess().getGroup_1_0()); 
-            // InternalTurtle.g:1778:2: ( rule__ShapeExpression__Group_1_0__0 )
-            // InternalTurtle.g:1778:3: rule__ShapeExpression__Group_1_0__0
+            // InternalTurtle.g:1905:2: ( rule__ShapeExpression__Group_1_0__0 )
+            // InternalTurtle.g:1905:3: rule__ShapeExpression__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__ShapeExpression__Group_1_0__0();
@@ -5553,16 +5970,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1__1"
-    // InternalTurtle.g:1786:1: rule__ShapeExpression__Group_1__1 : rule__ShapeExpression__Group_1__1__Impl rule__ShapeExpression__Group_1__2 ;
+    // InternalTurtle.g:1913:1: rule__ShapeExpression__Group_1__1 : rule__ShapeExpression__Group_1__1__Impl rule__ShapeExpression__Group_1__2 ;
     public final void rule__ShapeExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1790:1: ( rule__ShapeExpression__Group_1__1__Impl rule__ShapeExpression__Group_1__2 )
-            // InternalTurtle.g:1791:2: rule__ShapeExpression__Group_1__1__Impl rule__ShapeExpression__Group_1__2
+            // InternalTurtle.g:1917:1: ( rule__ShapeExpression__Group_1__1__Impl rule__ShapeExpression__Group_1__2 )
+            // InternalTurtle.g:1918:2: rule__ShapeExpression__Group_1__1__Impl rule__ShapeExpression__Group_1__2
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_21);
             rule__ShapeExpression__Group_1__1__Impl();
 
             state._fsp--;
@@ -5591,29 +6008,29 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1__1__Impl"
-    // InternalTurtle.g:1798:1: rule__ShapeExpression__Group_1__1__Impl : ( ( rule__ShapeExpression__Group_1_1__0 )? ) ;
+    // InternalTurtle.g:1925:1: rule__ShapeExpression__Group_1__1__Impl : ( ( rule__ShapeExpression__Group_1_1__0 )? ) ;
     public final void rule__ShapeExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1802:1: ( ( ( rule__ShapeExpression__Group_1_1__0 )? ) )
-            // InternalTurtle.g:1803:1: ( ( rule__ShapeExpression__Group_1_1__0 )? )
+            // InternalTurtle.g:1929:1: ( ( ( rule__ShapeExpression__Group_1_1__0 )? ) )
+            // InternalTurtle.g:1930:1: ( ( rule__ShapeExpression__Group_1_1__0 )? )
             {
-            // InternalTurtle.g:1803:1: ( ( rule__ShapeExpression__Group_1_1__0 )? )
-            // InternalTurtle.g:1804:2: ( rule__ShapeExpression__Group_1_1__0 )?
+            // InternalTurtle.g:1930:1: ( ( rule__ShapeExpression__Group_1_1__0 )? )
+            // InternalTurtle.g:1931:2: ( rule__ShapeExpression__Group_1_1__0 )?
             {
              before(grammarAccess.getShapeExpressionAccess().getGroup_1_1()); 
-            // InternalTurtle.g:1805:2: ( rule__ShapeExpression__Group_1_1__0 )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // InternalTurtle.g:1932:2: ( rule__ShapeExpression__Group_1_1__0 )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA12_0==RULE_UNICODE||LA12_0==13) ) {
-                alt12=1;
+            if ( (LA15_0==RULE_UNICODE||LA15_0==13) ) {
+                alt15=1;
             }
-            switch (alt12) {
+            switch (alt15) {
                 case 1 :
-                    // InternalTurtle.g:1805:3: rule__ShapeExpression__Group_1_1__0
+                    // InternalTurtle.g:1932:3: rule__ShapeExpression__Group_1_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ShapeExpression__Group_1_1__0();
@@ -5649,16 +6066,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1__2"
-    // InternalTurtle.g:1813:1: rule__ShapeExpression__Group_1__2 : rule__ShapeExpression__Group_1__2__Impl rule__ShapeExpression__Group_1__3 ;
+    // InternalTurtle.g:1940:1: rule__ShapeExpression__Group_1__2 : rule__ShapeExpression__Group_1__2__Impl rule__ShapeExpression__Group_1__3 ;
     public final void rule__ShapeExpression__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1817:1: ( rule__ShapeExpression__Group_1__2__Impl rule__ShapeExpression__Group_1__3 )
-            // InternalTurtle.g:1818:2: rule__ShapeExpression__Group_1__2__Impl rule__ShapeExpression__Group_1__3
+            // InternalTurtle.g:1944:1: ( rule__ShapeExpression__Group_1__2__Impl rule__ShapeExpression__Group_1__3 )
+            // InternalTurtle.g:1945:2: rule__ShapeExpression__Group_1__2__Impl rule__ShapeExpression__Group_1__3
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_21);
             rule__ShapeExpression__Group_1__2__Impl();
 
             state._fsp--;
@@ -5687,40 +6104,40 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1__2__Impl"
-    // InternalTurtle.g:1825:1: rule__ShapeExpression__Group_1__2__Impl : ( ( rule__ShapeExpression__Group_1_2__0 )? ) ;
+    // InternalTurtle.g:1952:1: rule__ShapeExpression__Group_1__2__Impl : ( ( rule__ShapeExpression__Group_1_2__0 )? ) ;
     public final void rule__ShapeExpression__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1829:1: ( ( ( rule__ShapeExpression__Group_1_2__0 )? ) )
-            // InternalTurtle.g:1830:1: ( ( rule__ShapeExpression__Group_1_2__0 )? )
+            // InternalTurtle.g:1956:1: ( ( ( rule__ShapeExpression__Group_1_2__0 )? ) )
+            // InternalTurtle.g:1957:1: ( ( rule__ShapeExpression__Group_1_2__0 )? )
             {
-            // InternalTurtle.g:1830:1: ( ( rule__ShapeExpression__Group_1_2__0 )? )
-            // InternalTurtle.g:1831:2: ( rule__ShapeExpression__Group_1_2__0 )?
+            // InternalTurtle.g:1957:1: ( ( rule__ShapeExpression__Group_1_2__0 )? )
+            // InternalTurtle.g:1958:2: ( rule__ShapeExpression__Group_1_2__0 )?
             {
              before(grammarAccess.getShapeExpressionAccess().getGroup_1_2()); 
-            // InternalTurtle.g:1832:2: ( rule__ShapeExpression__Group_1_2__0 )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // InternalTurtle.g:1959:2: ( rule__ShapeExpression__Group_1_2__0 )?
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA13_0==14) ) {
-                int LA13_1 = input.LA(2);
+            if ( (LA16_0==14) ) {
+                int LA16_1 = input.LA(2);
 
-                if ( (LA13_1==40) ) {
-                    alt13=1;
+                if ( (LA16_1==40) ) {
+                    alt16=1;
                 }
             }
-            else if ( (LA13_0==15) ) {
-                int LA13_2 = input.LA(2);
+            else if ( (LA16_0==15) ) {
+                int LA16_2 = input.LA(2);
 
-                if ( (LA13_2==40) ) {
-                    alt13=1;
+                if ( (LA16_2==40) ) {
+                    alt16=1;
                 }
             }
-            switch (alt13) {
+            switch (alt16) {
                 case 1 :
-                    // InternalTurtle.g:1832:3: rule__ShapeExpression__Group_1_2__0
+                    // InternalTurtle.g:1959:3: rule__ShapeExpression__Group_1_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ShapeExpression__Group_1_2__0();
@@ -5756,14 +6173,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1__3"
-    // InternalTurtle.g:1840:1: rule__ShapeExpression__Group_1__3 : rule__ShapeExpression__Group_1__3__Impl ;
+    // InternalTurtle.g:1967:1: rule__ShapeExpression__Group_1__3 : rule__ShapeExpression__Group_1__3__Impl ;
     public final void rule__ShapeExpression__Group_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1844:1: ( rule__ShapeExpression__Group_1__3__Impl )
-            // InternalTurtle.g:1845:2: rule__ShapeExpression__Group_1__3__Impl
+            // InternalTurtle.g:1971:1: ( rule__ShapeExpression__Group_1__3__Impl )
+            // InternalTurtle.g:1972:2: rule__ShapeExpression__Group_1__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ShapeExpression__Group_1__3__Impl();
@@ -5789,26 +6206,26 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1__3__Impl"
-    // InternalTurtle.g:1851:1: rule__ShapeExpression__Group_1__3__Impl : ( ( ( rule__ShapeExpression__Group_1_3__0 ) ) ( ( rule__ShapeExpression__Group_1_3__0 )* ) ) ;
+    // InternalTurtle.g:1978:1: rule__ShapeExpression__Group_1__3__Impl : ( ( ( rule__ShapeExpression__Group_1_3__0 ) ) ( ( rule__ShapeExpression__Group_1_3__0 )* ) ) ;
     public final void rule__ShapeExpression__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1855:1: ( ( ( ( rule__ShapeExpression__Group_1_3__0 ) ) ( ( rule__ShapeExpression__Group_1_3__0 )* ) ) )
-            // InternalTurtle.g:1856:1: ( ( ( rule__ShapeExpression__Group_1_3__0 ) ) ( ( rule__ShapeExpression__Group_1_3__0 )* ) )
+            // InternalTurtle.g:1982:1: ( ( ( ( rule__ShapeExpression__Group_1_3__0 ) ) ( ( rule__ShapeExpression__Group_1_3__0 )* ) ) )
+            // InternalTurtle.g:1983:1: ( ( ( rule__ShapeExpression__Group_1_3__0 ) ) ( ( rule__ShapeExpression__Group_1_3__0 )* ) )
             {
-            // InternalTurtle.g:1856:1: ( ( ( rule__ShapeExpression__Group_1_3__0 ) ) ( ( rule__ShapeExpression__Group_1_3__0 )* ) )
-            // InternalTurtle.g:1857:2: ( ( rule__ShapeExpression__Group_1_3__0 ) ) ( ( rule__ShapeExpression__Group_1_3__0 )* )
+            // InternalTurtle.g:1983:1: ( ( ( rule__ShapeExpression__Group_1_3__0 ) ) ( ( rule__ShapeExpression__Group_1_3__0 )* ) )
+            // InternalTurtle.g:1984:2: ( ( rule__ShapeExpression__Group_1_3__0 ) ) ( ( rule__ShapeExpression__Group_1_3__0 )* )
             {
-            // InternalTurtle.g:1857:2: ( ( rule__ShapeExpression__Group_1_3__0 ) )
-            // InternalTurtle.g:1858:3: ( rule__ShapeExpression__Group_1_3__0 )
+            // InternalTurtle.g:1984:2: ( ( rule__ShapeExpression__Group_1_3__0 ) )
+            // InternalTurtle.g:1985:3: ( rule__ShapeExpression__Group_1_3__0 )
             {
              before(grammarAccess.getShapeExpressionAccess().getGroup_1_3()); 
-            // InternalTurtle.g:1859:3: ( rule__ShapeExpression__Group_1_3__0 )
-            // InternalTurtle.g:1859:4: rule__ShapeExpression__Group_1_3__0
+            // InternalTurtle.g:1986:3: ( rule__ShapeExpression__Group_1_3__0 )
+            // InternalTurtle.g:1986:4: rule__ShapeExpression__Group_1_3__0
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_22);
             rule__ShapeExpression__Group_1_3__0();
 
             state._fsp--;
@@ -5820,20 +6237,20 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
             }
 
-            // InternalTurtle.g:1862:2: ( ( rule__ShapeExpression__Group_1_3__0 )* )
-            // InternalTurtle.g:1863:3: ( rule__ShapeExpression__Group_1_3__0 )*
+            // InternalTurtle.g:1989:2: ( ( rule__ShapeExpression__Group_1_3__0 )* )
+            // InternalTurtle.g:1990:3: ( rule__ShapeExpression__Group_1_3__0 )*
             {
              before(grammarAccess.getShapeExpressionAccess().getGroup_1_3()); 
-            // InternalTurtle.g:1864:3: ( rule__ShapeExpression__Group_1_3__0 )*
-            loop14:
+            // InternalTurtle.g:1991:3: ( rule__ShapeExpression__Group_1_3__0 )*
+            loop17:
             do {
-                int alt14=2;
-                alt14 = dfa14.predict(input);
-                switch (alt14) {
+                int alt17=2;
+                alt17 = dfa17.predict(input);
+                switch (alt17) {
             	case 1 :
-            	    // InternalTurtle.g:1864:4: rule__ShapeExpression__Group_1_3__0
+            	    // InternalTurtle.g:1991:4: rule__ShapeExpression__Group_1_3__0
             	    {
-            	    pushFollow(FOLLOW_20);
+            	    pushFollow(FOLLOW_22);
             	    rule__ShapeExpression__Group_1_3__0();
 
             	    state._fsp--;
@@ -5843,7 +6260,7 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop14;
+            	    break loop17;
                 }
             } while (true);
 
@@ -5873,16 +6290,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_0__0"
-    // InternalTurtle.g:1874:1: rule__ShapeExpression__Group_1_0__0 : rule__ShapeExpression__Group_1_0__0__Impl rule__ShapeExpression__Group_1_0__1 ;
+    // InternalTurtle.g:2001:1: rule__ShapeExpression__Group_1_0__0 : rule__ShapeExpression__Group_1_0__0__Impl rule__ShapeExpression__Group_1_0__1 ;
     public final void rule__ShapeExpression__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1878:1: ( rule__ShapeExpression__Group_1_0__0__Impl rule__ShapeExpression__Group_1_0__1 )
-            // InternalTurtle.g:1879:2: rule__ShapeExpression__Group_1_0__0__Impl rule__ShapeExpression__Group_1_0__1
+            // InternalTurtle.g:2005:1: ( rule__ShapeExpression__Group_1_0__0__Impl rule__ShapeExpression__Group_1_0__1 )
+            // InternalTurtle.g:2006:2: rule__ShapeExpression__Group_1_0__0__Impl rule__ShapeExpression__Group_1_0__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_23);
             rule__ShapeExpression__Group_1_0__0__Impl();
 
             state._fsp--;
@@ -5911,21 +6328,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_0__0__Impl"
-    // InternalTurtle.g:1886:1: rule__ShapeExpression__Group_1_0__0__Impl : ( ( rule__ShapeExpression__TypeAssignment_1_0_0 ) ) ;
+    // InternalTurtle.g:2013:1: rule__ShapeExpression__Group_1_0__0__Impl : ( ( rule__ShapeExpression__TypeAssignment_1_0_0 ) ) ;
     public final void rule__ShapeExpression__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1890:1: ( ( ( rule__ShapeExpression__TypeAssignment_1_0_0 ) ) )
-            // InternalTurtle.g:1891:1: ( ( rule__ShapeExpression__TypeAssignment_1_0_0 ) )
+            // InternalTurtle.g:2017:1: ( ( ( rule__ShapeExpression__TypeAssignment_1_0_0 ) ) )
+            // InternalTurtle.g:2018:1: ( ( rule__ShapeExpression__TypeAssignment_1_0_0 ) )
             {
-            // InternalTurtle.g:1891:1: ( ( rule__ShapeExpression__TypeAssignment_1_0_0 ) )
-            // InternalTurtle.g:1892:2: ( rule__ShapeExpression__TypeAssignment_1_0_0 )
+            // InternalTurtle.g:2018:1: ( ( rule__ShapeExpression__TypeAssignment_1_0_0 ) )
+            // InternalTurtle.g:2019:2: ( rule__ShapeExpression__TypeAssignment_1_0_0 )
             {
              before(grammarAccess.getShapeExpressionAccess().getTypeAssignment_1_0_0()); 
-            // InternalTurtle.g:1893:2: ( rule__ShapeExpression__TypeAssignment_1_0_0 )
-            // InternalTurtle.g:1893:3: rule__ShapeExpression__TypeAssignment_1_0_0
+            // InternalTurtle.g:2020:2: ( rule__ShapeExpression__TypeAssignment_1_0_0 )
+            // InternalTurtle.g:2020:3: rule__ShapeExpression__TypeAssignment_1_0_0
             {
             pushFollow(FOLLOW_2);
             rule__ShapeExpression__TypeAssignment_1_0_0();
@@ -5958,14 +6375,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_0__1"
-    // InternalTurtle.g:1901:1: rule__ShapeExpression__Group_1_0__1 : rule__ShapeExpression__Group_1_0__1__Impl ;
+    // InternalTurtle.g:2028:1: rule__ShapeExpression__Group_1_0__1 : rule__ShapeExpression__Group_1_0__1__Impl ;
     public final void rule__ShapeExpression__Group_1_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1905:1: ( rule__ShapeExpression__Group_1_0__1__Impl )
-            // InternalTurtle.g:1906:2: rule__ShapeExpression__Group_1_0__1__Impl
+            // InternalTurtle.g:2032:1: ( rule__ShapeExpression__Group_1_0__1__Impl )
+            // InternalTurtle.g:2033:2: rule__ShapeExpression__Group_1_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ShapeExpression__Group_1_0__1__Impl();
@@ -5991,17 +6408,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_0__1__Impl"
-    // InternalTurtle.g:1912:1: rule__ShapeExpression__Group_1_0__1__Impl : ( '[' ) ;
+    // InternalTurtle.g:2039:1: rule__ShapeExpression__Group_1_0__1__Impl : ( '[' ) ;
     public final void rule__ShapeExpression__Group_1_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1916:1: ( ( '[' ) )
-            // InternalTurtle.g:1917:1: ( '[' )
+            // InternalTurtle.g:2043:1: ( ( '[' ) )
+            // InternalTurtle.g:2044:1: ( '[' )
             {
-            // InternalTurtle.g:1917:1: ( '[' )
-            // InternalTurtle.g:1918:2: '['
+            // InternalTurtle.g:2044:1: ( '[' )
+            // InternalTurtle.g:2045:2: '['
             {
              before(grammarAccess.getShapeExpressionAccess().getLeftSquareBracketKeyword_1_0_1()); 
             match(input,40,FOLLOW_2); 
@@ -6028,16 +6445,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_1__0"
-    // InternalTurtle.g:1928:1: rule__ShapeExpression__Group_1_1__0 : rule__ShapeExpression__Group_1_1__0__Impl rule__ShapeExpression__Group_1_1__1 ;
+    // InternalTurtle.g:2055:1: rule__ShapeExpression__Group_1_1__0 : rule__ShapeExpression__Group_1_1__0__Impl rule__ShapeExpression__Group_1_1__1 ;
     public final void rule__ShapeExpression__Group_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1932:1: ( rule__ShapeExpression__Group_1_1__0__Impl rule__ShapeExpression__Group_1_1__1 )
-            // InternalTurtle.g:1933:2: rule__ShapeExpression__Group_1_1__0__Impl rule__ShapeExpression__Group_1_1__1
+            // InternalTurtle.g:2059:1: ( rule__ShapeExpression__Group_1_1__0__Impl rule__ShapeExpression__Group_1_1__1 )
+            // InternalTurtle.g:2060:2: rule__ShapeExpression__Group_1_1__0__Impl rule__ShapeExpression__Group_1_1__1
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_19);
             rule__ShapeExpression__Group_1_1__0__Impl();
 
             state._fsp--;
@@ -6066,21 +6483,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_1__0__Impl"
-    // InternalTurtle.g:1940:1: rule__ShapeExpression__Group_1_1__0__Impl : ( ( rule__ShapeExpression__Alternatives_1_1_0 ) ) ;
+    // InternalTurtle.g:2067:1: rule__ShapeExpression__Group_1_1__0__Impl : ( ( rule__ShapeExpression__Alternatives_1_1_0 ) ) ;
     public final void rule__ShapeExpression__Group_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1944:1: ( ( ( rule__ShapeExpression__Alternatives_1_1_0 ) ) )
-            // InternalTurtle.g:1945:1: ( ( rule__ShapeExpression__Alternatives_1_1_0 ) )
+            // InternalTurtle.g:2071:1: ( ( ( rule__ShapeExpression__Alternatives_1_1_0 ) ) )
+            // InternalTurtle.g:2072:1: ( ( rule__ShapeExpression__Alternatives_1_1_0 ) )
             {
-            // InternalTurtle.g:1945:1: ( ( rule__ShapeExpression__Alternatives_1_1_0 ) )
-            // InternalTurtle.g:1946:2: ( rule__ShapeExpression__Alternatives_1_1_0 )
+            // InternalTurtle.g:2072:1: ( ( rule__ShapeExpression__Alternatives_1_1_0 ) )
+            // InternalTurtle.g:2073:2: ( rule__ShapeExpression__Alternatives_1_1_0 )
             {
              before(grammarAccess.getShapeExpressionAccess().getAlternatives_1_1_0()); 
-            // InternalTurtle.g:1947:2: ( rule__ShapeExpression__Alternatives_1_1_0 )
-            // InternalTurtle.g:1947:3: rule__ShapeExpression__Alternatives_1_1_0
+            // InternalTurtle.g:2074:2: ( rule__ShapeExpression__Alternatives_1_1_0 )
+            // InternalTurtle.g:2074:3: rule__ShapeExpression__Alternatives_1_1_0
             {
             pushFollow(FOLLOW_2);
             rule__ShapeExpression__Alternatives_1_1_0();
@@ -6113,16 +6530,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_1__1"
-    // InternalTurtle.g:1955:1: rule__ShapeExpression__Group_1_1__1 : rule__ShapeExpression__Group_1_1__1__Impl rule__ShapeExpression__Group_1_1__2 ;
+    // InternalTurtle.g:2082:1: rule__ShapeExpression__Group_1_1__1 : rule__ShapeExpression__Group_1_1__1__Impl rule__ShapeExpression__Group_1_1__2 ;
     public final void rule__ShapeExpression__Group_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1959:1: ( rule__ShapeExpression__Group_1_1__1__Impl rule__ShapeExpression__Group_1_1__2 )
-            // InternalTurtle.g:1960:2: rule__ShapeExpression__Group_1_1__1__Impl rule__ShapeExpression__Group_1_1__2
+            // InternalTurtle.g:2086:1: ( rule__ShapeExpression__Group_1_1__1__Impl rule__ShapeExpression__Group_1_1__2 )
+            // InternalTurtle.g:2087:2: rule__ShapeExpression__Group_1_1__1__Impl rule__ShapeExpression__Group_1_1__2
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__ShapeExpression__Group_1_1__1__Impl();
 
             state._fsp--;
@@ -6151,17 +6568,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_1__1__Impl"
-    // InternalTurtle.g:1967:1: rule__ShapeExpression__Group_1_1__1__Impl : ( 'sh:NodeShape' ) ;
+    // InternalTurtle.g:2094:1: rule__ShapeExpression__Group_1_1__1__Impl : ( 'sh:NodeShape' ) ;
     public final void rule__ShapeExpression__Group_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1971:1: ( ( 'sh:NodeShape' ) )
-            // InternalTurtle.g:1972:1: ( 'sh:NodeShape' )
+            // InternalTurtle.g:2098:1: ( ( 'sh:NodeShape' ) )
+            // InternalTurtle.g:2099:1: ( 'sh:NodeShape' )
             {
-            // InternalTurtle.g:1972:1: ( 'sh:NodeShape' )
-            // InternalTurtle.g:1973:2: 'sh:NodeShape'
+            // InternalTurtle.g:2099:1: ( 'sh:NodeShape' )
+            // InternalTurtle.g:2100:2: 'sh:NodeShape'
             {
              before(grammarAccess.getShapeExpressionAccess().getShNodeShapeKeyword_1_1_1()); 
             match(input,39,FOLLOW_2); 
@@ -6188,14 +6605,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_1__2"
-    // InternalTurtle.g:1982:1: rule__ShapeExpression__Group_1_1__2 : rule__ShapeExpression__Group_1_1__2__Impl ;
+    // InternalTurtle.g:2109:1: rule__ShapeExpression__Group_1_1__2 : rule__ShapeExpression__Group_1_1__2__Impl ;
     public final void rule__ShapeExpression__Group_1_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1986:1: ( rule__ShapeExpression__Group_1_1__2__Impl )
-            // InternalTurtle.g:1987:2: rule__ShapeExpression__Group_1_1__2__Impl
+            // InternalTurtle.g:2113:1: ( rule__ShapeExpression__Group_1_1__2__Impl )
+            // InternalTurtle.g:2114:2: rule__ShapeExpression__Group_1_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ShapeExpression__Group_1_1__2__Impl();
@@ -6221,17 +6638,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_1__2__Impl"
-    // InternalTurtle.g:1993:1: rule__ShapeExpression__Group_1_1__2__Impl : ( ';' ) ;
+    // InternalTurtle.g:2120:1: rule__ShapeExpression__Group_1_1__2__Impl : ( ';' ) ;
     public final void rule__ShapeExpression__Group_1_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:1997:1: ( ( ';' ) )
-            // InternalTurtle.g:1998:1: ( ';' )
+            // InternalTurtle.g:2124:1: ( ( ';' ) )
+            // InternalTurtle.g:2125:1: ( ';' )
             {
-            // InternalTurtle.g:1998:1: ( ';' )
-            // InternalTurtle.g:1999:2: ';'
+            // InternalTurtle.g:2125:1: ( ';' )
+            // InternalTurtle.g:2126:2: ';'
             {
              before(grammarAccess.getShapeExpressionAccess().getSemicolonKeyword_1_1_2()); 
             match(input,38,FOLLOW_2); 
@@ -6258,16 +6675,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_2__0"
-    // InternalTurtle.g:2009:1: rule__ShapeExpression__Group_1_2__0 : rule__ShapeExpression__Group_1_2__0__Impl rule__ShapeExpression__Group_1_2__1 ;
+    // InternalTurtle.g:2136:1: rule__ShapeExpression__Group_1_2__0 : rule__ShapeExpression__Group_1_2__0__Impl rule__ShapeExpression__Group_1_2__1 ;
     public final void rule__ShapeExpression__Group_1_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2013:1: ( rule__ShapeExpression__Group_1_2__0__Impl rule__ShapeExpression__Group_1_2__1 )
-            // InternalTurtle.g:2014:2: rule__ShapeExpression__Group_1_2__0__Impl rule__ShapeExpression__Group_1_2__1
+            // InternalTurtle.g:2140:1: ( rule__ShapeExpression__Group_1_2__0__Impl rule__ShapeExpression__Group_1_2__1 )
+            // InternalTurtle.g:2141:2: rule__ShapeExpression__Group_1_2__0__Impl rule__ShapeExpression__Group_1_2__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_23);
             rule__ShapeExpression__Group_1_2__0__Impl();
 
             state._fsp--;
@@ -6296,21 +6713,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_2__0__Impl"
-    // InternalTurtle.g:2021:1: rule__ShapeExpression__Group_1_2__0__Impl : ( ( rule__ShapeExpression__Alternatives_1_2_0 ) ) ;
+    // InternalTurtle.g:2148:1: rule__ShapeExpression__Group_1_2__0__Impl : ( ( rule__ShapeExpression__Alternatives_1_2_0 ) ) ;
     public final void rule__ShapeExpression__Group_1_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2025:1: ( ( ( rule__ShapeExpression__Alternatives_1_2_0 ) ) )
-            // InternalTurtle.g:2026:1: ( ( rule__ShapeExpression__Alternatives_1_2_0 ) )
+            // InternalTurtle.g:2152:1: ( ( ( rule__ShapeExpression__Alternatives_1_2_0 ) ) )
+            // InternalTurtle.g:2153:1: ( ( rule__ShapeExpression__Alternatives_1_2_0 ) )
             {
-            // InternalTurtle.g:2026:1: ( ( rule__ShapeExpression__Alternatives_1_2_0 ) )
-            // InternalTurtle.g:2027:2: ( rule__ShapeExpression__Alternatives_1_2_0 )
+            // InternalTurtle.g:2153:1: ( ( rule__ShapeExpression__Alternatives_1_2_0 ) )
+            // InternalTurtle.g:2154:2: ( rule__ShapeExpression__Alternatives_1_2_0 )
             {
              before(grammarAccess.getShapeExpressionAccess().getAlternatives_1_2_0()); 
-            // InternalTurtle.g:2028:2: ( rule__ShapeExpression__Alternatives_1_2_0 )
-            // InternalTurtle.g:2028:3: rule__ShapeExpression__Alternatives_1_2_0
+            // InternalTurtle.g:2155:2: ( rule__ShapeExpression__Alternatives_1_2_0 )
+            // InternalTurtle.g:2155:3: rule__ShapeExpression__Alternatives_1_2_0
             {
             pushFollow(FOLLOW_2);
             rule__ShapeExpression__Alternatives_1_2_0();
@@ -6343,14 +6760,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_2__1"
-    // InternalTurtle.g:2036:1: rule__ShapeExpression__Group_1_2__1 : rule__ShapeExpression__Group_1_2__1__Impl ;
+    // InternalTurtle.g:2163:1: rule__ShapeExpression__Group_1_2__1 : rule__ShapeExpression__Group_1_2__1__Impl ;
     public final void rule__ShapeExpression__Group_1_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2040:1: ( rule__ShapeExpression__Group_1_2__1__Impl )
-            // InternalTurtle.g:2041:2: rule__ShapeExpression__Group_1_2__1__Impl
+            // InternalTurtle.g:2167:1: ( rule__ShapeExpression__Group_1_2__1__Impl )
+            // InternalTurtle.g:2168:2: rule__ShapeExpression__Group_1_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ShapeExpression__Group_1_2__1__Impl();
@@ -6376,17 +6793,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_2__1__Impl"
-    // InternalTurtle.g:2047:1: rule__ShapeExpression__Group_1_2__1__Impl : ( '[' ) ;
+    // InternalTurtle.g:2174:1: rule__ShapeExpression__Group_1_2__1__Impl : ( '[' ) ;
     public final void rule__ShapeExpression__Group_1_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2051:1: ( ( '[' ) )
-            // InternalTurtle.g:2052:1: ( '[' )
+            // InternalTurtle.g:2178:1: ( ( '[' ) )
+            // InternalTurtle.g:2179:1: ( '[' )
             {
-            // InternalTurtle.g:2052:1: ( '[' )
-            // InternalTurtle.g:2053:2: '['
+            // InternalTurtle.g:2179:1: ( '[' )
+            // InternalTurtle.g:2180:2: '['
             {
              before(grammarAccess.getShapeExpressionAccess().getLeftSquareBracketKeyword_1_2_1()); 
             match(input,40,FOLLOW_2); 
@@ -6413,16 +6830,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_3__0"
-    // InternalTurtle.g:2063:1: rule__ShapeExpression__Group_1_3__0 : rule__ShapeExpression__Group_1_3__0__Impl rule__ShapeExpression__Group_1_3__1 ;
+    // InternalTurtle.g:2190:1: rule__ShapeExpression__Group_1_3__0 : rule__ShapeExpression__Group_1_3__0__Impl rule__ShapeExpression__Group_1_3__1 ;
     public final void rule__ShapeExpression__Group_1_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2067:1: ( rule__ShapeExpression__Group_1_3__0__Impl rule__ShapeExpression__Group_1_3__1 )
-            // InternalTurtle.g:2068:2: rule__ShapeExpression__Group_1_3__0__Impl rule__ShapeExpression__Group_1_3__1
+            // InternalTurtle.g:2194:1: ( rule__ShapeExpression__Group_1_3__0__Impl rule__ShapeExpression__Group_1_3__1 )
+            // InternalTurtle.g:2195:2: rule__ShapeExpression__Group_1_3__0__Impl rule__ShapeExpression__Group_1_3__1
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_21);
             rule__ShapeExpression__Group_1_3__0__Impl();
 
             state._fsp--;
@@ -6451,35 +6868,35 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_3__0__Impl"
-    // InternalTurtle.g:2075:1: rule__ShapeExpression__Group_1_3__0__Impl : ( ( rule__ShapeExpression__PropertyValuesAssignment_1_3_0 )* ) ;
+    // InternalTurtle.g:2202:1: rule__ShapeExpression__Group_1_3__0__Impl : ( ( rule__ShapeExpression__PropertyValuesAssignment_1_3_0 )* ) ;
     public final void rule__ShapeExpression__Group_1_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2079:1: ( ( ( rule__ShapeExpression__PropertyValuesAssignment_1_3_0 )* ) )
-            // InternalTurtle.g:2080:1: ( ( rule__ShapeExpression__PropertyValuesAssignment_1_3_0 )* )
+            // InternalTurtle.g:2206:1: ( ( ( rule__ShapeExpression__PropertyValuesAssignment_1_3_0 )* ) )
+            // InternalTurtle.g:2207:1: ( ( rule__ShapeExpression__PropertyValuesAssignment_1_3_0 )* )
             {
-            // InternalTurtle.g:2080:1: ( ( rule__ShapeExpression__PropertyValuesAssignment_1_3_0 )* )
-            // InternalTurtle.g:2081:2: ( rule__ShapeExpression__PropertyValuesAssignment_1_3_0 )*
+            // InternalTurtle.g:2207:1: ( ( rule__ShapeExpression__PropertyValuesAssignment_1_3_0 )* )
+            // InternalTurtle.g:2208:2: ( rule__ShapeExpression__PropertyValuesAssignment_1_3_0 )*
             {
              before(grammarAccess.getShapeExpressionAccess().getPropertyValuesAssignment_1_3_0()); 
-            // InternalTurtle.g:2082:2: ( rule__ShapeExpression__PropertyValuesAssignment_1_3_0 )*
-            loop15:
+            // InternalTurtle.g:2209:2: ( rule__ShapeExpression__PropertyValuesAssignment_1_3_0 )*
+            loop18:
             do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
+                int alt18=2;
+                int LA18_0 = input.LA(1);
 
-                if ( ((LA15_0>=14 && LA15_0<=32)) ) {
-                    alt15=1;
+                if ( ((LA18_0>=14 && LA18_0<=32)) ) {
+                    alt18=1;
                 }
 
 
-                switch (alt15) {
+                switch (alt18) {
             	case 1 :
-            	    // InternalTurtle.g:2082:3: rule__ShapeExpression__PropertyValuesAssignment_1_3_0
+            	    // InternalTurtle.g:2209:3: rule__ShapeExpression__PropertyValuesAssignment_1_3_0
             	    {
-            	    pushFollow(FOLLOW_22);
+            	    pushFollow(FOLLOW_24);
             	    rule__ShapeExpression__PropertyValuesAssignment_1_3_0();
 
             	    state._fsp--;
@@ -6489,7 +6906,7 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop15;
+            	    break loop18;
                 }
             } while (true);
 
@@ -6516,16 +6933,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_3__1"
-    // InternalTurtle.g:2090:1: rule__ShapeExpression__Group_1_3__1 : rule__ShapeExpression__Group_1_3__1__Impl rule__ShapeExpression__Group_1_3__2 ;
+    // InternalTurtle.g:2217:1: rule__ShapeExpression__Group_1_3__1 : rule__ShapeExpression__Group_1_3__1__Impl rule__ShapeExpression__Group_1_3__2 ;
     public final void rule__ShapeExpression__Group_1_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2094:1: ( rule__ShapeExpression__Group_1_3__1__Impl rule__ShapeExpression__Group_1_3__2 )
-            // InternalTurtle.g:2095:2: rule__ShapeExpression__Group_1_3__1__Impl rule__ShapeExpression__Group_1_3__2
+            // InternalTurtle.g:2221:1: ( rule__ShapeExpression__Group_1_3__1__Impl rule__ShapeExpression__Group_1_3__2 )
+            // InternalTurtle.g:2222:2: rule__ShapeExpression__Group_1_3__1__Impl rule__ShapeExpression__Group_1_3__2
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_15);
             rule__ShapeExpression__Group_1_3__1__Impl();
 
             state._fsp--;
@@ -6554,17 +6971,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_3__1__Impl"
-    // InternalTurtle.g:2102:1: rule__ShapeExpression__Group_1_3__1__Impl : ( ']' ) ;
+    // InternalTurtle.g:2229:1: rule__ShapeExpression__Group_1_3__1__Impl : ( ']' ) ;
     public final void rule__ShapeExpression__Group_1_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2106:1: ( ( ']' ) )
-            // InternalTurtle.g:2107:1: ( ']' )
+            // InternalTurtle.g:2233:1: ( ( ']' ) )
+            // InternalTurtle.g:2234:1: ( ']' )
             {
-            // InternalTurtle.g:2107:1: ( ']' )
-            // InternalTurtle.g:2108:2: ']'
+            // InternalTurtle.g:2234:1: ( ']' )
+            // InternalTurtle.g:2235:2: ']'
             {
              before(grammarAccess.getShapeExpressionAccess().getRightSquareBracketKeyword_1_3_1()); 
             match(input,41,FOLLOW_2); 
@@ -6591,14 +7008,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_3__2"
-    // InternalTurtle.g:2117:1: rule__ShapeExpression__Group_1_3__2 : rule__ShapeExpression__Group_1_3__2__Impl ;
+    // InternalTurtle.g:2244:1: rule__ShapeExpression__Group_1_3__2 : rule__ShapeExpression__Group_1_3__2__Impl ;
     public final void rule__ShapeExpression__Group_1_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2121:1: ( rule__ShapeExpression__Group_1_3__2__Impl )
-            // InternalTurtle.g:2122:2: rule__ShapeExpression__Group_1_3__2__Impl
+            // InternalTurtle.g:2248:1: ( rule__ShapeExpression__Group_1_3__2__Impl )
+            // InternalTurtle.g:2249:2: rule__ShapeExpression__Group_1_3__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ShapeExpression__Group_1_3__2__Impl();
@@ -6624,17 +7041,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__Group_1_3__2__Impl"
-    // InternalTurtle.g:2128:1: rule__ShapeExpression__Group_1_3__2__Impl : ( ';' ) ;
+    // InternalTurtle.g:2255:1: rule__ShapeExpression__Group_1_3__2__Impl : ( ';' ) ;
     public final void rule__ShapeExpression__Group_1_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2132:1: ( ( ';' ) )
-            // InternalTurtle.g:2133:1: ( ';' )
+            // InternalTurtle.g:2259:1: ( ( ';' ) )
+            // InternalTurtle.g:2260:1: ( ';' )
             {
-            // InternalTurtle.g:2133:1: ( ';' )
-            // InternalTurtle.g:2134:2: ';'
+            // InternalTurtle.g:2260:1: ( ';' )
+            // InternalTurtle.g:2261:2: ';'
             {
              before(grammarAccess.getShapeExpressionAccess().getSemicolonKeyword_1_3_2()); 
             match(input,38,FOLLOW_2); 
@@ -6661,16 +7078,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValues__Group__0"
-    // InternalTurtle.g:2144:1: rule__PropertyValues__Group__0 : rule__PropertyValues__Group__0__Impl rule__PropertyValues__Group__1 ;
+    // InternalTurtle.g:2271:1: rule__PropertyValues__Group__0 : rule__PropertyValues__Group__0__Impl rule__PropertyValues__Group__1 ;
     public final void rule__PropertyValues__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2148:1: ( rule__PropertyValues__Group__0__Impl rule__PropertyValues__Group__1 )
-            // InternalTurtle.g:2149:2: rule__PropertyValues__Group__0__Impl rule__PropertyValues__Group__1
+            // InternalTurtle.g:2275:1: ( rule__PropertyValues__Group__0__Impl rule__PropertyValues__Group__1 )
+            // InternalTurtle.g:2276:2: rule__PropertyValues__Group__0__Impl rule__PropertyValues__Group__1
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_25);
             rule__PropertyValues__Group__0__Impl();
 
             state._fsp--;
@@ -6699,21 +7116,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValues__Group__0__Impl"
-    // InternalTurtle.g:2156:1: rule__PropertyValues__Group__0__Impl : ( ( rule__PropertyValues__PropertyAssignment_0 ) ) ;
+    // InternalTurtle.g:2283:1: rule__PropertyValues__Group__0__Impl : ( ( rule__PropertyValues__PropertyAssignment_0 ) ) ;
     public final void rule__PropertyValues__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2160:1: ( ( ( rule__PropertyValues__PropertyAssignment_0 ) ) )
-            // InternalTurtle.g:2161:1: ( ( rule__PropertyValues__PropertyAssignment_0 ) )
+            // InternalTurtle.g:2287:1: ( ( ( rule__PropertyValues__PropertyAssignment_0 ) ) )
+            // InternalTurtle.g:2288:1: ( ( rule__PropertyValues__PropertyAssignment_0 ) )
             {
-            // InternalTurtle.g:2161:1: ( ( rule__PropertyValues__PropertyAssignment_0 ) )
-            // InternalTurtle.g:2162:2: ( rule__PropertyValues__PropertyAssignment_0 )
+            // InternalTurtle.g:2288:1: ( ( rule__PropertyValues__PropertyAssignment_0 ) )
+            // InternalTurtle.g:2289:2: ( rule__PropertyValues__PropertyAssignment_0 )
             {
              before(grammarAccess.getPropertyValuesAccess().getPropertyAssignment_0()); 
-            // InternalTurtle.g:2163:2: ( rule__PropertyValues__PropertyAssignment_0 )
-            // InternalTurtle.g:2163:3: rule__PropertyValues__PropertyAssignment_0
+            // InternalTurtle.g:2290:2: ( rule__PropertyValues__PropertyAssignment_0 )
+            // InternalTurtle.g:2290:3: rule__PropertyValues__PropertyAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__PropertyValues__PropertyAssignment_0();
@@ -6746,16 +7163,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValues__Group__1"
-    // InternalTurtle.g:2171:1: rule__PropertyValues__Group__1 : rule__PropertyValues__Group__1__Impl rule__PropertyValues__Group__2 ;
+    // InternalTurtle.g:2298:1: rule__PropertyValues__Group__1 : rule__PropertyValues__Group__1__Impl rule__PropertyValues__Group__2 ;
     public final void rule__PropertyValues__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2175:1: ( rule__PropertyValues__Group__1__Impl rule__PropertyValues__Group__2 )
-            // InternalTurtle.g:2176:2: rule__PropertyValues__Group__1__Impl rule__PropertyValues__Group__2
+            // InternalTurtle.g:2302:1: ( rule__PropertyValues__Group__1__Impl rule__PropertyValues__Group__2 )
+            // InternalTurtle.g:2303:2: rule__PropertyValues__Group__1__Impl rule__PropertyValues__Group__2
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_25);
             rule__PropertyValues__Group__1__Impl();
 
             state._fsp--;
@@ -6784,29 +7201,29 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValues__Group__1__Impl"
-    // InternalTurtle.g:2183:1: rule__PropertyValues__Group__1__Impl : ( ( '(' )? ) ;
+    // InternalTurtle.g:2310:1: rule__PropertyValues__Group__1__Impl : ( ( '(' )? ) ;
     public final void rule__PropertyValues__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2187:1: ( ( ( '(' )? ) )
-            // InternalTurtle.g:2188:1: ( ( '(' )? )
+            // InternalTurtle.g:2314:1: ( ( ( '(' )? ) )
+            // InternalTurtle.g:2315:1: ( ( '(' )? )
             {
-            // InternalTurtle.g:2188:1: ( ( '(' )? )
-            // InternalTurtle.g:2189:2: ( '(' )?
+            // InternalTurtle.g:2315:1: ( ( '(' )? )
+            // InternalTurtle.g:2316:2: ( '(' )?
             {
              before(grammarAccess.getPropertyValuesAccess().getLeftParenthesisKeyword_1()); 
-            // InternalTurtle.g:2190:2: ( '(' )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // InternalTurtle.g:2317:2: ( '(' )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA16_0==42) ) {
-                alt16=1;
+            if ( (LA19_0==42) ) {
+                alt19=1;
             }
-            switch (alt16) {
+            switch (alt19) {
                 case 1 :
-                    // InternalTurtle.g:2190:3: '('
+                    // InternalTurtle.g:2317:3: '('
                     {
                     match(input,42,FOLLOW_2); 
 
@@ -6838,16 +7255,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValues__Group__2"
-    // InternalTurtle.g:2198:1: rule__PropertyValues__Group__2 : rule__PropertyValues__Group__2__Impl rule__PropertyValues__Group__3 ;
+    // InternalTurtle.g:2325:1: rule__PropertyValues__Group__2 : rule__PropertyValues__Group__2__Impl rule__PropertyValues__Group__3 ;
     public final void rule__PropertyValues__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2202:1: ( rule__PropertyValues__Group__2__Impl rule__PropertyValues__Group__3 )
-            // InternalTurtle.g:2203:2: rule__PropertyValues__Group__2__Impl rule__PropertyValues__Group__3
+            // InternalTurtle.g:2329:1: ( rule__PropertyValues__Group__2__Impl rule__PropertyValues__Group__3 )
+            // InternalTurtle.g:2330:2: rule__PropertyValues__Group__2__Impl rule__PropertyValues__Group__3
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_25);
             rule__PropertyValues__Group__2__Impl();
 
             state._fsp--;
@@ -6876,35 +7293,35 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValues__Group__2__Impl"
-    // InternalTurtle.g:2210:1: rule__PropertyValues__Group__2__Impl : ( ( rule__PropertyValues__ValuesAssignment_2 )* ) ;
+    // InternalTurtle.g:2337:1: rule__PropertyValues__Group__2__Impl : ( ( rule__PropertyValues__ValuesAssignment_2 )* ) ;
     public final void rule__PropertyValues__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2214:1: ( ( ( rule__PropertyValues__ValuesAssignment_2 )* ) )
-            // InternalTurtle.g:2215:1: ( ( rule__PropertyValues__ValuesAssignment_2 )* )
+            // InternalTurtle.g:2341:1: ( ( ( rule__PropertyValues__ValuesAssignment_2 )* ) )
+            // InternalTurtle.g:2342:1: ( ( rule__PropertyValues__ValuesAssignment_2 )* )
             {
-            // InternalTurtle.g:2215:1: ( ( rule__PropertyValues__ValuesAssignment_2 )* )
-            // InternalTurtle.g:2216:2: ( rule__PropertyValues__ValuesAssignment_2 )*
+            // InternalTurtle.g:2342:1: ( ( rule__PropertyValues__ValuesAssignment_2 )* )
+            // InternalTurtle.g:2343:2: ( rule__PropertyValues__ValuesAssignment_2 )*
             {
              before(grammarAccess.getPropertyValuesAccess().getValuesAssignment_2()); 
-            // InternalTurtle.g:2217:2: ( rule__PropertyValues__ValuesAssignment_2 )*
-            loop17:
+            // InternalTurtle.g:2344:2: ( rule__PropertyValues__ValuesAssignment_2 )*
+            loop20:
             do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
+                int alt20=2;
+                int LA20_0 = input.LA(1);
 
-                if ( (LA17_0==RULE_UNICODE) ) {
-                    alt17=1;
+                if ( (LA20_0==RULE_UNICODE) ) {
+                    alt20=1;
                 }
 
 
-                switch (alt17) {
+                switch (alt20) {
             	case 1 :
-            	    // InternalTurtle.g:2217:3: rule__PropertyValues__ValuesAssignment_2
+            	    // InternalTurtle.g:2344:3: rule__PropertyValues__ValuesAssignment_2
             	    {
-            	    pushFollow(FOLLOW_11);
+            	    pushFollow(FOLLOW_13);
             	    rule__PropertyValues__ValuesAssignment_2();
 
             	    state._fsp--;
@@ -6914,7 +7331,7 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop17;
+            	    break loop20;
                 }
             } while (true);
 
@@ -6941,16 +7358,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValues__Group__3"
-    // InternalTurtle.g:2225:1: rule__PropertyValues__Group__3 : rule__PropertyValues__Group__3__Impl rule__PropertyValues__Group__4 ;
+    // InternalTurtle.g:2352:1: rule__PropertyValues__Group__3 : rule__PropertyValues__Group__3__Impl rule__PropertyValues__Group__4 ;
     public final void rule__PropertyValues__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2229:1: ( rule__PropertyValues__Group__3__Impl rule__PropertyValues__Group__4 )
-            // InternalTurtle.g:2230:2: rule__PropertyValues__Group__3__Impl rule__PropertyValues__Group__4
+            // InternalTurtle.g:2356:1: ( rule__PropertyValues__Group__3__Impl rule__PropertyValues__Group__4 )
+            // InternalTurtle.g:2357:2: rule__PropertyValues__Group__3__Impl rule__PropertyValues__Group__4
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_25);
             rule__PropertyValues__Group__3__Impl();
 
             state._fsp--;
@@ -6979,29 +7396,29 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValues__Group__3__Impl"
-    // InternalTurtle.g:2237:1: rule__PropertyValues__Group__3__Impl : ( ( ')' )? ) ;
+    // InternalTurtle.g:2364:1: rule__PropertyValues__Group__3__Impl : ( ( ')' )? ) ;
     public final void rule__PropertyValues__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2241:1: ( ( ( ')' )? ) )
-            // InternalTurtle.g:2242:1: ( ( ')' )? )
+            // InternalTurtle.g:2368:1: ( ( ( ')' )? ) )
+            // InternalTurtle.g:2369:1: ( ( ')' )? )
             {
-            // InternalTurtle.g:2242:1: ( ( ')' )? )
-            // InternalTurtle.g:2243:2: ( ')' )?
+            // InternalTurtle.g:2369:1: ( ( ')' )? )
+            // InternalTurtle.g:2370:2: ( ')' )?
             {
              before(grammarAccess.getPropertyValuesAccess().getRightParenthesisKeyword_3()); 
-            // InternalTurtle.g:2244:2: ( ')' )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // InternalTurtle.g:2371:2: ( ')' )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA18_0==43) ) {
-                alt18=1;
+            if ( (LA21_0==43) ) {
+                alt21=1;
             }
-            switch (alt18) {
+            switch (alt21) {
                 case 1 :
-                    // InternalTurtle.g:2244:3: ')'
+                    // InternalTurtle.g:2371:3: ')'
                     {
                     match(input,43,FOLLOW_2); 
 
@@ -7033,14 +7450,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValues__Group__4"
-    // InternalTurtle.g:2252:1: rule__PropertyValues__Group__4 : rule__PropertyValues__Group__4__Impl ;
+    // InternalTurtle.g:2379:1: rule__PropertyValues__Group__4 : rule__PropertyValues__Group__4__Impl ;
     public final void rule__PropertyValues__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2256:1: ( rule__PropertyValues__Group__4__Impl )
-            // InternalTurtle.g:2257:2: rule__PropertyValues__Group__4__Impl
+            // InternalTurtle.g:2383:1: ( rule__PropertyValues__Group__4__Impl )
+            // InternalTurtle.g:2384:2: rule__PropertyValues__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PropertyValues__Group__4__Impl();
@@ -7066,17 +7483,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValues__Group__4__Impl"
-    // InternalTurtle.g:2263:1: rule__PropertyValues__Group__4__Impl : ( ';' ) ;
+    // InternalTurtle.g:2390:1: rule__PropertyValues__Group__4__Impl : ( ';' ) ;
     public final void rule__PropertyValues__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2267:1: ( ( ';' ) )
-            // InternalTurtle.g:2268:1: ( ';' )
+            // InternalTurtle.g:2394:1: ( ( ';' ) )
+            // InternalTurtle.g:2395:1: ( ';' )
             {
-            // InternalTurtle.g:2268:1: ( ';' )
-            // InternalTurtle.g:2269:2: ';'
+            // InternalTurtle.g:2395:1: ( ';' )
+            // InternalTurtle.g:2396:2: ';'
             {
              before(grammarAccess.getPropertyValuesAccess().getSemicolonKeyword_4()); 
             match(input,38,FOLLOW_2); 
@@ -7103,16 +7520,16 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Property__Group__0"
-    // InternalTurtle.g:2279:1: rule__Property__Group__0 : rule__Property__Group__0__Impl rule__Property__Group__1 ;
+    // InternalTurtle.g:2406:1: rule__Property__Group__0 : rule__Property__Group__0__Impl rule__Property__Group__1 ;
     public final void rule__Property__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2283:1: ( rule__Property__Group__0__Impl rule__Property__Group__1 )
-            // InternalTurtle.g:2284:2: rule__Property__Group__0__Impl rule__Property__Group__1
+            // InternalTurtle.g:2410:1: ( rule__Property__Group__0__Impl rule__Property__Group__1 )
+            // InternalTurtle.g:2411:2: rule__Property__Group__0__Impl rule__Property__Group__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_20);
             rule__Property__Group__0__Impl();
 
             state._fsp--;
@@ -7141,21 +7558,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Property__Group__0__Impl"
-    // InternalTurtle.g:2291:1: rule__Property__Group__0__Impl : ( () ) ;
+    // InternalTurtle.g:2418:1: rule__Property__Group__0__Impl : ( () ) ;
     public final void rule__Property__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2295:1: ( ( () ) )
-            // InternalTurtle.g:2296:1: ( () )
+            // InternalTurtle.g:2422:1: ( ( () ) )
+            // InternalTurtle.g:2423:1: ( () )
             {
-            // InternalTurtle.g:2296:1: ( () )
-            // InternalTurtle.g:2297:2: ()
+            // InternalTurtle.g:2423:1: ( () )
+            // InternalTurtle.g:2424:2: ()
             {
              before(grammarAccess.getPropertyAccess().getPropertyAction_0()); 
-            // InternalTurtle.g:2298:2: ()
-            // InternalTurtle.g:2298:3: 
+            // InternalTurtle.g:2425:2: ()
+            // InternalTurtle.g:2425:3: 
             {
             }
 
@@ -7178,14 +7595,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Property__Group__1"
-    // InternalTurtle.g:2306:1: rule__Property__Group__1 : rule__Property__Group__1__Impl ;
+    // InternalTurtle.g:2433:1: rule__Property__Group__1 : rule__Property__Group__1__Impl ;
     public final void rule__Property__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2310:1: ( rule__Property__Group__1__Impl )
-            // InternalTurtle.g:2311:2: rule__Property__Group__1__Impl
+            // InternalTurtle.g:2437:1: ( rule__Property__Group__1__Impl )
+            // InternalTurtle.g:2438:2: rule__Property__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Property__Group__1__Impl();
@@ -7211,21 +7628,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Property__Group__1__Impl"
-    // InternalTurtle.g:2317:1: rule__Property__Group__1__Impl : ( ( rule__Property__TypeAssignment_1 ) ) ;
+    // InternalTurtle.g:2444:1: rule__Property__Group__1__Impl : ( ( rule__Property__TypeAssignment_1 ) ) ;
     public final void rule__Property__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2321:1: ( ( ( rule__Property__TypeAssignment_1 ) ) )
-            // InternalTurtle.g:2322:1: ( ( rule__Property__TypeAssignment_1 ) )
+            // InternalTurtle.g:2448:1: ( ( ( rule__Property__TypeAssignment_1 ) ) )
+            // InternalTurtle.g:2449:1: ( ( rule__Property__TypeAssignment_1 ) )
             {
-            // InternalTurtle.g:2322:1: ( ( rule__Property__TypeAssignment_1 ) )
-            // InternalTurtle.g:2323:2: ( rule__Property__TypeAssignment_1 )
+            // InternalTurtle.g:2449:1: ( ( rule__Property__TypeAssignment_1 ) )
+            // InternalTurtle.g:2450:2: ( rule__Property__TypeAssignment_1 )
             {
              before(grammarAccess.getPropertyAccess().getTypeAssignment_1()); 
-            // InternalTurtle.g:2324:2: ( rule__Property__TypeAssignment_1 )
-            // InternalTurtle.g:2324:3: rule__Property__TypeAssignment_1
+            // InternalTurtle.g:2451:2: ( rule__Property__TypeAssignment_1 )
+            // InternalTurtle.g:2451:3: rule__Property__TypeAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Property__TypeAssignment_1();
@@ -7258,14 +7675,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Value__Group__0"
-    // InternalTurtle.g:2333:1: rule__Value__Group__0 : rule__Value__Group__0__Impl rule__Value__Group__1 ;
+    // InternalTurtle.g:2460:1: rule__Value__Group__0 : rule__Value__Group__0__Impl rule__Value__Group__1 ;
     public final void rule__Value__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2337:1: ( rule__Value__Group__0__Impl rule__Value__Group__1 )
-            // InternalTurtle.g:2338:2: rule__Value__Group__0__Impl rule__Value__Group__1
+            // InternalTurtle.g:2464:1: ( rule__Value__Group__0__Impl rule__Value__Group__1 )
+            // InternalTurtle.g:2465:2: rule__Value__Group__0__Impl rule__Value__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__Value__Group__0__Impl();
@@ -7296,21 +7713,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Value__Group__0__Impl"
-    // InternalTurtle.g:2345:1: rule__Value__Group__0__Impl : ( () ) ;
+    // InternalTurtle.g:2472:1: rule__Value__Group__0__Impl : ( () ) ;
     public final void rule__Value__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2349:1: ( ( () ) )
-            // InternalTurtle.g:2350:1: ( () )
+            // InternalTurtle.g:2476:1: ( ( () ) )
+            // InternalTurtle.g:2477:1: ( () )
             {
-            // InternalTurtle.g:2350:1: ( () )
-            // InternalTurtle.g:2351:2: ()
+            // InternalTurtle.g:2477:1: ( () )
+            // InternalTurtle.g:2478:2: ()
             {
              before(grammarAccess.getValueAccess().getValueAction_0()); 
-            // InternalTurtle.g:2352:2: ()
-            // InternalTurtle.g:2352:3: 
+            // InternalTurtle.g:2479:2: ()
+            // InternalTurtle.g:2479:3: 
             {
             }
 
@@ -7333,14 +7750,14 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Value__Group__1"
-    // InternalTurtle.g:2360:1: rule__Value__Group__1 : rule__Value__Group__1__Impl ;
+    // InternalTurtle.g:2487:1: rule__Value__Group__1 : rule__Value__Group__1__Impl ;
     public final void rule__Value__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2364:1: ( rule__Value__Group__1__Impl )
-            // InternalTurtle.g:2365:2: rule__Value__Group__1__Impl
+            // InternalTurtle.g:2491:1: ( rule__Value__Group__1__Impl )
+            // InternalTurtle.g:2492:2: rule__Value__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Value__Group__1__Impl();
@@ -7366,21 +7783,21 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Value__Group__1__Impl"
-    // InternalTurtle.g:2371:1: rule__Value__Group__1__Impl : ( ( rule__Value__NameAssignment_1 ) ) ;
+    // InternalTurtle.g:2498:1: rule__Value__Group__1__Impl : ( ( rule__Value__NameAssignment_1 ) ) ;
     public final void rule__Value__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2375:1: ( ( ( rule__Value__NameAssignment_1 ) ) )
-            // InternalTurtle.g:2376:1: ( ( rule__Value__NameAssignment_1 ) )
+            // InternalTurtle.g:2502:1: ( ( ( rule__Value__NameAssignment_1 ) ) )
+            // InternalTurtle.g:2503:1: ( ( rule__Value__NameAssignment_1 ) )
             {
-            // InternalTurtle.g:2376:1: ( ( rule__Value__NameAssignment_1 ) )
-            // InternalTurtle.g:2377:2: ( rule__Value__NameAssignment_1 )
+            // InternalTurtle.g:2503:1: ( ( rule__Value__NameAssignment_1 ) )
+            // InternalTurtle.g:2504:2: ( rule__Value__NameAssignment_1 )
             {
              before(grammarAccess.getValueAccess().getNameAssignment_1()); 
-            // InternalTurtle.g:2378:2: ( rule__Value__NameAssignment_1 )
-            // InternalTurtle.g:2378:3: rule__Value__NameAssignment_1
+            // InternalTurtle.g:2505:2: ( rule__Value__NameAssignment_1 )
+            // InternalTurtle.g:2505:3: rule__Value__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Value__NameAssignment_1();
@@ -7413,17 +7830,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Graph__NamespacesAssignment_1"
-    // InternalTurtle.g:2387:1: rule__Graph__NamespacesAssignment_1 : ( ruleNamespace ) ;
+    // InternalTurtle.g:2514:1: rule__Graph__NamespacesAssignment_1 : ( ruleNamespace ) ;
     public final void rule__Graph__NamespacesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2391:1: ( ( ruleNamespace ) )
-            // InternalTurtle.g:2392:2: ( ruleNamespace )
+            // InternalTurtle.g:2518:1: ( ( ruleNamespace ) )
+            // InternalTurtle.g:2519:2: ( ruleNamespace )
             {
-            // InternalTurtle.g:2392:2: ( ruleNamespace )
-            // InternalTurtle.g:2393:3: ruleNamespace
+            // InternalTurtle.g:2519:2: ( ruleNamespace )
+            // InternalTurtle.g:2520:3: ruleNamespace
             {
              before(grammarAccess.getGraphAccess().getNamespacesNamespaceParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7454,17 +7871,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Graph__DataGraphAssignment_2"
-    // InternalTurtle.g:2402:1: rule__Graph__DataGraphAssignment_2 : ( ruleDataGraph ) ;
+    // InternalTurtle.g:2529:1: rule__Graph__DataGraphAssignment_2 : ( ruleDataGraph ) ;
     public final void rule__Graph__DataGraphAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2406:1: ( ( ruleDataGraph ) )
-            // InternalTurtle.g:2407:2: ( ruleDataGraph )
+            // InternalTurtle.g:2533:1: ( ( ruleDataGraph ) )
+            // InternalTurtle.g:2534:2: ( ruleDataGraph )
             {
-            // InternalTurtle.g:2407:2: ( ruleDataGraph )
-            // InternalTurtle.g:2408:3: ruleDataGraph
+            // InternalTurtle.g:2534:2: ( ruleDataGraph )
+            // InternalTurtle.g:2535:3: ruleDataGraph
             {
              before(grammarAccess.getGraphAccess().getDataGraphDataGraphParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7495,17 +7912,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Graph__ShapesGraphAssignment_3"
-    // InternalTurtle.g:2417:1: rule__Graph__ShapesGraphAssignment_3 : ( ruleShapesGraph ) ;
+    // InternalTurtle.g:2544:1: rule__Graph__ShapesGraphAssignment_3 : ( ruleShapesGraph ) ;
     public final void rule__Graph__ShapesGraphAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2421:1: ( ( ruleShapesGraph ) )
-            // InternalTurtle.g:2422:2: ( ruleShapesGraph )
+            // InternalTurtle.g:2548:1: ( ( ruleShapesGraph ) )
+            // InternalTurtle.g:2549:2: ( ruleShapesGraph )
             {
-            // InternalTurtle.g:2422:2: ( ruleShapesGraph )
-            // InternalTurtle.g:2423:3: ruleShapesGraph
+            // InternalTurtle.g:2549:2: ( ruleShapesGraph )
+            // InternalTurtle.g:2550:3: ruleShapesGraph
             {
              before(grammarAccess.getGraphAccess().getShapesGraphShapesGraphParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -7536,17 +7953,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Namespace__PrefixAssignment_1"
-    // InternalTurtle.g:2432:1: rule__Namespace__PrefixAssignment_1 : ( RULE_PREFIX ) ;
+    // InternalTurtle.g:2559:1: rule__Namespace__PrefixAssignment_1 : ( RULE_PREFIX ) ;
     public final void rule__Namespace__PrefixAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2436:1: ( ( RULE_PREFIX ) )
-            // InternalTurtle.g:2437:2: ( RULE_PREFIX )
+            // InternalTurtle.g:2563:1: ( ( RULE_PREFIX ) )
+            // InternalTurtle.g:2564:2: ( RULE_PREFIX )
             {
-            // InternalTurtle.g:2437:2: ( RULE_PREFIX )
-            // InternalTurtle.g:2438:3: RULE_PREFIX
+            // InternalTurtle.g:2564:2: ( RULE_PREFIX )
+            // InternalTurtle.g:2565:3: RULE_PREFIX
             {
              before(grammarAccess.getNamespaceAccess().getPrefixPREFIXTerminalRuleCall_1_0()); 
             match(input,RULE_PREFIX,FOLLOW_2); 
@@ -7573,17 +7990,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Namespace__NamespaceAssignment_3"
-    // InternalTurtle.g:2447:1: rule__Namespace__NamespaceAssignment_3 : ( RULE_UNICODE ) ;
+    // InternalTurtle.g:2574:1: rule__Namespace__NamespaceAssignment_3 : ( RULE_UNICODE ) ;
     public final void rule__Namespace__NamespaceAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2451:1: ( ( RULE_UNICODE ) )
-            // InternalTurtle.g:2452:2: ( RULE_UNICODE )
+            // InternalTurtle.g:2578:1: ( ( RULE_UNICODE ) )
+            // InternalTurtle.g:2579:2: ( RULE_UNICODE )
             {
-            // InternalTurtle.g:2452:2: ( RULE_UNICODE )
-            // InternalTurtle.g:2453:3: RULE_UNICODE
+            // InternalTurtle.g:2579:2: ( RULE_UNICODE )
+            // InternalTurtle.g:2580:3: RULE_UNICODE
             {
              before(grammarAccess.getNamespaceAccess().getNamespaceUNICODETerminalRuleCall_3_0()); 
             match(input,RULE_UNICODE,FOLLOW_2); 
@@ -7610,17 +8027,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataGraph__TriplesAssignment_1"
-    // InternalTurtle.g:2462:1: rule__DataGraph__TriplesAssignment_1 : ( ruleTriples ) ;
+    // InternalTurtle.g:2589:1: rule__DataGraph__TriplesAssignment_1 : ( ruleTriples ) ;
     public final void rule__DataGraph__TriplesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2466:1: ( ( ruleTriples ) )
-            // InternalTurtle.g:2467:2: ( ruleTriples )
+            // InternalTurtle.g:2593:1: ( ( ruleTriples ) )
+            // InternalTurtle.g:2594:2: ( ruleTriples )
             {
-            // InternalTurtle.g:2467:2: ( ruleTriples )
-            // InternalTurtle.g:2468:3: ruleTriples
+            // InternalTurtle.g:2594:2: ( ruleTriples )
+            // InternalTurtle.g:2595:3: ruleTriples
             {
              before(grammarAccess.getDataGraphAccess().getTriplesTriplesParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7651,17 +8068,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Triples__SubjectAssignment_0"
-    // InternalTurtle.g:2477:1: rule__Triples__SubjectAssignment_0 : ( ruleSubject ) ;
+    // InternalTurtle.g:2604:1: rule__Triples__SubjectAssignment_0 : ( ruleSubject ) ;
     public final void rule__Triples__SubjectAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2481:1: ( ( ruleSubject ) )
-            // InternalTurtle.g:2482:2: ( ruleSubject )
+            // InternalTurtle.g:2608:1: ( ( ruleSubject ) )
+            // InternalTurtle.g:2609:2: ( ruleSubject )
             {
-            // InternalTurtle.g:2482:2: ( ruleSubject )
-            // InternalTurtle.g:2483:3: ruleSubject
+            // InternalTurtle.g:2609:2: ( ruleSubject )
+            // InternalTurtle.g:2610:3: ruleSubject
             {
              before(grammarAccess.getTriplesAccess().getSubjectSubjectParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -7692,17 +8109,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Triples__PredicateobjectAssignment_1"
-    // InternalTurtle.g:2492:1: rule__Triples__PredicateobjectAssignment_1 : ( rulePredicateObject ) ;
+    // InternalTurtle.g:2619:1: rule__Triples__PredicateobjectAssignment_1 : ( rulePredicateObject ) ;
     public final void rule__Triples__PredicateobjectAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2496:1: ( ( rulePredicateObject ) )
-            // InternalTurtle.g:2497:2: ( rulePredicateObject )
+            // InternalTurtle.g:2623:1: ( ( rulePredicateObject ) )
+            // InternalTurtle.g:2624:2: ( rulePredicateObject )
             {
-            // InternalTurtle.g:2497:2: ( rulePredicateObject )
-            // InternalTurtle.g:2498:3: rulePredicateObject
+            // InternalTurtle.g:2624:2: ( rulePredicateObject )
+            // InternalTurtle.g:2625:3: rulePredicateObject
             {
              before(grammarAccess.getTriplesAccess().getPredicateobjectPredicateObjectParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7733,17 +8150,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PredicateObject__PredicateAssignment_0_0"
-    // InternalTurtle.g:2507:1: rule__PredicateObject__PredicateAssignment_0_0 : ( rulePredicate ) ;
+    // InternalTurtle.g:2634:1: rule__PredicateObject__PredicateAssignment_0_0 : ( rulePredicate ) ;
     public final void rule__PredicateObject__PredicateAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2511:1: ( ( rulePredicate ) )
-            // InternalTurtle.g:2512:2: ( rulePredicate )
+            // InternalTurtle.g:2638:1: ( ( rulePredicate ) )
+            // InternalTurtle.g:2639:2: ( rulePredicate )
             {
-            // InternalTurtle.g:2512:2: ( rulePredicate )
-            // InternalTurtle.g:2513:3: rulePredicate
+            // InternalTurtle.g:2639:2: ( rulePredicate )
+            // InternalTurtle.g:2640:3: rulePredicate
             {
              before(grammarAccess.getPredicateObjectAccess().getPredicatePredicateParserRuleCall_0_0_0()); 
             pushFollow(FOLLOW_2);
@@ -7774,17 +8191,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PredicateObject__ObjectAssignment_0_1"
-    // InternalTurtle.g:2522:1: rule__PredicateObject__ObjectAssignment_0_1 : ( ruleObject ) ;
+    // InternalTurtle.g:2649:1: rule__PredicateObject__ObjectAssignment_0_1 : ( ruleObject ) ;
     public final void rule__PredicateObject__ObjectAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2526:1: ( ( ruleObject ) )
-            // InternalTurtle.g:2527:2: ( ruleObject )
+            // InternalTurtle.g:2653:1: ( ( ruleObject ) )
+            // InternalTurtle.g:2654:2: ( ruleObject )
             {
-            // InternalTurtle.g:2527:2: ( ruleObject )
-            // InternalTurtle.g:2528:3: ruleObject
+            // InternalTurtle.g:2654:2: ( ruleObject )
+            // InternalTurtle.g:2655:3: ruleObject
             {
              before(grammarAccess.getPredicateObjectAccess().getObjectObjectParserRuleCall_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7815,17 +8232,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Subject__NameAssignment_1"
-    // InternalTurtle.g:2537:1: rule__Subject__NameAssignment_1 : ( RULE_UNICODE ) ;
+    // InternalTurtle.g:2664:1: rule__Subject__NameAssignment_1 : ( RULE_UNICODE ) ;
     public final void rule__Subject__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2541:1: ( ( RULE_UNICODE ) )
-            // InternalTurtle.g:2542:2: ( RULE_UNICODE )
+            // InternalTurtle.g:2668:1: ( ( RULE_UNICODE ) )
+            // InternalTurtle.g:2669:2: ( RULE_UNICODE )
             {
-            // InternalTurtle.g:2542:2: ( RULE_UNICODE )
-            // InternalTurtle.g:2543:3: RULE_UNICODE
+            // InternalTurtle.g:2669:2: ( RULE_UNICODE )
+            // InternalTurtle.g:2670:3: RULE_UNICODE
             {
              before(grammarAccess.getSubjectAccess().getNameUNICODETerminalRuleCall_1_0()); 
             match(input,RULE_UNICODE,FOLLOW_2); 
@@ -7852,17 +8269,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Predicate__NameAssignment_1"
-    // InternalTurtle.g:2552:1: rule__Predicate__NameAssignment_1 : ( RULE_UNICODE ) ;
+    // InternalTurtle.g:2679:1: rule__Predicate__NameAssignment_1 : ( RULE_UNICODE ) ;
     public final void rule__Predicate__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2556:1: ( ( RULE_UNICODE ) )
-            // InternalTurtle.g:2557:2: ( RULE_UNICODE )
+            // InternalTurtle.g:2683:1: ( ( RULE_UNICODE ) )
+            // InternalTurtle.g:2684:2: ( RULE_UNICODE )
             {
-            // InternalTurtle.g:2557:2: ( RULE_UNICODE )
-            // InternalTurtle.g:2558:3: RULE_UNICODE
+            // InternalTurtle.g:2684:2: ( RULE_UNICODE )
+            // InternalTurtle.g:2685:3: RULE_UNICODE
             {
              before(grammarAccess.getPredicateAccess().getNameUNICODETerminalRuleCall_1_0()); 
             match(input,RULE_UNICODE,FOLLOW_2); 
@@ -7889,17 +8306,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Object__NameAssignment_1"
-    // InternalTurtle.g:2567:1: rule__Object__NameAssignment_1 : ( RULE_UNICODE ) ;
+    // InternalTurtle.g:2694:1: rule__Object__NameAssignment_1 : ( RULE_UNICODE ) ;
     public final void rule__Object__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2571:1: ( ( RULE_UNICODE ) )
-            // InternalTurtle.g:2572:2: ( RULE_UNICODE )
+            // InternalTurtle.g:2698:1: ( ( RULE_UNICODE ) )
+            // InternalTurtle.g:2699:2: ( RULE_UNICODE )
             {
-            // InternalTurtle.g:2572:2: ( RULE_UNICODE )
-            // InternalTurtle.g:2573:3: RULE_UNICODE
+            // InternalTurtle.g:2699:2: ( RULE_UNICODE )
+            // InternalTurtle.g:2700:3: RULE_UNICODE
             {
              before(grammarAccess.getObjectAccess().getNameUNICODETerminalRuleCall_1_0()); 
             match(input,RULE_UNICODE,FOLLOW_2); 
@@ -7926,17 +8343,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapesGraph__ShapeConstraintsAssignment_1"
-    // InternalTurtle.g:2582:1: rule__ShapesGraph__ShapeConstraintsAssignment_1 : ( ruleShapeConstraint ) ;
+    // InternalTurtle.g:2709:1: rule__ShapesGraph__ShapeConstraintsAssignment_1 : ( ruleShapeConstraint ) ;
     public final void rule__ShapesGraph__ShapeConstraintsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2586:1: ( ( ruleShapeConstraint ) )
-            // InternalTurtle.g:2587:2: ( ruleShapeConstraint )
+            // InternalTurtle.g:2713:1: ( ( ruleShapeConstraint ) )
+            // InternalTurtle.g:2714:2: ( ruleShapeConstraint )
             {
-            // InternalTurtle.g:2587:2: ( ruleShapeConstraint )
-            // InternalTurtle.g:2588:3: ruleShapeConstraint
+            // InternalTurtle.g:2714:2: ( ruleShapeConstraint )
+            // InternalTurtle.g:2715:3: ruleShapeConstraint
             {
              before(grammarAccess.getShapesGraphAccess().getShapeConstraintsShapeConstraintParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7967,17 +8384,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__ShapeNameAssignment_1"
-    // InternalTurtle.g:2597:1: rule__ShapeConstraint__ShapeNameAssignment_1 : ( ruleShapeName ) ;
+    // InternalTurtle.g:2724:1: rule__ShapeConstraint__ShapeNameAssignment_1 : ( ruleShapeName ) ;
     public final void rule__ShapeConstraint__ShapeNameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2601:1: ( ( ruleShapeName ) )
-            // InternalTurtle.g:2602:2: ( ruleShapeName )
+            // InternalTurtle.g:2728:1: ( ( ruleShapeName ) )
+            // InternalTurtle.g:2729:2: ( ruleShapeName )
             {
-            // InternalTurtle.g:2602:2: ( ruleShapeName )
-            // InternalTurtle.g:2603:3: ruleShapeName
+            // InternalTurtle.g:2729:2: ( ruleShapeName )
+            // InternalTurtle.g:2730:3: ruleShapeName
             {
              before(grammarAccess.getShapeConstraintAccess().getShapeNameShapeNameParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8008,17 +8425,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__ShapeExpressionsAssignment_2_1"
-    // InternalTurtle.g:2612:1: rule__ShapeConstraint__ShapeExpressionsAssignment_2_1 : ( ruleShapeExpression ) ;
+    // InternalTurtle.g:2739:1: rule__ShapeConstraint__ShapeExpressionsAssignment_2_1 : ( ruleShapeExpression ) ;
     public final void rule__ShapeConstraint__ShapeExpressionsAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2616:1: ( ( ruleShapeExpression ) )
-            // InternalTurtle.g:2617:2: ( ruleShapeExpression )
+            // InternalTurtle.g:2743:1: ( ( ruleShapeExpression ) )
+            // InternalTurtle.g:2744:2: ( ruleShapeExpression )
             {
-            // InternalTurtle.g:2617:2: ( ruleShapeExpression )
-            // InternalTurtle.g:2618:3: ruleShapeExpression
+            // InternalTurtle.g:2744:2: ( ruleShapeExpression )
+            // InternalTurtle.g:2745:3: ruleShapeExpression
             {
              before(grammarAccess.getShapeConstraintAccess().getShapeExpressionsShapeExpressionParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8049,17 +8466,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeConstraint__ShapeExpressionsAssignment_3"
-    // InternalTurtle.g:2627:1: rule__ShapeConstraint__ShapeExpressionsAssignment_3 : ( ruleShapeExpression ) ;
+    // InternalTurtle.g:2754:1: rule__ShapeConstraint__ShapeExpressionsAssignment_3 : ( ruleShapeExpression ) ;
     public final void rule__ShapeConstraint__ShapeExpressionsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2631:1: ( ( ruleShapeExpression ) )
-            // InternalTurtle.g:2632:2: ( ruleShapeExpression )
+            // InternalTurtle.g:2758:1: ( ( ruleShapeExpression ) )
+            // InternalTurtle.g:2759:2: ( ruleShapeExpression )
             {
-            // InternalTurtle.g:2632:2: ( ruleShapeExpression )
-            // InternalTurtle.g:2633:3: ruleShapeExpression
+            // InternalTurtle.g:2759:2: ( ruleShapeExpression )
+            // InternalTurtle.g:2760:3: ruleShapeExpression
             {
              before(grammarAccess.getShapeConstraintAccess().getShapeExpressionsShapeExpressionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -8090,17 +8507,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeName__NameAssignment_1"
-    // InternalTurtle.g:2642:1: rule__ShapeName__NameAssignment_1 : ( RULE_UNICODE ) ;
+    // InternalTurtle.g:2769:1: rule__ShapeName__NameAssignment_1 : ( RULE_UNICODE ) ;
     public final void rule__ShapeName__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2646:1: ( ( RULE_UNICODE ) )
-            // InternalTurtle.g:2647:2: ( RULE_UNICODE )
+            // InternalTurtle.g:2773:1: ( ( RULE_UNICODE ) )
+            // InternalTurtle.g:2774:2: ( RULE_UNICODE )
             {
-            // InternalTurtle.g:2647:2: ( RULE_UNICODE )
-            // InternalTurtle.g:2648:3: RULE_UNICODE
+            // InternalTurtle.g:2774:2: ( RULE_UNICODE )
+            // InternalTurtle.g:2775:3: RULE_UNICODE
             {
              before(grammarAccess.getShapeNameAccess().getNameUNICODETerminalRuleCall_1_0()); 
             match(input,RULE_UNICODE,FOLLOW_2); 
@@ -8127,17 +8544,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__PropertyValuesAssignment_0_1"
-    // InternalTurtle.g:2657:1: rule__ShapeExpression__PropertyValuesAssignment_0_1 : ( rulePropertyValues ) ;
+    // InternalTurtle.g:2784:1: rule__ShapeExpression__PropertyValuesAssignment_0_1 : ( rulePropertyValues ) ;
     public final void rule__ShapeExpression__PropertyValuesAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2661:1: ( ( rulePropertyValues ) )
-            // InternalTurtle.g:2662:2: ( rulePropertyValues )
+            // InternalTurtle.g:2788:1: ( ( rulePropertyValues ) )
+            // InternalTurtle.g:2789:2: ( rulePropertyValues )
             {
-            // InternalTurtle.g:2662:2: ( rulePropertyValues )
-            // InternalTurtle.g:2663:3: rulePropertyValues
+            // InternalTurtle.g:2789:2: ( rulePropertyValues )
+            // InternalTurtle.g:2790:3: rulePropertyValues
             {
              before(grammarAccess.getShapeExpressionAccess().getPropertyValuesPropertyValuesParserRuleCall_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8168,17 +8585,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__TypeAssignment_1_0_0"
-    // InternalTurtle.g:2672:1: rule__ShapeExpression__TypeAssignment_1_0_0 : ( rulePropertyType ) ;
+    // InternalTurtle.g:2799:1: rule__ShapeExpression__TypeAssignment_1_0_0 : ( rulePropertyType ) ;
     public final void rule__ShapeExpression__TypeAssignment_1_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2676:1: ( ( rulePropertyType ) )
-            // InternalTurtle.g:2677:2: ( rulePropertyType )
+            // InternalTurtle.g:2803:1: ( ( rulePropertyType ) )
+            // InternalTurtle.g:2804:2: ( rulePropertyType )
             {
-            // InternalTurtle.g:2677:2: ( rulePropertyType )
-            // InternalTurtle.g:2678:3: rulePropertyType
+            // InternalTurtle.g:2804:2: ( rulePropertyType )
+            // InternalTurtle.g:2805:3: rulePropertyType
             {
              before(grammarAccess.getShapeExpressionAccess().getTypePropertyTypeEnumRuleCall_1_0_0_0()); 
             pushFollow(FOLLOW_2);
@@ -8209,17 +8626,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ShapeExpression__PropertyValuesAssignment_1_3_0"
-    // InternalTurtle.g:2687:1: rule__ShapeExpression__PropertyValuesAssignment_1_3_0 : ( rulePropertyValues ) ;
+    // InternalTurtle.g:2814:1: rule__ShapeExpression__PropertyValuesAssignment_1_3_0 : ( rulePropertyValues ) ;
     public final void rule__ShapeExpression__PropertyValuesAssignment_1_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2691:1: ( ( rulePropertyValues ) )
-            // InternalTurtle.g:2692:2: ( rulePropertyValues )
+            // InternalTurtle.g:2818:1: ( ( rulePropertyValues ) )
+            // InternalTurtle.g:2819:2: ( rulePropertyValues )
             {
-            // InternalTurtle.g:2692:2: ( rulePropertyValues )
-            // InternalTurtle.g:2693:3: rulePropertyValues
+            // InternalTurtle.g:2819:2: ( rulePropertyValues )
+            // InternalTurtle.g:2820:3: rulePropertyValues
             {
              before(grammarAccess.getShapeExpressionAccess().getPropertyValuesPropertyValuesParserRuleCall_1_3_0_0()); 
             pushFollow(FOLLOW_2);
@@ -8250,17 +8667,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValues__PropertyAssignment_0"
-    // InternalTurtle.g:2702:1: rule__PropertyValues__PropertyAssignment_0 : ( ruleProperty ) ;
+    // InternalTurtle.g:2829:1: rule__PropertyValues__PropertyAssignment_0 : ( ruleProperty ) ;
     public final void rule__PropertyValues__PropertyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2706:1: ( ( ruleProperty ) )
-            // InternalTurtle.g:2707:2: ( ruleProperty )
+            // InternalTurtle.g:2833:1: ( ( ruleProperty ) )
+            // InternalTurtle.g:2834:2: ( ruleProperty )
             {
-            // InternalTurtle.g:2707:2: ( ruleProperty )
-            // InternalTurtle.g:2708:3: ruleProperty
+            // InternalTurtle.g:2834:2: ( ruleProperty )
+            // InternalTurtle.g:2835:3: ruleProperty
             {
              before(grammarAccess.getPropertyValuesAccess().getPropertyPropertyParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -8291,17 +8708,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValues__ValuesAssignment_2"
-    // InternalTurtle.g:2717:1: rule__PropertyValues__ValuesAssignment_2 : ( ruleValue ) ;
+    // InternalTurtle.g:2844:1: rule__PropertyValues__ValuesAssignment_2 : ( ruleValue ) ;
     public final void rule__PropertyValues__ValuesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2721:1: ( ( ruleValue ) )
-            // InternalTurtle.g:2722:2: ( ruleValue )
+            // InternalTurtle.g:2848:1: ( ( ruleValue ) )
+            // InternalTurtle.g:2849:2: ( ruleValue )
             {
-            // InternalTurtle.g:2722:2: ( ruleValue )
-            // InternalTurtle.g:2723:3: ruleValue
+            // InternalTurtle.g:2849:2: ( ruleValue )
+            // InternalTurtle.g:2850:3: ruleValue
             {
              before(grammarAccess.getPropertyValuesAccess().getValuesValueParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -8332,17 +8749,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Property__TypeAssignment_1"
-    // InternalTurtle.g:2732:1: rule__Property__TypeAssignment_1 : ( rulePropertyType ) ;
+    // InternalTurtle.g:2859:1: rule__Property__TypeAssignment_1 : ( rulePropertyType ) ;
     public final void rule__Property__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2736:1: ( ( rulePropertyType ) )
-            // InternalTurtle.g:2737:2: ( rulePropertyType )
+            // InternalTurtle.g:2863:1: ( ( rulePropertyType ) )
+            // InternalTurtle.g:2864:2: ( rulePropertyType )
             {
-            // InternalTurtle.g:2737:2: ( rulePropertyType )
-            // InternalTurtle.g:2738:3: rulePropertyType
+            // InternalTurtle.g:2864:2: ( rulePropertyType )
+            // InternalTurtle.g:2865:3: rulePropertyType
             {
              before(grammarAccess.getPropertyAccess().getTypePropertyTypeEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8373,17 +8790,17 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Value__NameAssignment_1"
-    // InternalTurtle.g:2747:1: rule__Value__NameAssignment_1 : ( RULE_UNICODE ) ;
+    // InternalTurtle.g:2874:1: rule__Value__NameAssignment_1 : ( RULE_UNICODE ) ;
     public final void rule__Value__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTurtle.g:2751:1: ( ( RULE_UNICODE ) )
-            // InternalTurtle.g:2752:2: ( RULE_UNICODE )
+            // InternalTurtle.g:2878:1: ( ( RULE_UNICODE ) )
+            // InternalTurtle.g:2879:2: ( RULE_UNICODE )
             {
-            // InternalTurtle.g:2752:2: ( RULE_UNICODE )
-            // InternalTurtle.g:2753:3: RULE_UNICODE
+            // InternalTurtle.g:2879:2: ( RULE_UNICODE )
+            // InternalTurtle.g:2880:3: RULE_UNICODE
             {
              before(grammarAccess.getValueAccess().getNameUNICODETerminalRuleCall_1_0()); 
             match(input,RULE_UNICODE,FOLLOW_2); 
@@ -8412,33 +8829,33 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
 
 
     protected DFA3 dfa3 = new DFA3(this);
-    protected DFA14 dfa14 = new DFA14(this);
+    protected DFA17 dfa17 = new DFA17(this);
     static final String dfa_1s = "\26\uffff";
     static final String dfa_2s = "\1\16\23\4\2\uffff";
     static final String dfa_3s = "\1\40\23\53\2\uffff";
-    static final String dfa_4s = "\24\uffff\1\2\1\1";
+    static final String dfa_4s = "\24\uffff\1\1\1\2";
     static final String dfa_5s = "\26\uffff}>";
     static final String[] dfa_6s = {
             "\1\20\1\16\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\17\1\21\1\22\1\23",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
-            "\1\25\41\uffff\1\25\1\uffff\1\24\1\uffff\2\25",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
+            "\1\24\41\uffff\1\24\1\uffff\1\25\1\uffff\2\24",
             "",
             ""
     };
@@ -8464,7 +8881,7 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
             this.transition = dfa_6;
         }
         public String getDescription() {
-            return "493:1: rule__ShapeExpression__Alternatives : ( ( ( rule__ShapeExpression__Group_0__0 ) ) | ( ( rule__ShapeExpression__Group_1__0 ) ) );";
+            return "518:1: rule__ShapeExpression__Alternatives : ( ( ( rule__ShapeExpression__Group_0__0 ) ) | ( ( rule__ShapeExpression__Group_1__0 ) ) );";
         }
     }
     static final String dfa_7s = "\32\uffff";
@@ -8474,7 +8891,7 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
     static final String dfa_11s = "\1\uffff\1\2\23\uffff\1\1\4\uffff";
     static final String dfa_12s = "\32\uffff}>";
     static final String[] dfa_13s = {
-            "\1\21\1\17\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\20\1\22\1\23\1\24\4\uffff\1\1\3\uffff\1\25",
+            "\1\21\1\17\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\20\1\22\1\23\1\24\1\uffff\1\1\6\uffff\1\25",
             "",
             "\1\27\41\uffff\1\31\1\uffff\1\1\1\uffff\1\26\1\30",
             "\1\27\41\uffff\1\31\1\uffff\1\1\1\uffff\1\26\1\30",
@@ -8499,7 +8916,7 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
             "\1\27\41\uffff\1\31\4\uffff\1\30",
             "\1\27\41\uffff\1\31\4\uffff\1\30",
             "\1\31",
-            "\1\21\1\17\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\20\1\22\1\23\1\24\4\uffff\1\1\3\uffff\1\25"
+            "\1\21\1\17\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\20\1\22\1\23\1\24\1\uffff\1\1\6\uffff\1\25"
     };
 
     static final short[] dfa_7 = DFA.unpackEncodedString(dfa_7s);
@@ -8510,11 +8927,11 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
     static final short[] dfa_12 = DFA.unpackEncodedString(dfa_12s);
     static final short[][] dfa_13 = unpackEncodedStringArray(dfa_13s);
 
-    class DFA14 extends DFA {
+    class DFA17 extends DFA {
 
-        public DFA14(BaseRecognizer recognizer) {
+        public DFA17(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 14;
+            this.decisionNumber = 17;
             this.eot = dfa_7;
             this.eof = dfa_8;
             this.min = dfa_9;
@@ -8524,33 +8941,35 @@ public class InternalTurtleParser extends AbstractInternalContentAssistParser {
             this.transition = dfa_13;
         }
         public String getDescription() {
-            return "()* loopback of 1864:3: ( rule__ShapeExpression__Group_1_3__0 )*";
+            return "()* loopback of 1991:3: ( rule__ShapeExpression__Group_1_3__0 )*";
         }
     }
  
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000400000010L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000400000002L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000800000010L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000800000002L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000002000000010L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x00000001FFFFE010L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x00000021FFFFE010L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x00000001FFFFE012L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x00000001FFFFC000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x00000201FFFFE010L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x00000201FFFFE012L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x00000001FFFFC002L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x00000C4000000010L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000400000060L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000062L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000400000010L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x00000001FFFFE010L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x00000005FFFFE010L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x00000001FFFFE012L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x00000001FFFFC000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x00000201FFFFE010L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x00000201FFFFE012L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x00000001FFFFC002L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x00000C4000000010L});
 
 }

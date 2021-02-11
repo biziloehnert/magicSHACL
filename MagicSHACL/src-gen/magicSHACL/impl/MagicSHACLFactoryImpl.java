@@ -17,6 +17,7 @@ import magicSHACL.ShapeExpression;
 import magicSHACL.ShapeName;
 import magicSHACL.ShapesGraph;
 import magicSHACL.Subject;
+import magicSHACL.Target;
 import magicSHACL.Triples;
 import magicSHACL.Value;
 
@@ -103,6 +104,8 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 			return createValue();
 		case MagicSHACLPackage.PROPERTY_VALUES:
 			return createPropertyValues();
+		case MagicSHACLPackage.TARGET:
+			return createTarget();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -118,8 +121,6 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 		switch (eDataType.getClassifierID()) {
 		case MagicSHACLPackage.PROPERTY_TYPE:
 			return createPropertyTypeFromString(eDataType, initialValue);
-		case MagicSHACLPackage.IRI:
-			return createIRIFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -135,8 +136,6 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 		switch (eDataType.getClassifierID()) {
 		case MagicSHACLPackage.PROPERTY_TYPE:
 			return convertPropertyTypeToString(eDataType, instanceValue);
-		case MagicSHACLPackage.IRI:
-			return convertIRIToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -287,6 +286,16 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Target createTarget() {
+		TargetImpl target = new TargetImpl();
+		return target;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ShapeExpression createShapeExpression() {
 		ShapeExpressionImpl shapeExpression = new ShapeExpressionImpl();
 		return shapeExpression;
@@ -312,24 +321,6 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 */
 	public String convertPropertyTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String createIRIFromString(EDataType eDataType, String initialValue) {
-		return (String) super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIRIToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

@@ -145,6 +145,21 @@ ruleGraph returns [EObject current=null]
 		{
 			newLeafNode(otherlv_4, grammarAccess.getGraphAccess().getLessThanSignGreaterThanSignKeyword_4());
 		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGraphAccess().getEStringParserRuleCall_5_0());
+				}
+				ruleEString
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)*
+			otherlv_6='.'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getGraphAccess().getFullStopKeyword_5_1());
+			}
+		)?
 	)
 ;
 
@@ -1030,6 +1045,40 @@ ruleValue returns [EObject current=null]
 				}
 			)
 		)
+	)
+;
+
+// Entry rule entryRuleEString
+entryRuleEString returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getEStringRule()); }
+	iv_ruleEString=ruleEString
+	{ $current=$iv_ruleEString.current.getText(); }
+	EOF;
+
+// Rule EString
+ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_STRING_0=RULE_STRING
+		{
+			$current.merge(this_STRING_0);
+		}
+		{
+			newLeafNode(this_STRING_0, grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall_0());
+		}
+		    |
+		this_ID_1=RULE_ID
+		{
+			$current.merge(this_ID_1);
+		}
+		{
+			newLeafNode(this_ID_1, grammarAccess.getEStringAccess().getIDTerminalRuleCall_1());
+		}
 	)
 ;
 

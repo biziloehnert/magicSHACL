@@ -39,6 +39,7 @@ public class TurtleParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 			builder.put(grammarAccess.getPropertyTypeAccess().getAlternatives(), "rule__PropertyType__Alternatives");
 			builder.put(grammarAccess.getGraphAccess().getGroup(), "rule__Graph__Group__0");
+			builder.put(grammarAccess.getGraphAccess().getGroup_5(), "rule__Graph__Group_5__0");
 			builder.put(grammarAccess.getNamespaceAccess().getGroup(), "rule__Namespace__Group__0");
 			builder.put(grammarAccess.getDataGraphAccess().getGroup(), "rule__DataGraph__Group__0");
 			builder.put(grammarAccess.getTriplesAccess().getGroup(), "rule__Triples__Group__0");

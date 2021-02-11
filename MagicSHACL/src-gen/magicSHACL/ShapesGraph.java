@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link magicSHACL.ShapesGraph#getShapeConstraints <em>Shape Constraints</em>}</li>
+ *   <li>{@link magicSHACL.ShapesGraph#getTargets <em>Targets</em>}</li>
  * </ul>
  *
  * @see magicSHACL.MagicSHACLPackage#getShapesGraph()
@@ -34,5 +35,25 @@ public interface ShapesGraph extends EObject {
 	 * @generated
 	 */
 	EList<ShapeConstraint> getShapeConstraints();
+
+	/**
+	 * Returns the value of the '<em><b>Targets</b></em>' containment reference list.
+	 * The list contents are of type {@link magicSHACL.Target}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Targets</em>' containment reference list.
+	 * @see magicSHACL.MagicSHACLPackage#getShapesGraph_Targets()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Target> getTargets();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean" ShapeNameDataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @generated
+	 */
+	boolean isShapeName(String ShapeName);
 
 } // ShapesGraph

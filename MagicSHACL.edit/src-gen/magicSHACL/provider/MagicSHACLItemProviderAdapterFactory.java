@@ -395,6 +395,29 @@ public class MagicSHACLItemProviderAdapterFactory extends MagicSHACLAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link magicSHACL.Target} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TargetItemProvider targetItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link magicSHACL.Target}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTargetAdapter() {
+		if (targetItemProvider == null) {
+			targetItemProvider = new TargetItemProvider(this);
+		}
+
+		return targetItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link magicSHACL.ShapeExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -546,6 +569,8 @@ public class MagicSHACLItemProviderAdapterFactory extends MagicSHACLAdapterFacto
 			valueItemProvider.dispose();
 		if (propertyValuesItemProvider != null)
 			propertyValuesItemProvider.dispose();
+		if (targetItemProvider != null)
+			targetItemProvider.dispose();
 	}
 
 }

@@ -31,26 +31,38 @@ public class SimpleParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SimpleGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getPropertyValuesAccess().getAlternatives_4(), "rule__PropertyValues__Alternatives_4");
+			builder.put(grammarAccess.getShapeExpressionAccess().getAlternatives(), "rule__ShapeExpression__Alternatives");
+			builder.put(grammarAccess.getPropertyValuesAccess().getAlternatives(), "rule__PropertyValues__Alternatives");
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 			builder.put(grammarAccess.getPropertyTypeAccess().getAlternatives(), "rule__PropertyType__Alternatives");
 			builder.put(grammarAccess.getGraphAccess().getGroup(), "rule__Graph__Group__0");
 			builder.put(grammarAccess.getShapesGraphAccess().getGroup(), "rule__ShapesGraph__Group__0");
+			builder.put(grammarAccess.getTargetAccess().getGroup(), "rule__Target__Group__0");
 			builder.put(grammarAccess.getShapeConstraintAccess().getGroup(), "rule__ShapeConstraint__Group__0");
 			builder.put(grammarAccess.getShapeNameAccess().getGroup(), "rule__ShapeName__Group__0");
-			builder.put(grammarAccess.getShapeExpressionAccess().getGroup(), "rule__ShapeExpression__Group__0");
-			builder.put(grammarAccess.getPropertyValuesAccess().getGroup(), "rule__PropertyValues__Group__0");
+			builder.put(grammarAccess.getShapeExpressionAccess().getGroup_0(), "rule__ShapeExpression__Group_0__0");
+			builder.put(grammarAccess.getPropertyValuesAccess().getGroup_0(), "rule__PropertyValues__Group_0__0");
+			builder.put(grammarAccess.getPropertyValuesAccess().getGroup_0_1(), "rule__PropertyValues__Group_0_1__0");
+			builder.put(grammarAccess.getPropertyValuesAccess().getGroup_0_1_3(), "rule__PropertyValues__Group_0_1_3__0");
+			builder.put(grammarAccess.getPropertyValuesAccess().getGroup_1(), "rule__PropertyValues__Group_1__0");
 			builder.put(grammarAccess.getPropertyAccess().getGroup(), "rule__Property__Group__0");
 			builder.put(grammarAccess.getValueAccess().getGroup(), "rule__Value__Group__0");
 			builder.put(grammarAccess.getGraphAccess().getShapesGraphAssignment_1(), "rule__Graph__ShapesGraphAssignment_1");
-			builder.put(grammarAccess.getShapesGraphAccess().getShapeConstraintsAssignment_1(), "rule__ShapesGraph__ShapeConstraintsAssignment_1");
+			builder.put(grammarAccess.getShapesGraphAccess().getTargetsAssignment_1(), "rule__ShapesGraph__TargetsAssignment_1");
+			builder.put(grammarAccess.getShapesGraphAccess().getShapeConstraintsAssignment_2(), "rule__ShapesGraph__ShapeConstraintsAssignment_2");
+			builder.put(grammarAccess.getTargetAccess().getNameAssignment_1(), "rule__Target__NameAssignment_1");
+			builder.put(grammarAccess.getTargetAccess().getTermAssignment_3(), "rule__Target__TermAssignment_3");
 			builder.put(grammarAccess.getShapeConstraintAccess().getShapeNameAssignment_1(), "rule__ShapeConstraint__ShapeNameAssignment_1");
 			builder.put(grammarAccess.getShapeConstraintAccess().getShapeExpressionsAssignment_3(), "rule__ShapeConstraint__ShapeExpressionsAssignment_3");
 			builder.put(grammarAccess.getShapeNameAccess().getNameAssignment_1(), "rule__ShapeName__NameAssignment_1");
+			builder.put(grammarAccess.getShapeExpressionAccess().getValueAssignment_0_1(), "rule__ShapeExpression__ValueAssignment_0_1");
 			builder.put(grammarAccess.getShapeExpressionAccess().getPropertyValuesAssignment_1(), "rule__ShapeExpression__PropertyValuesAssignment_1");
-			builder.put(grammarAccess.getPropertyValuesAccess().getValuesAssignment_1(), "rule__PropertyValues__ValuesAssignment_1");
-			builder.put(grammarAccess.getPropertyValuesAccess().getPropertyAssignment_2(), "rule__PropertyValues__PropertyAssignment_2");
-			builder.put(grammarAccess.getPropertyValuesAccess().getValuesAssignment_3(), "rule__PropertyValues__ValuesAssignment_3");
+			builder.put(grammarAccess.getPropertyValuesAccess().getValuesAssignment_0_1_0(), "rule__PropertyValues__ValuesAssignment_0_1_0");
+			builder.put(grammarAccess.getPropertyValuesAccess().getPropertyAssignment_0_1_1(), "rule__PropertyValues__PropertyAssignment_0_1_1");
+			builder.put(grammarAccess.getPropertyValuesAccess().getValuesAssignment_0_1_2(), "rule__PropertyValues__ValuesAssignment_0_1_2");
+			builder.put(grammarAccess.getPropertyValuesAccess().getValuesAssignment_0_1_3_1(), "rule__PropertyValues__ValuesAssignment_0_1_3_1");
+			builder.put(grammarAccess.getPropertyValuesAccess().getPropertyAssignment_1_0(), "rule__PropertyValues__PropertyAssignment_1_0");
+			builder.put(grammarAccess.getPropertyValuesAccess().getValuesAssignment_1_1(), "rule__PropertyValues__ValuesAssignment_1_1");
 			builder.put(grammarAccess.getPropertyAccess().getTypeAssignment_1(), "rule__Property__TypeAssignment_1");
 			builder.put(grammarAccess.getValueAccess().getNameAssignment_1(), "rule__Value__NameAssignment_1");
 		}

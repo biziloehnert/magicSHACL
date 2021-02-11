@@ -9,7 +9,7 @@ Graph returns Graph:
 	(namespaces+=Namespace)*
 	dataGraph=DataGraph
 	shapesGraph=ShapesGraph
-	'<>'
+	'<>' (EString* '.')?
 	;
 	
 Namespace returns Namespace:

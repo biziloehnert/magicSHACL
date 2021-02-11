@@ -5,7 +5,7 @@
     editorDirectory="/MagicSHACL.editor/src-gen" modelPluginID="MagicSHACL" modelName="MagicSHACL"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+    operationReflection="true" runtimePlatform="RCP" importOrganizing="true">
   <foreignModel>magicSHACL.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="MagicSHACL" disposableProviderFactory="true" ecorePackage="magicSHACL.ecore#/">
@@ -30,7 +30,6 @@
       <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/InversePath"/>
       <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/TargetNode"/>
     </genEnums>
-    <genDataTypes ecoreDataType="magicSHACL.ecore#//IRI"/>
     <genClasses ecoreClass="magicSHACL.ecore#//DataGraph">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference magicSHACL.ecore#//DataGraph/triples"/>
     </genClasses>
@@ -61,22 +60,50 @@
     <genClasses ecoreClass="magicSHACL.ecore#//ShapeConstraint">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference magicSHACL.ecore#//ShapeConstraint/shapeName"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference magicSHACL.ecore#//ShapeConstraint/shapeExpressions"/>
+      <genOperations ecoreOperation="magicSHACL.ecore#//ShapeConstraint/adorn"/>
+      <genOperations ecoreOperation="magicSHACL.ecore#//ShapeConstraint/generate">
+        <genParameters ecoreParameter="magicSHACL.ecore#//ShapeConstraint/generate/AdornedShape"/>
+      </genOperations>
+      <genOperations ecoreOperation="magicSHACL.ecore#//ShapeConstraint/removeAdornments"/>
     </genClasses>
     <genClasses ecoreClass="magicSHACL.ecore#//ShapesGraph">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference magicSHACL.ecore#//ShapesGraph/shapeConstraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference magicSHACL.ecore#//ShapesGraph/targets"/>
+      <genOperations ecoreOperation="magicSHACL.ecore#//ShapesGraph/isShapeName">
+        <genParameters ecoreParameter="magicSHACL.ecore#//ShapesGraph/isShapeName/ShapeName"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="magicSHACL.ecore#//ShapeExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference magicSHACL.ecore#//ShapeExpression/propertyValues"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute magicSHACL.ecore#//ShapeExpression/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute magicSHACL.ecore#//ShapeExpression/value"/>
+      <genOperations ecoreOperation="magicSHACL.ecore#//ShapeExpression/toAbstractString"/>
     </genClasses>
-    <genClasses ecoreClass="magicSHACL.ecore#//ShapeName"/>
+    <genClasses ecoreClass="magicSHACL.ecore#//ShapeName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute magicSHACL.ecore#//ShapeName/adorned"/>
+      <genOperations ecoreOperation="magicSHACL.ecore#//ShapeName/getMagicShapeName"/>
+    </genClasses>
     <genClasses ecoreClass="magicSHACL.ecore#//Property">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute magicSHACL.ecore#//Property/type"/>
+      <genOperations ecoreOperation="magicSHACL.ecore#//Property/toAbstractString"/>
     </genClasses>
-    <genClasses ecoreClass="magicSHACL.ecore#//Value"/>
+    <genClasses ecoreClass="magicSHACL.ecore#//Value">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute magicSHACL.ecore#//Value/adorned"/>
+      <genOperations ecoreOperation="magicSHACL.ecore#//Value/toShapeName"/>
+    </genClasses>
     <genClasses ecoreClass="magicSHACL.ecore#//PropertyValues">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference magicSHACL.ecore#//PropertyValues/property"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference magicSHACL.ecore#//PropertyValues/values"/>
+      <genOperations ecoreOperation="magicSHACL.ecore#//PropertyValues/getMagicPropertyValues">
+        <genParameters ecoreParameter="magicSHACL.ecore#//PropertyValues/getMagicPropertyValues/shapeName"/>
+      </genOperations>
+      <genOperations ecoreOperation="magicSHACL.ecore#//PropertyValues/getPathValue"/>
+    </genClasses>
+    <genClasses ecoreClass="magicSHACL.ecore#//Target">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute magicSHACL.ecore#//Target/term"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute magicSHACL.ecore#//Target/name"/>
+      <genOperations ecoreOperation="magicSHACL.ecore#//Target/toShapeName"/>
+      <genOperations ecoreOperation="magicSHACL.ecore#//Target/getMagicQuerySeed"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalTurtleLexer extends Lexer {
-    public static final int RULE_PREFIX=5;
+    public static final int RULE_PREFIX=7;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
@@ -20,12 +20,12 @@ public class InternalTurtleLexer extends Lexer {
     public static final int T__18=18;
     public static final int T__13=13;
     public static final int T__14=14;
-    public static final int RULE_ID=7;
+    public static final int RULE_ID=6;
     public static final int RULE_UNICODE=4;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int T__28=28;
-    public static final int RULE_INT=6;
+    public static final int RULE_INT=8;
     public static final int T__29=29;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=9;
@@ -34,7 +34,7 @@ public class InternalTurtleLexer extends Lexer {
     public static final int T__25=25;
     public static final int T__20=20;
     public static final int T__21=21;
-    public static final int RULE_STRING=8;
+    public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=10;
     public static final int T__37=37;
     public static final int T__38=38;
@@ -512,11 +512,10 @@ public class InternalTurtleLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTurtle.g:32:7: ( '@prefix' )
-            // InternalTurtle.g:32:9: '@prefix'
+            // InternalTurtle.g:32:7: ( '.' )
+            // InternalTurtle.g:32:9: '.'
             {
-            match("@prefix"); 
-
+            match('.'); 
 
             }
 
@@ -533,10 +532,11 @@ public class InternalTurtleLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTurtle.g:33:7: ( '<' )
-            // InternalTurtle.g:33:9: '<'
+            // InternalTurtle.g:33:7: ( '@prefix' )
+            // InternalTurtle.g:33:9: '@prefix'
             {
-            match('<'); 
+            match("@prefix"); 
+
 
             }
 
@@ -553,10 +553,10 @@ public class InternalTurtleLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTurtle.g:34:7: ( '>' )
-            // InternalTurtle.g:34:9: '>'
+            // InternalTurtle.g:34:7: ( '<' )
+            // InternalTurtle.g:34:9: '<'
             {
-            match('>'); 
+            match('<'); 
 
             }
 
@@ -573,10 +573,10 @@ public class InternalTurtleLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTurtle.g:35:7: ( '.' )
-            // InternalTurtle.g:35:9: '.'
+            // InternalTurtle.g:35:7: ( '>' )
+            // InternalTurtle.g:35:9: '>'
             {
-            match('.'); 
+            match('>'); 
 
             }
 
@@ -714,10 +714,10 @@ public class InternalTurtleLexer extends Lexer {
         try {
             int _type = RULE_PREFIX;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTurtle.g:2762:13: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' )* ':' )
-            // InternalTurtle.g:2762:15: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )* ':'
+            // InternalTurtle.g:2889:13: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' )* ':' )
+            // InternalTurtle.g:2889:15: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )* ':'
             {
-            // InternalTurtle.g:2762:15: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )*
+            // InternalTurtle.g:2889:15: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )*
             loop1:
             do {
                 int alt1=2;
@@ -767,115 +767,115 @@ public class InternalTurtleLexer extends Lexer {
         try {
             int _type = RULE_UNICODE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTurtle.g:2764:14: ( ( 'a' .. 'z' | 'A' .. 'Z' | RULE_INT | '_' | ':' | '#' | '/' | '.' | '-' | '\"' | '^' | '{' | '}' | '\\\\' | '$' )* )
-            // InternalTurtle.g:2764:16: ( 'a' .. 'z' | 'A' .. 'Z' | RULE_INT | '_' | ':' | '#' | '/' | '.' | '-' | '\"' | '^' | '{' | '}' | '\\\\' | '$' )*
+            // InternalTurtle.g:2891:14: ( ( 'a' .. 'z' | 'A' .. 'Z' | RULE_INT | '_' | ':' | '#' | '/' | '.' | '-' | '\"' | '^' | '{' | '}' | '\\\\' | '$' )* )
+            // InternalTurtle.g:2891:16: ( 'a' .. 'z' | 'A' .. 'Z' | RULE_INT | '_' | ':' | '#' | '/' | '.' | '-' | '\"' | '^' | '{' | '}' | '\\\\' | '$' )*
             {
-            // InternalTurtle.g:2764:16: ( 'a' .. 'z' | 'A' .. 'Z' | RULE_INT | '_' | ':' | '#' | '/' | '.' | '-' | '\"' | '^' | '{' | '}' | '\\\\' | '$' )*
+            // InternalTurtle.g:2891:16: ( 'a' .. 'z' | 'A' .. 'Z' | RULE_INT | '_' | ':' | '#' | '/' | '.' | '-' | '\"' | '^' | '{' | '}' | '\\\\' | '$' )*
             loop2:
             do {
                 int alt2=16;
                 alt2 = dfa2.predict(input);
                 switch (alt2) {
             	case 1 :
-            	    // InternalTurtle.g:2764:17: 'a' .. 'z'
+            	    // InternalTurtle.g:2891:17: 'a' .. 'z'
             	    {
             	    matchRange('a','z'); 
 
             	    }
             	    break;
             	case 2 :
-            	    // InternalTurtle.g:2764:26: 'A' .. 'Z'
+            	    // InternalTurtle.g:2891:26: 'A' .. 'Z'
             	    {
             	    matchRange('A','Z'); 
 
             	    }
             	    break;
             	case 3 :
-            	    // InternalTurtle.g:2764:35: RULE_INT
+            	    // InternalTurtle.g:2891:35: RULE_INT
             	    {
             	    mRULE_INT(); 
 
             	    }
             	    break;
             	case 4 :
-            	    // InternalTurtle.g:2764:44: '_'
+            	    // InternalTurtle.g:2891:44: '_'
             	    {
             	    match('_'); 
 
             	    }
             	    break;
             	case 5 :
-            	    // InternalTurtle.g:2764:48: ':'
+            	    // InternalTurtle.g:2891:48: ':'
             	    {
             	    match(':'); 
 
             	    }
             	    break;
             	case 6 :
-            	    // InternalTurtle.g:2764:52: '#'
+            	    // InternalTurtle.g:2891:52: '#'
             	    {
             	    match('#'); 
 
             	    }
             	    break;
             	case 7 :
-            	    // InternalTurtle.g:2764:56: '/'
+            	    // InternalTurtle.g:2891:56: '/'
             	    {
             	    match('/'); 
 
             	    }
             	    break;
             	case 8 :
-            	    // InternalTurtle.g:2764:60: '.'
+            	    // InternalTurtle.g:2891:60: '.'
             	    {
             	    match('.'); 
 
             	    }
             	    break;
             	case 9 :
-            	    // InternalTurtle.g:2764:64: '-'
+            	    // InternalTurtle.g:2891:64: '-'
             	    {
             	    match('-'); 
 
             	    }
             	    break;
             	case 10 :
-            	    // InternalTurtle.g:2764:68: '\"'
+            	    // InternalTurtle.g:2891:68: '\"'
             	    {
             	    match('\"'); 
 
             	    }
             	    break;
             	case 11 :
-            	    // InternalTurtle.g:2764:72: '^'
+            	    // InternalTurtle.g:2891:72: '^'
             	    {
             	    match('^'); 
 
             	    }
             	    break;
             	case 12 :
-            	    // InternalTurtle.g:2764:76: '{'
+            	    // InternalTurtle.g:2891:76: '{'
             	    {
             	    match('{'); 
 
             	    }
             	    break;
             	case 13 :
-            	    // InternalTurtle.g:2764:80: '}'
+            	    // InternalTurtle.g:2891:80: '}'
             	    {
             	    match('}'); 
 
             	    }
             	    break;
             	case 14 :
-            	    // InternalTurtle.g:2764:84: '\\\\'
+            	    // InternalTurtle.g:2891:84: '\\\\'
             	    {
             	    match('\\'); 
 
             	    }
             	    break;
             	case 15 :
-            	    // InternalTurtle.g:2764:89: '$'
+            	    // InternalTurtle.g:2891:89: '$'
             	    {
             	    match('$'); 
 
@@ -903,10 +903,10 @@ public class InternalTurtleLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTurtle.g:2766:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalTurtle.g:2766:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalTurtle.g:2893:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalTurtle.g:2893:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalTurtle.g:2766:11: ( '^' )?
+            // InternalTurtle.g:2893:11: ( '^' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -915,7 +915,7 @@ public class InternalTurtleLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // InternalTurtle.g:2766:11: '^'
+                    // InternalTurtle.g:2893:11: '^'
                     {
                     match('^'); 
 
@@ -933,7 +933,7 @@ public class InternalTurtleLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalTurtle.g:2766:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalTurtle.g:2893:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop4:
             do {
                 int alt4=2;
@@ -980,10 +980,10 @@ public class InternalTurtleLexer extends Lexer {
     // $ANTLR start "RULE_INT"
     public final void mRULE_INT() throws RecognitionException {
         try {
-            // InternalTurtle.g:2768:19: ( ( '0' .. '9' )+ )
-            // InternalTurtle.g:2768:21: ( '0' .. '9' )+
+            // InternalTurtle.g:2895:19: ( ( '0' .. '9' )+ )
+            // InternalTurtle.g:2895:21: ( '0' .. '9' )+
             {
-            // InternalTurtle.g:2768:21: ( '0' .. '9' )+
+            // InternalTurtle.g:2895:21: ( '0' .. '9' )+
             int cnt5=0;
             loop5:
             do {
@@ -997,7 +997,7 @@ public class InternalTurtleLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalTurtle.g:2768:22: '0' .. '9'
+            	    // InternalTurtle.g:2895:22: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1027,10 +1027,10 @@ public class InternalTurtleLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTurtle.g:2770:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalTurtle.g:2770:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalTurtle.g:2897:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalTurtle.g:2897:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalTurtle.g:2770:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalTurtle.g:2897:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -1048,10 +1048,10 @@ public class InternalTurtleLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // InternalTurtle.g:2770:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalTurtle.g:2897:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalTurtle.g:2770:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalTurtle.g:2897:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -1067,7 +1067,7 @@ public class InternalTurtleLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // InternalTurtle.g:2770:21: '\\\\' .
+                    	    // InternalTurtle.g:2897:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1075,7 +1075,7 @@ public class InternalTurtleLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalTurtle.g:2770:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalTurtle.g:2897:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1100,10 +1100,10 @@ public class InternalTurtleLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalTurtle.g:2770:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalTurtle.g:2897:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalTurtle.g:2770:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalTurtle.g:2897:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -1119,7 +1119,7 @@ public class InternalTurtleLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // InternalTurtle.g:2770:54: '\\\\' .
+                    	    // InternalTurtle.g:2897:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1127,7 +1127,7 @@ public class InternalTurtleLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalTurtle.g:2770:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalTurtle.g:2897:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1170,12 +1170,12 @@ public class InternalTurtleLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTurtle.g:2772:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalTurtle.g:2772:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalTurtle.g:2899:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalTurtle.g:2899:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalTurtle.g:2772:24: ( options {greedy=false; } : . )*
+            // InternalTurtle.g:2899:24: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -1200,7 +1200,7 @@ public class InternalTurtleLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalTurtle.g:2772:52: .
+            	    // InternalTurtle.g:2899:52: .
             	    {
             	    matchAny(); 
 
@@ -1230,12 +1230,12 @@ public class InternalTurtleLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTurtle.g:2774:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalTurtle.g:2774:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalTurtle.g:2901:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalTurtle.g:2901:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalTurtle.g:2774:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalTurtle.g:2901:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop10:
             do {
                 int alt10=2;
@@ -1248,7 +1248,7 @@ public class InternalTurtleLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalTurtle.g:2774:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalTurtle.g:2901:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1268,7 +1268,7 @@ public class InternalTurtleLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalTurtle.g:2774:40: ( ( '\\r' )? '\\n' )?
+            // InternalTurtle.g:2901:40: ( ( '\\r' )? '\\n' )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1277,9 +1277,9 @@ public class InternalTurtleLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalTurtle.g:2774:41: ( '\\r' )? '\\n'
+                    // InternalTurtle.g:2901:41: ( '\\r' )? '\\n'
                     {
-                    // InternalTurtle.g:2774:41: ( '\\r' )?
+                    // InternalTurtle.g:2901:41: ( '\\r' )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -1288,7 +1288,7 @@ public class InternalTurtleLexer extends Lexer {
                     }
                     switch (alt11) {
                         case 1 :
-                            // InternalTurtle.g:2774:41: '\\r'
+                            // InternalTurtle.g:2901:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1320,10 +1320,10 @@ public class InternalTurtleLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTurtle.g:2776:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalTurtle.g:2776:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalTurtle.g:2903:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalTurtle.g:2903:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalTurtle.g:2776:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalTurtle.g:2903:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt13=0;
             loop13:
             do {
@@ -1377,8 +1377,8 @@ public class InternalTurtleLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTurtle.g:2778:16: ( . )
-            // InternalTurtle.g:2778:18: .
+            // InternalTurtle.g:2905:16: ( . )
+            // InternalTurtle.g:2905:18: .
             {
             matchAny(); 
 
@@ -1740,29 +1740,29 @@ public class InternalTurtleLexer extends Lexer {
             this.transition = DFA2_transition;
         }
         public String getDescription() {
-            return "()* loopback of 2764:16: ( 'a' .. 'z' | 'A' .. 'Z' | RULE_INT | '_' | ':' | '#' | '/' | '.' | '-' | '\"' | '^' | '{' | '}' | '\\\\' | '$' )*";
+            return "()* loopback of 2891:16: ( 'a' .. 'z' | 'A' .. 'Z' | RULE_INT | '_' | ':' | '#' | '/' | '.' | '-' | '\"' | '^' | '{' | '}' | '\\\\' | '$' )*";
         }
     }
     static final String DFA14_eotS =
-        "\1\32\1\36\1\32\1\46\1\35\1\uffff\1\51\5\uffff\1\32\1\57\2\32\2\uffff\1\32\1\uffff\2\32\5\uffff\1\35\3\uffff\4\32\1\57\1\32\14\uffff\12\32\1\uffff\5\32\1\uffff\3\32\1\uffff\3\32\1\57\1\32\1\uffff\55\32\1\u0088\15\32\1\u0099\1\uffff\1\u009a\13\32\1\u00a6\3\32\2\uffff\1\u00ab\1\u00ac\11\32\1\uffff\4\32\2\uffff\1\u00ba\14\32\1\uffff\1\u00c7\7\32\1\u00d0\3\32\1\uffff\7\32\1\u00db\1\uffff\1\u00dc\1\u00dd\1\u00de\1\u00df\1\u00e0\5\32\6\uffff\4\32\1\u00ea\3\32\1\u00ee\1\uffff\1\32\1\u00f0\1\u00f1\1\uffff\1\32\2\uffff\4\32\1\u00f7\1\uffff";
+        "\1\32\1\36\1\32\1\46\1\47\1\35\6\uffff\1\32\1\57\2\32\2\uffff\1\32\1\uffff\2\32\5\uffff\1\35\3\uffff\4\32\1\57\1\32\14\uffff\12\32\1\uffff\5\32\1\uffff\3\32\1\uffff\3\32\1\57\1\32\1\uffff\55\32\1\u0088\15\32\1\u0099\1\uffff\1\u009a\13\32\1\u00a6\3\32\2\uffff\1\u00ab\1\u00ac\11\32\1\uffff\4\32\2\uffff\1\u00ba\14\32\1\uffff\1\u00c7\7\32\1\u00d0\3\32\1\uffff\7\32\1\u00db\1\uffff\1\u00dc\1\u00dd\1\u00de\1\u00df\1\u00e0\5\32\6\uffff\4\32\1\u00ea\3\32\1\u00ee\1\uffff\1\32\1\u00f0\1\u00f1\1\uffff\1\32\2\uffff\4\32\1\u00f7\1\uffff";
     static final String DFA14_eofS =
         "\u00f8\uffff";
     static final String DFA14_minS =
-        "\1\0\1\42\1\60\1\76\1\160\1\uffff\1\42\5\uffff\1\60\1\42\2\60\2\uffff\1\52\1\uffff\1\0\1\101\5\uffff\1\0\3\uffff\4\60\1\42\1\60\14\uffff\12\0\1\uffff\5\0\1\uffff\3\60\1\uffff\3\60\1\42\1\0\1\uffff\35\0\2\141\1\156\1\162\1\141\1\154\2\141\1\147\1\141\2\157\1\164\1\156\1\170\1\144\1\42\1\144\1\155\1\141\1\163\1\164\1\156\1\166\1\162\1\144\1\160\1\150\2\103\1\42\1\uffff\1\42\2\145\2\163\1\126\1\141\1\157\1\145\1\147\2\145\1\42\1\145\2\157\2\uffff\2\42\1\163\1\145\1\141\1\164\2\162\1\145\1\123\1\162\1\uffff\1\162\2\165\1\151\2\uffff\1\42\1\144\1\154\1\171\1\145\1\163\1\164\1\150\1\164\4\156\1\uffff\1\42\1\165\1\160\1\144\1\145\1\103\1\141\1\171\1\42\2\164\1\144\1\uffff\2\145\2\120\1\154\1\157\1\160\1\42\1\uffff\5\42\1\162\2\141\1\144\1\145\6\uffff\1\157\1\164\1\163\1\145\1\42\1\160\1\150\1\163\1\42\1\uffff\1\145\2\42\1\uffff\1\162\2\uffff\1\164\1\151\1\145\1\163\1\42\1\uffff";
+        "\1\0\1\42\1\60\1\76\1\42\1\160\6\uffff\1\60\1\42\2\60\2\uffff\1\52\1\uffff\1\0\1\101\5\uffff\1\0\3\uffff\4\60\1\42\1\60\14\uffff\12\0\1\uffff\5\0\1\uffff\3\60\1\uffff\3\60\1\42\1\0\1\uffff\35\0\2\141\1\156\1\162\1\141\1\154\2\141\1\147\1\141\2\157\1\164\1\156\1\170\1\144\1\42\1\144\1\155\1\141\1\163\1\164\1\156\1\166\1\162\1\144\1\160\1\150\2\103\1\42\1\uffff\1\42\2\145\2\163\1\126\1\141\1\157\1\145\1\147\2\145\1\42\1\145\2\157\2\uffff\2\42\1\163\1\145\1\141\1\164\2\162\1\145\1\123\1\162\1\uffff\1\162\2\165\1\151\2\uffff\1\42\1\144\1\154\1\171\1\145\1\163\1\164\1\150\1\164\4\156\1\uffff\1\42\1\165\1\160\1\144\1\145\1\103\1\141\1\171\1\42\2\164\1\144\1\uffff\2\145\2\120\1\154\1\157\1\160\1\42\1\uffff\5\42\1\162\2\141\1\144\1\145\6\uffff\1\157\1\164\1\163\1\145\1\42\1\160\1\150\1\163\1\42\1\uffff\1\145\2\42\1\uffff\1\162\2\uffff\1\164\1\151\1\145\1\163\1\42\1\uffff";
     static final String DFA14_maxS =
-        "\1\uffff\1\175\1\172\1\76\1\160\1\uffff\1\175\5\uffff\1\172\1\175\2\172\2\uffff\1\57\1\uffff\1\uffff\1\172\5\uffff\1\uffff\3\uffff\4\172\1\175\1\172\14\uffff\12\uffff\1\uffff\5\uffff\1\uffff\3\172\1\uffff\3\172\1\175\1\uffff\1\uffff\35\uffff\1\162\1\151\1\156\1\162\1\157\1\154\2\141\1\156\1\141\2\157\1\164\1\156\1\170\1\144\1\175\1\164\1\155\1\157\1\163\1\164\1\156\1\166\1\162\1\144\1\160\1\164\2\103\1\175\1\uffff\1\175\2\145\2\163\1\126\1\141\1\157\1\145\1\147\2\145\1\175\1\145\2\157\2\uffff\2\175\1\163\1\145\1\141\1\164\2\162\1\145\1\123\1\162\1\uffff\1\162\2\165\1\151\2\uffff\1\175\1\144\1\154\1\171\1\145\1\163\1\164\1\150\1\164\4\156\1\uffff\1\175\1\165\1\160\1\144\1\145\1\116\1\141\1\171\1\175\2\164\1\144\1\uffff\2\145\2\120\1\154\1\157\1\160\1\175\1\uffff\5\175\1\162\2\141\1\144\1\145\6\uffff\1\157\1\164\1\163\1\145\1\175\1\160\1\150\1\163\1\175\1\uffff\1\145\2\175\1\uffff\1\162\2\uffff\1\164\1\151\1\145\1\163\1\175\1\uffff";
+        "\1\uffff\1\175\1\172\1\76\1\175\1\160\6\uffff\1\172\1\175\2\172\2\uffff\1\57\1\uffff\1\uffff\1\172\5\uffff\1\uffff\3\uffff\4\172\1\175\1\172\14\uffff\12\uffff\1\uffff\5\uffff\1\uffff\3\172\1\uffff\3\172\1\175\1\uffff\1\uffff\35\uffff\1\162\1\151\1\156\1\162\1\157\1\154\2\141\1\156\1\141\2\157\1\164\1\156\1\170\1\144\1\175\1\164\1\155\1\157\1\163\1\164\1\156\1\166\1\162\1\144\1\160\1\164\2\103\1\175\1\uffff\1\175\2\145\2\163\1\126\1\141\1\157\1\145\1\147\2\145\1\175\1\145\2\157\2\uffff\2\175\1\163\1\145\1\141\1\164\2\162\1\145\1\123\1\162\1\uffff\1\162\2\165\1\151\2\uffff\1\175\1\144\1\154\1\171\1\145\1\163\1\164\1\150\1\164\4\156\1\uffff\1\175\1\165\1\160\1\144\1\145\1\116\1\141\1\171\1\175\2\164\1\144\1\uffff\2\145\2\120\1\154\1\157\1\160\1\175\1\uffff\5\175\1\162\2\141\1\144\1\145\6\uffff\1\157\1\164\1\163\1\145\1\175\1\160\1\150\1\163\1\175\1\uffff\1\145\2\175\1\uffff\1\162\2\uffff\1\164\1\151\1\145\1\163\1\175\1\uffff";
     static final String DFA14_acceptS =
-        "\5\uffff\1\30\1\uffff\1\32\1\34\1\35\1\36\1\37\4\uffff\2\41\1\uffff\1\41\2\uffff\5\41\1\uffff\1\46\1\47\1\1\6\uffff\1\25\1\27\1\26\1\30\1\31\1\32\1\34\1\35\1\36\1\37\1\40\1\44\12\uffff\1\41\5\uffff\1\43\3\uffff\1\46\5\uffff\1\45\74\uffff\1\7\20\uffff\1\6\1\10\13\uffff\1\3\4\uffff\1\14\1\22\15\uffff\1\11\14\uffff\1\17\10\uffff\1\16\12\uffff\1\2\1\4\1\5\1\13\1\12\1\15\11\uffff\1\33\3\uffff\1\24\1\uffff\1\21\1\23\5\uffff\1\20";
+        "\6\uffff\1\31\1\32\1\34\1\35\1\36\1\37\4\uffff\2\41\1\uffff\1\41\2\uffff\5\41\1\uffff\1\46\1\47\1\1\6\uffff\1\25\1\30\1\26\1\27\1\31\1\32\1\34\1\35\1\36\1\37\1\40\1\44\12\uffff\1\41\5\uffff\1\43\3\uffff\1\46\5\uffff\1\45\74\uffff\1\7\20\uffff\1\6\1\10\13\uffff\1\3\4\uffff\1\14\1\22\15\uffff\1\11\14\uffff\1\17\10\uffff\1\16\12\uffff\1\2\1\4\1\5\1\13\1\12\1\15\11\uffff\1\33\3\uffff\1\24\1\uffff\1\21\1\23\5\uffff\1\20";
     static final String DFA14_specialS =
         "\1\35\23\uffff\1\36\6\uffff\1\0\25\uffff\1\57\1\3\1\5\1\34\1\10\1\12\1\14\1\16\1\20\1\22\1\uffff\1\25\1\27\1\31\1\56\1\33\11\uffff\1\37\1\uffff\1\40\1\55\1\41\1\42\1\43\1\44\1\45\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\1\1\2\1\32\1\4\1\6\1\7\1\11\1\13\1\15\1\17\1\21\1\23\1\24\1\26\1\30\u008f\uffff}>";
     static final String[] DFA14_transitionS = {
-            "\11\35\2\34\2\35\1\34\22\35\1\34\1\35\1\24\1\21\1\31\2\35\1\33\1\12\1\13\3\35\1\23\1\6\1\22\12\20\1\15\1\7\1\3\1\35\1\5\1\35\1\4\32\16\1\10\1\30\1\11\1\25\1\17\1\35\1\1\21\14\1\2\7\14\1\26\1\35\1\27\uff82\35",
+            "\11\35\2\34\2\35\1\34\22\35\1\34\1\35\1\24\1\21\1\31\2\35\1\33\1\12\1\13\3\35\1\23\1\4\1\22\12\20\1\15\1\7\1\3\1\35\1\6\1\35\1\5\32\16\1\10\1\30\1\11\1\25\1\17\1\35\1\1\21\14\1\2\7\14\1\26\1\35\1\27\uff82\35",
             "\3\32\10\uffff\3\32\12\41\1\43\6\uffff\32\40\1\uffff\1\32\1\uffff\1\32\1\42\1\uffff\32\37\1\32\1\uffff\1\32",
             "\12\41\1\43\6\uffff\32\40\4\uffff\1\42\1\uffff\7\37\1\44\22\37",
             "\1\45",
-            "\1\47",
-            "",
             "\3\32\10\uffff\16\32\6\uffff\32\32\1\uffff\1\32\1\uffff\2\32\1\uffff\33\32\1\uffff\1\32",
+            "\1\50",
+            "",
             "",
             "",
             "",
@@ -3182,11 +3182,11 @@ public class InternalTurtleLexer extends Lexer {
 
                         else if ( (LA14_0=='<') ) {s = 3;}
 
-                        else if ( (LA14_0=='@') ) {s = 4;}
+                        else if ( (LA14_0=='.') ) {s = 4;}
 
-                        else if ( (LA14_0=='>') ) {s = 5;}
+                        else if ( (LA14_0=='@') ) {s = 5;}
 
-                        else if ( (LA14_0=='.') ) {s = 6;}
+                        else if ( (LA14_0=='>') ) {s = 6;}
 
                         else if ( (LA14_0==';') ) {s = 7;}
 

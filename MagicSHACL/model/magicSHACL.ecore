@@ -59,31 +59,62 @@
         eType="#//Object" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ShapeConstraint">
+    <eOperations name="adorn">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments/>
+      </eGenericType>
+    </eOperations>
+    <eOperations name="generate" eType="#//ShapeConstraint">
+      <eParameters name="AdornedShape" eType="#//Value"/>
+    </eOperations>
+    <eOperations name="removeAdornments"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shapeName" lowerBound="1"
         eType="#//ShapeName" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shapeExpressions" upperBound="-1"
         eType="#//ShapeExpression" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="IRI" instanceClassName="java.lang.String"/>
   <eClassifiers xsi:type="ecore:EClass" name="ShapesGraph">
+    <eOperations name="isShapeName" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean">
+      <eParameters name="ShapeName" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shapeConstraints" upperBound="-1"
         eType="#//ShapeConstraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targets" upperBound="-1"
+        eType="#//Target" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ShapeExpression">
+    <eOperations name="toAbstractString" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyValues" upperBound="-1"
         eType="#//PropertyValues" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PropertyType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ShapeName" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ShapeName" eSuperTypes="#//Node">
+    <eOperations name="getMagicShapeName" eType="#//ShapeName"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adorned" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//Node">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PropertyType"
-        defaultValueLiteral=""/>
+    <eOperations name="toAbstractString" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PropertyType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//Node">
+    <eOperations name="toShapeName" eType="#//ShapeName"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adorned" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropertyValues">
+    <eOperations name="getMagicPropertyValues" eType="#//PropertyValues">
+      <eParameters name="shapeName" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </eOperations>
+    <eOperations name="getPathValue" eType="#//Value"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
         eType="#//Property" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="values" lowerBound="1"
         upperBound="-1" eType="#//Value" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Target">
+    <eOperations name="toShapeName" eType="#//ShapeName"/>
+    <eOperations name="getMagicQuerySeed" eType="#//ShapeConstraint"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="term" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

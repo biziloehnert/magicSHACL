@@ -58,4 +58,28 @@ public interface ShapeConstraint extends EObject {
 	 */
 	EList<ShapeExpression> getShapeExpressions();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model many="false"
+	 * @generated NOT
+	 */
+	EList<ShapeName> adorn();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	ShapeConstraint generate(Value AdornedShape);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void removeAdornments();
+
 } // ShapeConstraint

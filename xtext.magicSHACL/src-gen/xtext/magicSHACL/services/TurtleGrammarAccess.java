@@ -36,18 +36,21 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Assignment cShapesGraphAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cShapesGraphShapesGraphParserRuleCall_3_0 = (RuleCall)cShapesGraphAssignment_3.eContents().get(0);
 		private final Keyword cLessThanSignGreaterThanSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final RuleCall cEStringParserRuleCall_5_0 = (RuleCall)cGroup_5.eContents().get(0);
+		private final Keyword cFullStopKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
 		
 		//Graph:
 		//	{Graph} namespaces+=Namespace*
 		//	dataGraph=DataGraph
 		//	shapesGraph=ShapesGraph
-		//	'<>';
+		//	'<>' (EString* '.')?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Graph} namespaces+=Namespace*
 		//dataGraph=DataGraph
 		//shapesGraph=ShapesGraph
-		//'<>'
+		//'<>' (EString* '.')?
 		public Group getGroup() { return cGroup; }
 		
 		//{Graph}
@@ -73,6 +76,15 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		
 		//'<>'
 		public Keyword getLessThanSignGreaterThanSignKeyword_4() { return cLessThanSignGreaterThanSignKeyword_4; }
+		
+		//(EString* '.')?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//EString*
+		public RuleCall getEStringParserRuleCall_5_0() { return cEStringParserRuleCall_5_0; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_5_1() { return cFullStopKeyword_5_1; }
 	}
 	public class NamespaceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.Namespace");
@@ -878,7 +890,7 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	//	{Graph} namespaces+=Namespace*
 	//	dataGraph=DataGraph
 	//	shapesGraph=ShapesGraph
-	//	'<>';
+	//	'<>' (EString* '.')?;
 	public GraphElements getGraphAccess() {
 		return pGraph;
 	}

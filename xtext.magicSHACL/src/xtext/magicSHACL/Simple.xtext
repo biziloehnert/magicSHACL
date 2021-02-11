@@ -10,8 +10,14 @@ Graph returns Graph:
 	
 ShapesGraph returns ShapesGraph:
 	{ShapesGraph}
+		(targets+=Target)*
 		(shapeConstraints+=ShapeConstraint)*
 	;
+
+Target returns Target:
+	{Target}
+	name=UNICODE '(' term=UNICODE ')' '?'
+;
 
 ShapeConstraint returns ShapeConstraint:
 	{ShapeConstraint} 
@@ -24,17 +30,18 @@ ShapeName returns ShapeName:
 
 ShapeExpression returns ShapeExpression:
 	{ShapeExpression}
-	(propertyValues+=PropertyValues)*
+	value=UNICODE | (propertyValues+=PropertyValues)
 ;
 	
 PropertyValues returns PropertyValues :
 	{PropertyValues}
-	(values+=Value)? property=Property (values+=Value)* ('ADom' | 'T')?
+	(values+=Value property=Property values+=Value ('AND' values+=Value)*) | 
+	(property=Property values+=Value+)
 ;
 
 Property returns Property:
 	{Property}
-	type=PropertyType ;
+	type=PropertyType;
 	
 Value returns Value:
 	{Value}

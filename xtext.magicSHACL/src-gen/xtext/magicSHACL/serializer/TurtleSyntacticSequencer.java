@@ -22,6 +22,7 @@ import xtext.magicSHACL.services.TurtleGrammarAccess;
 public class TurtleSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected TurtleGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Graph___EStringParserRuleCall_5_0_a_FullStopKeyword_5_1__q;
 	protected AbstractElementAlias match_PropertyValues_LeftParenthesisKeyword_1_q;
 	protected AbstractElementAlias match_PropertyValues_RightParenthesisKeyword_3_q;
 	protected AbstractElementAlias match_ShapeConstraint_AKeyword_2_0_0_1_or_UNICODETerminalRuleCall_2_0_0_0;
@@ -33,6 +34,7 @@ public class TurtleSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (TurtleGrammarAccess) access;
+		match_Graph___EStringParserRuleCall_5_0_a_FullStopKeyword_5_1__q = new GroupAlias(false, true, new TokenAlias(true, true, grammarAccess.getGraphAccess().getEStringParserRuleCall_5_0()), new TokenAlias(false, false, grammarAccess.getGraphAccess().getFullStopKeyword_5_1()));
 		match_PropertyValues_LeftParenthesisKeyword_1_q = new TokenAlias(false, true, grammarAccess.getPropertyValuesAccess().getLeftParenthesisKeyword_1());
 		match_PropertyValues_RightParenthesisKeyword_3_q = new TokenAlias(false, true, grammarAccess.getPropertyValuesAccess().getRightParenthesisKeyword_3());
 		match_ShapeConstraint_AKeyword_2_0_0_1_or_UNICODETerminalRuleCall_2_0_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getShapeConstraintAccess().getAKeyword_2_0_0_1()), new TokenAlias(false, false, grammarAccess.getShapeConstraintAccess().getUNICODETerminalRuleCall_2_0_0_0()));
@@ -44,9 +46,21 @@ public class TurtleSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getUNICODERule())
+		if (ruleCall.getRule() == grammarAccess.getEStringRule())
+			return getEStringToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getUNICODERule())
 			return getUNICODEToken(semanticObject, ruleCall, node);
 		return "";
+	}
+	
+	/**
+	 * EString returns ecore::EString:
+	 * 	STRING | ID;
+	 */
+	protected String getEStringToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "\"\"";
 	}
 	
 	/**
@@ -65,7 +79,9 @@ public class TurtleSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_PropertyValues_LeftParenthesisKeyword_1_q.equals(syntax))
+			if (match_Graph___EStringParserRuleCall_5_0_a_FullStopKeyword_5_1__q.equals(syntax))
+				emit_Graph___EStringParserRuleCall_5_0_a_FullStopKeyword_5_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_PropertyValues_LeftParenthesisKeyword_1_q.equals(syntax))
 				emit_PropertyValues_LeftParenthesisKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PropertyValues_RightParenthesisKeyword_3_q.equals(syntax))
 				emit_PropertyValues_RightParenthesisKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -83,6 +99,17 @@ public class TurtleSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     (EString* '.')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     shapesGraph=ShapesGraph '<>' (ambiguity) (rule end)
+	 */
+	protected void emit_Graph___EStringParserRuleCall_5_0_a_FullStopKeyword_5_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Ambiguous syntax:
 	 *     '('?

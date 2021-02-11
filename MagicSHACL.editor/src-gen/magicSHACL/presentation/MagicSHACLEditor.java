@@ -14,18 +14,6 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IMarker;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceChangeEvent;
-import org.eclipse.core.resources.IResourceChangeListener;
-import org.eclipse.core.resources.IResourceDelta;
-import org.eclipse.core.resources.IResourceDeltaVisitor;
-import org.eclipse.core.resources.ResourcesPlugin;
-
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
@@ -85,12 +73,6 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
-
-import org.eclipse.ui.dialogs.SaveAsDialog;
-
-import org.eclipse.ui.ide.IGotoMarker;
-
-import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 
 import org.eclipse.ui.views.contentoutline.ContentOutline;
@@ -108,8 +90,7 @@ import org.eclipse.emf.common.command.CommandStackListener;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.ui.MarkerHelper;
+import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.ui.ViewerPane;
 
 import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
@@ -147,15 +128,12 @@ import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
-
-import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import magicSHACL.provider.MagicSHACLItemProviderAdapterFactory;
-
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 /**
  * This is an example of a MagicSHACL model editor.
@@ -164,7 +142,30 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
  * @generated
  */
 public class MagicSHACLEditor extends MultiPageEditorPart
-		implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
+		implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider {
+	/**
+	 * The filters for file extensions supported by the editor.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final List<String> FILE_EXTENSION_FILTERS = prefixExtensions(MagicSHACLModelWizard.FILE_EXTENSIONS,
+			"*.");
+
+	/**
+	 * Returns a new unmodifiable list containing prefixed versions of the extensions in the given list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private static List<String> prefixExtensions(List<String> extensions, String prefix) {
+		List<String> result = new ArrayList<String>();
+		for (String extension : extensions) {
+			result.add(prefix + extension);
+		}
+		return Collections.unmodifiableList(result);
+	}
+
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
@@ -305,15 +306,6 @@ public class MagicSHACLEditor extends MultiPageEditorPart
 	protected ISelection editorSelection = StructuredSelection.EMPTY;
 
 	/**
-	 * The MarkerHelper is responsible for creating workspace resource markers presented
-	 * in Eclipse's Problems View.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MarkerHelper markerHelper = new EditUIMarkerHelper();
-
-	/**
 	 * This listens for when the outline becomes active
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -452,80 +444,6 @@ public class MagicSHACLEditor extends MultiPageEditorPart
 	};
 
 	/**
-	 * This listens for workspace changes.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
-		public void resourceChanged(IResourceChangeEvent event) {
-			IResourceDelta delta = event.getDelta();
-			try {
-				class ResourceDeltaVisitor implements IResourceDeltaVisitor {
-					protected ResourceSet resourceSet = editingDomain.getResourceSet();
-					protected Collection<Resource> changedResources = new ArrayList<Resource>();
-					protected Collection<Resource> removedResources = new ArrayList<Resource>();
-
-					public boolean visit(IResourceDelta delta) {
-						if (delta.getResource().getType() == IResource.FILE) {
-							if (delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED
-									&& delta.getFlags() != IResourceDelta.MARKERS) {
-								Resource resource = resourceSet.getResource(
-										URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
-								if (resource != null) {
-									if (delta.getKind() == IResourceDelta.REMOVED) {
-										removedResources.add(resource);
-									} else if (!savedResources.remove(resource)) {
-										changedResources.add(resource);
-									}
-								}
-							}
-							return false;
-						}
-
-						return true;
-					}
-
-					public Collection<Resource> getChangedResources() {
-						return changedResources;
-					}
-
-					public Collection<Resource> getRemovedResources() {
-						return removedResources;
-					}
-				}
-
-				final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
-				delta.accept(visitor);
-
-				if (!visitor.getRemovedResources().isEmpty()) {
-					getSite().getShell().getDisplay().asyncExec(new Runnable() {
-						public void run() {
-							removedResources.addAll(visitor.getRemovedResources());
-							if (!isDirty()) {
-								getSite().getPage().closeEditor(MagicSHACLEditor.this, false);
-							}
-						}
-					});
-				}
-
-				if (!visitor.getChangedResources().isEmpty()) {
-					getSite().getShell().getDisplay().asyncExec(new Runnable() {
-						public void run() {
-							changedResources.addAll(visitor.getChangedResources());
-							if (getSite().getPage().getActiveEditor() == MagicSHACLEditor.this) {
-								handleActivate();
-							}
-						}
-					});
-				}
-			} catch (CoreException exception) {
-				MagicSHACLEditorPlugin.INSTANCE.log(exception);
-			}
-		}
-	};
-
-	/**
 	 * Handles activation of the editor or it's associated views.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -620,21 +538,12 @@ public class MagicSHACLEditor extends MultiPageEditorPart
 			} else if (diagnostic.getSeverity() != Diagnostic.OK) {
 				ProblemEditorPart problemEditorPart = new ProblemEditorPart();
 				problemEditorPart.setDiagnostic(diagnostic);
-				problemEditorPart.setMarkerHelper(markerHelper);
 				try {
 					addPage(++lastEditorPage, problemEditorPart, getEditorInput());
 					setPageText(lastEditorPage, problemEditorPart.getPartName());
 					setActivePage(lastEditorPage);
 					showTabs();
 				} catch (PartInitException exception) {
-					MagicSHACLEditorPlugin.INSTANCE.log(exception);
-				}
-			}
-
-			if (markerHelper.hasMarkers(editingDomain.getResourceSet())) {
-				try {
-					markerHelper.updateMarkers(diagnostic);
-				} catch (CoreException exception) {
 					MagicSHACLEditorPlugin.INSTANCE.log(exception);
 				}
 			}
@@ -1274,8 +1183,6 @@ public class MagicSHACLEditor extends MultiPageEditorPart
 			return showOutlineView() ? key.cast(getContentOutlinePage()) : null;
 		} else if (key.equals(IPropertySheetPage.class)) {
 			return key.cast(getPropertySheetPage());
-		} else if (key.equals(IGotoMarker.class)) {
-			return key.cast(this);
 		} else {
 			return super.getAdapter(key);
 		}
@@ -1439,11 +1346,10 @@ public class MagicSHACLEditor extends MultiPageEditorPart
 
 		// Do the work within an operation because this is a long running activity that modifies the workbench.
 		//
-		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
+		IRunnableWithProgress operation = new IRunnableWithProgress() {
 			// This is the method that gets invoked when the operation runs.
 			//
-			@Override
-			public void execute(IProgressMonitor monitor) {
+			public void run(IProgressMonitor monitor) {
 				// Save the resources to the file system.
 				//
 				boolean first = true;
@@ -1526,14 +1432,11 @@ public class MagicSHACLEditor extends MultiPageEditorPart
 	 */
 	@Override
 	public void doSaveAs() {
-		SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
-		saveAsDialog.open();
-		IPath path = saveAsDialog.getResult();
-		if (path != null) {
-			IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
-			if (file != null) {
-				doSaveAs(URI.createPlatformResourceURI(file.getFullPath().toString(), true), new FileEditorInput(file));
-			}
+		String[] filters = FILE_EXTENSION_FILTERS.toArray(new String[FILE_EXTENSION_FILTERS.size()]);
+		String[] files = MagicSHACLEditorAdvisor.openFilePathDialog(getSite().getShell(), SWT.SAVE, filters);
+		if (files.length > 0) {
+			URI uri = URI.createFileURI(files[0]);
+			doSaveAs(uri, new URIEditorInput(uri));
 		}
 	}
 
@@ -1553,18 +1456,6 @@ public class MagicSHACLEditor extends MultiPageEditorPart
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void gotoMarker(IMarker marker) {
-		List<?> targetObjects = markerHelper.getTargetObjects(editingDomain, marker);
-		if (!targetObjects.isEmpty()) {
-			setSelectionToViewer(targetObjects);
-		}
-	}
-
-	/**
 	 * This is called during startup.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1577,8 +1468,6 @@ public class MagicSHACLEditor extends MultiPageEditorPart
 		setPartName(editorInput.getName());
 		site.setSelectionProvider(this);
 		site.getPage().addPartListener(partListener);
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener,
-				IResourceChangeEvent.POST_CHANGE);
 	}
 
 	/**
@@ -1741,8 +1630,6 @@ public class MagicSHACLEditor extends MultiPageEditorPart
 	@Override
 	public void dispose() {
 		updateProblemIndication = false;
-
-		ResourcesPlugin.getWorkspace().removeResourceChangeListener(resourceChangeListener);
 
 		getSite().getPage().removePartListener(partListener);
 

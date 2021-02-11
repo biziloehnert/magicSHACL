@@ -57,4 +57,20 @@ public interface PropertyValues extends EObject {
 	 */
 	EList<Value> getValues();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model shapeNameDataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @generated
+	 */
+	PropertyValues getMagicPropertyValues(String shapeName);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Value getPathValue();
+
 } // PropertyValues

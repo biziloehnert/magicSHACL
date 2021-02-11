@@ -10,9 +10,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import xtext.magicSHACL.services.SimpleGrammarAccess;
@@ -21,12 +18,10 @@ import xtext.magicSHACL.services.SimpleGrammarAccess;
 public class SimpleSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected SimpleGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_PropertyValues___ADomKeyword_4_0_or_TKeyword_4_1__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (SimpleGrammarAccess) access;
-		match_PropertyValues___ADomKeyword_4_0_or_TKeyword_4_1__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getPropertyValuesAccess().getADomKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getPropertyValuesAccess().getTKeyword_4_1()));
 	}
 	
 	@Override
@@ -41,22 +36,8 @@ public class SimpleSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_PropertyValues___ADomKeyword_4_0_or_TKeyword_4_1__q.equals(syntax))
-				emit_PropertyValues___ADomKeyword_4_0_or_TKeyword_4_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else acceptNodes(getLastNavigableState(), syntaxNodes);
+			acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     ('ADom' | 'T')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     property=Property (ambiguity) (rule end)
-	 *     values+=Value (ambiguity) (rule end)
-	 */
-	protected void emit_PropertyValues___ADomKeyword_4_0_or_TKeyword_4_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 }
