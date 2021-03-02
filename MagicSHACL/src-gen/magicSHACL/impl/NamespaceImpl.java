@@ -72,7 +72,7 @@ public class NamespaceImpl extends MinimalEObjectImpl.Container implements Names
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NamespaceImpl() {
+	public NamespaceImpl() {
 		super();
 	}
 
@@ -91,6 +91,7 @@ public class NamespaceImpl extends MinimalEObjectImpl.Container implements Names
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getPrefix() {
 		return prefix;
 	}
@@ -100,6 +101,7 @@ public class NamespaceImpl extends MinimalEObjectImpl.Container implements Names
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPrefix(String newPrefix) {
 		String oldPrefix = prefix;
 		prefix = newPrefix;
@@ -113,6 +115,7 @@ public class NamespaceImpl extends MinimalEObjectImpl.Container implements Names
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getNamespace() {
 		return namespace;
 	}
@@ -122,6 +125,7 @@ public class NamespaceImpl extends MinimalEObjectImpl.Container implements Names
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNamespace(String newNamespace) {
 		String oldNamespace = namespace;
 		namespace = newNamespace;

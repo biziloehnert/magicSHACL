@@ -2,7 +2,6 @@
  */
 package magicSHACL;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link magicSHACL.PropertyValues#getProperty <em>Property</em>}</li>
- *   <li>{@link magicSHACL.PropertyValues#getValues <em>Values</em>}</li>
+ *   <li>{@link magicSHACL.PropertyValues#getPropertyType <em>Property Type</em>}</li>
  * </ul>
  *
  * @see magicSHACL.MagicSHACLPackage#getPropertyValues()
@@ -46,16 +45,29 @@ public interface PropertyValues extends EObject {
 	void setProperty(Property value);
 
 	/**
-	 * Returns the value of the '<em><b>Values</b></em>' containment reference list.
-	 * The list contents are of type {@link magicSHACL.Value}.
+	 * Returns the value of the '<em><b>Property Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link magicSHACL.PropertyType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Values</em>' containment reference list.
-	 * @see magicSHACL.MagicSHACLPackage#getPropertyValues_Values()
-	 * @model containment="true" required="true"
+	 * @return the value of the '<em>Property Type</em>' attribute.
+	 * @see magicSHACL.PropertyType
+	 * @see #setPropertyType(PropertyType)
+	 * @see magicSHACL.MagicSHACLPackage#getPropertyValues_PropertyType()
+	 * @model
 	 * @generated
 	 */
-	EList<Value> getValues();
+	PropertyType getPropertyType();
+
+	/**
+	 * Sets the value of the '{@link magicSHACL.PropertyValues#getPropertyType <em>Property Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Property Type</em>' attribute.
+	 * @see magicSHACL.PropertyType
+	 * @see #getPropertyType()
+	 * @generated
+	 */
+	void setPropertyType(PropertyType value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,7 +75,7 @@ public interface PropertyValues extends EObject {
 	 * @model shapeNameDataType="org.eclipse.emf.ecore.xml.type.String"
 	 * @generated
 	 */
-	PropertyValues getMagicPropertyValues(String shapeName);
+	PropertyValues swap(String shapeName);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,5 +84,21 @@ public interface PropertyValues extends EObject {
 	 * @generated
 	 */
 	Value getPathValue();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @generated
+	 */
+	boolean contains(Node name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean" valueDataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @generated
+	 */
+	boolean containsValue(String value);
 
 } // PropertyValues

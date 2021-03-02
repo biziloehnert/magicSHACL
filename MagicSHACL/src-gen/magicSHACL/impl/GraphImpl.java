@@ -75,7 +75,7 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GraphImpl() {
+	public GraphImpl() {
 		super();
 	}
 
@@ -94,6 +94,7 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DataGraph getDataGraph() {
 		return dataGraph;
 	}
@@ -122,6 +123,7 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDataGraph(DataGraph newDataGraph) {
 		if (newDataGraph != dataGraph) {
 			NotificationChain msgs = null;
@@ -144,6 +146,7 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Namespace> getNamespaces() {
 		if (namespaces == null) {
 			namespaces = new EObjectContainmentEList<Namespace>(Namespace.class, this,
@@ -157,6 +160,7 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ShapesGraph getShapesGraph() {
 		return shapesGraph;
 	}
@@ -185,6 +189,7 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setShapesGraph(ShapesGraph newShapesGraph) {
 		if (newShapesGraph != shapesGraph) {
 			NotificationChain msgs = null;

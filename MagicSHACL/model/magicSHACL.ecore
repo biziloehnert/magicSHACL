@@ -44,6 +44,13 @@
     <eLiterals name="ClosedConstraintComponent_ignore" value="16" literal="sh:ignoredProperties"/>
     <eLiterals name="InversePath" value="17" literal="sh:inversePath"/>
     <eLiterals name="TargetNode" value="18" literal="sh:targetNode"/>
+    <eLiterals name="Message" value="19" literal="sh:message"/>
+    <eLiterals name="MinExclusiveConstraintComponent" value="20" literal="sh:minExclusive"/>
+    <eLiterals name="MinInclusiveConstraintComponent" value="21" literal="sh:minInclusive"/>
+    <eLiterals name="MaxExclusiveConstraintComponent" value="22" literal="sh:maxExclusive"/>
+    <eLiterals name="MaxInclusiveConstraintComponent" value="23" literal="sh:maxInclusive"/>
+    <eLiterals name="MinLengthConstraintComponent" value="24" literal="sh:minLength"/>
+    <eLiterals name="MaxLengthConstraintComponent" value="25" literal="sh:maxLength"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Namespace">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
@@ -51,7 +58,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Subject" eSuperTypes="#//Node"/>
   <eClassifiers xsi:type="ecore:EClass" name="Predicate" eSuperTypes="#//Node"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xsdType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PredicateObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="predicate" lowerBound="1"
         eType="#//Predicate" containment="true"/>
@@ -59,57 +68,63 @@
         eType="#//Object" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ShapeConstraint">
-    <eOperations name="adorn">
+    <eOperations name="contains" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean">
+      <eParameters name="name" eType="#//Node"/>
+    </eOperations>
+    <eOperations name="getAllShapeNamesOfExpression">
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
         <eTypeArguments/>
       </eGenericType>
     </eOperations>
-    <eOperations name="generate" eType="#//ShapeConstraint">
-      <eParameters name="AdornedShape" eType="#//Value"/>
-    </eOperations>
-    <eOperations name="removeAdornments"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shapeName" lowerBound="1"
         eType="#//ShapeName" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shapeExpressions" upperBound="-1"
         eType="#//ShapeExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dangerous" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ShapesGraph">
-    <eOperations name="isShapeName" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean">
-      <eParameters name="ShapeName" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eOperations name="getAllShapeNames">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments/>
+      </eGenericType>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shapeConstraints" upperBound="-1"
         eType="#//ShapeConstraint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targets" upperBound="-1"
         eType="#//Target" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="oddCycles" transient="true">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ShapeExpression">
-    <eOperations name="toAbstractString" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyValues" upperBound="-1"
-        eType="#//PropertyValues" containment="true"/>
+    <eOperations name="contains" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PropertyType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shapeExpressions" upperBound="-1"
+        eType="#//ShapeExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+        eType="#//Value" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ShapeName" eSuperTypes="#//Node">
     <eOperations name="getMagicShapeName" eType="#//ShapeName"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="adorned" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//Node">
-    <eOperations name="toAbstractString" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PropertyType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dangerous" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//Node">
     <eOperations name="toShapeName" eType="#//ShapeName"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="adorned" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropertyValues">
-    <eOperations name="getMagicPropertyValues" eType="#//PropertyValues">
-      <eParameters name="shapeName" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
-    </eOperations>
-    <eOperations name="getPathValue" eType="#//Value"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
-        eType="#//Property" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="values" lowerBound="1"
-        upperBound="-1" eType="#//Value" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idb" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dangerous" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xsdType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Target">
     <eOperations name="toShapeName" eType="#//ShapeName"/>

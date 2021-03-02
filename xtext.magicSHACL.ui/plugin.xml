@@ -7,7 +7,7 @@
 			class="xtext.magicSHACL.ui.TurtleExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
-			extensions="ttl,magic"
+			extensions="ttl"
 			id="xtext.magicSHACL.Turtle"
 			name="Turtle Editor">
 		</editor>
@@ -207,7 +207,7 @@
 	<extension point="org.eclipse.core.contenttype.contentTypes">
 		<content-type
 			base-type="org.eclipse.core.runtime.text"
-			file-extensions="ttl,magic"
+			file-extensions="ttl"
 			id="xtext.magicSHACL.Turtle.contenttype"
 			name="Turtle File"
 			priority="normal">
@@ -225,19 +225,6 @@
 		<resourceServiceProvider
 			class="xtext.magicSHACL.ui.TurtleExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
 			uriExtension="ttl">
-		</resourceServiceProvider>
-	</extension>
-	<extension
-		point="org.eclipse.emf.ecore.extension_parser">
-		<parser
-			class="xtext.magicSHACL.ui.TurtleExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
-			type="magic">
-		</parser>
-	</extension>
-	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
-		<resourceServiceProvider
-			class="xtext.magicSHACL.ui.TurtleExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-			uriExtension="magic">
 		</resourceServiceProvider>
 	</extension>
 	<!-- marker definitions for xtext.magicSHACL.Turtle -->
@@ -274,7 +261,7 @@
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
 			class="xtext.magicSHACL.ui.TurtleExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
-			fileExtensions="ttl,magic"/>
+			fileExtensions="ttl"/>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
@@ -417,7 +404,7 @@
 	<extension point="org.eclipse.compare.contentViewers">
 		<viewer id="xtext.magicSHACL.Turtle.compare.contentViewers"
 			class="xtext.magicSHACL.ui.TurtleExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-			extensions="ttl,magic">
+			extensions="ttl">
 		</viewer>
 		<contentTypeBinding
 			contentTypeId="xtext.magicSHACL.Turtle.contenttype"
@@ -426,7 +413,7 @@
 	<extension point="org.eclipse.compare.contentMergeViewers">
 		<viewer id="xtext.magicSHACL.Turtle.compare.contentMergeViewers"
 			class="xtext.magicSHACL.ui.TurtleExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-			extensions="ttl,magic" label="Turtle Compare">
+			extensions="ttl" label="Turtle Compare">
 		</viewer>
 		<contentTypeBinding
 			contentTypeId="xtext.magicSHACL.Turtle.contenttype"
@@ -435,16 +422,12 @@
 	<extension point="org.eclipse.ui.editors.documentProviders">
 		<provider id="xtext.magicSHACL.Turtle.editors.documentProviders"
 			class="xtext.magicSHACL.ui.TurtleExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-			extensions="ttl,magic">
+			extensions="ttl">
 		</provider>
 	</extension>
 	<extension point="org.eclipse.team.core.fileTypes">
 		<fileTypes
 			extension="ttl"
-			type="text">
-		</fileTypes>
-		<fileTypes
-			extension="magic"
 			type="text">
 		</fileTypes>
 	</extension>

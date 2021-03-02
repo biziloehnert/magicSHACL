@@ -63,7 +63,7 @@ public class TriplesImpl extends MinimalEObjectImpl.Container implements Triples
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TriplesImpl() {
+	public TriplesImpl() {
 		super();
 	}
 
@@ -82,6 +82,7 @@ public class TriplesImpl extends MinimalEObjectImpl.Container implements Triples
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Subject getSubject() {
 		return subject;
 	}
@@ -110,6 +111,7 @@ public class TriplesImpl extends MinimalEObjectImpl.Container implements Triples
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSubject(Subject newSubject) {
 		if (newSubject != subject) {
 			NotificationChain msgs = null;
@@ -132,6 +134,7 @@ public class TriplesImpl extends MinimalEObjectImpl.Container implements Triples
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<PredicateObject> getPredicateobject() {
 		if (predicateobject == null) {
 			predicateobject = new EObjectContainmentEList<PredicateObject>(PredicateObject.class, this,

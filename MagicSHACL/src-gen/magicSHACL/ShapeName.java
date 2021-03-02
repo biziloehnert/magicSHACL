@@ -12,6 +12,7 @@ package magicSHACL;
  * </p>
  * <ul>
  *   <li>{@link magicSHACL.ShapeName#isAdorned <em>Adorned</em>}</li>
+ *   <li>{@link magicSHACL.ShapeName#isDangerous <em>Dangerous</em>}</li>
  * </ul>
  *
  * @see magicSHACL.MagicSHACLPackage#getShapeName()
@@ -41,6 +42,28 @@ public interface ShapeName extends Node {
 	 * @generated
 	 */
 	void setAdorned(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Dangerous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dangerous</em>' attribute.
+	 * @see #setDangerous(boolean)
+	 * @see magicSHACL.MagicSHACLPackage#getShapeName_Dangerous()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean" derived="true"
+	 * @generated
+	 */
+	boolean isDangerous();
+
+	/**
+	 * Sets the value of the '{@link magicSHACL.ShapeName#isDangerous <em>Dangerous</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dangerous</em>' attribute.
+	 * @see #isDangerous()
+	 * @generated
+	 */
+	void setDangerous(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

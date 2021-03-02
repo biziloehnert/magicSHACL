@@ -9,8 +9,6 @@ import magicSHACL.Namespace;
 import magicSHACL.Node;
 import magicSHACL.Predicate;
 import magicSHACL.PredicateObject;
-import magicSHACL.Property;
-import magicSHACL.PropertyValues;
 import magicSHACL.ShapeConstraint;
 import magicSHACL.ShapeExpression;
 import magicSHACL.ShapeName;
@@ -148,18 +146,8 @@ public class MagicSHACLAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseProperty(Property object) {
-			return createPropertyAdapter();
-		}
-
-		@Override
 		public Adapter caseValue(Value object) {
 			return createValueAdapter();
-		}
-
-		@Override
-		public Adapter casePropertyValues(PropertyValues object) {
-			return createPropertyValuesAdapter();
 		}
 
 		@Override
@@ -355,20 +343,6 @@ public class MagicSHACLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link magicSHACL.Property <em>Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see magicSHACL.Property
-	 * @generated
-	 */
-	public Adapter createPropertyAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link magicSHACL.Value <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -379,20 +353,6 @@ public class MagicSHACLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link magicSHACL.PropertyValues <em>Property Values</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see magicSHACL.PropertyValues
-	 * @generated
-	 */
-	public Adapter createPropertyValuesAdapter() {
 		return null;
 	}
 

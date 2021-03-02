@@ -9,11 +9,10 @@ Graph returns Graph:
 	(namespaces+=Namespace)*
 	dataGraph=DataGraph
 	shapesGraph=ShapesGraph
-	'<>' (EString* '.')?
 	;
 	
 Namespace returns Namespace:
-	'@prefix' prefix=PREFIX '<' namespace=UNICODE '>' '.';
+	'@prefix' prefix=ID namespace=IRI '.';
 
 DataGraph returns DataGraph:
 	{DataGraph}
@@ -31,15 +30,15 @@ PredicateObject returns PredicateObject:
 
 Subject returns Subject:
 	{Subject}
-	name=UNICODE;
+	name=EString;
 
 Predicate returns Predicate:
 	{Predicate}
-	name=UNICODE;
+	name=EString;
 
-Object returns Object hidden(WS):
+Object returns Object:
 	{Object}
-	name=UNICODE;
+	name=EString ('^^'xsdType=EString)?;
 
 ShapesGraph returns ShapesGraph:
 	{ShapesGraph}
@@ -49,36 +48,23 @@ ShapesGraph returns ShapesGraph:
 ShapeConstraint returns ShapeConstraint:
 	{ShapeConstraint} 
 	shapeName=ShapeName
-		((UNICODE|'a') 'sh:NodeShape' ';' | shapeExpressions+=ShapeExpression)
-		(shapeExpressions+=ShapeExpression)* 
+		shapeExpressions+=ShapeExpression+
 	'.'
 ;
 
 ShapeName returns ShapeName:
 	{ShapeName}
-	name=UNICODE;
+	name=EString;
 
 ShapeExpression returns ShapeExpression:
 	{ShapeExpression}
-	propertyValues+=PropertyValues | 
-		(type=PropertyType '[')
-		((UNICODE|'a') 'sh:NodeShape' ';')?
-		(('sh:property' | 'sh:path') '[')? 
-		((propertyValues+=PropertyValues*)
-		 ']' ';')+
+	(ID 'sh:NodeShape' ';') | 
+	(type=PropertyType '('? ( values+=Value | '[' shapeExpressions+=ShapeExpression* ']')* ')'? ';'?)
 ;
-
-PropertyValues returns PropertyValues:
-	property=Property '('? (values+=Value)* ')'? ';'
-;
-
-Property returns Property:
-	{Property}
-	type=PropertyType;
 
 Value returns Value:
 	{Value}
-	name=UNICODE;
+	name=EString ('^^' xsdType=EString)?;
 
 enum PropertyType:
 	MinCountConstraintComponent='sh:minCount' | 
@@ -99,15 +85,28 @@ enum PropertyType:
 	Property='sh:property' | 
 	Name='sh:name' | 
 	TargetClass='sh:targetClass' | 
-	TargetNode='sh:targetNode'
+	TargetNode='sh:targetNode' | 
+	Message='sh:message' | 
+	MinExclusiveConstraintComponent='sh:minExclusive' | 
+	MinInclusiveConstraintComponent='sh:minInclusive' | 
+	MaxExclusiveConstraintComponent='sh:maxExclusive' | 
+	MaxInclusiveConstraintComponent='sh:maxInclusive' | 
+	MaxLengthConstraintComponent='sh:maxLength' | 
+	MinLengthConstraintComponent='sh:minLength'
 ;
 
-terminal PREFIX:
-	 ('a'..'z'|'A'..'Z'|'_')* ':'
+@Override 
+terminal SL_COMMENT:
+    ('#'|'//') !('\n'|'\r')* ('\r'? '\n')?
 ;
 
-terminal UNICODE:
-        ('a'..'z'|'A'..'Z'|INT|'_'|':'|'#'|'/'|'.'|'-'|'\"'|"^"|'{'|'}'|'\\'|'$')*;
+terminal IRI:
+	'<'  !('<' | '>' | '"' | '{' | '}' | '|' | '^' | '`' | '\\' | '\u0000'..'\u0020')* '>';
+
+@Override 
+terminal ID:
+    ('a'..'z'|'A'..'Z'|'_'|'0'..'9'('.''0'..'9')?|':'|'-')*;
 
 EString returns ecore::EString:
-	STRING | ID;
+	STRING | ID 
+;

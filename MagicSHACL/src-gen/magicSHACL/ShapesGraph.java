@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link magicSHACL.ShapesGraph#getShapeConstraints <em>Shape Constraints</em>}</li>
  *   <li>{@link magicSHACL.ShapesGraph#getTargets <em>Targets</em>}</li>
+ *   <li>{@link magicSHACL.ShapesGraph#getOddCycles <em>Odd Cycles</em>}</li>
  * </ul>
  *
  * @see magicSHACL.MagicSHACLPackage#getShapesGraph()
@@ -49,11 +50,33 @@ public interface ShapesGraph extends EObject {
 	EList<Target> getTargets();
 
 	/**
+	 * Returns the value of the '<em><b>Odd Cycles</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean" ShapeNameDataType="org.eclipse.emf.ecore.xml.type.String"
-	 * @generated
+	 * @return the value of the '<em>Odd Cycles</em>' attribute.
+	 * @see #setOddCycles(EList)
+	 * @see magicSHACL.MagicSHACLPackage#getShapesGraph_OddCycles()
+	 * @model many="false" transient="true"
+	 * @generated NOT
 	 */
-	boolean isShapeName(String ShapeName);
+	EList<EList<String>> getOddCycles();
+
+	/**
+	 * Sets the value of the '{@link magicSHACL.ShapesGraph#getOddCycles <em>Odd Cycles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Odd Cycles</em>' attribute.
+	 * @see #getOddCycles()
+	 * @generated NOT
+	 */
+	void setOddCycles(EList<EList<String>> value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" many="false"
+	 * @generated NOT
+	 */
+	EList<Node> getAllShapeNames();
 
 } // ShapesGraph

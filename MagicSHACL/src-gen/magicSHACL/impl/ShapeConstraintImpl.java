@@ -3,19 +3,22 @@
 package magicSHACL.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
 import magicSHACL.MagicSHACLPackage;
-import magicSHACL.PropertyValues;
+import magicSHACL.Node;
 import magicSHACL.ShapeConstraint;
 import magicSHACL.ShapeExpression;
 import magicSHACL.ShapeName;
-import magicSHACL.ShapesGraph;
 import magicSHACL.Value;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -35,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link magicSHACL.impl.ShapeConstraintImpl#getShapeName <em>Shape Name</em>}</li>
  *   <li>{@link magicSHACL.impl.ShapeConstraintImpl#getShapeExpressions <em>Shape Expressions</em>}</li>
+ *   <li>{@link magicSHACL.impl.ShapeConstraintImpl#isDangerous <em>Dangerous</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,11 +65,31 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 	protected EList<ShapeExpression> shapeExpressions;
 
 	/**
+	 * The default value of the '{@link #isDangerous() <em>Dangerous</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDangerous()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DANGEROUS_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDangerous() <em>Dangerous</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDangerous()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean dangerous = DANGEROUS_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ShapeConstraintImpl() {
+	public ShapeConstraintImpl() {
 		super();
 	}
 
@@ -84,6 +108,7 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ShapeName getShapeName() {
 		return shapeName;
 	}
@@ -112,6 +137,7 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setShapeName(ShapeName newShapeName) {
 		if (newShapeName != shapeName) {
 			NotificationChain msgs = null;
@@ -132,13 +158,22 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+	@Override
 	public EList<ShapeExpression> getShapeExpressions() {
 		if (shapeExpressions == null) {
 			shapeExpressions = new EObjectContainmentEList<ShapeExpression>(ShapeExpression.class, this,
 					MagicSHACLPackage.SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS);
 		}
+
+		ECollections.sort(shapeExpressions, new Comparator<ShapeExpression>() {
+			@Override
+			public int compare(ShapeExpression arg0, ShapeExpression arg1) {
+				return arg0.getType().compareTo(arg1.getType());
+			}
+		});
+
 		return shapeExpressions;
 	}
 
@@ -147,22 +182,31 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<ShapeName> adorn() {
-		ShapesGraph shapesGraph = (ShapesGraph) eContainer;
-		EList<ShapeName> adornedShapes = new BasicEList<ShapeName>();
+	public boolean isDangerous() {
+		dangerous = shapeName.isDangerous();
 
-		TreeIterator<EObject> it = this.eAllContents();
-		while (it.hasNext()) {
-			EObject content = it.next();
-			if (content instanceof Value && shapesGraph.isShapeName(((Value) content).getName())) {
-				((Value) content).setAdorned(true);
-				ShapeName s = new ShapeNameImpl();
-				s.setName(((Value) content).getName());
-				s.setAdorned(true);
-				adornedShapes.add(s);
+		if (dangerous) {
+			for (Node node : getAllShapeNamesOfExpression()) {
+				if (node instanceof Value) {
+					((Value) node).setDangerous(true);
+				}
 			}
 		}
-		return adornedShapes;
+		return dangerous;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDangerous(boolean newDangerous) {
+		boolean oldDangerous = dangerous;
+		dangerous = newDangerous;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS,
+					oldDangerous, dangerous));
 	}
 
 	/**
@@ -170,17 +214,12 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public ShapeConstraint generate(Value adornedShape) {
-		ShapeConstraint magicShapeConstraint = new ShapeConstraintImpl();
-		magicShapeConstraint.setShapeName(adornedShape.toShapeName().getMagicShapeName());
-
-		ShapeExpression magicShapeExpression = new ShapeExpressionImpl();
-		magicShapeExpression.getPropertyValues()
-				.add(((PropertyValues) adornedShape.eContainer()).getMagicPropertyValues(shapeName.getName()));
-
-		magicShapeConstraint.getShapeExpressions().add(magicShapeExpression);
-
-		return magicShapeConstraint;
+	public boolean contains(Node name) {
+		for (ShapeExpression shapeExpression : getShapeExpressions()) {
+			if (shapeExpression.contains(name.getName()))
+				return true;
+		}
+		return false;
 	}
 
 	/**
@@ -188,8 +227,16 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public void removeAdornments() {
-		this.shapeName.setAdorned(false);
+	public EList<Node> getAllShapeNamesOfExpression() {
+		EList<Node> shapeNames = new BasicEList<Node>();
+
+		List<EObject> objects = new ArrayList<EObject>();
+		eAllContents().forEachRemaining(objects::add);
+		for (EObject obj : objects) {
+			if (obj instanceof Value && ((Value) obj).isIdb())
+				shapeNames.add((Node) obj);
+		}
+		return shapeNames;
 	}
 
 	/**
@@ -220,6 +267,8 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 			return getShapeName();
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS:
 			return getShapeExpressions();
+		case MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS:
+			return isDangerous();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -240,6 +289,9 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 			getShapeExpressions().clear();
 			getShapeExpressions().addAll((Collection<? extends ShapeExpression>) newValue);
 			return;
+		case MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS:
+			setDangerous((Boolean) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -258,6 +310,9 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS:
 			getShapeExpressions().clear();
 			return;
+		case MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS:
+			setDangerous(DANGEROUS_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -274,6 +329,8 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 			return shapeName != null;
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS:
 			return shapeExpressions != null && !shapeExpressions.isEmpty();
+		case MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS:
+			return dangerous != DANGEROUS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -286,15 +343,49 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case MagicSHACLPackage.SHAPE_CONSTRAINT___ADORN:
-			return adorn();
-		case MagicSHACLPackage.SHAPE_CONSTRAINT___GENERATE__VALUE:
-			return generate((Value) arguments.get(0));
-		case MagicSHACLPackage.SHAPE_CONSTRAINT___REMOVE_ADORNMENTS:
-			removeAdornments();
-			return null;
+		case MagicSHACLPackage.SHAPE_CONSTRAINT___CONTAINS__NODE:
+			return contains((Node) arguments.get(0));
+		case MagicSHACLPackage.SHAPE_CONSTRAINT___GET_ALL_SHAPE_NAMES_OF_EXPRESSION:
+			return getAllShapeNamesOfExpression();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (dangerous: ");
+		result.append(dangerous);
+		result.append(')');
+		return result.toString();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this)
+			return true;
+
+		if (!(obj instanceof ShapeConstraint))
+			return false;
+
+		ShapeConstraint c = (ShapeConstraint) obj;
+		if (!new HashSet<>(c.getShapeExpressions()).equals(new HashSet<>(getShapeExpressions())))
+			return false;
+
+		return (this.shapeName.equals(c.getShapeName()));
+	}
+
+	@Override
+	public int hashCode() {
+		return getShapeName().hashCode() * getShapeExpressions().hashCode();
 	}
 
 } //ShapeConstraintImpl
