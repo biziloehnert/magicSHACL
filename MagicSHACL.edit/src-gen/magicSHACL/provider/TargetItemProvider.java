@@ -6,30 +6,38 @@ import java.util.Collection;
 import java.util.List;
 
 import magicSHACL.MagicSHACLPackage;
-import magicSHACL.Property;
+import magicSHACL.Target;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link magicSHACL.Property} object.
+ * This is the item provider adapter for a {@link magicSHACL.Target} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PropertyItemProvider extends NodeItemProvider {
+public class TargetItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropertyItemProvider(AdapterFactory adapterFactory) {
+	public TargetItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,36 +52,51 @@ public class PropertyItemProvider extends NodeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypePropertyDescriptor(object);
+			addTermPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Term feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addTermPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Property_type_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Property_type_feature",
-								"_UI_Property_type"),
-						MagicSHACLPackage.Literals.PROPERTY__TYPE, true, false, false,
+						getResourceLocator(), getString("_UI_Target_term_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Target_term_feature", "_UI_Target_type"),
+						MagicSHACLPackage.Literals.TARGET__TERM, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This returns Property.gif.
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Target_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Target_name_feature", "_UI_Target_type"),
+						MagicSHACLPackage.Literals.TARGET__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This returns Target.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Property"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Target"));
 	}
 
 	/**
@@ -94,9 +117,9 @@ public class PropertyItemProvider extends NodeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Property) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Property_type")
-				: getString("_UI_Property_type") + " " + label;
+		String label = ((Target) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Target_type")
+				: getString("_UI_Target_type") + " " + label;
 	}
 
 	/**
@@ -110,8 +133,9 @@ public class PropertyItemProvider extends NodeItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Property.class)) {
-		case MagicSHACLPackage.PROPERTY__TYPE:
+		switch (notification.getFeatureID(Target.class)) {
+		case MagicSHACLPackage.TARGET__TERM:
+		case MagicSHACLPackage.TARGET__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
@@ -128,6 +152,17 @@ public class PropertyItemProvider extends NodeItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return MagicSHACLEditPlugin.INSTANCE;
 	}
 
 }

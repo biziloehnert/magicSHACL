@@ -326,29 +326,6 @@ public class MagicSHACLItemProviderAdapterFactory extends MagicSHACLAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link magicSHACL.Property} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PropertyItemProvider propertyItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link magicSHACL.Property}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPropertyAdapter() {
-		if (propertyItemProvider == null) {
-			propertyItemProvider = new PropertyItemProvider(this);
-		}
-
-		return propertyItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link magicSHACL.Value} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -369,29 +346,6 @@ public class MagicSHACLItemProviderAdapterFactory extends MagicSHACLAdapterFacto
 		}
 
 		return valueItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link magicSHACL.PropertyValues} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PropertyValuesItemProvider propertyValuesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link magicSHACL.PropertyValues}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPropertyValuesAdapter() {
-		if (propertyValuesItemProvider == null) {
-			propertyValuesItemProvider = new PropertyValuesItemProvider(this);
-		}
-
-		return propertyValuesItemProvider;
 	}
 
 	/**
@@ -446,6 +400,7 @@ public class MagicSHACLItemProviderAdapterFactory extends MagicSHACLAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -456,6 +411,7 @@ public class MagicSHACLItemProviderAdapterFactory extends MagicSHACLAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -504,6 +460,7 @@ public class MagicSHACLItemProviderAdapterFactory extends MagicSHACLAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -514,6 +471,7 @@ public class MagicSHACLItemProviderAdapterFactory extends MagicSHACLAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -524,6 +482,7 @@ public class MagicSHACLItemProviderAdapterFactory extends MagicSHACLAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -538,6 +497,7 @@ public class MagicSHACLItemProviderAdapterFactory extends MagicSHACLAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 		if (dataGraphItemProvider != null)
 			dataGraphItemProvider.dispose();
@@ -563,12 +523,8 @@ public class MagicSHACLItemProviderAdapterFactory extends MagicSHACLAdapterFacto
 			shapeExpressionItemProvider.dispose();
 		if (shapeNameItemProvider != null)
 			shapeNameItemProvider.dispose();
-		if (propertyItemProvider != null)
-			propertyItemProvider.dispose();
 		if (valueItemProvider != null)
 			valueItemProvider.dispose();
-		if (propertyValuesItemProvider != null)
-			propertyValuesItemProvider.dispose();
 		if (targetItemProvider != null)
 			targetItemProvider.dispose();
 	}

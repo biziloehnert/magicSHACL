@@ -45,6 +45,9 @@ public class ValueItemProvider extends NodeItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addAdornedPropertyDescriptor(object);
+			addIdbPropertyDescriptor(object);
+			addDangerousPropertyDescriptor(object);
+			addXsdTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -62,6 +65,52 @@ public class ValueItemProvider extends NodeItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Value_adorned_feature", "_UI_Value_type"),
 						MagicSHACLPackage.Literals.VALUE__ADORNED, true, false, false,
 						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Idb feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIdbPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Value_idb_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Value_idb_feature", "_UI_Value_type"),
+						MagicSHACLPackage.Literals.VALUE__IDB, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Dangerous feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDangerousPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Value_dangerous_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Value_dangerous_feature",
+								"_UI_Value_type"),
+						MagicSHACLPackage.Literals.VALUE__DANGEROUS, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Xsd Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addXsdTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Value_xsdType_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Value_xsdType_feature", "_UI_Value_type"),
+						MagicSHACLPackage.Literals.VALUE__XSD_TYPE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -111,6 +160,9 @@ public class ValueItemProvider extends NodeItemProvider {
 
 		switch (notification.getFeatureID(Value.class)) {
 		case MagicSHACLPackage.VALUE__ADORNED:
+		case MagicSHACLPackage.VALUE__IDB:
+		case MagicSHACLPackage.VALUE__DANGEROUS:
+		case MagicSHACLPackage.VALUE__XSD_TYPE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

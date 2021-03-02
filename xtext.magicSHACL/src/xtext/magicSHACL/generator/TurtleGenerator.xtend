@@ -3,18 +3,14 @@
  */
 package xtext.magicSHACL.generator
 
+import magicSHACL.PropertyType
+import magicSHACL.ShapeConstraint
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-
-import magicSHACL.ShapeConstraint
-import magicSHACL.PropertyValues
-import magicSHACL.PropertyType
-import java.util.List
 import magicSHACL.ShapeExpression
-import magicSHACL.Property
-import java.util.ArrayList
+import java.util.List
 
 /**
  * Generates code from your model files on save.
@@ -22,95 +18,91 @@ import java.util.ArrayList
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class TurtleGenerator extends AbstractGenerator {
+	int i;
 	
-	List<String> shapes;
-	int shapesCounter;
-
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		shapes = new ArrayList();
-		shapesCounter = 0;
 		fsa.generateFile(resource.URI.lastSegment.replace(".ttl", ".simple"), '''
-            «FOR constraint : resource.allContents.filter(ShapeConstraint).toIterable SEPARATOR ';\n' AFTER ';\n'»«
+            «FOR constraint : resource.allContents.filter(ShapeConstraint).toIterable»«
+            	val shapes = shapeExpressionToAbstractString(constraint.shapeExpressions)»«
             	constraint.shapeName.name» :- «
-                FOR exp : constraint.shapeExpressions.filter[e | !e.propertyValues.filter[pv | isPropertyOrPath(pv.property.type)].empty].toList SEPARATOR ' AND '
-                	»«normalize(exp)»«
-                ENDFOR»«
-             ENDFOR»«
-             FOR shape : shapes SEPARATOR ';\n' AFTER ';'»«
-             	shape»«
+            	IF shapes.size == 1»«
+            		shapes.get(0)» ;  
+ 				«ELSE»
+ 					«(i = 0)==true?'':''»«
+ 					FOR shape : shapes SEPARATOR ' AND ' AFTER ';\n'»«
+            			constraint.shapeName.name»_S«shapes.indexOf(shape)»«
+            		ENDFOR»«
+            		(i = 0)==true?'':''»«
+            		FOR shape : shapes SEPARATOR ';\n' AFTER ';\n'»
+            			«constraint.shapeName.name»_S«shapes.indexOf(shape)» :- «shape»«
+            		ENDFOR»	
+            	«ENDIF»«
              ENDFOR»
         ''')
 	}
 	
-	private def normalize(ShapeExpression exp){
-		val simplify = simplifyExpression(exp)
-		val s = exp.type == PropertyType.NOT_CONSTRAINT_COMPONENT ? 'NOT ' :'';
+	def shapeExpressionToAbstractString(List<ShapeExpression> shapeExpressions){
+		val normalized = newArrayList
+	 	
+		val path = getValuesOfProperty(shapeExpressions, PropertyType.PREDICATE_PATH)
+		val inversePath = getValuesOfProperty(shapeExpressions, PropertyType.INVERSE_PATH)
+		val maxCount = getValuesOfProperty(shapeExpressions, PropertyType.MAX_COUNT_CONSTRAINT_COMPONENT)
+		val minCount = getValuesOfProperty(shapeExpressions, PropertyType.MIN_COUNT_CONSTRAINT_COMPONENT)
+		val class = getValuesOfProperty(shapeExpressions, PropertyType.CLASS_CONSTRAINT_COMPONENT)
+		val node = getValuesOfProperty(shapeExpressions, PropertyType.NODE_CONSTRAINT_COMPONENT)
 		
-		if (isComplex(simplify) && exp.propertyValues.size > 1){
-			shapesCounter++;
-			shapes.add('S' + shapesCounter + ' :- ' + simplify);
-			return s + 'S' + shapesCounter;
-		}else{
-			return s + simplify;
+		var object = 'ADom'
+		if (class.size > 0 )
+			object = class.get(0).toString
+		else if (node.size > 0 )
+			object = node.get(0).toString
+		
+		if(maxCount.size > 0)
+			normalized.add('MAX ' + maxCount.get(0) + ' ' + path.get(0) + ' ' + object)
+		if(minCount.size > 0)
+			normalized.add('MIN ' + minCount.get(0) + ' ' + path.get(0) + ' ' + object)
+		if(maxCount.size == 0 && minCount.size == 0 && path.size > 0)
+			normalized.add('SOME ' + path.get(0) + ' ' + object)
+		if(inversePath.size > 0)
+			normalized.add('^' + inversePath.get(0)) 
+		
+		for(value : getValuesOfProperty(shapeExpressions, PropertyType.OR_CONSTRAINT_COMPONENT))
+			normalized.add(value)
+		for(value : getValuesOfProperty(shapeExpressions, PropertyType.PROPERTY))
+			normalized.add(value)
+		val notValues = getValuesOfProperty(shapeExpressions, PropertyType.NOT_CONSTRAINT_COMPONENT)
+		for(value : notValues){
+			val newShapeName = (shapeExpressions.get(0).eContainer as ShapeConstraint).shapeName.name + '_S' + normalized.size
+			normalized.add('NOT ' + newShapeName + ';\n' + newShapeName + ' :- ' + value)
 		}
+		for(value : getValuesOfProperty(shapeExpressions, PropertyType.AND_CONSTRAINT_COMPONENT))
+			normalized.add(value)
+		
+		return normalized
 	}
 	
-	private def isComplex(String expression){
-		if(expression.contains('MAX') ||
-			expression.contains('MIN') ||
-			expression.contains('SOME'))
-			return true;
-		return false;
-	}
-	
-	private def isPropertyOrPath(PropertyType type){
-		return (
-				type == PropertyType.PROPERTY || 
-				type == PropertyType.PREDICATE_PATH || 
-				type == PropertyType.INVERSE_PATH
-		);
-	}
-	
-	private def simplifyExpression(ShapeExpression expression) {
-		val maxCount = getValues(expression, PropertyType.MAX_COUNT_CONSTRAINT_COMPONENT)
-		val minCount = getValues(expression, PropertyType.MIN_COUNT_CONSTRAINT_COMPONENT)
-		val class = getValues(expression, PropertyType.CLASS_CONSTRAINT_COMPONENT)
-		val property = getValues(expression, PropertyType.PROPERTY)
-				
-		if(maxCount !== null)
-			return 'MAX ' + maxCount.values.get(0).name + ' ' + getPath(expression) + ' ' 
-				+ ((class!==null) ? class.values.get(0).name : 'ADom');
-		if(minCount !== null)
-			return 'MIN ' + minCount.values.get(0).name + ' ' + getPath(expression) + ' ' 
-				+ ((class!==null) ? class.values.get(0).name : 'ADom');
-		if(class !== null)
-			return 'SOME ' + getPath(expression) + ' ' + class.values.get(0).name ;
-		if(property !== null && expression.propertyValues.size == 1)
-			return property.values.get(0).name;	
-		return 'SOME ' + getPath(expression) + ' ADom';
-	}
-	
-	private def getValues(ShapeExpression expression, PropertyType type) {
-		val values = expression.eAllContents.filter(magicSHACL.PropertyValues).toList.findFirst[property.type == type];	
-					
-		if (values !== null) {
-			return values;	
-		} else {
-			return expression.eContainer.eAllContents.filter(magicSHACL.PropertyValues).toList.findFirst[property.type == type];
-		}		
-	}
-	
-	private def getPath(ShapeExpression expression) {
-		val path = expression.eAllContents.filter(magicSHACL.PropertyValues).toList.findFirst[property.type == PropertyType.PREDICATE_PATH || 
-					property.type == PropertyType.INVERSE_PATH];
-					
-		if (path !== null) {
-			return (path.property.type == PropertyType.INVERSE_PATH ? '^' : '') + path.values.get(0).name;	
-		} else {
-			return (path.property.type == PropertyType.INVERSE_PATH ? '^' : '') + 
-					expression.eContainer.eAllContents.filter(magicSHACL.PropertyValues).toList.findFirst[
-						property.type == PropertyType.PREDICATE_PATH || 
-						property.type == PropertyType.INVERSE_PATH].values.get(0).name;
-		}	
+	def getValuesOfProperty(List<ShapeExpression> shapeExpressions, PropertyType type){
+		val expressions = shapeExpressions.filter[e | e.type == type].toList 
+		var values = newArrayList
+		
+		var properties = ''
+		for(expression : expressions){
+			if(expression.shapeExpressions.size > 0)
+				values.addAll(shapeExpressionToAbstractString(expression.shapeExpressions))
+			if (type == PropertyType.OR_CONSTRAINT_COMPONENT){
+				var s = ''
+				for(subexp : expression.shapeExpressions)
+					if(!subexp.abstractString.blank)
+						s += 'OR ' + subexp.abstractString
+				if(s.length > 4)
+						values.add(s.substring(3))
+			} 
+			if (expression.values.size > 0)
+				properties += ' AND ' + expression.values.get(0).name
+		}
+		
+		if(properties.length > 0)
+			values.add(properties.substring(5))
+		return values
 	}
 }

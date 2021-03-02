@@ -11,8 +11,6 @@ import magicSHACL.MagicSHACLPackage;
 import magicSHACL.Namespace;
 import magicSHACL.Predicate;
 import magicSHACL.PredicateObject;
-import magicSHACL.Property;
-import magicSHACL.PropertyValues;
 import magicSHACL.ShapeConstraint;
 import magicSHACL.ShapeExpression;
 import magicSHACL.ShapeName;
@@ -62,12 +60,6 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case MagicSHACLPackage.PREDICATE_OBJECT:
 				sequence_PredicateObject(context, (PredicateObject) semanticObject); 
-				return; 
-			case MagicSHACLPackage.PROPERTY:
-				sequence_Property(context, (Property) semanticObject); 
-				return; 
-			case MagicSHACLPackage.PROPERTY_VALUES:
-				sequence_PropertyValues(context, (PropertyValues) semanticObject); 
 				return; 
 			case MagicSHACLPackage.SHAPE_CONSTRAINT:
 				sequence_ShapeConstraint(context, (ShapeConstraint) semanticObject); 
@@ -124,7 +116,7 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Namespace returns Namespace
 	 *
 	 * Constraint:
-	 *     (prefix=PREFIX namespace=UNICODE)
+	 *     (prefix=ID namespace=IRI)
 	 */
 	protected void sequence_Namespace(ISerializationContext context, Namespace semanticObject) {
 		if (errorAcceptor != null) {
@@ -134,8 +126,8 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MagicSHACLPackage.Literals.NAMESPACE__NAMESPACE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNamespaceAccess().getPrefixPREFIXTerminalRuleCall_1_0(), semanticObject.getPrefix());
-		feeder.accept(grammarAccess.getNamespaceAccess().getNamespaceUNICODETerminalRuleCall_3_0(), semanticObject.getNamespace());
+		feeder.accept(grammarAccess.getNamespaceAccess().getPrefixIDTerminalRuleCall_1_0(), semanticObject.getPrefix());
+		feeder.accept(grammarAccess.getNamespaceAccess().getNamespaceIRITerminalRuleCall_2_0(), semanticObject.getNamespace());
 		feeder.finish();
 	}
 	
@@ -145,16 +137,10 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Object returns Object
 	 *
 	 * Constraint:
-	 *     name=UNICODE
+	 *     (name=EString xsdType=EString?)
 	 */
 	protected void sequence_Object(ISerializationContext context, magicSHACL.Object semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MagicSHACLPackage.Literals.NODE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MagicSHACLPackage.Literals.NODE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getObjectAccess().getNameUNICODETerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -184,7 +170,7 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Predicate returns Predicate
 	 *
 	 * Constraint:
-	 *     name=UNICODE
+	 *     name=EString
 	 */
 	protected void sequence_Predicate(ISerializationContext context, Predicate semanticObject) {
 		if (errorAcceptor != null) {
@@ -192,37 +178,7 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MagicSHACLPackage.Literals.NODE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPredicateAccess().getNameUNICODETerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PropertyValues returns PropertyValues
-	 *
-	 * Constraint:
-	 *     (property=Property values+=Value*)
-	 */
-	protected void sequence_PropertyValues(ISerializationContext context, PropertyValues semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Property returns Property
-	 *
-	 * Constraint:
-	 *     type=PropertyType
-	 */
-	protected void sequence_Property(ISerializationContext context, Property semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MagicSHACLPackage.Literals.PROPERTY__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MagicSHACLPackage.Literals.PROPERTY__TYPE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPropertyAccess().getTypePropertyTypeEnumRuleCall_1_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getPredicateAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -232,7 +188,7 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ShapeConstraint returns ShapeConstraint
 	 *
 	 * Constraint:
-	 *     (shapeName=ShapeName shapeExpressions+=ShapeExpression? shapeExpressions+=ShapeExpression*)
+	 *     (shapeName=ShapeName shapeExpressions+=ShapeExpression+)
 	 */
 	protected void sequence_ShapeConstraint(ISerializationContext context, ShapeConstraint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -244,7 +200,7 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ShapeExpression returns ShapeExpression
 	 *
 	 * Constraint:
-	 *     (propertyValues+=PropertyValues | (type=PropertyType propertyValues+=PropertyValues*))
+	 *     (type=PropertyType (values+=Value | shapeExpressions+=ShapeExpression)*)?
 	 */
 	protected void sequence_ShapeExpression(ISerializationContext context, ShapeExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -256,7 +212,7 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ShapeName returns ShapeName
 	 *
 	 * Constraint:
-	 *     name=UNICODE
+	 *     name=EString
 	 */
 	protected void sequence_ShapeName(ISerializationContext context, ShapeName semanticObject) {
 		if (errorAcceptor != null) {
@@ -264,7 +220,7 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MagicSHACLPackage.Literals.NODE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getShapeNameAccess().getNameUNICODETerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getShapeNameAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -286,7 +242,7 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Subject returns Subject
 	 *
 	 * Constraint:
-	 *     name=UNICODE
+	 *     name=EString
 	 */
 	protected void sequence_Subject(ISerializationContext context, Subject semanticObject) {
 		if (errorAcceptor != null) {
@@ -294,7 +250,7 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MagicSHACLPackage.Literals.NODE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSubjectAccess().getNameUNICODETerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getSubjectAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -316,16 +272,10 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Value returns Value
 	 *
 	 * Constraint:
-	 *     name=UNICODE
+	 *     (name=EString xsdType=EString?)
 	 */
 	protected void sequence_Value(ISerializationContext context, Value semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MagicSHACLPackage.Literals.NODE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MagicSHACLPackage.Literals.NODE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getValueAccess().getNameUNICODETerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -6,90 +6,22 @@
 
 <plugin>
 
-   <extension
-         point="org.eclipse.core.runtime.applications"
-         id="MagicSHACLEditorAdvisorApplication">
+   <extension point="org.eclipse.ui.newWizards">
       <!-- @generated magicSHACL -->
-      <application>
-         <run class="magicSHACL.presentation.MagicSHACLEditorAdvisor$Application"/>
-      </application>
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="magicSHACL.presentation.MagicSHACLModelWizardID"
+            name="%_UI_MagicSHACLModelWizard_label"
+            class="magicSHACL.presentation.MagicSHACLModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/MagicSHACLModelFile.gif">
+         <description>%_UI_MagicSHACLModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
    </extension>
 
-
-   <extension point="org.eclipse.ui.perspectives">
-      <!-- @generated magicSHACL -->
-      <perspective
-            name="%_UI_Perspective_label"
-            class="magicSHACL.presentation.MagicSHACLEditorAdvisor$Perspective"
-            id="magicSHACL.presentation.MagicSHACLEditorAdvisorPerspective">
-      </perspective>
-   </extension>
-
-   <extension point="org.eclipse.ui.commands">
-      <!-- @generated magicSHACL -->
-      <command
-            name="%_UI_Menu_OpenURI_label"
-            description="%_UI_Menu_OpenURI_description"
-            categoryId="org.eclipse.ui.category.file"
-            id="magicSHACL.presentation.MagicSHACLEditorAdvisorOpenURICommand"/>
-      <command
-            name="%_UI_Menu_Open_label"
-            description="%_UI_Menu_Open_description"
-            categoryId="org.eclipse.ui.category.file"
-            id="magicSHACL.presentation.MagicSHACLEditorAdvisorOpenCommand"/>
-   </extension>
-
-   <extension point="org.eclipse.ui.bindings">
-      <!-- @generated magicSHACL -->
-      <key
-            commandId="magicSHACL.presentation.MagicSHACLEditorAdvisorOpenURICommand"
-            sequence="M1+U"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
-      <key
-            commandId="magicSHACL.presentation.MagicSHACLEditorAdvisorOpenCommand"
-            sequence="M1+O"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
-   </extension>
-
-   <extension point="org.eclipse.ui.actionSets">
-      <!-- @generated magicSHACL -->
-      <actionSet
-            label="%_UI_MagicSHACLEditorAdvisor_ActionSet_label"
-            visible="true"
-            id="MagicSHACLEditorAdvisorActionSet">
-         <action
-               label="%_UI_Menu_About_label"
-               class="magicSHACL.presentation.MagicSHACLEditorAdvisor$AboutAction"
-               menubarPath="help/additions"
-               id="magicSHACL.presentation.MagicSHACLEditorAdvisorAboutAction"/>
-         <action
-               label="%_UI_Menu_OpenURI_label"
-               definitionId="magicSHACL.presentation.MagicSHACLEditorAdvisorOpenURICommand"
-               class="magicSHACL.presentation.MagicSHACLEditorAdvisor$OpenURIAction"
-               menubarPath="file/additions"
-               id="magicSHACL.presentation.MagicSHACLEditorAdvisorOpenURIAction"/>
-         <action
-               label="%_UI_Menu_Open_label"
-               definitionId="magicSHACL.presentation.MagicSHACLEditorAdvisorOpenCommand"
-               class="magicSHACL.presentation.MagicSHACLEditorAdvisor$OpenAction"
-               menubarPath="file/additions"
-               id="magicSHACL.presentation.MagicSHACLEditorAdvisorOpenAction"/>
-      </actionSet>
-   </extension>
-
-   <extension point="org.eclipse.ui.actionSets">
-      <!-- @generated magicSHACL -->
-      <actionSet
-            label="%_UI_MagicSHACLModelWizard_ActionSet_label"
-            visible="true"
-            id="magicSHACL.presentation.MagicSHACLActionBarContributorActionSet">
-         <action
-               label="%_UI_MagicSHACLModelWizard_label"
-               class="magicSHACL.presentation.MagicSHACLActionBarContributor$NewAction"
-               menubarPath="file/new/additions"
-               id="magicSHACL.presentation.MagicSHACLActionBarContributorNewAction"/>
-      </actionSet>
-   </extension>
    <extension point="org.eclipse.ui.editors">
       <!-- @generated magicSHACL -->
       <editor

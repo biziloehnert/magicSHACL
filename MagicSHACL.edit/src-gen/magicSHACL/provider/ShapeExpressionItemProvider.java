@@ -58,7 +58,7 @@ public class ShapeExpressionItemProvider extends ItemProviderAdapter implements 
 			super.getPropertyDescriptors(object);
 
 			addTypePropertyDescriptor(object);
-			addValuePropertyDescriptor(object);
+			addAbstractStringPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -80,19 +80,19 @@ public class ShapeExpressionItemProvider extends ItemProviderAdapter implements 
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the Abstract String feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ShapeExpression_value_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ShapeExpression_value_feature",
-								"_UI_ShapeExpression_type"),
-						MagicSHACLPackage.Literals.SHAPE_EXPRESSION__VALUE, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	protected void addAbstractStringPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ShapeExpression_abstractString_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_ShapeExpression_abstractString_feature",
+						"_UI_ShapeExpression_type"),
+				MagicSHACLPackage.Literals.SHAPE_EXPRESSION__ABSTRACT_STRING, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -107,7 +107,8 @@ public class ShapeExpressionItemProvider extends ItemProviderAdapter implements 
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MagicSHACLPackage.Literals.SHAPE_EXPRESSION__PROPERTY_VALUES);
+			childrenFeatures.add(MagicSHACLPackage.Literals.SHAPE_EXPRESSION__SHAPE_EXPRESSIONS);
+			childrenFeatures.add(MagicSHACLPackage.Literals.SHAPE_EXPRESSION__VALUES);
 		}
 		return childrenFeatures;
 	}
@@ -173,10 +174,11 @@ public class ShapeExpressionItemProvider extends ItemProviderAdapter implements 
 
 		switch (notification.getFeatureID(ShapeExpression.class)) {
 		case MagicSHACLPackage.SHAPE_EXPRESSION__TYPE:
-		case MagicSHACLPackage.SHAPE_EXPRESSION__VALUE:
+		case MagicSHACLPackage.SHAPE_EXPRESSION__ABSTRACT_STRING:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case MagicSHACLPackage.SHAPE_EXPRESSION__PROPERTY_VALUES:
+		case MagicSHACLPackage.SHAPE_EXPRESSION__SHAPE_EXPRESSIONS:
+		case MagicSHACLPackage.SHAPE_EXPRESSION__VALUES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -194,8 +196,11 @@ public class ShapeExpressionItemProvider extends ItemProviderAdapter implements 
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(MagicSHACLPackage.Literals.SHAPE_EXPRESSION__PROPERTY_VALUES,
-				MagicSHACLFactory.eINSTANCE.createPropertyValues()));
+		newChildDescriptors.add(createChildParameter(MagicSHACLPackage.Literals.SHAPE_EXPRESSION__SHAPE_EXPRESSIONS,
+				MagicSHACLFactory.eINSTANCE.createShapeExpression()));
+
+		newChildDescriptors.add(createChildParameter(MagicSHACLPackage.Literals.SHAPE_EXPRESSION__VALUES,
+				MagicSHACLFactory.eINSTANCE.createValue()));
 	}
 
 	/**
