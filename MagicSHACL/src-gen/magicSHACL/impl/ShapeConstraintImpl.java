@@ -180,7 +180,7 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Boolean getDangerous() {
@@ -209,24 +209,6 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS,
 					oldDangerous, dangerous));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isDangerous() {
-		dangerous = shapeName.isDangerous();
-
-		if (dangerous) {
-			for (Node node : getAllShapeNamesOfExpression()) {
-				if (node instanceof Value) {
-					((Value) node).setDangerous(true);
-				}
-			}
-		}
-		return dangerous;
 	}
 
 	/**
