@@ -237,7 +237,7 @@ public class ShapeExpressionImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public boolean contains(String name) {
-		for (Value v : values)
+		for (Value v : getValues())
 			if (name.equals(v.getName()))
 				return true;
 

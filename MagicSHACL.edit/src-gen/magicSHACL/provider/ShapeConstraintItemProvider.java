@@ -106,7 +106,7 @@ public class ShapeConstraintItemProvider extends ItemProviderAdapter implements 
 						getString("_UI_PropertyDescriptor_description", "_UI_ShapeConstraint_dangerous_feature",
 								"_UI_ShapeConstraint_type"),
 						MagicSHACLPackage.Literals.SHAPE_CONSTRAINT__DANGEROUS, true, false, false,
-						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -169,8 +169,10 @@ public class ShapeConstraintItemProvider extends ItemProviderAdapter implements 
 	 */
 	@Override
 	public String getText(Object object) {
-		ShapeConstraint shapeConstraint = (ShapeConstraint) object;
-		return getString("_UI_ShapeConstraint_type") + " " + shapeConstraint.isDangerous();
+		Boolean labelValue = ((ShapeConstraint) object).getDangerous();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ? getString("_UI_ShapeConstraint_type")
+				: getString("_UI_ShapeConstraint_type") + " " + label;
 	}
 
 	/**

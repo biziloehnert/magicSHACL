@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link magicSHACL.ShapeConstraint#getShapeName <em>Shape Name</em>}</li>
  *   <li>{@link magicSHACL.ShapeConstraint#getShapeExpressions <em>Shape Expressions</em>}</li>
- *   <li>{@link magicSHACL.ShapeConstraint#isDangerous <em>Dangerous</em>}</li>
+ *   <li>{@link magicSHACL.ShapeConstraint#getDangerous <em>Dangerous</em>}</li>
  * </ul>
  *
  * @see magicSHACL.MagicSHACLPackage#getShapeConstraint()
@@ -64,22 +64,22 @@ public interface ShapeConstraint extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dangerous</em>' attribute.
-	 * @see #setDangerous(boolean)
+	 * @see #setDangerous(Boolean)
 	 * @see magicSHACL.MagicSHACLPackage#getShapeConstraint_Dangerous()
 	 * @model derived="true"
 	 * @generated
 	 */
-	boolean isDangerous();
+	Boolean getDangerous();
 
 	/**
-	 * Sets the value of the '{@link magicSHACL.ShapeConstraint#isDangerous <em>Dangerous</em>}' attribute.
+	 * Sets the value of the '{@link magicSHACL.ShapeConstraint#getDangerous <em>Dangerous</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Dangerous</em>' attribute.
-	 * @see #isDangerous()
+	 * @see #getDangerous()
 	 * @generated
 	 */
-	void setDangerous(boolean value);
+	void setDangerous(Boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

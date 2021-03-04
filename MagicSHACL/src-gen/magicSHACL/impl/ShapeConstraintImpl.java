@@ -38,7 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link magicSHACL.impl.ShapeConstraintImpl#getShapeName <em>Shape Name</em>}</li>
  *   <li>{@link magicSHACL.impl.ShapeConstraintImpl#getShapeExpressions <em>Shape Expressions</em>}</li>
- *   <li>{@link magicSHACL.impl.ShapeConstraintImpl#isDangerous <em>Dangerous</em>}</li>
+ *   <li>{@link magicSHACL.impl.ShapeConstraintImpl#getDangerous <em>Dangerous</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,24 +65,24 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 	protected EList<ShapeExpression> shapeExpressions;
 
 	/**
-	 * The default value of the '{@link #isDangerous() <em>Dangerous</em>}' attribute.
+	 * The default value of the '{@link #getDangerous() <em>Dangerous</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isDangerous()
+	 * @see #getDangerous()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean DANGEROUS_EDEFAULT = false;
+	protected static final Boolean DANGEROUS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #isDangerous() <em>Dangerous</em>}' attribute.
+	 * The cached value of the '{@link #getDangerous() <em>Dangerous</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isDangerous()
+	 * @see #getDangerous()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean dangerous = DANGEROUS_EDEFAULT;
+	protected Boolean dangerous = DANGEROUS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,6 +180,40 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Boolean getDangerous() {
+		if(dangerous == null) {
+			dangerous = Boolean.valueOf(shapeName.isDangerous());
+			if (dangerous) {
+				for (Node node : getAllShapeNamesOfExpression()) {
+					if (node instanceof Value) {
+						((Value) node).setDangerous(true);
+					}
+				}
+			}
+		}
+		return dangerous;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDangerous(Boolean newDangerous) {
+		Boolean oldDangerous = dangerous;
+		dangerous = newDangerous;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS,
+					oldDangerous, dangerous));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean isDangerous() {
@@ -198,25 +232,11 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDangerous(boolean newDangerous) {
-		boolean oldDangerous = dangerous;
-		dangerous = newDangerous;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS,
-					oldDangerous, dangerous));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean contains(Node name) {
-		for (ShapeExpression shapeExpression : getShapeExpressions()) {
-			if (shapeExpression.contains(name.getName()))
+		for (Node node : getAllShapeNamesOfExpression()) {
+			if (node.getName().equals(name.getName()))
 				return true;
 		}
 		return false;
@@ -268,7 +288,7 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS:
 			return getShapeExpressions();
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS:
-			return isDangerous();
+			return getDangerous();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -330,7 +350,7 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS:
 			return shapeExpressions != null && !shapeExpressions.isEmpty();
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS:
-			return dangerous != DANGEROUS_EDEFAULT;
+			return DANGEROUS_EDEFAULT == null ? dangerous != null : !DANGEROUS_EDEFAULT.equals(dangerous);
 		}
 		return super.eIsSet(featureID);
 	}

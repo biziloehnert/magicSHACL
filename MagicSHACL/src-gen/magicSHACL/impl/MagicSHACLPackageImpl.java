@@ -977,7 +977,7 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 		initEReference(getShapeConstraint_ShapeExpressions(), this.getShapeExpression(), null, "shapeExpressions", null,
 				0, -1, ShapeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getShapeConstraint_Dangerous(), ecorePackage.getEBoolean(), "dangerous", null, 0, 1,
+		initEAttribute(getShapeConstraint_Dangerous(), ecorePackage.getEBooleanObject(), "dangerous", null, 0, 1,
 				ShapeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				IS_DERIVED, IS_ORDERED);
 

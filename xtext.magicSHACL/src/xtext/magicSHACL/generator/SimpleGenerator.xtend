@@ -48,7 +48,7 @@ class SimpleGenerator extends AbstractGenerator {
 					modify(r)
 				} 
 				
-				for(d : resource.allContents.filter(ShapeConstraint).filter[c | c.isDangerous && c.contains(s_a) && !c.shapeName.adorned].toIterable){
+				for(d : resource.allContents.filter(ShapeConstraint).filter[c | c.dangerous && !c.shapeName.adorned && c.contains(s_a)].toIterable){
 					val d_s = swap(d,s_a)
 					adorn(d_s)
 					generate(d_s)

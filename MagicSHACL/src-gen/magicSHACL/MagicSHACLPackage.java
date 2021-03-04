@@ -1195,11 +1195,11 @@ public interface MagicSHACLPackage extends EPackage {
 	EReference getShapeConstraint_ShapeExpressions();
 
 	/**
-	 * Returns the meta object for the attribute '{@link magicSHACL.ShapeConstraint#isDangerous <em>Dangerous</em>}'.
+	 * Returns the meta object for the attribute '{@link magicSHACL.ShapeConstraint#getDangerous <em>Dangerous</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Dangerous</em>'.
-	 * @see magicSHACL.ShapeConstraint#isDangerous()
+	 * @see magicSHACL.ShapeConstraint#getDangerous()
 	 * @see #getShapeConstraint()
 	 * @generated
 	 */

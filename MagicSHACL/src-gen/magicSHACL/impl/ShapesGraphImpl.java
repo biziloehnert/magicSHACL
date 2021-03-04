@@ -140,7 +140,7 @@ public class ShapesGraphImpl extends MinimalEObjectImpl.Container implements Sha
 		for (Node shapeName : getAllShapeNames())
 			dependencyGraph.addVertex(shapeName.getName());
 
-		for (ShapeConstraint shapeConstraint : shapeConstraints)
+		for (ShapeConstraint shapeConstraint : getShapeConstraints())
 			for (Node shapeName : shapeConstraint.getAllShapeNamesOfExpression())
 				dependencyGraph.addEdge(shapeName.getName(), shapeConstraint.getShapeName().getName());
 
