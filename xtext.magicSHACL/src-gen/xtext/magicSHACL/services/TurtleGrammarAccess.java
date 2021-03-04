@@ -35,19 +35,16 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final RuleCall cDataGraphDataGraphParserRuleCall_2_0 = (RuleCall)cDataGraphAssignment_2.eContents().get(0);
 		private final Assignment cShapesGraphAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cShapesGraphShapesGraphParserRuleCall_3_0 = (RuleCall)cShapesGraphAssignment_3.eContents().get(0);
-		private final Keyword cLessThanSignGreaterThanSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Graph:
 		//	{Graph} namespaces+=Namespace*
 		//	dataGraph=DataGraph
-		//	shapesGraph=ShapesGraph
-		//	'<>';
+		//	shapesGraph=ShapesGraph;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Graph} namespaces+=Namespace*
 		//dataGraph=DataGraph
 		//shapesGraph=ShapesGraph
-		//'<>'
 		public Group getGroup() { return cGroup; }
 		
 		//{Graph}
@@ -70,52 +67,41 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		
 		//ShapesGraph
 		public RuleCall getShapesGraphShapesGraphParserRuleCall_3_0() { return cShapesGraphShapesGraphParserRuleCall_3_0; }
-		
-		//'<>'
-		public Keyword getLessThanSignGreaterThanSignKeyword_4() { return cLessThanSignGreaterThanSignKeyword_4; }
 	}
 	public class NamespaceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.Namespace");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPrefixKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cPrefixAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPrefixPREFIXTerminalRuleCall_1_0 = (RuleCall)cPrefixAssignment_1.eContents().get(0);
-		private final Keyword cLessThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNamespaceAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNamespaceUNICODETerminalRuleCall_3_0 = (RuleCall)cNamespaceAssignment_3.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cFullStopKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cPrefixIDTerminalRuleCall_1_0 = (RuleCall)cPrefixAssignment_1.eContents().get(0);
+		private final Assignment cNamespaceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNamespaceIRITerminalRuleCall_2_0 = (RuleCall)cNamespaceAssignment_2.eContents().get(0);
+		private final Keyword cFullStopKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Namespace:
-		//	'@prefix' prefix=PREFIX '<' namespace=UNICODE '>' '.';
+		//	'@prefix' prefix=ID namespace=IRI '.';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'@prefix' prefix=PREFIX '<' namespace=UNICODE '>' '.'
+		//'@prefix' prefix=ID namespace=IRI '.'
 		public Group getGroup() { return cGroup; }
 		
 		//'@prefix'
 		public Keyword getPrefixKeyword_0() { return cPrefixKeyword_0; }
 		
-		//prefix=PREFIX
+		//prefix=ID
 		public Assignment getPrefixAssignment_1() { return cPrefixAssignment_1; }
 		
-		//PREFIX
-		public RuleCall getPrefixPREFIXTerminalRuleCall_1_0() { return cPrefixPREFIXTerminalRuleCall_1_0; }
+		//ID
+		public RuleCall getPrefixIDTerminalRuleCall_1_0() { return cPrefixIDTerminalRuleCall_1_0; }
 		
-		//'<'
-		public Keyword getLessThanSignKeyword_2() { return cLessThanSignKeyword_2; }
+		//namespace=IRI
+		public Assignment getNamespaceAssignment_2() { return cNamespaceAssignment_2; }
 		
-		//namespace=UNICODE
-		public Assignment getNamespaceAssignment_3() { return cNamespaceAssignment_3; }
-		
-		//UNICODE
-		public RuleCall getNamespaceUNICODETerminalRuleCall_3_0() { return cNamespaceUNICODETerminalRuleCall_3_0; }
-		
-		//'>'
-		public Keyword getGreaterThanSignKeyword_4() { return cGreaterThanSignKeyword_4; }
+		//IRI
+		public RuleCall getNamespaceIRITerminalRuleCall_2_0() { return cNamespaceIRITerminalRuleCall_2_0; }
 		
 		//'.'
-		public Keyword getFullStopKeyword_5() { return cFullStopKeyword_5; }
+		public Keyword getFullStopKeyword_3() { return cFullStopKeyword_3; }
 	}
 	public class DataGraphElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.DataGraph");
@@ -215,69 +201,85 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cSubjectAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameUNICODETerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//Subject:
-		//	{Subject} name=UNICODE;
+		//	{Subject} name=EString;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Subject} name=UNICODE
+		//{Subject} name=EString
 		public Group getGroup() { return cGroup; }
 		
 		//{Subject}
 		public Action getSubjectAction_0() { return cSubjectAction_0; }
 		
-		//name=UNICODE
+		//name=EString
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//UNICODE
-		public RuleCall getNameUNICODETerminalRuleCall_1_0() { return cNameUNICODETerminalRuleCall_1_0; }
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
 	}
 	public class PredicateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.Predicate");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cPredicateAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameUNICODETerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//Predicate:
-		//	{Predicate} name=UNICODE;
+		//	{Predicate} name=EString;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Predicate} name=UNICODE
+		//{Predicate} name=EString
 		public Group getGroup() { return cGroup; }
 		
 		//{Predicate}
 		public Action getPredicateAction_0() { return cPredicateAction_0; }
 		
-		//name=UNICODE
+		//name=EString
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//UNICODE
-		public RuleCall getNameUNICODETerminalRuleCall_1_0() { return cNameUNICODETerminalRuleCall_1_0; }
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
 	}
 	public class ObjectElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.Object");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cObjectAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameUNICODETerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cCircumflexAccentCircumflexAccentKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cXsdTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cXsdTypeEStringParserRuleCall_2_1_0 = (RuleCall)cXsdTypeAssignment_2_1.eContents().get(0);
 		
-		//Object hidden(WS):
-		//	{Object} name=UNICODE;
+		//Object:
+		//	{Object} name=EString ('^^'xsdType=EString)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Object} name=UNICODE
+		//{Object} name=EString ('^^'xsdType=EString)?
 		public Group getGroup() { return cGroup; }
 		
 		//{Object}
 		public Action getObjectAction_0() { return cObjectAction_0; }
 		
-		//name=UNICODE
+		//name=EString
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//UNICODE
-		public RuleCall getNameUNICODETerminalRuleCall_1_0() { return cNameUNICODETerminalRuleCall_1_0; }
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		
+		//('^^'xsdType=EString)?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'^^'
+		public Keyword getCircumflexAccentCircumflexAccentKeyword_2_0() { return cCircumflexAccentCircumflexAccentKeyword_2_0; }
+		
+		//xsdType=EString
+		public Assignment getXsdTypeAssignment_2_1() { return cXsdTypeAssignment_2_1; }
+		
+		//EString
+		public RuleCall getXsdTypeEStringParserRuleCall_2_1_0() { return cXsdTypeEStringParserRuleCall_2_1_0; }
 	}
 	public class ShapesGraphElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.ShapesGraph");
@@ -308,27 +310,18 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Action cShapeConstraintAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cShapeNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cShapeNameShapeNameParserRuleCall_1_0 = (RuleCall)cShapeNameAssignment_1.eContents().get(0);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
-		private final Alternatives cAlternatives_2_0_0 = (Alternatives)cGroup_2_0.eContents().get(0);
-		private final RuleCall cUNICODETerminalRuleCall_2_0_0_0 = (RuleCall)cAlternatives_2_0_0.eContents().get(0);
-		private final Keyword cAKeyword_2_0_0_1 = (Keyword)cAlternatives_2_0_0.eContents().get(1);
-		private final Keyword cShNodeShapeKeyword_2_0_1 = (Keyword)cGroup_2_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_2_0_2 = (Keyword)cGroup_2_0.eContents().get(2);
-		private final Assignment cShapeExpressionsAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
-		private final RuleCall cShapeExpressionsShapeExpressionParserRuleCall_2_1_0 = (RuleCall)cShapeExpressionsAssignment_2_1.eContents().get(0);
-		private final Assignment cShapeExpressionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cShapeExpressionsShapeExpressionParserRuleCall_3_0 = (RuleCall)cShapeExpressionsAssignment_3.eContents().get(0);
-		private final Keyword cFullStopKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cShapeExpressionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cShapeExpressionsShapeExpressionParserRuleCall_2_0 = (RuleCall)cShapeExpressionsAssignment_2.eContents().get(0);
+		private final Keyword cFullStopKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//ShapeConstraint:
-		//	{ShapeConstraint} shapeName=ShapeName ((UNICODE | 'a') 'sh:NodeShape' ';' | shapeExpressions+=ShapeExpression)
-		//	shapeExpressions+=ShapeExpression*
+		//	{ShapeConstraint} shapeName=ShapeName
+		//	shapeExpressions+=ShapeExpression+
 		//	'.';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ShapeConstraint} shapeName=ShapeName ((UNICODE | 'a') 'sh:NodeShape' ';' | shapeExpressions+=ShapeExpression)
-		//shapeExpressions+=ShapeExpression*
+		//{ShapeConstraint} shapeName=ShapeName
+		//shapeExpressions+=ShapeExpression+
 		//'.'
 		public Group getGroup() { return cGroup; }
 		
@@ -341,263 +334,169 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//ShapeName
 		public RuleCall getShapeNameShapeNameParserRuleCall_1_0() { return cShapeNameShapeNameParserRuleCall_1_0; }
 		
-		//((UNICODE | 'a') 'sh:NodeShape' ';' | shapeExpressions+=ShapeExpression)
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
-		
-		//(UNICODE | 'a') 'sh:NodeShape' ';'
-		public Group getGroup_2_0() { return cGroup_2_0; }
-		
-		//(UNICODE | 'a')
-		public Alternatives getAlternatives_2_0_0() { return cAlternatives_2_0_0; }
-		
-		//UNICODE
-		public RuleCall getUNICODETerminalRuleCall_2_0_0_0() { return cUNICODETerminalRuleCall_2_0_0_0; }
-		
-		//'a'
-		public Keyword getAKeyword_2_0_0_1() { return cAKeyword_2_0_0_1; }
-		
-		//'sh:NodeShape'
-		public Keyword getShNodeShapeKeyword_2_0_1() { return cShNodeShapeKeyword_2_0_1; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_2_0_2() { return cSemicolonKeyword_2_0_2; }
-		
-		//shapeExpressions+=ShapeExpression
-		public Assignment getShapeExpressionsAssignment_2_1() { return cShapeExpressionsAssignment_2_1; }
+		//shapeExpressions+=ShapeExpression+
+		public Assignment getShapeExpressionsAssignment_2() { return cShapeExpressionsAssignment_2; }
 		
 		//ShapeExpression
-		public RuleCall getShapeExpressionsShapeExpressionParserRuleCall_2_1_0() { return cShapeExpressionsShapeExpressionParserRuleCall_2_1_0; }
-		
-		//shapeExpressions+=ShapeExpression*
-		public Assignment getShapeExpressionsAssignment_3() { return cShapeExpressionsAssignment_3; }
-		
-		//ShapeExpression
-		public RuleCall getShapeExpressionsShapeExpressionParserRuleCall_3_0() { return cShapeExpressionsShapeExpressionParserRuleCall_3_0; }
+		public RuleCall getShapeExpressionsShapeExpressionParserRuleCall_2_0() { return cShapeExpressionsShapeExpressionParserRuleCall_2_0; }
 		
 		//'.'
-		public Keyword getFullStopKeyword_4() { return cFullStopKeyword_4; }
+		public Keyword getFullStopKeyword_3() { return cFullStopKeyword_3; }
 	}
 	public class ShapeNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.ShapeName");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cShapeNameAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameUNICODETerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//ShapeName:
-		//	{ShapeName} name=UNICODE;
+		//	{ShapeName} name=EString;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ShapeName} name=UNICODE
+		//{ShapeName} name=EString
 		public Group getGroup() { return cGroup; }
 		
 		//{ShapeName}
 		public Action getShapeNameAction_0() { return cShapeNameAction_0; }
 		
-		//name=UNICODE
+		//name=EString
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//UNICODE
-		public RuleCall getNameUNICODETerminalRuleCall_1_0() { return cNameUNICODETerminalRuleCall_1_0; }
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
 	}
 	public class ShapeExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.ShapeExpression");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Action cShapeExpressionAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Assignment cPropertyValuesAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cPropertyValuesPropertyValuesParserRuleCall_0_1_0 = (RuleCall)cPropertyValuesAssignment_0_1.eContents().get(0);
+		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0_1_0 = (RuleCall)cGroup_0_1.eContents().get(0);
+		private final Keyword cShNodeShapeKeyword_0_1_1 = (Keyword)cGroup_0_1.eContents().get(1);
+		private final Keyword cSemicolonKeyword_0_1_2 = (Keyword)cGroup_0_1.eContents().get(2);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
-		private final Assignment cTypeAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
-		private final RuleCall cTypePropertyTypeEnumRuleCall_1_0_0_0 = (RuleCall)cTypeAssignment_1_0_0.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
-		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
-		private final Alternatives cAlternatives_1_1_0 = (Alternatives)cGroup_1_1.eContents().get(0);
-		private final RuleCall cUNICODETerminalRuleCall_1_1_0_0 = (RuleCall)cAlternatives_1_1_0.eContents().get(0);
-		private final Keyword cAKeyword_1_1_0_1 = (Keyword)cAlternatives_1_1_0.eContents().get(1);
-		private final Keyword cShNodeShapeKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
-		private final Keyword cSemicolonKeyword_1_1_2 = (Keyword)cGroup_1_1.eContents().get(2);
-		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
-		private final Alternatives cAlternatives_1_2_0 = (Alternatives)cGroup_1_2.eContents().get(0);
-		private final Keyword cShPropertyKeyword_1_2_0_0 = (Keyword)cAlternatives_1_2_0.eContents().get(0);
-		private final Keyword cShPathKeyword_1_2_0_1 = (Keyword)cAlternatives_1_2_0.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
-		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
-		private final Assignment cPropertyValuesAssignment_1_3_0 = (Assignment)cGroup_1_3.eContents().get(0);
-		private final RuleCall cPropertyValuesPropertyValuesParserRuleCall_1_3_0_0 = (RuleCall)cPropertyValuesAssignment_1_3_0.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
-		private final Keyword cSemicolonKeyword_1_3_2 = (Keyword)cGroup_1_3.eContents().get(2);
+		private final Assignment cTypeAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cTypePropertyTypeEnumRuleCall_1_0_0 = (RuleCall)cTypeAssignment_1_0.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Alternatives cAlternatives_1_2 = (Alternatives)cGroup_1.eContents().get(2);
+		private final Assignment cValuesAssignment_1_2_0 = (Assignment)cAlternatives_1_2.eContents().get(0);
+		private final RuleCall cValuesValueParserRuleCall_1_2_0_0 = (RuleCall)cValuesAssignment_1_2_0.eContents().get(0);
+		private final Group cGroup_1_2_1 = (Group)cAlternatives_1_2.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_1_2_1_0 = (Keyword)cGroup_1_2_1.eContents().get(0);
+		private final Assignment cShapeExpressionsAssignment_1_2_1_1 = (Assignment)cGroup_1_2_1.eContents().get(1);
+		private final RuleCall cShapeExpressionsShapeExpressionParserRuleCall_1_2_1_1_0 = (RuleCall)cShapeExpressionsAssignment_1_2_1_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_1_2_1_2 = (Keyword)cGroup_1_2_1.eContents().get(2);
+		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final Keyword cSemicolonKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
 		
 		//ShapeExpression:
-		//	{ShapeExpression} propertyValues+=PropertyValues | (type=PropertyType '[') ((UNICODE | 'a') 'sh:NodeShape' ';')? ((
-		//	'sh:property' | 'sh:path') '[')? (propertyValues+=PropertyValues* ']' ';')+;
+		//	{ShapeExpression} (ID 'sh:NodeShape' ';') | type=PropertyType '('? (values+=Value | '['
+		//	shapeExpressions+=ShapeExpression* ']')* ')'? ';'?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ShapeExpression} propertyValues+=PropertyValues | (type=PropertyType '[') ((UNICODE | 'a') 'sh:NodeShape' ';')? ((
-		//'sh:property' | 'sh:path') '[')? (propertyValues+=PropertyValues* ']' ';')+
+		//{ShapeExpression} (ID 'sh:NodeShape' ';') | type=PropertyType '('? (values+=Value | '[' shapeExpressions+=ShapeExpression
+		//* ']')* ')'? ';'?
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{ShapeExpression} propertyValues+=PropertyValues
+		//{ShapeExpression} (ID 'sh:NodeShape' ';')
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//{ShapeExpression}
 		public Action getShapeExpressionAction_0_0() { return cShapeExpressionAction_0_0; }
 		
-		//propertyValues+=PropertyValues
-		public Assignment getPropertyValuesAssignment_0_1() { return cPropertyValuesAssignment_0_1; }
+		//(ID 'sh:NodeShape' ';')
+		public Group getGroup_0_1() { return cGroup_0_1; }
 		
-		//PropertyValues
-		public RuleCall getPropertyValuesPropertyValuesParserRuleCall_0_1_0() { return cPropertyValuesPropertyValuesParserRuleCall_0_1_0; }
-		
-		//(type=PropertyType '[') ((UNICODE | 'a') 'sh:NodeShape' ';')? (('sh:property' | 'sh:path') '[')?
-		//(propertyValues+=PropertyValues* ']' ';')+
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//(type=PropertyType '[')
-		public Group getGroup_1_0() { return cGroup_1_0; }
-		
-		//type=PropertyType
-		public Assignment getTypeAssignment_1_0_0() { return cTypeAssignment_1_0_0; }
-		
-		//PropertyType
-		public RuleCall getTypePropertyTypeEnumRuleCall_1_0_0_0() { return cTypePropertyTypeEnumRuleCall_1_0_0_0; }
-		
-		//'['
-		public Keyword getLeftSquareBracketKeyword_1_0_1() { return cLeftSquareBracketKeyword_1_0_1; }
-		
-		//((UNICODE | 'a') 'sh:NodeShape' ';')?
-		public Group getGroup_1_1() { return cGroup_1_1; }
-		
-		//(UNICODE | 'a')
-		public Alternatives getAlternatives_1_1_0() { return cAlternatives_1_1_0; }
-		
-		//UNICODE
-		public RuleCall getUNICODETerminalRuleCall_1_1_0_0() { return cUNICODETerminalRuleCall_1_1_0_0; }
-		
-		//'a'
-		public Keyword getAKeyword_1_1_0_1() { return cAKeyword_1_1_0_1; }
+		//ID
+		public RuleCall getIDTerminalRuleCall_0_1_0() { return cIDTerminalRuleCall_0_1_0; }
 		
 		//'sh:NodeShape'
-		public Keyword getShNodeShapeKeyword_1_1_1() { return cShNodeShapeKeyword_1_1_1; }
+		public Keyword getShNodeShapeKeyword_0_1_1() { return cShNodeShapeKeyword_0_1_1; }
 		
 		//';'
-		public Keyword getSemicolonKeyword_1_1_2() { return cSemicolonKeyword_1_1_2; }
+		public Keyword getSemicolonKeyword_0_1_2() { return cSemicolonKeyword_0_1_2; }
 		
-		//(('sh:property' | 'sh:path') '[')?
-		public Group getGroup_1_2() { return cGroup_1_2; }
-		
-		//('sh:property' | 'sh:path')
-		public Alternatives getAlternatives_1_2_0() { return cAlternatives_1_2_0; }
-		
-		//'sh:property'
-		public Keyword getShPropertyKeyword_1_2_0_0() { return cShPropertyKeyword_1_2_0_0; }
-		
-		//'sh:path'
-		public Keyword getShPathKeyword_1_2_0_1() { return cShPathKeyword_1_2_0_1; }
-		
-		//'['
-		public Keyword getLeftSquareBracketKeyword_1_2_1() { return cLeftSquareBracketKeyword_1_2_1; }
-		
-		//(propertyValues+=PropertyValues* ']' ';')+
-		public Group getGroup_1_3() { return cGroup_1_3; }
-		
-		//propertyValues+=PropertyValues*
-		public Assignment getPropertyValuesAssignment_1_3_0() { return cPropertyValuesAssignment_1_3_0; }
-		
-		//PropertyValues
-		public RuleCall getPropertyValuesPropertyValuesParserRuleCall_1_3_0_0() { return cPropertyValuesPropertyValuesParserRuleCall_1_3_0_0; }
-		
-		//']'
-		public Keyword getRightSquareBracketKeyword_1_3_1() { return cRightSquareBracketKeyword_1_3_1; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_1_3_2() { return cSemicolonKeyword_1_3_2; }
-	}
-	public class PropertyValuesElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.PropertyValues");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cPropertyAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cPropertyPropertyParserRuleCall_0_0 = (RuleCall)cPropertyAssignment_0.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cValuesAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValuesValueParserRuleCall_2_0 = (RuleCall)cValuesAssignment_2.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//PropertyValues:
-		//	property=Property '('? values+=Value* ')'? ';';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//property=Property '('? values+=Value* ')'? ';'
-		public Group getGroup() { return cGroup; }
-		
-		//property=Property
-		public Assignment getPropertyAssignment_0() { return cPropertyAssignment_0; }
-		
-		//Property
-		public RuleCall getPropertyPropertyParserRuleCall_0_0() { return cPropertyPropertyParserRuleCall_0_0; }
-		
-		//'('?
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-		
-		//values+=Value*
-		public Assignment getValuesAssignment_2() { return cValuesAssignment_2; }
-		
-		//Value
-		public RuleCall getValuesValueParserRuleCall_2_0() { return cValuesValueParserRuleCall_2_0; }
-		
-		//')'?
-		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
-	}
-	public class PropertyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.Property");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cPropertyAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTypePropertyTypeEnumRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
-		
-		//Property:
-		//	{Property} type=PropertyType;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{Property} type=PropertyType
-		public Group getGroup() { return cGroup; }
-		
-		//{Property}
-		public Action getPropertyAction_0() { return cPropertyAction_0; }
+		//type=PropertyType '('? (values+=Value | '[' shapeExpressions+=ShapeExpression* ']')* ')'? ';'?
+		public Group getGroup_1() { return cGroup_1; }
 		
 		//type=PropertyType
-		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		public Assignment getTypeAssignment_1_0() { return cTypeAssignment_1_0; }
 		
 		//PropertyType
-		public RuleCall getTypePropertyTypeEnumRuleCall_1_0() { return cTypePropertyTypeEnumRuleCall_1_0; }
+		public RuleCall getTypePropertyTypeEnumRuleCall_1_0_0() { return cTypePropertyTypeEnumRuleCall_1_0_0; }
+		
+		//'('?
+		public Keyword getLeftParenthesisKeyword_1_1() { return cLeftParenthesisKeyword_1_1; }
+		
+		//(values+=Value | '[' shapeExpressions+=ShapeExpression* ']')*
+		public Alternatives getAlternatives_1_2() { return cAlternatives_1_2; }
+		
+		//values+=Value
+		public Assignment getValuesAssignment_1_2_0() { return cValuesAssignment_1_2_0; }
+		
+		//Value
+		public RuleCall getValuesValueParserRuleCall_1_2_0_0() { return cValuesValueParserRuleCall_1_2_0_0; }
+		
+		//'[' shapeExpressions+=ShapeExpression* ']'
+		public Group getGroup_1_2_1() { return cGroup_1_2_1; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_1_2_1_0() { return cLeftSquareBracketKeyword_1_2_1_0; }
+		
+		//shapeExpressions+=ShapeExpression*
+		public Assignment getShapeExpressionsAssignment_1_2_1_1() { return cShapeExpressionsAssignment_1_2_1_1; }
+		
+		//ShapeExpression
+		public RuleCall getShapeExpressionsShapeExpressionParserRuleCall_1_2_1_1_0() { return cShapeExpressionsShapeExpressionParserRuleCall_1_2_1_1_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_1_2_1_2() { return cRightSquareBracketKeyword_1_2_1_2; }
+		
+		//')'?
+		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
+		
+		//';'?
+		public Keyword getSemicolonKeyword_1_4() { return cSemicolonKeyword_1_4; }
 	}
 	public class ValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.Value");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cValueAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameUNICODETerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cCircumflexAccentCircumflexAccentKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cXsdTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cXsdTypeEStringParserRuleCall_2_1_0 = (RuleCall)cXsdTypeAssignment_2_1.eContents().get(0);
 		
 		//Value:
-		//	{Value} name=UNICODE;
+		//	{Value} name=EString ('^^' xsdType=EString)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Value} name=UNICODE
+		//{Value} name=EString ('^^' xsdType=EString)?
 		public Group getGroup() { return cGroup; }
 		
 		//{Value}
 		public Action getValueAction_0() { return cValueAction_0; }
 		
-		//name=UNICODE
+		//name=EString
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//UNICODE
-		public RuleCall getNameUNICODETerminalRuleCall_1_0() { return cNameUNICODETerminalRuleCall_1_0; }
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		
+		//('^^' xsdType=EString)?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'^^'
+		public Keyword getCircumflexAccentCircumflexAccentKeyword_2_0() { return cCircumflexAccentCircumflexAccentKeyword_2_0; }
+		
+		//xsdType=EString
+		public Assignment getXsdTypeAssignment_2_1() { return cXsdTypeAssignment_2_1; }
+		
+		//EString
+		public RuleCall getXsdTypeEStringParserRuleCall_2_1_0() { return cXsdTypeEStringParserRuleCall_2_1_0; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.EString");
@@ -660,6 +559,20 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Keyword cTargetClassShTargetClassKeyword_17_0 = (Keyword)cTargetClassEnumLiteralDeclaration_17.eContents().get(0);
 		private final EnumLiteralDeclaration cTargetNodeEnumLiteralDeclaration_18 = (EnumLiteralDeclaration)cAlternatives.eContents().get(18);
 		private final Keyword cTargetNodeShTargetNodeKeyword_18_0 = (Keyword)cTargetNodeEnumLiteralDeclaration_18.eContents().get(0);
+		private final EnumLiteralDeclaration cMessageEnumLiteralDeclaration_19 = (EnumLiteralDeclaration)cAlternatives.eContents().get(19);
+		private final Keyword cMessageShMessageKeyword_19_0 = (Keyword)cMessageEnumLiteralDeclaration_19.eContents().get(0);
+		private final EnumLiteralDeclaration cMinExclusiveConstraintComponentEnumLiteralDeclaration_20 = (EnumLiteralDeclaration)cAlternatives.eContents().get(20);
+		private final Keyword cMinExclusiveConstraintComponentShMinExclusiveKeyword_20_0 = (Keyword)cMinExclusiveConstraintComponentEnumLiteralDeclaration_20.eContents().get(0);
+		private final EnumLiteralDeclaration cMinInclusiveConstraintComponentEnumLiteralDeclaration_21 = (EnumLiteralDeclaration)cAlternatives.eContents().get(21);
+		private final Keyword cMinInclusiveConstraintComponentShMinInclusiveKeyword_21_0 = (Keyword)cMinInclusiveConstraintComponentEnumLiteralDeclaration_21.eContents().get(0);
+		private final EnumLiteralDeclaration cMaxExclusiveConstraintComponentEnumLiteralDeclaration_22 = (EnumLiteralDeclaration)cAlternatives.eContents().get(22);
+		private final Keyword cMaxExclusiveConstraintComponentShMaxExclusiveKeyword_22_0 = (Keyword)cMaxExclusiveConstraintComponentEnumLiteralDeclaration_22.eContents().get(0);
+		private final EnumLiteralDeclaration cMaxInclusiveConstraintComponentEnumLiteralDeclaration_23 = (EnumLiteralDeclaration)cAlternatives.eContents().get(23);
+		private final Keyword cMaxInclusiveConstraintComponentShMaxInclusiveKeyword_23_0 = (Keyword)cMaxInclusiveConstraintComponentEnumLiteralDeclaration_23.eContents().get(0);
+		private final EnumLiteralDeclaration cMaxLengthConstraintComponentEnumLiteralDeclaration_24 = (EnumLiteralDeclaration)cAlternatives.eContents().get(24);
+		private final Keyword cMaxLengthConstraintComponentShMaxLengthKeyword_24_0 = (Keyword)cMaxLengthConstraintComponentEnumLiteralDeclaration_24.eContents().get(0);
+		private final EnumLiteralDeclaration cMinLengthConstraintComponentEnumLiteralDeclaration_25 = (EnumLiteralDeclaration)cAlternatives.eContents().get(25);
+		private final Keyword cMinLengthConstraintComponentShMinLengthKeyword_25_0 = (Keyword)cMinLengthConstraintComponentEnumLiteralDeclaration_25.eContents().get(0);
 		
 		//enum PropertyType:
 		//	MinCountConstraintComponent='sh:minCount' | MaxCountConstraintComponent='sh:maxCount' |
@@ -669,7 +582,10 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//	DatatypeConstraintComponent='sh:datatype' | PatternConstraintComponent='sh:pattern' |
 		//	ClosedConstraintComponent='sh:closed' | ClosedConstraintComponent_ignore='sh:ignoredProperties' |
 		//	PredicatePath='sh:path' | InversePath='sh:inversePath' | Property='sh:property' | Name='sh:name' |
-		//	TargetClass='sh:targetClass' | TargetNode='sh:targetNode';
+		//	TargetClass='sh:targetClass' | TargetNode='sh:targetNode' | Message='sh:message' |
+		//	MinExclusiveConstraintComponent='sh:minExclusive' | MinInclusiveConstraintComponent='sh:minInclusive' |
+		//	MaxExclusiveConstraintComponent='sh:maxExclusive' | MaxInclusiveConstraintComponent='sh:maxInclusive' |
+		//	MaxLengthConstraintComponent='sh:maxLength' | MinLengthConstraintComponent='sh:minLength';
 		public EnumRule getRule() { return rule; }
 		
 		//MinCountConstraintComponent='sh:minCount' | MaxCountConstraintComponent='sh:maxCount' |
@@ -679,7 +595,10 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//DatatypeConstraintComponent='sh:datatype' | PatternConstraintComponent='sh:pattern' |
 		//ClosedConstraintComponent='sh:closed' | ClosedConstraintComponent_ignore='sh:ignoredProperties' |
 		//PredicatePath='sh:path' | InversePath='sh:inversePath' | Property='sh:property' | Name='sh:name' |
-		//TargetClass='sh:targetClass' | TargetNode='sh:targetNode'
+		//TargetClass='sh:targetClass' | TargetNode='sh:targetNode' | Message='sh:message' |
+		//MinExclusiveConstraintComponent='sh:minExclusive' | MinInclusiveConstraintComponent='sh:minInclusive' |
+		//MaxExclusiveConstraintComponent='sh:maxExclusive' | MaxInclusiveConstraintComponent='sh:maxInclusive' |
+		//MaxLengthConstraintComponent='sh:maxLength' | MinLengthConstraintComponent='sh:minLength'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//MinCountConstraintComponent='sh:minCount'
@@ -795,6 +714,48 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		
 		//'sh:targetNode'
 		public Keyword getTargetNodeShTargetNodeKeyword_18_0() { return cTargetNodeShTargetNodeKeyword_18_0; }
+		
+		//Message='sh:message'
+		public EnumLiteralDeclaration getMessageEnumLiteralDeclaration_19() { return cMessageEnumLiteralDeclaration_19; }
+		
+		//'sh:message'
+		public Keyword getMessageShMessageKeyword_19_0() { return cMessageShMessageKeyword_19_0; }
+		
+		//MinExclusiveConstraintComponent='sh:minExclusive'
+		public EnumLiteralDeclaration getMinExclusiveConstraintComponentEnumLiteralDeclaration_20() { return cMinExclusiveConstraintComponentEnumLiteralDeclaration_20; }
+		
+		//'sh:minExclusive'
+		public Keyword getMinExclusiveConstraintComponentShMinExclusiveKeyword_20_0() { return cMinExclusiveConstraintComponentShMinExclusiveKeyword_20_0; }
+		
+		//MinInclusiveConstraintComponent='sh:minInclusive'
+		public EnumLiteralDeclaration getMinInclusiveConstraintComponentEnumLiteralDeclaration_21() { return cMinInclusiveConstraintComponentEnumLiteralDeclaration_21; }
+		
+		//'sh:minInclusive'
+		public Keyword getMinInclusiveConstraintComponentShMinInclusiveKeyword_21_0() { return cMinInclusiveConstraintComponentShMinInclusiveKeyword_21_0; }
+		
+		//MaxExclusiveConstraintComponent='sh:maxExclusive'
+		public EnumLiteralDeclaration getMaxExclusiveConstraintComponentEnumLiteralDeclaration_22() { return cMaxExclusiveConstraintComponentEnumLiteralDeclaration_22; }
+		
+		//'sh:maxExclusive'
+		public Keyword getMaxExclusiveConstraintComponentShMaxExclusiveKeyword_22_0() { return cMaxExclusiveConstraintComponentShMaxExclusiveKeyword_22_0; }
+		
+		//MaxInclusiveConstraintComponent='sh:maxInclusive'
+		public EnumLiteralDeclaration getMaxInclusiveConstraintComponentEnumLiteralDeclaration_23() { return cMaxInclusiveConstraintComponentEnumLiteralDeclaration_23; }
+		
+		//'sh:maxInclusive'
+		public Keyword getMaxInclusiveConstraintComponentShMaxInclusiveKeyword_23_0() { return cMaxInclusiveConstraintComponentShMaxInclusiveKeyword_23_0; }
+		
+		//MaxLengthConstraintComponent='sh:maxLength'
+		public EnumLiteralDeclaration getMaxLengthConstraintComponentEnumLiteralDeclaration_24() { return cMaxLengthConstraintComponentEnumLiteralDeclaration_24; }
+		
+		//'sh:maxLength'
+		public Keyword getMaxLengthConstraintComponentShMaxLengthKeyword_24_0() { return cMaxLengthConstraintComponentShMaxLengthKeyword_24_0; }
+		
+		//MinLengthConstraintComponent='sh:minLength'
+		public EnumLiteralDeclaration getMinLengthConstraintComponentEnumLiteralDeclaration_25() { return cMinLengthConstraintComponentEnumLiteralDeclaration_25; }
+		
+		//'sh:minLength'
+		public Keyword getMinLengthConstraintComponentShMinLengthKeyword_25_0() { return cMinLengthConstraintComponentShMinLengthKeyword_25_0; }
 	}
 	
 	private final GraphElements pGraph;
@@ -809,12 +770,11 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	private final ShapeConstraintElements pShapeConstraint;
 	private final ShapeNameElements pShapeName;
 	private final ShapeExpressionElements pShapeExpression;
-	private final PropertyValuesElements pPropertyValues;
-	private final PropertyElements pProperty;
 	private final ValueElements pValue;
 	private final PropertyTypeElements ePropertyType;
-	private final TerminalRule tPREFIX;
-	private final TerminalRule tUNICODE;
+	private final TerminalRule tSL_COMMENT;
+	private final TerminalRule tIRI;
+	private final TerminalRule tID;
 	private final EStringElements pEString;
 	
 	private final Grammar grammar;
@@ -838,12 +798,11 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		this.pShapeConstraint = new ShapeConstraintElements();
 		this.pShapeName = new ShapeNameElements();
 		this.pShapeExpression = new ShapeExpressionElements();
-		this.pPropertyValues = new PropertyValuesElements();
-		this.pProperty = new PropertyElements();
 		this.pValue = new ValueElements();
 		this.ePropertyType = new PropertyTypeElements();
-		this.tPREFIX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.PREFIX");
-		this.tUNICODE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.UNICODE");
+		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.SL_COMMENT");
+		this.tIRI = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.IRI");
+		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Turtle.ID");
 		this.pEString = new EStringElements();
 	}
 	
@@ -877,8 +836,7 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	//Graph:
 	//	{Graph} namespaces+=Namespace*
 	//	dataGraph=DataGraph
-	//	shapesGraph=ShapesGraph
-	//	'<>';
+	//	shapesGraph=ShapesGraph;
 	public GraphElements getGraphAccess() {
 		return pGraph;
 	}
@@ -888,7 +846,7 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//Namespace:
-	//	'@prefix' prefix=PREFIX '<' namespace=UNICODE '>' '.';
+	//	'@prefix' prefix=ID namespace=IRI '.';
 	public NamespaceElements getNamespaceAccess() {
 		return pNamespace;
 	}
@@ -930,7 +888,7 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//Subject:
-	//	{Subject} name=UNICODE;
+	//	{Subject} name=EString;
 	public SubjectElements getSubjectAccess() {
 		return pSubject;
 	}
@@ -940,7 +898,7 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//Predicate:
-	//	{Predicate} name=UNICODE;
+	//	{Predicate} name=EString;
 	public PredicateElements getPredicateAccess() {
 		return pPredicate;
 	}
@@ -949,8 +907,8 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getPredicateAccess().getRule();
 	}
 	
-	//Object hidden(WS):
-	//	{Object} name=UNICODE;
+	//Object:
+	//	{Object} name=EString ('^^'xsdType=EString)?;
 	public ObjectElements getObjectAccess() {
 		return pObject;
 	}
@@ -970,8 +928,8 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//ShapeConstraint:
-	//	{ShapeConstraint} shapeName=ShapeName ((UNICODE | 'a') 'sh:NodeShape' ';' | shapeExpressions+=ShapeExpression)
-	//	shapeExpressions+=ShapeExpression*
+	//	{ShapeConstraint} shapeName=ShapeName
+	//	shapeExpressions+=ShapeExpression+
 	//	'.';
 	public ShapeConstraintElements getShapeConstraintAccess() {
 		return pShapeConstraint;
@@ -982,7 +940,7 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//ShapeName:
-	//	{ShapeName} name=UNICODE;
+	//	{ShapeName} name=EString;
 	public ShapeNameElements getShapeNameAccess() {
 		return pShapeName;
 	}
@@ -992,8 +950,8 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//ShapeExpression:
-	//	{ShapeExpression} propertyValues+=PropertyValues | (type=PropertyType '[') ((UNICODE | 'a') 'sh:NodeShape' ';')? ((
-	//	'sh:property' | 'sh:path') '[')? (propertyValues+=PropertyValues* ']' ';')+;
+	//	{ShapeExpression} (ID 'sh:NodeShape' ';') | type=PropertyType '('? (values+=Value | '['
+	//	shapeExpressions+=ShapeExpression* ']')* ')'? ';'?;
 	public ShapeExpressionElements getShapeExpressionAccess() {
 		return pShapeExpression;
 	}
@@ -1002,28 +960,8 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getShapeExpressionAccess().getRule();
 	}
 	
-	//PropertyValues:
-	//	property=Property '('? values+=Value* ')'? ';';
-	public PropertyValuesElements getPropertyValuesAccess() {
-		return pPropertyValues;
-	}
-	
-	public ParserRule getPropertyValuesRule() {
-		return getPropertyValuesAccess().getRule();
-	}
-	
-	//Property:
-	//	{Property} type=PropertyType;
-	public PropertyElements getPropertyAccess() {
-		return pProperty;
-	}
-	
-	public ParserRule getPropertyRule() {
-		return getPropertyAccess().getRule();
-	}
-	
 	//Value:
-	//	{Value} name=UNICODE;
+	//	{Value} name=EString ('^^' xsdType=EString)?;
 	public ValueElements getValueAccess() {
 		return pValue;
 	}
@@ -1040,7 +978,10 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	//	DatatypeConstraintComponent='sh:datatype' | PatternConstraintComponent='sh:pattern' |
 	//	ClosedConstraintComponent='sh:closed' | ClosedConstraintComponent_ignore='sh:ignoredProperties' |
 	//	PredicatePath='sh:path' | InversePath='sh:inversePath' | Property='sh:property' | Name='sh:name' |
-	//	TargetClass='sh:targetClass' | TargetNode='sh:targetNode';
+	//	TargetClass='sh:targetClass' | TargetNode='sh:targetNode' | Message='sh:message' |
+	//	MinExclusiveConstraintComponent='sh:minExclusive' | MinInclusiveConstraintComponent='sh:minInclusive' |
+	//	MaxExclusiveConstraintComponent='sh:maxExclusive' | MaxInclusiveConstraintComponent='sh:maxInclusive' |
+	//	MaxLengthConstraintComponent='sh:maxLength' | MinLengthConstraintComponent='sh:minLength';
 	public PropertyTypeElements getPropertyTypeAccess() {
 		return ePropertyType;
 	}
@@ -1049,16 +990,24 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getPropertyTypeAccess().getRule();
 	}
 	
-	//terminal PREFIX:
-	//	('a'..'z' | 'A'..'Z' | '_')* ':';
-	public TerminalRule getPREFIXRule() {
-		return tPREFIX;
+	//@Override
+	//terminal SL_COMMENT:
+	//	('#' | '//') !('\n' | '\r')* ('\r'? '\n')?;
+	public TerminalRule getSL_COMMENTRule() {
+		return tSL_COMMENT;
 	}
 	
-	//terminal UNICODE:
-	//	'a'..'z' | 'A'..'Z' | INT | '_' | ':' | '#' | '/' | '.' | '-' | '\"' | "^" | '{' | '}' | '\\' | '$'*;
-	public TerminalRule getUNICODERule() {
-		return tUNICODE;
+	//terminal IRI:
+	//	'<' !('<' | '>' | '"' | '{' | '}' | '|' | '^' | '`' | '\\' | '\\u0000'..'\\u0020')* '>';
+	public TerminalRule getIRIRule() {
+		return tIRI;
+	}
+	
+	//@Override
+	//terminal ID:
+	//	'a'..'z' | 'A'..'Z' | '_' | '0'..'9' ('.''0'..'9')? | ':' | '-'*;
+	public TerminalRule getIDRule() {
+		return tID;
 	}
 	
 	//EString:
@@ -1069,12 +1018,6 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	
 	public ParserRule getEStringRule() {
 		return getEStringAccess().getRule();
-	}
-	
-	//terminal ID:
-	//	'^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
-	public TerminalRule getIDRule() {
-		return gaTerminals.getIDRule();
 	}
 	
 	//terminal INT returns ecore::EInt:
@@ -1094,12 +1037,6 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	//	'/*'->'*/';
 	public TerminalRule getML_COMMENTRule() {
 		return gaTerminals.getML_COMMENTRule();
-	}
-	
-	//terminal SL_COMMENT:
-	//	'//' !('\n' | '\r')* ('\r'? '\n')?;
-	public TerminalRule getSL_COMMENTRule() {
-		return gaTerminals.getSL_COMMENTRule();
 	}
 	
 	//terminal WS:

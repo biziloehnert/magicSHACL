@@ -10,7 +10,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -22,38 +21,35 @@ import xtext.magicSHACL.services.TurtleGrammarAccess;
 public class TurtleSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected TurtleGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_PropertyValues_LeftParenthesisKeyword_1_q;
-	protected AbstractElementAlias match_PropertyValues_RightParenthesisKeyword_3_q;
-	protected AbstractElementAlias match_ShapeConstraint_AKeyword_2_0_0_1_or_UNICODETerminalRuleCall_2_0_0_0;
-	protected AbstractElementAlias match_ShapeExpression___RightSquareBracketKeyword_1_3_1_SemicolonKeyword_1_3_2__a;
-	protected AbstractElementAlias match_ShapeExpression___RightSquareBracketKeyword_1_3_1_SemicolonKeyword_1_3_2__p;
-	protected AbstractElementAlias match_ShapeExpression_____AKeyword_1_1_0_1_or_UNICODETerminalRuleCall_1_1_0_0___ShNodeShapeKeyword_1_1_1_SemicolonKeyword_1_1_2__q;
-	protected AbstractElementAlias match_ShapeExpression_____ShPathKeyword_1_2_0_1_or_ShPropertyKeyword_1_2_0_0___LeftSquareBracketKeyword_1_2_1__q;
+	protected AbstractElementAlias match_ShapeExpression_LeftParenthesisKeyword_1_1_q;
+	protected AbstractElementAlias match_ShapeExpression_RightParenthesisKeyword_1_3_q;
+	protected AbstractElementAlias match_ShapeExpression_SemicolonKeyword_1_4_q;
+	protected AbstractElementAlias match_ShapeExpression___LeftSquareBracketKeyword_1_2_1_0_RightSquareBracketKeyword_1_2_1_2__a;
+	protected AbstractElementAlias match_ShapeExpression___RightSquareBracketKeyword_1_2_1_2_LeftSquareBracketKeyword_1_2_1_0__a;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (TurtleGrammarAccess) access;
-		match_PropertyValues_LeftParenthesisKeyword_1_q = new TokenAlias(false, true, grammarAccess.getPropertyValuesAccess().getLeftParenthesisKeyword_1());
-		match_PropertyValues_RightParenthesisKeyword_3_q = new TokenAlias(false, true, grammarAccess.getPropertyValuesAccess().getRightParenthesisKeyword_3());
-		match_ShapeConstraint_AKeyword_2_0_0_1_or_UNICODETerminalRuleCall_2_0_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getShapeConstraintAccess().getAKeyword_2_0_0_1()), new TokenAlias(false, false, grammarAccess.getShapeConstraintAccess().getUNICODETerminalRuleCall_2_0_0_0()));
-		match_ShapeExpression___RightSquareBracketKeyword_1_3_1_SemicolonKeyword_1_3_2__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getShapeExpressionAccess().getRightSquareBracketKeyword_1_3_1()), new TokenAlias(false, false, grammarAccess.getShapeExpressionAccess().getSemicolonKeyword_1_3_2()));
-		match_ShapeExpression___RightSquareBracketKeyword_1_3_1_SemicolonKeyword_1_3_2__p = new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getShapeExpressionAccess().getRightSquareBracketKeyword_1_3_1()), new TokenAlias(false, false, grammarAccess.getShapeExpressionAccess().getSemicolonKeyword_1_3_2()));
-		match_ShapeExpression_____AKeyword_1_1_0_1_or_UNICODETerminalRuleCall_1_1_0_0___ShNodeShapeKeyword_1_1_1_SemicolonKeyword_1_1_2__q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getShapeExpressionAccess().getAKeyword_1_1_0_1()), new TokenAlias(false, false, grammarAccess.getShapeExpressionAccess().getUNICODETerminalRuleCall_1_1_0_0())), new TokenAlias(false, false, grammarAccess.getShapeExpressionAccess().getShNodeShapeKeyword_1_1_1()), new TokenAlias(false, false, grammarAccess.getShapeExpressionAccess().getSemicolonKeyword_1_1_2()));
-		match_ShapeExpression_____ShPathKeyword_1_2_0_1_or_ShPropertyKeyword_1_2_0_0___LeftSquareBracketKeyword_1_2_1__q = new GroupAlias(false, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getShapeExpressionAccess().getShPathKeyword_1_2_0_1()), new TokenAlias(false, false, grammarAccess.getShapeExpressionAccess().getShPropertyKeyword_1_2_0_0())), new TokenAlias(false, false, grammarAccess.getShapeExpressionAccess().getLeftSquareBracketKeyword_1_2_1()));
+		match_ShapeExpression_LeftParenthesisKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getShapeExpressionAccess().getLeftParenthesisKeyword_1_1());
+		match_ShapeExpression_RightParenthesisKeyword_1_3_q = new TokenAlias(false, true, grammarAccess.getShapeExpressionAccess().getRightParenthesisKeyword_1_3());
+		match_ShapeExpression_SemicolonKeyword_1_4_q = new TokenAlias(false, true, grammarAccess.getShapeExpressionAccess().getSemicolonKeyword_1_4());
+		match_ShapeExpression___LeftSquareBracketKeyword_1_2_1_0_RightSquareBracketKeyword_1_2_1_2__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getShapeExpressionAccess().getLeftSquareBracketKeyword_1_2_1_0()), new TokenAlias(false, false, grammarAccess.getShapeExpressionAccess().getRightSquareBracketKeyword_1_2_1_2()));
+		match_ShapeExpression___RightSquareBracketKeyword_1_2_1_2_LeftSquareBracketKeyword_1_2_1_0__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getShapeExpressionAccess().getRightSquareBracketKeyword_1_2_1_2()), new TokenAlias(false, false, grammarAccess.getShapeExpressionAccess().getLeftSquareBracketKeyword_1_2_1_0()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getUNICODERule())
-			return getUNICODEToken(semanticObject, ruleCall, node);
+		if (ruleCall.getRule() == grammarAccess.getIDRule())
+			return getIDToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
 	/**
-	 * terminal UNICODE:
-	 *         ('a'..'z'|'A'..'Z'|INT|'_'|':'|'#'|'/'|'.'|'-'|'\"'|"^"|'{'|'}'|'\\'|'$')*;
+	 * @Override 
+	 * terminal ID:
+	 *     ('a'..'z'|'A'..'Z'|'_'|'0'..'9'('.''0'..'9')?|':'|'-')*;
 	 */
-	protected String getUNICODEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getIDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "";
@@ -65,20 +61,16 @@ public class TurtleSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_PropertyValues_LeftParenthesisKeyword_1_q.equals(syntax))
-				emit_PropertyValues_LeftParenthesisKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_PropertyValues_RightParenthesisKeyword_3_q.equals(syntax))
-				emit_PropertyValues_RightParenthesisKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ShapeConstraint_AKeyword_2_0_0_1_or_UNICODETerminalRuleCall_2_0_0_0.equals(syntax))
-				emit_ShapeConstraint_AKeyword_2_0_0_1_or_UNICODETerminalRuleCall_2_0_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ShapeExpression___RightSquareBracketKeyword_1_3_1_SemicolonKeyword_1_3_2__a.equals(syntax))
-				emit_ShapeExpression___RightSquareBracketKeyword_1_3_1_SemicolonKeyword_1_3_2__a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ShapeExpression___RightSquareBracketKeyword_1_3_1_SemicolonKeyword_1_3_2__p.equals(syntax))
-				emit_ShapeExpression___RightSquareBracketKeyword_1_3_1_SemicolonKeyword_1_3_2__p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ShapeExpression_____AKeyword_1_1_0_1_or_UNICODETerminalRuleCall_1_1_0_0___ShNodeShapeKeyword_1_1_1_SemicolonKeyword_1_1_2__q.equals(syntax))
-				emit_ShapeExpression_____AKeyword_1_1_0_1_or_UNICODETerminalRuleCall_1_1_0_0___ShNodeShapeKeyword_1_1_1_SemicolonKeyword_1_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ShapeExpression_____ShPathKeyword_1_2_0_1_or_ShPropertyKeyword_1_2_0_0___LeftSquareBracketKeyword_1_2_1__q.equals(syntax))
-				emit_ShapeExpression_____ShPathKeyword_1_2_0_1_or_ShPropertyKeyword_1_2_0_0___LeftSquareBracketKeyword_1_2_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_ShapeExpression_LeftParenthesisKeyword_1_1_q.equals(syntax))
+				emit_ShapeExpression_LeftParenthesisKeyword_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ShapeExpression_RightParenthesisKeyword_1_3_q.equals(syntax))
+				emit_ShapeExpression_RightParenthesisKeyword_1_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ShapeExpression_SemicolonKeyword_1_4_q.equals(syntax))
+				emit_ShapeExpression_SemicolonKeyword_1_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ShapeExpression___LeftSquareBracketKeyword_1_2_1_0_RightSquareBracketKeyword_1_2_1_2__a.equals(syntax))
+				emit_ShapeExpression___LeftSquareBracketKeyword_1_2_1_0_RightSquareBracketKeyword_1_2_1_2__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ShapeExpression___RightSquareBracketKeyword_1_2_1_2_LeftSquareBracketKeyword_1_2_1_0__a.equals(syntax))
+				emit_ShapeExpression___RightSquareBracketKeyword_1_2_1_2_LeftSquareBracketKeyword_1_2_1_0__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -88,10 +80,11 @@ public class TurtleSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     property=Property (ambiguity) ')'? ';' (rule end)
-	 *     property=Property (ambiguity) values+=Value
+	 *     type=PropertyType (ambiguity) '[' (']' '[')* shapeExpressions+=ShapeExpression
+	 *     type=PropertyType (ambiguity) ('[' ']')* ')'? ';'? (rule end)
+	 *     type=PropertyType (ambiguity) ('[' ']')* values+=Value
 	 */
-	protected void emit_PropertyValues_LeftParenthesisKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ShapeExpression_LeftParenthesisKeyword_1_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -100,70 +93,53 @@ public class TurtleSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ')'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     property=Property '('? (ambiguity) ';' (rule end)
-	 *     values+=Value (ambiguity) ';' (rule end)
+	 *     shapeExpressions+=ShapeExpression ']' ('[' ']')* (ambiguity) ';'? (rule end)
+	 *     type=PropertyType '('? ('[' ']')* (ambiguity) ';'? (rule end)
+	 *     values+=Value ('[' ']')* (ambiguity) ';'? (rule end)
 	 */
-	protected void emit_PropertyValues_RightParenthesisKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ShapeExpression_RightParenthesisKeyword_1_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     UNICODE | 'a'
+	 *     ';'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     shapeName=ShapeName (ambiguity) 'sh:NodeShape' ';' '.' (rule end)
-	 *     shapeName=ShapeName (ambiguity) 'sh:NodeShape' ';' shapeExpressions+=ShapeExpression
+	 *     shapeExpressions+=ShapeExpression ']' ('[' ']')* ')'? (ambiguity) (rule end)
+	 *     type=PropertyType '('? ('[' ']')* ')'? (ambiguity) (rule end)
+	 *     values+=Value ('[' ']')* ')'? (ambiguity) (rule end)
 	 */
-	protected void emit_ShapeConstraint_AKeyword_2_0_0_1_or_UNICODETerminalRuleCall_2_0_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ShapeExpression_SemicolonKeyword_1_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     (']' ';')*
+	 *     ('[' ']')*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     propertyValues+=PropertyValues (ambiguity) propertyValues+=PropertyValues
-	 *     type=PropertyType '[' ((UNICODE | 'a') 'sh:NodeShape' ';')? (('sh:property' | 'sh:path') '[')? (ambiguity) propertyValues+=PropertyValues
+	 *     shapeExpressions+=ShapeExpression ']' (ambiguity) ')'? ';'? (rule end)
+	 *     shapeExpressions+=ShapeExpression ']' (ambiguity) values+=Value
+	 *     type=PropertyType '('? (ambiguity) ')'? ';'? (rule end)
+	 *     type=PropertyType '('? (ambiguity) values+=Value
+	 *     values+=Value (ambiguity) ')'? ';'? (rule end)
+	 *     values+=Value (ambiguity) values+=Value
 	 */
-	protected void emit_ShapeExpression___RightSquareBracketKeyword_1_3_1_SemicolonKeyword_1_3_2__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ShapeExpression___LeftSquareBracketKeyword_1_2_1_0_RightSquareBracketKeyword_1_2_1_2__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     (']' ';')+
+	 *     (']' '[')*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     propertyValues+=PropertyValues (ambiguity) (rule end)
-	 *     type=PropertyType '[' ((UNICODE | 'a') 'sh:NodeShape' ';')? (('sh:property' | 'sh:path') '[')? (ambiguity) (rule end)
+	 *     shapeExpressions+=ShapeExpression (ambiguity) shapeExpressions+=ShapeExpression
+	 *     type=PropertyType '('? '[' (ambiguity) shapeExpressions+=ShapeExpression
+	 *     values+=Value '[' (ambiguity) shapeExpressions+=ShapeExpression
 	 */
-	protected void emit_ShapeExpression___RightSquareBracketKeyword_1_3_1_SemicolonKeyword_1_3_2__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ((UNICODE | 'a') 'sh:NodeShape' ';')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     type=PropertyType '[' (ambiguity) (('sh:property' | 'sh:path') '[')? (']' ';')* propertyValues+=PropertyValues
-	 *     type=PropertyType '[' (ambiguity) (('sh:property' | 'sh:path') '[')? (']' ';')+ (rule end)
-	 */
-	protected void emit_ShapeExpression_____AKeyword_1_1_0_1_or_UNICODETerminalRuleCall_1_1_0_0___ShNodeShapeKeyword_1_1_1_SemicolonKeyword_1_1_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     (('sh:property' | 'sh:path') '[')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     type=PropertyType '[' ((UNICODE | 'a') 'sh:NodeShape' ';')? (ambiguity) (']' ';')* propertyValues+=PropertyValues
-	 *     type=PropertyType '[' ((UNICODE | 'a') 'sh:NodeShape' ';')? (ambiguity) (']' ';')+ (rule end)
-	 */
-	protected void emit_ShapeExpression_____ShPathKeyword_1_2_0_1_or_ShPropertyKeyword_1_2_0_0___LeftSquareBracketKeyword_1_2_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ShapeExpression___RightSquareBracketKeyword_1_2_1_2_LeftSquareBracketKeyword_1_2_1_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

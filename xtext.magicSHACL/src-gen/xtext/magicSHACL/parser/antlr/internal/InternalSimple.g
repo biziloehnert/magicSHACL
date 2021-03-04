@@ -132,9 +132,28 @@ ruleShapesGraph returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getShapesGraphAccess().getShapeConstraintsShapeConstraintParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getShapesGraphAccess().getTargetsTargetParserRuleCall_1_0());
 				}
-				lv_shapeConstraints_1_0=ruleShapeConstraint
+				lv_targets_1_0=ruleTarget
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getShapesGraphRule());
+					}
+					add(
+						$current,
+						"targets",
+						lv_targets_1_0,
+						"xtext.magicSHACL.Simple.Target");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getShapesGraphAccess().getShapeConstraintsShapeConstraintParserRuleCall_2_0());
+				}
+				lv_shapeConstraints_2_0=ruleShapeConstraint
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getShapesGraphRule());
@@ -142,12 +161,88 @@ ruleShapesGraph returns [EObject current=null]
 					add(
 						$current,
 						"shapeConstraints",
-						lv_shapeConstraints_1_0,
+						lv_shapeConstraints_2_0,
 						"xtext.magicSHACL.Simple.ShapeConstraint");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
+	)
+;
+
+// Entry rule entryRuleTarget
+entryRuleTarget returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTargetRule()); }
+	iv_ruleTarget=ruleTarget
+	{ $current=$iv_ruleTarget.current; }
+	EOF;
+
+// Rule Target
+ruleTarget returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getTargetAccess().getTargetAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				lv_name_1_0=RULE_UNICODE
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getTargetAccess().getNameUNICODETerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getTargetRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"xtext.magicSHACL.Simple.UNICODE");
+				}
+			)
+		)
+		(
+			otherlv_2='('
+			{
+				newLeafNode(otherlv_2, grammarAccess.getTargetAccess().getLeftParenthesisKeyword_2_0());
+			}
+			(
+				(
+					lv_term_3_0=RULE_UNICODE
+					{
+						newLeafNode(lv_term_3_0, grammarAccess.getTargetAccess().getTermUNICODETerminalRuleCall_2_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getTargetRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"term",
+							lv_term_3_0,
+							"xtext.magicSHACL.Simple.UNICODE");
+					}
+				)
+			)
+			otherlv_4=')'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getTargetAccess().getRightParenthesisKeyword_2_2());
+			}
+		)?
+		otherlv_5='?'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getTargetAccess().getQuestionMarkKeyword_3());
+		}
 	)
 ;
 
@@ -284,169 +379,135 @@ ruleShapeExpression returns [EObject current=null]
 }:
 	(
 		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getShapeExpressionAccess().getShapeExpressionAction_0(),
-					$current);
-			}
-		)
-		(
 			(
 				{
-					newCompositeNode(grammarAccess.getShapeExpressionAccess().getPropertyValuesPropertyValuesParserRuleCall_1_0());
-				}
-				lv_propertyValues_1_0=rulePropertyValues
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
-					}
-					add(
-						$current,
-						"propertyValues",
-						lv_propertyValues_1_0,
-						"xtext.magicSHACL.Simple.PropertyValues");
-					afterParserOrEnumRuleCall();
+					$current = forceCreateModelElement(
+						grammarAccess.getShapeExpressionAccess().getShapeExpressionAction_0_0(),
+						$current);
 				}
 			)
-		)*
-	)
-;
-
-// Entry rule entryRulePropertyValues
-entryRulePropertyValues returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getPropertyValuesRule()); }
-	iv_rulePropertyValues=rulePropertyValues
-	{ $current=$iv_rulePropertyValues.current; }
-	EOF;
-
-// Rule PropertyValues
-rulePropertyValues returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getPropertyValuesAccess().getPropertyValuesAction_0(),
-					$current);
-			}
-		)
-		(
 			(
-				{
-					newCompositeNode(grammarAccess.getPropertyValuesAccess().getValuesValueParserRuleCall_1_0());
-				}
-				lv_values_1_0=ruleValue
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPropertyValuesRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_0_1_0());
 					}
-					add(
-						$current,
-						"values",
-						lv_values_1_0,
-						"xtext.magicSHACL.Simple.Value");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)?
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getPropertyValuesAccess().getPropertyPropertyParserRuleCall_2_0());
-				}
-				lv_property_2_0=ruleProperty
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPropertyValuesRule());
+					lv_values_1_0=ruleValue
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
+						}
+						add(
+							$current,
+							"values",
+							lv_values_1_0,
+							"xtext.magicSHACL.Simple.Value");
+						afterParserOrEnumRuleCall();
 					}
-					set(
-						$current,
-						"property",
-						lv_property_2_0,
-						"xtext.magicSHACL.Simple.Property");
-					afterParserOrEnumRuleCall();
-				}
+				)
 			)
 		)
+		    |
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getPropertyValuesAccess().getValuesValueParserRuleCall_3_0());
-				}
-				lv_values_3_0=ruleValue
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPropertyValuesRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getShapeExpressionAccess().getTypePropertyTypeEnumRuleCall_1_0_0());
 					}
-					add(
-						$current,
-						"values",
-						lv_values_3_0,
-						"xtext.magicSHACL.Simple.Value");
-					afterParserOrEnumRuleCall();
-				}
+					lv_type_2_0=rulePropertyType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
+						}
+						set(
+							$current,
+							"type",
+							lv_type_2_0,
+							"xtext.magicSHACL.Simple.PropertyType");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)*
-		(
-			otherlv_4='ADom'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getPropertyValuesAccess().getADomKeyword_4_0());
-			}
-			    |
-			otherlv_5='T'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getPropertyValuesAccess().getTKeyword_4_1());
-			}
-		)?
-	)
-;
-
-// Entry rule entryRuleProperty
-entryRuleProperty returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getPropertyRule()); }
-	iv_ruleProperty=ruleProperty
-	{ $current=$iv_ruleProperty.current; }
-	EOF;
-
-// Rule Property
-ruleProperty returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getPropertyAccess().getPropertyAction_0(),
-					$current);
-			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_1_1_0());
+					}
+					lv_values_3_0=ruleValue
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
+						}
+						add(
+							$current,
+							"values",
+							lv_values_3_0,
+							"xtext.magicSHACL.Simple.Value");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
 		)
+		    |
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getPropertyAccess().getTypePropertyTypeEnumRuleCall_1_0());
-				}
-				lv_type_1_0=rulePropertyType
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPropertyRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_2_0_0());
 					}
-					set(
-						$current,
-						"type",
-						lv_type_1_0,
-						"xtext.magicSHACL.Simple.PropertyType");
-					afterParserOrEnumRuleCall();
-				}
+					lv_values_4_0=ruleValue
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
+						}
+						add(
+							$current,
+							"values",
+							lv_values_4_0,
+							"xtext.magicSHACL.Simple.Value");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
+			(
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getShapeExpressionAccess().getTypePropertyTypeEnumRuleCall_2_1_0_0());
+						}
+						lv_type_5_0=rulePropertyType
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
+							}
+							set(
+								$current,
+								"type",
+								lv_type_5_0,
+								"xtext.magicSHACL.Simple.PropertyType");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_2_1_1_0());
+						}
+						lv_values_6_0=ruleValue
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
+							}
+							add(
+								$current,
+								"values",
+								lv_values_6_0,
+								"xtext.magicSHACL.Simple.Value");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)+
 		)
 	)
 ;
@@ -562,7 +623,7 @@ rulePropertyType returns [Enumerator current=null]
 	)
 ;
 
-RULE_UNICODE : ('a'..'z'|'A'..'Z'|RULE_INT|'_'|':'|'#'|'/'|'.'|'-'|'"'|'{'|'}'|'\\'|'$')*;
+RULE_UNICODE : '^'? ('a'..'z'|'A'..'Z'|RULE_INT|'_'|':'|'#'|'/'|'.'|'-'|'"'|'{'|'}'|'\\'|'$')*;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

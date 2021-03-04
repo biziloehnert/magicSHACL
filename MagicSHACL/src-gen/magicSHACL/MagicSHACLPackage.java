@@ -4,8 +4,8 @@ package magicSHACL;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -409,13 +409,22 @@ public interface MagicSHACLPackage extends EPackage {
 	int OBJECT__PREFIX = NODE__PREFIX;
 
 	/**
+	 * The feature id for the '<em><b>Xsd Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT__XSD_TYPE = NODE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
+	int OBJECT_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Object</em>' class.
@@ -501,13 +510,40 @@ public interface MagicSHACLPackage extends EPackage {
 	int SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Dangerous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE_CONSTRAINT__DANGEROUS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Shape Constraint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE_CONSTRAINT_FEATURE_COUNT = 2;
+	int SHAPE_CONSTRAINT_FEATURE_COUNT = 3;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE_CONSTRAINT___CONTAINS__NODE = 0;
+
+	/**
+	 * The operation id for the '<em>Get All Shape Names Of Expression</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE_CONSTRAINT___GET_ALL_SHAPE_NAMES_OF_EXPRESSION = 1;
 
 	/**
 	 * The number of operations of the '<em>Shape Constraint</em>' class.
@@ -516,7 +552,7 @@ public interface MagicSHACLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE_CONSTRAINT_OPERATION_COUNT = 0;
+	int SHAPE_CONSTRAINT_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link magicSHACL.impl.ShapesGraphImpl <em>Shapes Graph</em>}' class.
@@ -538,13 +574,40 @@ public interface MagicSHACLPackage extends EPackage {
 	int SHAPES_GRAPH__SHAPE_CONSTRAINTS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Targets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPES_GRAPH__TARGETS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Odd Cycles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPES_GRAPH__ODD_CYCLES = 2;
+
+	/**
 	 * The number of structural features of the '<em>Shapes Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPES_GRAPH_FEATURE_COUNT = 1;
+	int SHAPES_GRAPH_FEATURE_COUNT = 3;
+
+	/**
+	 * The operation id for the '<em>Get All Shape Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPES_GRAPH___GET_ALL_SHAPE_NAMES = 0;
 
 	/**
 	 * The number of operations of the '<em>Shapes Graph</em>' class.
@@ -553,7 +616,7 @@ public interface MagicSHACLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPES_GRAPH_OPERATION_COUNT = 0;
+	int SHAPES_GRAPH_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link magicSHACL.impl.ShapeNameImpl <em>Shape Name</em>}' class.
@@ -566,16 +629,6 @@ public interface MagicSHACLPackage extends EPackage {
 	int SHAPE_NAME = 12;
 
 	/**
-	 * The meta object id for the '{@link magicSHACL.impl.PropertyImpl <em>Property</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see magicSHACL.impl.PropertyImpl
-	 * @see magicSHACL.impl.MagicSHACLPackageImpl#getProperty()
-	 * @generated
-	 */
-	int PROPERTY = 13;
-
-	/**
 	 * The meta object id for the '{@link magicSHACL.impl.ValueImpl <em>Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -583,17 +636,7 @@ public interface MagicSHACLPackage extends EPackage {
 	 * @see magicSHACL.impl.MagicSHACLPackageImpl#getValue()
 	 * @generated
 	 */
-	int VALUE = 14;
-
-	/**
-	 * The meta object id for the '{@link magicSHACL.impl.PropertyValuesImpl <em>Property Values</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see magicSHACL.impl.PropertyValuesImpl
-	 * @see magicSHACL.impl.MagicSHACLPackageImpl#getPropertyValues()
-	 * @generated
-	 */
-	int PROPERTY_VALUES = 15;
+	int VALUE = 13;
 
 	/**
 	 * The meta object id for the '{@link magicSHACL.impl.ShapeExpressionImpl <em>Shape Expression</em>}' class.
@@ -606,22 +649,40 @@ public interface MagicSHACLPackage extends EPackage {
 	int SHAPE_EXPRESSION = 11;
 
 	/**
-	 * The feature id for the '<em><b>Property Values</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SHAPE_EXPRESSION__PROPERTY_VALUES = 0;
-
-	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE_EXPRESSION__TYPE = 1;
+	int SHAPE_EXPRESSION__TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Shape Expressions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE_EXPRESSION__SHAPE_EXPRESSIONS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE_EXPRESSION__VALUES = 2;
+
+	/**
+	 * The feature id for the '<em><b>Abstract String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE_EXPRESSION__ABSTRACT_STRING = 3;
 
 	/**
 	 * The number of structural features of the '<em>Shape Expression</em>' class.
@@ -630,7 +691,16 @@ public interface MagicSHACLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE_EXPRESSION_FEATURE_COUNT = 2;
+	int SHAPE_EXPRESSION_FEATURE_COUNT = 4;
+
+	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE_EXPRESSION___CONTAINS__STRING = 0;
 
 	/**
 	 * The number of operations of the '<em>Shape Expression</em>' class.
@@ -639,7 +709,7 @@ public interface MagicSHACLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE_EXPRESSION_OPERATION_COUNT = 0;
+	int SHAPE_EXPRESSION_OPERATION_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -660,13 +730,40 @@ public interface MagicSHACLPackage extends EPackage {
 	int SHAPE_NAME__PREFIX = NODE__PREFIX;
 
 	/**
+	 * The feature id for the '<em><b>Adorned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE_NAME__ADORNED = NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Dangerous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE_NAME__DANGEROUS = NODE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Shape Name</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE_NAME_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
+	int SHAPE_NAME_FEATURE_COUNT = NODE_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Magic Shape Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE_NAME___GET_MAGIC_SHAPE_NAME = NODE_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Shape Name</em>' class.
@@ -675,52 +772,7 @@ public interface MagicSHACLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE_NAME_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__NAME = NODE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__PREFIX = NODE__PREFIX;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__TYPE = NODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Property</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Property</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
+	int SHAPE_NAME_OPERATION_COUNT = NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -741,13 +793,58 @@ public interface MagicSHACLPackage extends EPackage {
 	int VALUE__PREFIX = NODE__PREFIX;
 
 	/**
+	 * The feature id for the '<em><b>Adorned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE__ADORNED = NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Idb</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE__IDB = NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Dangerous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE__DANGEROUS = NODE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Xsd Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE__XSD_TYPE = NODE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
+	int VALUE_FEATURE_COUNT = NODE_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>To Shape Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE___TO_SHAPE_NAME = NODE_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Value</em>' class.
@@ -756,43 +853,71 @@ public interface MagicSHACLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
+	int VALUE_OPERATION_COUNT = NODE_OPERATION_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Property</b></em>' containment reference.
+	 * The meta object id for the '{@link magicSHACL.impl.TargetImpl <em>Target</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see magicSHACL.impl.TargetImpl
+	 * @see magicSHACL.impl.MagicSHACLPackageImpl#getTarget()
+	 * @generated
+	 */
+	int TARGET = 14;
+
+	/**
+	 * The feature id for the '<em><b>Term</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_VALUES__PROPERTY = 0;
+	int TARGET__TERM = 0;
 
 	/**
-	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_VALUES__VALUES = 1;
+	int TARGET__NAME = 1;
 
 	/**
-	 * The number of structural features of the '<em>Property Values</em>' class.
+	 * The number of structural features of the '<em>Target</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_VALUES_FEATURE_COUNT = 2;
+	int TARGET_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Property Values</em>' class.
+	 * The operation id for the '<em>To Shape Name</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_VALUES_OPERATION_COUNT = 0;
+	int TARGET___TO_SHAPE_NAME = 0;
+
+	/**
+	 * The operation id for the '<em>Get Magic Query Seed</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET___GET_MAGIC_QUERY_SEED = 1;
+
+	/**
+	 * The number of operations of the '<em>Target</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link magicSHACL.PropertyType <em>Property Type</em>}' enum.
@@ -802,17 +927,7 @@ public interface MagicSHACLPackage extends EPackage {
 	 * @see magicSHACL.impl.MagicSHACLPackageImpl#getPropertyType()
 	 * @generated
 	 */
-	int PROPERTY_TYPE = 16;
-
-	/**
-	 * The meta object id for the '<em>IRI</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.String
-	 * @see magicSHACL.impl.MagicSHACLPackageImpl#getIRI()
-	 * @generated
-	 */
-	int IRI = 17;
+	int PROPERTY_TYPE = 15;
 
 	/**
 	 * Returns the meta object for class '{@link magicSHACL.DataGraph <em>Data Graph</em>}'.
@@ -1005,6 +1120,17 @@ public interface MagicSHACLPackage extends EPackage {
 	EClass getObject();
 
 	/**
+	 * Returns the meta object for the attribute '{@link magicSHACL.Object#getXsdType <em>Xsd Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Xsd Type</em>'.
+	 * @see magicSHACL.Object#getXsdType()
+	 * @see #getObject()
+	 * @generated
+	 */
+	EAttribute getObject_XsdType();
+
+	/**
 	 * Returns the meta object for class '{@link magicSHACL.PredicateObject <em>Predicate Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1069,6 +1195,37 @@ public interface MagicSHACLPackage extends EPackage {
 	EReference getShapeConstraint_ShapeExpressions();
 
 	/**
+	 * Returns the meta object for the attribute '{@link magicSHACL.ShapeConstraint#getDangerous <em>Dangerous</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dangerous</em>'.
+	 * @see magicSHACL.ShapeConstraint#getDangerous()
+	 * @see #getShapeConstraint()
+	 * @generated
+	 */
+	EAttribute getShapeConstraint_Dangerous();
+
+	/**
+	 * Returns the meta object for the '{@link magicSHACL.ShapeConstraint#contains(magicSHACL.Node) <em>Contains</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Contains</em>' operation.
+	 * @see magicSHACL.ShapeConstraint#contains(magicSHACL.Node)
+	 * @generated
+	 */
+	EOperation getShapeConstraint__Contains__Node();
+
+	/**
+	 * Returns the meta object for the '{@link magicSHACL.ShapeConstraint#getAllShapeNamesOfExpression() <em>Get All Shape Names Of Expression</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Shape Names Of Expression</em>' operation.
+	 * @see magicSHACL.ShapeConstraint#getAllShapeNamesOfExpression()
+	 * @generated
+	 */
+	EOperation getShapeConstraint__GetAllShapeNamesOfExpression();
+
+	/**
 	 * Returns the meta object for class '{@link magicSHACL.ShapesGraph <em>Shapes Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1090,6 +1247,38 @@ public interface MagicSHACLPackage extends EPackage {
 	EReference getShapesGraph_ShapeConstraints();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link magicSHACL.ShapesGraph#getTargets <em>Targets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Targets</em>'.
+	 * @see magicSHACL.ShapesGraph#getTargets()
+	 * @see #getShapesGraph()
+	 * @generated
+	 */
+	EReference getShapesGraph_Targets();
+
+	/**
+	 * Returns the meta object for the attribute '{@link magicSHACL.ShapesGraph#getOddCycles <em>Odd Cycles</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Odd Cycles</em>'.
+	 * @see magicSHACL.ShapesGraph#getOddCycles()
+	 * @see #getShapesGraph()
+	 * @generated
+	 */
+	EAttribute getShapesGraph_OddCycles();
+
+	/**
+	 * Returns the meta object for the '{@link magicSHACL.ShapesGraph#getAllShapeNames() <em>Get All Shape Names</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Shape Names</em>' operation.
+	 * @see magicSHACL.ShapesGraph#getAllShapeNames()
+	 * @generated
+	 */
+	EOperation getShapesGraph__GetAllShapeNames();
+
+	/**
 	 * Returns the meta object for class '{@link magicSHACL.ShapeName <em>Shape Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1100,25 +1289,36 @@ public interface MagicSHACLPackage extends EPackage {
 	EClass getShapeName();
 
 	/**
-	 * Returns the meta object for class '{@link magicSHACL.Property <em>Property</em>}'.
+	 * Returns the meta object for the attribute '{@link magicSHACL.ShapeName#isAdorned <em>Adorned</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Property</em>'.
-	 * @see magicSHACL.Property
+	 * @return the meta object for the attribute '<em>Adorned</em>'.
+	 * @see magicSHACL.ShapeName#isAdorned()
+	 * @see #getShapeName()
 	 * @generated
 	 */
-	EClass getProperty();
+	EAttribute getShapeName_Adorned();
 
 	/**
-	 * Returns the meta object for the attribute '{@link magicSHACL.Property#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link magicSHACL.ShapeName#isDangerous <em>Dangerous</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see magicSHACL.Property#getType()
-	 * @see #getProperty()
+	 * @return the meta object for the attribute '<em>Dangerous</em>'.
+	 * @see magicSHACL.ShapeName#isDangerous()
+	 * @see #getShapeName()
 	 * @generated
 	 */
-	EAttribute getProperty_Type();
+	EAttribute getShapeName_Dangerous();
+
+	/**
+	 * Returns the meta object for the '{@link magicSHACL.ShapeName#getMagicShapeName() <em>Get Magic Shape Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Magic Shape Name</em>' operation.
+	 * @see magicSHACL.ShapeName#getMagicShapeName()
+	 * @generated
+	 */
+	EOperation getShapeName__GetMagicShapeName();
 
 	/**
 	 * Returns the meta object for class '{@link magicSHACL.Value <em>Value</em>}'.
@@ -1131,36 +1331,110 @@ public interface MagicSHACLPackage extends EPackage {
 	EClass getValue();
 
 	/**
-	 * Returns the meta object for class '{@link magicSHACL.PropertyValues <em>Property Values</em>}'.
+	 * Returns the meta object for the attribute '{@link magicSHACL.Value#isAdorned <em>Adorned</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Property Values</em>'.
-	 * @see magicSHACL.PropertyValues
+	 * @return the meta object for the attribute '<em>Adorned</em>'.
+	 * @see magicSHACL.Value#isAdorned()
+	 * @see #getValue()
 	 * @generated
 	 */
-	EClass getPropertyValues();
+	EAttribute getValue_Adorned();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link magicSHACL.PropertyValues#getProperty <em>Property</em>}'.
+	 * Returns the meta object for the attribute '{@link magicSHACL.Value#isIdb <em>Idb</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Property</em>'.
-	 * @see magicSHACL.PropertyValues#getProperty()
-	 * @see #getPropertyValues()
+	 * @return the meta object for the attribute '<em>Idb</em>'.
+	 * @see magicSHACL.Value#isIdb()
+	 * @see #getValue()
 	 * @generated
 	 */
-	EReference getPropertyValues_Property();
+	EAttribute getValue_Idb();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link magicSHACL.PropertyValues#getValues <em>Values</em>}'.
+	 * Returns the meta object for the attribute '{@link magicSHACL.Value#isDangerous <em>Dangerous</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Values</em>'.
-	 * @see magicSHACL.PropertyValues#getValues()
-	 * @see #getPropertyValues()
+	 * @return the meta object for the attribute '<em>Dangerous</em>'.
+	 * @see magicSHACL.Value#isDangerous()
+	 * @see #getValue()
 	 * @generated
 	 */
-	EReference getPropertyValues_Values();
+	EAttribute getValue_Dangerous();
+
+	/**
+	 * Returns the meta object for the attribute '{@link magicSHACL.Value#getXsdType <em>Xsd Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Xsd Type</em>'.
+	 * @see magicSHACL.Value#getXsdType()
+	 * @see #getValue()
+	 * @generated
+	 */
+	EAttribute getValue_XsdType();
+
+	/**
+	 * Returns the meta object for the '{@link magicSHACL.Value#toShapeName() <em>To Shape Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To Shape Name</em>' operation.
+	 * @see magicSHACL.Value#toShapeName()
+	 * @generated
+	 */
+	EOperation getValue__ToShapeName();
+
+	/**
+	 * Returns the meta object for class '{@link magicSHACL.Target <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Target</em>'.
+	 * @see magicSHACL.Target
+	 * @generated
+	 */
+	EClass getTarget();
+
+	/**
+	 * Returns the meta object for the attribute '{@link magicSHACL.Target#getTerm <em>Term</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Term</em>'.
+	 * @see magicSHACL.Target#getTerm()
+	 * @see #getTarget()
+	 * @generated
+	 */
+	EAttribute getTarget_Term();
+
+	/**
+	 * Returns the meta object for the attribute '{@link magicSHACL.Target#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see magicSHACL.Target#getName()
+	 * @see #getTarget()
+	 * @generated
+	 */
+	EAttribute getTarget_Name();
+
+	/**
+	 * Returns the meta object for the '{@link magicSHACL.Target#toShapeName() <em>To Shape Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To Shape Name</em>' operation.
+	 * @see magicSHACL.Target#toShapeName()
+	 * @generated
+	 */
+	EOperation getTarget__ToShapeName();
+
+	/**
+	 * Returns the meta object for the '{@link magicSHACL.Target#getMagicQuerySeed() <em>Get Magic Query Seed</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Magic Query Seed</em>' operation.
+	 * @see magicSHACL.Target#getMagicQuerySeed()
+	 * @generated
+	 */
+	EOperation getTarget__GetMagicQuerySeed();
 
 	/**
 	 * Returns the meta object for class '{@link magicSHACL.ShapeExpression <em>Shape Expression</em>}'.
@@ -1171,17 +1445,6 @@ public interface MagicSHACLPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getShapeExpression();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link magicSHACL.ShapeExpression#getPropertyValues <em>Property Values</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Property Values</em>'.
-	 * @see magicSHACL.ShapeExpression#getPropertyValues()
-	 * @see #getShapeExpression()
-	 * @generated
-	 */
-	EReference getShapeExpression_PropertyValues();
 
 	/**
 	 * Returns the meta object for the attribute '{@link magicSHACL.ShapeExpression#getType <em>Type</em>}'.
@@ -1195,6 +1458,49 @@ public interface MagicSHACLPackage extends EPackage {
 	EAttribute getShapeExpression_Type();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link magicSHACL.ShapeExpression#getShapeExpressions <em>Shape Expressions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Shape Expressions</em>'.
+	 * @see magicSHACL.ShapeExpression#getShapeExpressions()
+	 * @see #getShapeExpression()
+	 * @generated
+	 */
+	EReference getShapeExpression_ShapeExpressions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link magicSHACL.ShapeExpression#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Values</em>'.
+	 * @see magicSHACL.ShapeExpression#getValues()
+	 * @see #getShapeExpression()
+	 * @generated
+	 */
+	EReference getShapeExpression_Values();
+
+	/**
+	 * Returns the meta object for the attribute '{@link magicSHACL.ShapeExpression#getAbstractString <em>Abstract String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Abstract String</em>'.
+	 * @see magicSHACL.ShapeExpression#getAbstractString()
+	 * @see #getShapeExpression()
+	 * @generated
+	 */
+	EAttribute getShapeExpression_AbstractString();
+
+	/**
+	 * Returns the meta object for the '{@link magicSHACL.ShapeExpression#contains(java.lang.String) <em>Contains</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Contains</em>' operation.
+	 * @see magicSHACL.ShapeExpression#contains(java.lang.String)
+	 * @generated
+	 */
+	EOperation getShapeExpression__Contains__String();
+
+	/**
 	 * Returns the meta object for enum '{@link magicSHACL.PropertyType <em>Property Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1203,17 +1509,6 @@ public interface MagicSHACLPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getPropertyType();
-
-	/**
-	 * Returns the meta object for data type '{@link java.lang.String <em>IRI</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>IRI</em>'.
-	 * @see java.lang.String
-	 * @model instanceClass="java.lang.String"
-	 * @generated
-	 */
-	EDataType getIRI();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1399,6 +1694,14 @@ public interface MagicSHACLPackage extends EPackage {
 		EClass OBJECT = eINSTANCE.getObject();
 
 		/**
+		 * The meta object literal for the '<em><b>Xsd Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OBJECT__XSD_TYPE = eINSTANCE.getObject_XsdType();
+
+		/**
 		 * The meta object literal for the '{@link magicSHACL.impl.PredicateObjectImpl <em>Predicate Object</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1451,6 +1754,31 @@ public interface MagicSHACLPackage extends EPackage {
 		EReference SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS = eINSTANCE.getShapeConstraint_ShapeExpressions();
 
 		/**
+		 * The meta object literal for the '<em><b>Dangerous</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SHAPE_CONSTRAINT__DANGEROUS = eINSTANCE.getShapeConstraint_Dangerous();
+
+		/**
+		 * The meta object literal for the '<em><b>Contains</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHAPE_CONSTRAINT___CONTAINS__NODE = eINSTANCE.getShapeConstraint__Contains__Node();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Shape Names Of Expression</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHAPE_CONSTRAINT___GET_ALL_SHAPE_NAMES_OF_EXPRESSION = eINSTANCE
+				.getShapeConstraint__GetAllShapeNamesOfExpression();
+
+		/**
 		 * The meta object literal for the '{@link magicSHACL.impl.ShapesGraphImpl <em>Shapes Graph</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1469,6 +1797,30 @@ public interface MagicSHACLPackage extends EPackage {
 		EReference SHAPES_GRAPH__SHAPE_CONSTRAINTS = eINSTANCE.getShapesGraph_ShapeConstraints();
 
 		/**
+		 * The meta object literal for the '<em><b>Targets</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SHAPES_GRAPH__TARGETS = eINSTANCE.getShapesGraph_Targets();
+
+		/**
+		 * The meta object literal for the '<em><b>Odd Cycles</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SHAPES_GRAPH__ODD_CYCLES = eINSTANCE.getShapesGraph_OddCycles();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Shape Names</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHAPES_GRAPH___GET_ALL_SHAPE_NAMES = eINSTANCE.getShapesGraph__GetAllShapeNames();
+
+		/**
 		 * The meta object literal for the '{@link magicSHACL.impl.ShapeNameImpl <em>Shape Name</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1479,22 +1831,28 @@ public interface MagicSHACLPackage extends EPackage {
 		EClass SHAPE_NAME = eINSTANCE.getShapeName();
 
 		/**
-		 * The meta object literal for the '{@link magicSHACL.impl.PropertyImpl <em>Property</em>}' class.
+		 * The meta object literal for the '<em><b>Adorned</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see magicSHACL.impl.PropertyImpl
-		 * @see magicSHACL.impl.MagicSHACLPackageImpl#getProperty()
 		 * @generated
 		 */
-		EClass PROPERTY = eINSTANCE.getProperty();
+		EAttribute SHAPE_NAME__ADORNED = eINSTANCE.getShapeName_Adorned();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Dangerous</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROPERTY__TYPE = eINSTANCE.getProperty_Type();
+		EAttribute SHAPE_NAME__DANGEROUS = eINSTANCE.getShapeName_Dangerous();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Magic Shape Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHAPE_NAME___GET_MAGIC_SHAPE_NAME = eINSTANCE.getShapeName__GetMagicShapeName();
 
 		/**
 		 * The meta object literal for the '{@link magicSHACL.impl.ValueImpl <em>Value</em>}' class.
@@ -1507,30 +1865,86 @@ public interface MagicSHACLPackage extends EPackage {
 		EClass VALUE = eINSTANCE.getValue();
 
 		/**
-		 * The meta object literal for the '{@link magicSHACL.impl.PropertyValuesImpl <em>Property Values</em>}' class.
+		 * The meta object literal for the '<em><b>Adorned</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see magicSHACL.impl.PropertyValuesImpl
-		 * @see magicSHACL.impl.MagicSHACLPackageImpl#getPropertyValues()
 		 * @generated
 		 */
-		EClass PROPERTY_VALUES = eINSTANCE.getPropertyValues();
+		EAttribute VALUE__ADORNED = eINSTANCE.getValue_Adorned();
 
 		/**
-		 * The meta object literal for the '<em><b>Property</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Idb</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROPERTY_VALUES__PROPERTY = eINSTANCE.getPropertyValues_Property();
+		EAttribute VALUE__IDB = eINSTANCE.getValue_Idb();
 
 		/**
-		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Dangerous</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROPERTY_VALUES__VALUES = eINSTANCE.getPropertyValues_Values();
+		EAttribute VALUE__DANGEROUS = eINSTANCE.getValue_Dangerous();
+
+		/**
+		 * The meta object literal for the '<em><b>Xsd Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE__XSD_TYPE = eINSTANCE.getValue_XsdType();
+
+		/**
+		 * The meta object literal for the '<em><b>To Shape Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE___TO_SHAPE_NAME = eINSTANCE.getValue__ToShapeName();
+
+		/**
+		 * The meta object literal for the '{@link magicSHACL.impl.TargetImpl <em>Target</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see magicSHACL.impl.TargetImpl
+		 * @see magicSHACL.impl.MagicSHACLPackageImpl#getTarget()
+		 * @generated
+		 */
+		EClass TARGET = eINSTANCE.getTarget();
+
+		/**
+		 * The meta object literal for the '<em><b>Term</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TARGET__TERM = eINSTANCE.getTarget_Term();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TARGET__NAME = eINSTANCE.getTarget_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>To Shape Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TARGET___TO_SHAPE_NAME = eINSTANCE.getTarget__ToShapeName();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Magic Query Seed</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TARGET___GET_MAGIC_QUERY_SEED = eINSTANCE.getTarget__GetMagicQuerySeed();
 
 		/**
 		 * The meta object literal for the '{@link magicSHACL.impl.ShapeExpressionImpl <em>Shape Expression</em>}' class.
@@ -1543,20 +1957,44 @@ public interface MagicSHACLPackage extends EPackage {
 		EClass SHAPE_EXPRESSION = eINSTANCE.getShapeExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Property Values</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SHAPE_EXPRESSION__PROPERTY_VALUES = eINSTANCE.getShapeExpression_PropertyValues();
-
-		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute SHAPE_EXPRESSION__TYPE = eINSTANCE.getShapeExpression_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Shape Expressions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SHAPE_EXPRESSION__SHAPE_EXPRESSIONS = eINSTANCE.getShapeExpression_ShapeExpressions();
+
+		/**
+		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SHAPE_EXPRESSION__VALUES = eINSTANCE.getShapeExpression_Values();
+
+		/**
+		 * The meta object literal for the '<em><b>Abstract String</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SHAPE_EXPRESSION__ABSTRACT_STRING = eINSTANCE.getShapeExpression_AbstractString();
+
+		/**
+		 * The meta object literal for the '<em><b>Contains</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHAPE_EXPRESSION___CONTAINS__STRING = eINSTANCE.getShapeExpression__Contains__String();
 
 		/**
 		 * The meta object literal for the '{@link magicSHACL.PropertyType <em>Property Type</em>}' enum.
@@ -1567,16 +2005,6 @@ public interface MagicSHACLPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum PROPERTY_TYPE = eINSTANCE.getPropertyType();
-
-		/**
-		 * The meta object literal for the '<em>IRI</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.lang.String
-		 * @see magicSHACL.impl.MagicSHACLPackageImpl#getIRI()
-		 * @generated
-		 */
-		EDataType IRI = eINSTANCE.getIRI();
 
 	}
 

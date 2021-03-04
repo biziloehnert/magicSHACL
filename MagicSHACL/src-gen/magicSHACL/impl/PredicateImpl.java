@@ -20,7 +20,7 @@ public class PredicateImpl extends NodeImpl implements Predicate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PredicateImpl() {
+	public PredicateImpl() {
 		super();
 	}
 

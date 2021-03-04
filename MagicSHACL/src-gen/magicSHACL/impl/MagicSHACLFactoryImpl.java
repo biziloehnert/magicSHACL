@@ -9,14 +9,13 @@ import magicSHACL.MagicSHACLPackage;
 import magicSHACL.Namespace;
 import magicSHACL.Predicate;
 import magicSHACL.PredicateObject;
-import magicSHACL.Property;
 import magicSHACL.PropertyType;
-import magicSHACL.PropertyValues;
 import magicSHACL.ShapeConstraint;
 import magicSHACL.ShapeExpression;
 import magicSHACL.ShapeName;
 import magicSHACL.ShapesGraph;
 import magicSHACL.Subject;
+import magicSHACL.Target;
 import magicSHACL.Triples;
 import magicSHACL.Value;
 
@@ -97,12 +96,10 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 			return createShapeExpression();
 		case MagicSHACLPackage.SHAPE_NAME:
 			return createShapeName();
-		case MagicSHACLPackage.PROPERTY:
-			return createProperty();
 		case MagicSHACLPackage.VALUE:
 			return createValue();
-		case MagicSHACLPackage.PROPERTY_VALUES:
-			return createPropertyValues();
+		case MagicSHACLPackage.TARGET:
+			return createTarget();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -118,8 +115,6 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 		switch (eDataType.getClassifierID()) {
 		case MagicSHACLPackage.PROPERTY_TYPE:
 			return createPropertyTypeFromString(eDataType, initialValue);
-		case MagicSHACLPackage.IRI:
-			return createIRIFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -135,8 +130,6 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 		switch (eDataType.getClassifierID()) {
 		case MagicSHACLPackage.PROPERTY_TYPE:
 			return convertPropertyTypeToString(eDataType, instanceValue);
-		case MagicSHACLPackage.IRI:
-			return convertIRIToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -147,6 +140,7 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DataGraph createDataGraph() {
 		DataGraphImpl dataGraph = new DataGraphImpl();
 		return dataGraph;
@@ -157,6 +151,7 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Triples createTriples() {
 		TriplesImpl triples = new TriplesImpl();
 		return triples;
@@ -167,6 +162,7 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Graph createGraph() {
 		GraphImpl graph = new GraphImpl();
 		return graph;
@@ -177,6 +173,7 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Namespace createNamespace() {
 		NamespaceImpl namespace = new NamespaceImpl();
 		return namespace;
@@ -187,6 +184,7 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Subject createSubject() {
 		SubjectImpl subject = new SubjectImpl();
 		return subject;
@@ -197,6 +195,7 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Predicate createPredicate() {
 		PredicateImpl predicate = new PredicateImpl();
 		return predicate;
@@ -207,6 +206,7 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public magicSHACL.Object createObject() {
 		ObjectImpl object = new ObjectImpl();
 		return object;
@@ -217,6 +217,7 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PredicateObject createPredicateObject() {
 		PredicateObjectImpl predicateObject = new PredicateObjectImpl();
 		return predicateObject;
@@ -227,6 +228,7 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ShapeConstraint createShapeConstraint() {
 		ShapeConstraintImpl shapeConstraint = new ShapeConstraintImpl();
 		return shapeConstraint;
@@ -237,6 +239,7 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ShapesGraph createShapesGraph() {
 		ShapesGraphImpl shapesGraph = new ShapesGraphImpl();
 		return shapesGraph;
@@ -247,6 +250,7 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ShapeName createShapeName() {
 		ShapeNameImpl shapeName = new ShapeNameImpl();
 		return shapeName;
@@ -257,16 +261,7 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Property createProperty() {
-		PropertyImpl property = new PropertyImpl();
-		return property;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public Value createValue() {
 		ValueImpl value = new ValueImpl();
 		return value;
@@ -277,9 +272,10 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropertyValues createPropertyValues() {
-		PropertyValuesImpl propertyValues = new PropertyValuesImpl();
-		return propertyValues;
+	@Override
+	public Target createTarget() {
+		TargetImpl target = new TargetImpl();
+		return target;
 	}
 
 	/**
@@ -287,6 +283,7 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ShapeExpression createShapeExpression() {
 		ShapeExpressionImpl shapeExpression = new ShapeExpressionImpl();
 		return shapeExpression;
@@ -319,24 +316,7 @@ public class MagicSHACLFactoryImpl extends EFactoryImpl implements MagicSHACLFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String createIRIFromString(EDataType eDataType, String initialValue) {
-		return (String) super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIRIToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public MagicSHACLPackage getMagicSHACLPackage() {
 		return (MagicSHACLPackage) getEPackage();
 	}

@@ -10,8 +10,14 @@ Graph returns Graph:
 	
 ShapesGraph returns ShapesGraph:
 	{ShapesGraph}
+		(targets+=Target)*
 		(shapeConstraints+=ShapeConstraint)*
 	;
+
+Target returns Target:
+	{Target}
+	name=UNICODE ('(' term=UNICODE ')')? '?'
+;
 
 ShapeConstraint returns ShapeConstraint:
 	{ShapeConstraint} 
@@ -24,17 +30,8 @@ ShapeName returns ShapeName:
 
 ShapeExpression returns ShapeExpression:
 	{ShapeExpression}
-	(propertyValues+=PropertyValues)*
+	values+=Value | (type=PropertyType values+=Value*) | (values+=Value (type=PropertyType values+=Value)+)
 ;
-	
-PropertyValues returns PropertyValues :
-	{PropertyValues}
-	(values+=Value)? property=Property (values+=Value)* ('ADom' | 'T')?
-;
-
-Property returns Property:
-	{Property}
-	type=PropertyType ;
 	
 Value returns Value:
 	{Value}
@@ -51,7 +48,7 @@ enum PropertyType:
 ;
 
 terminal UNICODE:
-        ('a'..'z'|'A'..'Z'|INT|'_'|':'|'#'|'/'|'.'|'-'|'\"'|'{'|'}'|'\\'|'$')*;
+        ('^')?('a'..'z'|'A'..'Z'|INT|'_'|':'|'#'|'/'|'.'|'-'|'\"'|'{'|'}'|'\\'|'$')*;
 
 EString returns ecore::EString:
 	STRING | ID;

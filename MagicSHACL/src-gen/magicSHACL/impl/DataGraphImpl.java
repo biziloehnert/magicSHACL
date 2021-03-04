@@ -49,7 +49,7 @@ public class DataGraphImpl extends MinimalEObjectImpl.Container implements DataG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DataGraphImpl() {
+	public DataGraphImpl() {
 		super();
 	}
 
@@ -68,6 +68,7 @@ public class DataGraphImpl extends MinimalEObjectImpl.Container implements DataG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Triples> getTriples() {
 		if (triples == null) {
 			triples = new EObjectContainmentEList<Triples>(Triples.class, this, MagicSHACLPackage.DATA_GRAPH__TRIPLES);

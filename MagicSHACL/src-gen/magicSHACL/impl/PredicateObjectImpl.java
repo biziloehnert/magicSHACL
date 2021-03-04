@@ -55,7 +55,7 @@ public class PredicateObjectImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PredicateObjectImpl() {
+	public PredicateObjectImpl() {
 		super();
 	}
 
@@ -74,6 +74,7 @@ public class PredicateObjectImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Predicate getPredicate() {
 		return predicate;
 	}
@@ -102,6 +103,7 @@ public class PredicateObjectImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPredicate(Predicate newPredicate) {
 		if (newPredicate != predicate) {
 			NotificationChain msgs = null;
@@ -124,6 +126,7 @@ public class PredicateObjectImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public magicSHACL.Object getObject() {
 		return object;
 	}
@@ -152,6 +155,7 @@ public class PredicateObjectImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setObject(magicSHACL.Object newObject) {
 		if (newObject != object) {
 			NotificationChain msgs = null;

@@ -12,6 +12,7 @@ import magicSHACL.ShapesGraph;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -23,6 +24,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -56,6 +58,7 @@ public class ShapesGraphItemProvider extends ItemProviderAdapter implements IEdi
 			super.getPropertyDescriptors(object);
 
 			addShapeConstraintsPropertyDescriptor(object);
+			addOddCyclesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -77,6 +80,22 @@ public class ShapesGraphItemProvider extends ItemProviderAdapter implements IEdi
 	}
 
 	/**
+	 * This adds a property descriptor for the Odd Cycles feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOddCyclesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ShapesGraph_oddCycles_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ShapesGraph_oddCycles_feature",
+								"_UI_ShapesGraph_type"),
+						MagicSHACLPackage.Literals.SHAPES_GRAPH__ODD_CYCLES, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -89,6 +108,7 @@ public class ShapesGraphItemProvider extends ItemProviderAdapter implements IEdi
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MagicSHACLPackage.Literals.SHAPES_GRAPH__SHAPE_CONSTRAINTS);
+			childrenFeatures.add(MagicSHACLPackage.Literals.SHAPES_GRAPH__TARGETS);
 		}
 		return childrenFeatures;
 	}
@@ -135,7 +155,10 @@ public class ShapesGraphItemProvider extends ItemProviderAdapter implements IEdi
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ShapesGraph_type");
+		EList labelValue = ((ShapesGraph) object).getOddCycles();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ? getString("_UI_ShapesGraph_type")
+				: getString("_UI_ShapesGraph_type") + " " + label;
 	}
 
 	/**
@@ -150,7 +173,11 @@ public class ShapesGraphItemProvider extends ItemProviderAdapter implements IEdi
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ShapesGraph.class)) {
+		case MagicSHACLPackage.SHAPES_GRAPH__ODD_CYCLES:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		case MagicSHACLPackage.SHAPES_GRAPH__SHAPE_CONSTRAINTS:
+		case MagicSHACLPackage.SHAPES_GRAPH__TARGETS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -170,6 +197,9 @@ public class ShapesGraphItemProvider extends ItemProviderAdapter implements IEdi
 
 		newChildDescriptors.add(createChildParameter(MagicSHACLPackage.Literals.SHAPES_GRAPH__SHAPE_CONSTRAINTS,
 				MagicSHACLFactory.eINSTANCE.createShapeConstraint()));
+
+		newChildDescriptors.add(createChildParameter(MagicSHACLPackage.Literals.SHAPES_GRAPH__TARGETS,
+				MagicSHACLFactory.eINSTANCE.createTarget()));
 	}
 
 	/**

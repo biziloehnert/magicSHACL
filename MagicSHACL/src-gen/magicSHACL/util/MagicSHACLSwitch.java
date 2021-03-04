@@ -9,13 +9,12 @@ import magicSHACL.Namespace;
 import magicSHACL.Node;
 import magicSHACL.Predicate;
 import magicSHACL.PredicateObject;
-import magicSHACL.Property;
-import magicSHACL.PropertyValues;
 import magicSHACL.ShapeConstraint;
 import magicSHACL.ShapeExpression;
 import magicSHACL.ShapeName;
 import magicSHACL.ShapesGraph;
 import magicSHACL.Subject;
+import magicSHACL.Target;
 import magicSHACL.Triples;
 import magicSHACL.Value;
 
@@ -180,15 +179,6 @@ public class MagicSHACLSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case MagicSHACLPackage.PROPERTY: {
-			Property property = (Property) theEObject;
-			T result = caseProperty(property);
-			if (result == null)
-				result = caseNode(property);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case MagicSHACLPackage.VALUE: {
 			Value value = (Value) theEObject;
 			T result = caseValue(value);
@@ -198,9 +188,9 @@ public class MagicSHACLSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case MagicSHACLPackage.PROPERTY_VALUES: {
-			PropertyValues propertyValues = (PropertyValues) theEObject;
-			T result = casePropertyValues(propertyValues);
+		case MagicSHACLPackage.TARGET: {
+			Target target = (Target) theEObject;
+			T result = caseTarget(target);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -391,21 +381,6 @@ public class MagicSHACLSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Property</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseProperty(Property object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -421,17 +396,17 @@ public class MagicSHACLSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Property Values</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Target</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Property Values</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Target</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropertyValues(PropertyValues object) {
+	public T caseTarget(Target object) {
 		return null;
 	}
 

@@ -121,15 +121,6 @@ public interface MagicSHACLFactory extends EFactory {
 	ShapeName createShapeName();
 
 	/**
-	 * Returns a new object of class '<em>Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Property</em>'.
-	 * @generated
-	 */
-	Property createProperty();
-
-	/**
 	 * Returns a new object of class '<em>Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,13 +130,13 @@ public interface MagicSHACLFactory extends EFactory {
 	Value createValue();
 
 	/**
-	 * Returns a new object of class '<em>Property Values</em>'.
+	 * Returns a new object of class '<em>Target</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Property Values</em>'.
+	 * @return a new object of class '<em>Target</em>'.
 	 * @generated
 	 */
-	PropertyValues createPropertyValues();
+	Target createTarget();
 
 	/**
 	 * Returns a new object of class '<em>Shape Expression</em>'.

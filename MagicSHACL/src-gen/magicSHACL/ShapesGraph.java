@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link magicSHACL.ShapesGraph#getShapeConstraints <em>Shape Constraints</em>}</li>
+ *   <li>{@link magicSHACL.ShapesGraph#getTargets <em>Targets</em>}</li>
+ *   <li>{@link magicSHACL.ShapesGraph#getOddCycles <em>Odd Cycles</em>}</li>
  * </ul>
  *
  * @see magicSHACL.MagicSHACLPackage#getShapesGraph()
@@ -34,5 +36,47 @@ public interface ShapesGraph extends EObject {
 	 * @generated
 	 */
 	EList<ShapeConstraint> getShapeConstraints();
+
+	/**
+	 * Returns the value of the '<em><b>Targets</b></em>' containment reference list.
+	 * The list contents are of type {@link magicSHACL.Target}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Targets</em>' containment reference list.
+	 * @see magicSHACL.MagicSHACLPackage#getShapesGraph_Targets()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Target> getTargets();
+
+	/**
+	 * Returns the value of the '<em><b>Odd Cycles</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Odd Cycles</em>' attribute.
+	 * @see #setOddCycles(EList)
+	 * @see magicSHACL.MagicSHACLPackage#getShapesGraph_OddCycles()
+	 * @model many="false" transient="true"
+	 * @generated NOT
+	 */
+	EList<EList<String>> getOddCycles();
+
+	/**
+	 * Sets the value of the '{@link magicSHACL.ShapesGraph#getOddCycles <em>Odd Cycles</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Odd Cycles</em>' attribute.
+	 * @see #getOddCycles()
+	 * @generated NOT
+	 */
+	void setOddCycles(EList<EList<String>> value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" many="false"
+	 * @generated NOT
+	 */
+	EList<Node> getAllShapeNames();
 
 } // ShapesGraph

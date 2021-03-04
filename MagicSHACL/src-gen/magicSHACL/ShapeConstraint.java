@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link magicSHACL.ShapeConstraint#getShapeName <em>Shape Name</em>}</li>
  *   <li>{@link magicSHACL.ShapeConstraint#getShapeExpressions <em>Shape Expressions</em>}</li>
+ *   <li>{@link magicSHACL.ShapeConstraint#getDangerous <em>Dangerous</em>}</li>
  * </ul>
  *
  * @see magicSHACL.MagicSHACLPackage#getShapeConstraint()
@@ -57,5 +58,43 @@ public interface ShapeConstraint extends EObject {
 	 * @generated
 	 */
 	EList<ShapeExpression> getShapeExpressions();
+
+	/**
+	 * Returns the value of the '<em><b>Dangerous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dangerous</em>' attribute.
+	 * @see #setDangerous(Boolean)
+	 * @see magicSHACL.MagicSHACLPackage#getShapeConstraint_Dangerous()
+	 * @model derived="true"
+	 * @generated
+	 */
+	Boolean getDangerous();
+
+	/**
+	 * Sets the value of the '{@link magicSHACL.ShapeConstraint#getDangerous <em>Dangerous</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dangerous</em>' attribute.
+	 * @see #getDangerous()
+	 * @generated
+	 */
+	void setDangerous(Boolean value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @generated
+	 */
+	boolean contains(Node name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" many="false"
+	 * @generated NOT
+	 */
+	EList<Node> getAllShapeNamesOfExpression();
 
 } // ShapeConstraint

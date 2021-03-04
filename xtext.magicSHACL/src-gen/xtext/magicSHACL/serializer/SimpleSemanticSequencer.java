@@ -7,12 +7,11 @@ import com.google.inject.Inject;
 import java.util.Set;
 import magicSHACL.Graph;
 import magicSHACL.MagicSHACLPackage;
-import magicSHACL.Property;
-import magicSHACL.PropertyValues;
 import magicSHACL.ShapeConstraint;
 import magicSHACL.ShapeExpression;
 import magicSHACL.ShapeName;
 import magicSHACL.ShapesGraph;
+import magicSHACL.Target;
 import magicSHACL.Value;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -42,12 +41,6 @@ public class SimpleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case MagicSHACLPackage.GRAPH:
 				sequence_Graph(context, (Graph) semanticObject); 
 				return; 
-			case MagicSHACLPackage.PROPERTY:
-				sequence_Property(context, (Property) semanticObject); 
-				return; 
-			case MagicSHACLPackage.PROPERTY_VALUES:
-				sequence_PropertyValues(context, (PropertyValues) semanticObject); 
-				return; 
 			case MagicSHACLPackage.SHAPE_CONSTRAINT:
 				sequence_ShapeConstraint(context, (ShapeConstraint) semanticObject); 
 				return; 
@@ -59,6 +52,9 @@ public class SimpleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case MagicSHACLPackage.SHAPES_GRAPH:
 				sequence_ShapesGraph(context, (ShapesGraph) semanticObject); 
+				return; 
+			case MagicSHACLPackage.TARGET:
+				sequence_Target(context, (Target) semanticObject); 
 				return; 
 			case MagicSHACLPackage.VALUE:
 				sequence_Value(context, (Value) semanticObject); 
@@ -88,36 +84,6 @@ public class SimpleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     PropertyValues returns PropertyValues
-	 *
-	 * Constraint:
-	 *     (values+=Value? property=Property values+=Value*)
-	 */
-	protected void sequence_PropertyValues(ISerializationContext context, PropertyValues semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Property returns Property
-	 *
-	 * Constraint:
-	 *     type=PropertyType
-	 */
-	protected void sequence_Property(ISerializationContext context, Property semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MagicSHACLPackage.Literals.PROPERTY__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MagicSHACLPackage.Literals.PROPERTY__TYPE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPropertyAccess().getTypePropertyTypeEnumRuleCall_1_0(), semanticObject.getType());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     ShapeConstraint returns ShapeConstraint
 	 *
 	 * Constraint:
@@ -133,7 +99,7 @@ public class SimpleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ShapeExpression returns ShapeExpression
 	 *
 	 * Constraint:
-	 *     propertyValues+=PropertyValues*
+	 *     (values+=Value | (type=PropertyType values+=Value*) | (values+=Value (type=PropertyType values+=Value)+))
 	 */
 	protected void sequence_ShapeExpression(ISerializationContext context, ShapeExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -163,9 +129,21 @@ public class SimpleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ShapesGraph returns ShapesGraph
 	 *
 	 * Constraint:
-	 *     shapeConstraints+=ShapeConstraint*
+	 *     (targets+=Target* shapeConstraints+=ShapeConstraint*)
 	 */
 	protected void sequence_ShapesGraph(ISerializationContext context, ShapesGraph semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Target returns Target
+	 *
+	 * Constraint:
+	 *     (name=UNICODE term=UNICODE?)
+	 */
+	protected void sequence_Target(ISerializationContext context, Target semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

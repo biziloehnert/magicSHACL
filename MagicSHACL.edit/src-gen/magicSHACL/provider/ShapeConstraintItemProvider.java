@@ -23,6 +23,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -57,6 +58,7 @@ public class ShapeConstraintItemProvider extends ItemProviderAdapter implements 
 
 			addShapeNamePropertyDescriptor(object);
 			addShapeExpressionsPropertyDescriptor(object);
+			addDangerousPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -89,6 +91,22 @@ public class ShapeConstraintItemProvider extends ItemProviderAdapter implements 
 				getString("_UI_PropertyDescriptor_description", "_UI_ShapeConstraint_shapeExpressions_feature",
 						"_UI_ShapeConstraint_type"),
 				MagicSHACLPackage.Literals.SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Dangerous feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDangerousPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ShapeConstraint_dangerous_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ShapeConstraint_dangerous_feature",
+								"_UI_ShapeConstraint_type"),
+						MagicSHACLPackage.Literals.SHAPE_CONSTRAINT__DANGEROUS, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -151,7 +169,10 @@ public class ShapeConstraintItemProvider extends ItemProviderAdapter implements 
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ShapeConstraint_type");
+		Boolean labelValue = ((ShapeConstraint) object).getDangerous();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ? getString("_UI_ShapeConstraint_type")
+				: getString("_UI_ShapeConstraint_type") + " " + label;
 	}
 
 	/**
@@ -166,6 +187,9 @@ public class ShapeConstraintItemProvider extends ItemProviderAdapter implements 
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ShapeConstraint.class)) {
+		case MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__SHAPE_NAME:
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

@@ -195,7 +195,70 @@ public enum PropertyType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TARGET_NODE(18, "TargetNode", "sh:targetNode");
+	TARGET_NODE(18, "TargetNode", "sh:targetNode"),
+	/**
+	 * The '<em><b>Message</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #MESSAGE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MESSAGE(19, "Message", "sh:message"),
+	/**
+	 * The '<em><b>Min Exclusive Constraint Component</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #MIN_EXCLUSIVE_CONSTRAINT_COMPONENT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MIN_EXCLUSIVE_CONSTRAINT_COMPONENT(20, "MinExclusiveConstraintComponent", "sh:minExclusive"),
+	/**
+	 * The '<em><b>Min Inclusive Constraint Component</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #MIN_INCLUSIVE_CONSTRAINT_COMPONENT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MIN_INCLUSIVE_CONSTRAINT_COMPONENT(21, "MinInclusiveConstraintComponent", "sh:minInclusive"),
+	/**
+	 * The '<em><b>Max Exclusive Constraint Component</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #MAX_EXCLUSIVE_CONSTRAINT_COMPONENT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MAX_EXCLUSIVE_CONSTRAINT_COMPONENT(22, "MaxExclusiveConstraintComponent", "sh:maxExclusive"),
+	/**
+	 * The '<em><b>Max Inclusive Constraint Component</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #MAX_INCLUSIVE_CONSTRAINT_COMPONENT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MAX_INCLUSIVE_CONSTRAINT_COMPONENT(23, "MaxInclusiveConstraintComponent", "sh:maxInclusive"),
+	/**
+	 * The '<em><b>Min Length Constraint Component</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #MIN_LENGTH_CONSTRAINT_COMPONENT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MIN_LENGTH_CONSTRAINT_COMPONENT(24, "MinLengthConstraintComponent", "sh:minLength"),
+	/**
+	 * The '<em><b>Max Length Constraint Component</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #MAX_LENGTH_CONSTRAINT_COMPONENT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MAX_LENGTH_CONSTRAINT_COMPONENT(25, "MaxLengthConstraintComponent", "sh:maxLength");
 
 	/**
 	 * The '<em><b>Class Constraint Component</b></em>' literal value.
@@ -407,6 +470,83 @@ public enum PropertyType implements Enumerator {
 	public static final int TARGET_NODE_VALUE = 18;
 
 	/**
+	 * The '<em><b>Message</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MESSAGE
+	 * @model name="Message" literal="sh:message"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MESSAGE_VALUE = 19;
+
+	/**
+	 * The '<em><b>Min Exclusive Constraint Component</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MIN_EXCLUSIVE_CONSTRAINT_COMPONENT
+	 * @model name="MinExclusiveConstraintComponent" literal="sh:minExclusive"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MIN_EXCLUSIVE_CONSTRAINT_COMPONENT_VALUE = 20;
+
+	/**
+	 * The '<em><b>Min Inclusive Constraint Component</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MIN_INCLUSIVE_CONSTRAINT_COMPONENT
+	 * @model name="MinInclusiveConstraintComponent" literal="sh:minInclusive"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MIN_INCLUSIVE_CONSTRAINT_COMPONENT_VALUE = 21;
+
+	/**
+	 * The '<em><b>Max Exclusive Constraint Component</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MAX_EXCLUSIVE_CONSTRAINT_COMPONENT
+	 * @model name="MaxExclusiveConstraintComponent" literal="sh:maxExclusive"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MAX_EXCLUSIVE_CONSTRAINT_COMPONENT_VALUE = 22;
+
+	/**
+	 * The '<em><b>Max Inclusive Constraint Component</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MAX_INCLUSIVE_CONSTRAINT_COMPONENT
+	 * @model name="MaxInclusiveConstraintComponent" literal="sh:maxInclusive"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MAX_INCLUSIVE_CONSTRAINT_COMPONENT_VALUE = 23;
+
+	/**
+	 * The '<em><b>Min Length Constraint Component</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MIN_LENGTH_CONSTRAINT_COMPONENT
+	 * @model name="MinLengthConstraintComponent" literal="sh:minLength"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MIN_LENGTH_CONSTRAINT_COMPONENT_VALUE = 24;
+
+	/**
+	 * The '<em><b>Max Length Constraint Component</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MAX_LENGTH_CONSTRAINT_COMPONENT
+	 * @model name="MaxLengthConstraintComponent" literal="sh:maxLength"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MAX_LENGTH_CONSTRAINT_COMPONENT_VALUE = 25;
+
+	/**
 	 * An array of all the '<em><b>Property Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -417,7 +557,9 @@ public enum PropertyType implements Enumerator {
 			AND_CONSTRAINT_COMPONENT, OR_CONSTRAINT_COMPONENT, NODE_CONSTRAINT_COMPONENT,
 			HAS_VALUE_CONSTRAINT_COMPONENT, PREDICATE_PATH, PROPERTY, NAME, DATATYPE_CONSTRAINT_COMPONENT,
 			NODE_KIND_CONSTRAINT_COMPONENT, PATTERN_CONSTRAINT_COMPONENT, TARGET_CLASS, CLOSED_CONSTRAINT_COMPONENT,
-			CLOSED_CONSTRAINT_COMPONENT_IGNORE, INVERSE_PATH, TARGET_NODE, };
+			CLOSED_CONSTRAINT_COMPONENT_IGNORE, INVERSE_PATH, TARGET_NODE, MESSAGE, MIN_EXCLUSIVE_CONSTRAINT_COMPONENT,
+			MIN_INCLUSIVE_CONSTRAINT_COMPONENT, MAX_EXCLUSIVE_CONSTRAINT_COMPONENT, MAX_INCLUSIVE_CONSTRAINT_COMPONENT,
+			MIN_LENGTH_CONSTRAINT_COMPONENT, MAX_LENGTH_CONSTRAINT_COMPONENT, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Property Type</b></em>' enumerators.
@@ -509,6 +651,20 @@ public enum PropertyType implements Enumerator {
 			return INVERSE_PATH;
 		case TARGET_NODE_VALUE:
 			return TARGET_NODE;
+		case MESSAGE_VALUE:
+			return MESSAGE;
+		case MIN_EXCLUSIVE_CONSTRAINT_COMPONENT_VALUE:
+			return MIN_EXCLUSIVE_CONSTRAINT_COMPONENT;
+		case MIN_INCLUSIVE_CONSTRAINT_COMPONENT_VALUE:
+			return MIN_INCLUSIVE_CONSTRAINT_COMPONENT;
+		case MAX_EXCLUSIVE_CONSTRAINT_COMPONENT_VALUE:
+			return MAX_EXCLUSIVE_CONSTRAINT_COMPONENT;
+		case MAX_INCLUSIVE_CONSTRAINT_COMPONENT_VALUE:
+			return MAX_INCLUSIVE_CONSTRAINT_COMPONENT;
+		case MIN_LENGTH_CONSTRAINT_COMPONENT_VALUE:
+			return MIN_LENGTH_CONSTRAINT_COMPONENT;
+		case MAX_LENGTH_CONSTRAINT_COMPONENT_VALUE:
+			return MAX_LENGTH_CONSTRAINT_COMPONENT;
 		}
 		return null;
 	}
@@ -551,6 +707,7 @@ public enum PropertyType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -560,6 +717,7 @@ public enum PropertyType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -569,6 +727,7 @@ public enum PropertyType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}

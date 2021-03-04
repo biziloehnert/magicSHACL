@@ -20,7 +20,7 @@ public class SubjectImpl extends NodeImpl implements Subject {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SubjectImpl() {
+	public SubjectImpl() {
 		super();
 	}
 

@@ -12,14 +12,13 @@ Require-Bundle: xtext.magicSHACL,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,
- org.eclipse.ui.editors;bundle-version="3.5.0",
- org.eclipse.ui.ide;bundle-version="3.5.0",
- org.eclipse.ui,
  org.eclipse.compare,
- org.eclipse.xtext.builder
-Import-Package: org.apache.log4j
+ org.eclipse.xtext.builder,
+ org.eclipse.ui,
+ org.eclipse.ui.editors
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: xtext.magicSHACL.ui.quickfix,
  xtext.magicSHACL.ui.contentassist,
  xtext.magicSHACL.ui.internal
 Bundle-Activator: xtext.magicSHACL.ui.internal.MagicSHACLActivator
+Import-Package: org.apache.log4j
