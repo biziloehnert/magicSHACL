@@ -3,14 +3,23 @@
  */
 package xtext.magicSHACL.generator
 
+import java.util.ArrayList
+import java.util.List
+import java.util.Stack
+import magicSHACL.Namespace
 import magicSHACL.PropertyType
 import magicSHACL.ShapeConstraint
+import magicSHACL.ShapeExpression
+import magicSHACL.ShapeName
+import magicSHACL.Target
+import magicSHACL.Value
+import magicSHACL.impl.ShapeConstraintImpl
+import magicSHACL.impl.ShapeExpressionImpl
+import magicSHACL.impl.ValueImpl
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import magicSHACL.ShapeExpression
-import java.util.List
 
 /**
  * Generates code from your model files on save.
@@ -18,32 +27,191 @@ import java.util.List
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class TurtleGenerator extends AbstractGenerator {
-	int i;
+	List<ShapeConstraint> magicShapes
+	List<ShapeConstraint> modifiedShapes
+	Stack<ShapeName> adornedShapes
+	final String TRUE = 'ADom'
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		fsa.generateFile(resource.URI.lastSegment.replace(".ttl", ".simple"), '''
-            «FOR constraint : resource.allContents.filter(ShapeConstraint).toIterable»«
-            	val shapes = shapeExpressionToAbstractString(constraint.shapeExpressions)»«
-            	constraint.shapeName.name» :- «
-            	IF shapes.size == 1»«
-            		shapes.get(0)» ;  
- 				«ELSE»
- 					«(i = 0)==true?'':''»«
- 					FOR shape : shapes SEPARATOR ' AND ' AFTER ';\n'»«
-            			constraint.shapeName.name»_S«shapes.indexOf(shape)»«
-            		ENDFOR»«
-            		(i = 0)==true?'':''»«
-            		FOR shape : shapes SEPARATOR ';\n' AFTER ';\n'»
-            			«constraint.shapeName.name»_S«shapes.indexOf(shape)» :- «shape»«
-            		ENDFOR»	
-            	«ENDIF»«
-             ENDFOR»
-        ''')
+		if(!resource.URI.path.contains("src-gen")){
+			fsa.generateFile(resource.URI.lastSegment.replace(".ttl", ".simple"), '''
+	            «FOR constraint : resource.allContents.filter(ShapeConstraint).toIterable»«
+	            	val shapes = shapeExpressionToAbstractString(constraint.shapeExpressions)»«
+	            	constraint.shapeName.name» :- «
+	            	IF shapes.size == 1»«
+	            		shapes.get(0)» ;  
+	 				«ELSE»
+	 					«FOR shape : shapes SEPARATOR ' AND ' AFTER ';\n'»«
+	            			constraint.shapeName.name»_S«shapes.indexOf(shape)»«
+	            		ENDFOR»«
+	            		FOR shape : shapes SEPARATOR ';\n' AFTER ';\n'»«
+	            			constraint.shapeName.name»_S«shapes.indexOf(shape)» :- «shape»«
+	            		ENDFOR»	
+	            	«ENDIF»«
+	             ENDFOR»
+	        ''')
+        }
+        
+        //magic algorithm
+        if(!resource.URI.path.contains("src-gen") && !resource.URI.lastSegment.contains("_magic")){
+        	adornedShapes = new Stack	
+			magicShapes= new ArrayList
+			modifiedShapes= new ArrayList
+			
+        	buildQuerySeeds(resource.allContents.filter(Target).toList)
+			while(!adornedShapes.empty()){
+				val s_a = adornedShapes.pop;
+				for (r : resource.allContents.filter(ShapeConstraint).filter[c | c.shapeName.name == s_a.name && !c.shapeName.adorned].toIterable){
+					adorn(r)
+					generate(r)
+					modify(r)
+				} 
+				
+				for(d : resource.allContents.filter(ShapeConstraint).filter[c | c.dangerous && !c.shapeName.adorned && c.contains(s_a)].toIterable){
+					val d_s = swap(d,s_a)
+					adorn(d_s)
+					generate(d_s)
+				}
+			}
+        	
+        	fsa.generateFile(resource.URI.lastSegment.replace(".ttl", "_magic.ttl"), 
+        		'''«FOR namespace : resource.allContents.filter(Namespace).toIterable
+        			»@prefix «namespace.prefix» «namespace.namespace».
+        		«ENDFOR»
+        		
+        		«FOR ms : magicShapes SEPARATOR '.\n' AFTER '.'»
+					«ms.shapeName.name»
+						a sh:NodeShape « 
+						FOR exp : ms.shapeExpressions.filter[exp | !exp.toString.equals('T')] BEFORE ';\n' SEPARATOR ';'»
+						sh:node «exp»«
+						ENDFOR»«
+				ENDFOR»	
+				
+«				FOR ms : modifiedShapes SEPARATOR '\n.\n' AFTER '.'»
+«					ms.shapeName.name»
+	«				FOR exp : ms.shapeExpressions»«		
+						exp.expressionToString»«
+					ENDFOR»
+				«ENDFOR»
+        	''')
+        }
+	}
+	
+	def expressionToString(ShapeExpression exp){
+		var s = ''
+		s += exp.type.literal + ' ' 
+		
+		for(value : exp.values){
+			if (exp.type == PropertyType.PATTERN_CONSTRAINT_COMPONENT || 
+				exp.type == PropertyType.MESSAGE){
+				s += '\"' + value.name.replace('\\', '\\\\') + '\" '
+			}else 
+				s += value.name + ' ' 
+		}
+		if(exp.values.size > 0)
+			return s + ';\n';
+		
+		if(exp.type == PropertyType.OR_CONSTRAINT_COMPONENT || 
+			exp.type == PropertyType.AND_CONSTRAINT_COMPONENT) {
+			s += '(\n' 
+			for(subexp : exp.shapeExpressions)
+				s += '\t' + expressionToString(subexp).toString.replace('];', '\t]')
+			return s+= ');'
+		}else{
+			s += '[\n'
+			for(subexp : exp.shapeExpressions)
+				s += '\t' + expressionToString(subexp)
+			return s + '];\n'; 
+		}
+	}
+	
+	def buildQuerySeeds(List<Target> targets) {
+		for(Target t : targets){
+			adornedShapes.push(t.toShapeName)
+			magicShapes.add(t.getMagicQuerySeed)				
+		}
+	}
+	
+	def adorn(ShapeConstraint r) {
+		r.shapeName.adorned = true;
+		for(shapes : r.eAllContents.filter(Value).filter[v | v.isIdb].toList){
+			shapes.adorned = true;
+			adornedShapes.add(shapes.toShapeName)
+		}
+	}
+	
+	def generate(ShapeConstraint r) {
+		for(s_b : r.eAllContents.filter(Value).filter[v | v.isAdorned].toIterable){
+			var magicConstraint = new ShapeConstraintImpl
+			var magicExpression = new ShapeExpressionImpl
+			var magicValue = new ValueImpl
+			
+			val expression = (s_b.eContainer as ShapeExpression) 
+			if(expression.type == PropertyType.MAX_COUNT_CONSTRAINT_COMPONENT || 
+				expression.type == PropertyType.MIN_COUNT_CONSTRAINT_COMPONENT|| 
+				expression.type == PropertyType.PREDICATE_PATH
+			){
+				magicConstraint.shapeName = r.shapeName.magicShapeName
+				magicExpression.type = PropertyType.INVERSE_PATH
+				magicValue.name = s_b.name + '_magic'		
+			} else if (expression.type == PropertyType.INVERSE_PATH){
+				magicConstraint.shapeName = r.shapeName.magicShapeName
+				magicExpression.type = PropertyType.PREDICATE_PATH
+				magicValue.name = s_b.name + '_magic'
+			} else {
+				magicConstraint.shapeName = s_b.toShapeName.magicShapeName
+				magicExpression.type = PropertyType.PROPERTY
+				magicValue.name = r.shapeName.magicShapeName.name
+			}
+				
+			magicExpression.values.add(magicValue)
+			magicConstraint.shapeExpressions.add(magicExpression)
+				
+			if(!magicShapes.contains(magicConstraint))
+				magicShapes.add(magicConstraint)
+				
+		}
+	}
+	
+	def swap(ShapeConstraint constraint, ShapeName shapeName) {
+		var swapedConstraint = new ShapeConstraintImpl
+		var swapedExpression = new ShapeExpressionImpl
+		var swapedvalue = new ValueImpl
+		
+		val expression = constraint.eAllContents.filter(Value).findFirst[v | v.name.equals(shapeName.name)].eContainer as ShapeExpression
+		if(expression.type == PropertyType.MAX_COUNT_CONSTRAINT_COMPONENT || 
+			expression.type == PropertyType.MIN_COUNT_CONSTRAINT_COMPONENT|| 
+			expression.type == PropertyType.PREDICATE_PATH
+		){
+			swapedConstraint.shapeName = constraint.shapeName
+			swapedExpression.type = PropertyType.INVERSE_PATH
+			swapedvalue.name = shapeName.name	
+		} else if (expression.type == PropertyType.INVERSE_PATH){
+			swapedConstraint.shapeName = constraint.shapeName
+			swapedExpression.type = PropertyType.PREDICATE_PATH
+			swapedvalue.name = shapeName.name
+		} else {
+			swapedConstraint.shapeName = shapeName
+			swapedExpression.type = PropertyType.PROPERTY
+			swapedvalue.name = constraint.shapeName.name
+		}
+		
+		return swapedConstraint
+	}
+	
+	def modify(ShapeConstraint constraint) {
+		val magicExpression = new ShapeExpressionImpl
+		magicExpression.type = PropertyType.NODE_CONSTRAINT_COMPONENT
+		val magicValue = new ValueImpl
+		magicValue.name = constraint.shapeName.magicShapeName.name
+		magicExpression.values.add(magicValue)
+		constraint.shapeExpressions.add(magicExpression)
+		modifiedShapes.add(constraint)	
 	}
 	
 	def shapeExpressionToAbstractString(List<ShapeExpression> shapeExpressions){
 		val normalized = newArrayList
-	 	
+	
 		val path = getValuesOfProperty(shapeExpressions, PropertyType.PREDICATE_PATH)
 		val inversePath = getValuesOfProperty(shapeExpressions, PropertyType.INVERSE_PATH)
 		val maxCount = getValuesOfProperty(shapeExpressions, PropertyType.MAX_COUNT_CONSTRAINT_COMPONENT)
@@ -51,7 +219,7 @@ class TurtleGenerator extends AbstractGenerator {
 		val class = getValuesOfProperty(shapeExpressions, PropertyType.CLASS_CONSTRAINT_COMPONENT)
 		val node = getValuesOfProperty(shapeExpressions, PropertyType.NODE_CONSTRAINT_COMPONENT)
 		
-		var object = 'ADom'
+		var object = TRUE
 		if (class.size > 0 )
 			object = class.get(0).toString
 		else if (node.size > 0 )
@@ -77,6 +245,9 @@ class TurtleGenerator extends AbstractGenerator {
 		}
 		for(value : getValuesOfProperty(shapeExpressions, PropertyType.AND_CONSTRAINT_COMPONENT))
 			normalized.add(value)
+			
+		if(normalized.empty)
+			normalized.add(object);
 		
 		return normalized
 	}
