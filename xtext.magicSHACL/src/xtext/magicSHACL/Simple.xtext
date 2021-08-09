@@ -10,18 +10,17 @@ Graph returns Graph:
 	
 ShapesGraph returns ShapesGraph:
 	{ShapesGraph}
-		(targets+=Target)*
 		(shapeConstraints+=ShapeConstraint)*
 	;
 
 Target returns Target:
 	{Target}
-	name=UNICODE ('(' term=UNICODE ')')? '?'
+	'(' term=UNICODE ')'
 ;
 
 ShapeConstraint returns ShapeConstraint:
 	{ShapeConstraint} 
-	shapeName=ShapeName ':-' (shapeExpressions+=ShapeExpression) ';'
+	shapeName=ShapeName ((targets += Target '?') | (':-' (shapeExpressions+=ShapeExpression) ';'))
 ;
 
 ShapeName returns ShapeName:

@@ -52,81 +52,57 @@ public class SimpleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Simple.ShapesGraph");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cShapesGraphAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cTargetsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTargetsTargetParserRuleCall_1_0 = (RuleCall)cTargetsAssignment_1.eContents().get(0);
-		private final Assignment cShapeConstraintsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cShapeConstraintsShapeConstraintParserRuleCall_2_0 = (RuleCall)cShapeConstraintsAssignment_2.eContents().get(0);
+		private final Assignment cShapeConstraintsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cShapeConstraintsShapeConstraintParserRuleCall_1_0 = (RuleCall)cShapeConstraintsAssignment_1.eContents().get(0);
 		
 		//ShapesGraph:
-		//	{ShapesGraph} targets+=Target*
-		//	shapeConstraints+=ShapeConstraint*;
+		//	{ShapesGraph} shapeConstraints+=ShapeConstraint*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ShapesGraph} targets+=Target*
-		//shapeConstraints+=ShapeConstraint*
+		//{ShapesGraph} shapeConstraints+=ShapeConstraint*
 		public Group getGroup() { return cGroup; }
 		
 		//{ShapesGraph}
 		public Action getShapesGraphAction_0() { return cShapesGraphAction_0; }
 		
-		//targets+=Target*
-		public Assignment getTargetsAssignment_1() { return cTargetsAssignment_1; }
-		
-		//Target
-		public RuleCall getTargetsTargetParserRuleCall_1_0() { return cTargetsTargetParserRuleCall_1_0; }
-		
 		//shapeConstraints+=ShapeConstraint*
-		public Assignment getShapeConstraintsAssignment_2() { return cShapeConstraintsAssignment_2; }
+		public Assignment getShapeConstraintsAssignment_1() { return cShapeConstraintsAssignment_1; }
 		
 		//ShapeConstraint
-		public RuleCall getShapeConstraintsShapeConstraintParserRuleCall_2_0() { return cShapeConstraintsShapeConstraintParserRuleCall_2_0; }
+		public RuleCall getShapeConstraintsShapeConstraintParserRuleCall_1_0() { return cShapeConstraintsShapeConstraintParserRuleCall_1_0; }
 	}
 	public class TargetElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Simple.Target");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cTargetAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameUNICODETerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cTermAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cTermUNICODETerminalRuleCall_2_1_0 = (RuleCall)cTermAssignment_2_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
-		private final Keyword cQuestionMarkKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cTermAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTermUNICODETerminalRuleCall_2_0 = (RuleCall)cTermAssignment_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Target:
-		//	{Target} name=UNICODE ('(' term=UNICODE ')')? '?';
+		//	{Target}
+		//	'(' term=UNICODE ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Target} name=UNICODE ('(' term=UNICODE ')')? '?'
+		//{Target}
+		//'(' term=UNICODE ')'
 		public Group getGroup() { return cGroup; }
 		
 		//{Target}
 		public Action getTargetAction_0() { return cTargetAction_0; }
 		
-		//name=UNICODE
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//UNICODE
-		public RuleCall getNameUNICODETerminalRuleCall_1_0() { return cNameUNICODETerminalRuleCall_1_0; }
-		
-		//('(' term=UNICODE ')')?
-		public Group getGroup_2() { return cGroup_2; }
-		
 		//'('
-		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
 		//term=UNICODE
-		public Assignment getTermAssignment_2_1() { return cTermAssignment_2_1; }
+		public Assignment getTermAssignment_2() { return cTermAssignment_2; }
 		
 		//UNICODE
-		public RuleCall getTermUNICODETerminalRuleCall_2_1_0() { return cTermUNICODETerminalRuleCall_2_1_0; }
+		public RuleCall getTermUNICODETerminalRuleCall_2_0() { return cTermUNICODETerminalRuleCall_2_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
-		
-		//'?'
-		public Keyword getQuestionMarkKeyword_3() { return cQuestionMarkKeyword_3; }
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 	public class ShapeConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Simple.ShapeConstraint");
@@ -134,16 +110,22 @@ public class SimpleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Action cShapeConstraintAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cShapeNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cShapeNameShapeNameParserRuleCall_1_0 = (RuleCall)cShapeNameAssignment_1.eContents().get(0);
-		private final Keyword cColonHyphenMinusKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cShapeExpressionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cShapeExpressionsShapeExpressionParserRuleCall_3_0 = (RuleCall)cShapeExpressionsAssignment_3.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
+		private final Assignment cTargetsAssignment_2_0_0 = (Assignment)cGroup_2_0.eContents().get(0);
+		private final RuleCall cTargetsTargetParserRuleCall_2_0_0_0 = (RuleCall)cTargetsAssignment_2_0_0.eContents().get(0);
+		private final Keyword cQuestionMarkKeyword_2_0_1 = (Keyword)cGroup_2_0.eContents().get(1);
+		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
+		private final Keyword cColonHyphenMinusKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cShapeExpressionsAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cShapeExpressionsShapeExpressionParserRuleCall_2_1_1_0 = (RuleCall)cShapeExpressionsAssignment_2_1_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2_1_2 = (Keyword)cGroup_2_1.eContents().get(2);
 		
 		//ShapeConstraint:
-		//	{ShapeConstraint} shapeName=ShapeName ':-' shapeExpressions+=ShapeExpression ';';
+		//	{ShapeConstraint} shapeName=ShapeName (targets+=Target '?' | ':-' shapeExpressions+=ShapeExpression ';');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ShapeConstraint} shapeName=ShapeName ':-' shapeExpressions+=ShapeExpression ';'
+		//{ShapeConstraint} shapeName=ShapeName (targets+=Target '?' | ':-' shapeExpressions+=ShapeExpression ';')
 		public Group getGroup() { return cGroup; }
 		
 		//{ShapeConstraint}
@@ -155,17 +137,35 @@ public class SimpleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//ShapeName
 		public RuleCall getShapeNameShapeNameParserRuleCall_1_0() { return cShapeNameShapeNameParserRuleCall_1_0; }
 		
+		//(targets+=Target '?' | ':-' shapeExpressions+=ShapeExpression ';')
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		
+		//targets+=Target '?'
+		public Group getGroup_2_0() { return cGroup_2_0; }
+		
+		//targets+=Target
+		public Assignment getTargetsAssignment_2_0_0() { return cTargetsAssignment_2_0_0; }
+		
+		//Target
+		public RuleCall getTargetsTargetParserRuleCall_2_0_0_0() { return cTargetsTargetParserRuleCall_2_0_0_0; }
+		
+		//'?'
+		public Keyword getQuestionMarkKeyword_2_0_1() { return cQuestionMarkKeyword_2_0_1; }
+		
+		//':-' shapeExpressions+=ShapeExpression ';'
+		public Group getGroup_2_1() { return cGroup_2_1; }
+		
 		//':-'
-		public Keyword getColonHyphenMinusKeyword_2() { return cColonHyphenMinusKeyword_2; }
+		public Keyword getColonHyphenMinusKeyword_2_1_0() { return cColonHyphenMinusKeyword_2_1_0; }
 		
 		//shapeExpressions+=ShapeExpression
-		public Assignment getShapeExpressionsAssignment_3() { return cShapeExpressionsAssignment_3; }
+		public Assignment getShapeExpressionsAssignment_2_1_1() { return cShapeExpressionsAssignment_2_1_1; }
 		
 		//ShapeExpression
-		public RuleCall getShapeExpressionsShapeExpressionParserRuleCall_3_0() { return cShapeExpressionsShapeExpressionParserRuleCall_3_0; }
+		public RuleCall getShapeExpressionsShapeExpressionParserRuleCall_2_1_1_0() { return cShapeExpressionsShapeExpressionParserRuleCall_2_1_1_0; }
 		
 		//';'
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+		public Keyword getSemicolonKeyword_2_1_2() { return cSemicolonKeyword_2_1_2; }
 	}
 	public class ShapeNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.magicSHACL.Simple.ShapeName");
@@ -452,8 +452,7 @@ public class SimpleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//ShapesGraph:
-	//	{ShapesGraph} targets+=Target*
-	//	shapeConstraints+=ShapeConstraint*;
+	//	{ShapesGraph} shapeConstraints+=ShapeConstraint*;
 	public ShapesGraphElements getShapesGraphAccess() {
 		return pShapesGraph;
 	}
@@ -463,7 +462,8 @@ public class SimpleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//Target:
-	//	{Target} name=UNICODE ('(' term=UNICODE ')')? '?';
+	//	{Target}
+	//	'(' term=UNICODE ')';
 	public TargetElements getTargetAccess() {
 		return pTarget;
 	}
@@ -473,7 +473,7 @@ public class SimpleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//ShapeConstraint:
-	//	{ShapeConstraint} shapeName=ShapeName ':-' shapeExpressions+=ShapeExpression ';';
+	//	{ShapeConstraint} shapeName=ShapeName (targets+=Target '?' | ':-' shapeExpressions+=ShapeExpression ';');
 	public ShapeConstraintElements getShapeConstraintAccess() {
 		return pShapeConstraint;
 	}

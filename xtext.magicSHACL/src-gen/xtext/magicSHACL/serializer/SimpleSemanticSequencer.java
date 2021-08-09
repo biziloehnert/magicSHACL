@@ -87,7 +87,7 @@ public class SimpleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ShapeConstraint returns ShapeConstraint
 	 *
 	 * Constraint:
-	 *     (shapeName=ShapeName shapeExpressions+=ShapeExpression)
+	 *     (shapeName=ShapeName (targets+=Target | shapeExpressions+=ShapeExpression))
 	 */
 	protected void sequence_ShapeConstraint(ISerializationContext context, ShapeConstraint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -129,7 +129,7 @@ public class SimpleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ShapesGraph returns ShapesGraph
 	 *
 	 * Constraint:
-	 *     (targets+=Target* shapeConstraints+=ShapeConstraint*)
+	 *     shapeConstraints+=ShapeConstraint*
 	 */
 	protected void sequence_ShapesGraph(ISerializationContext context, ShapesGraph semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -141,10 +141,16 @@ public class SimpleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Target returns Target
 	 *
 	 * Constraint:
-	 *     (name=UNICODE term=UNICODE?)
+	 *     term=UNICODE
 	 */
 	protected void sequence_Target(ISerializationContext context, Target semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MagicSHACLPackage.Literals.TARGET__TERM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MagicSHACLPackage.Literals.TARGET__TERM));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTargetAccess().getTermUNICODETerminalRuleCall_2_0(), semanticObject.getTerm());
+		feeder.finish();
 	}
 	
 	

@@ -132,28 +132,9 @@ ruleShapesGraph returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getShapesGraphAccess().getTargetsTargetParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getShapesGraphAccess().getShapeConstraintsShapeConstraintParserRuleCall_1_0());
 				}
-				lv_targets_1_0=ruleTarget
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getShapesGraphRule());
-					}
-					add(
-						$current,
-						"targets",
-						lv_targets_1_0,
-						"xtext.magicSHACL.Simple.Target");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getShapesGraphAccess().getShapeConstraintsShapeConstraintParserRuleCall_2_0());
-				}
-				lv_shapeConstraints_2_0=ruleShapeConstraint
+				lv_shapeConstraints_1_0=ruleShapeConstraint
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getShapesGraphRule());
@@ -161,7 +142,7 @@ ruleShapesGraph returns [EObject current=null]
 					add(
 						$current,
 						"shapeConstraints",
-						lv_shapeConstraints_2_0,
+						lv_shapeConstraints_1_0,
 						"xtext.magicSHACL.Simple.ShapeConstraint");
 					afterParserOrEnumRuleCall();
 				}
@@ -193,11 +174,15 @@ ruleTarget returns [EObject current=null]
 					$current);
 			}
 		)
+		otherlv_1='('
+		{
+			newLeafNode(otherlv_1, grammarAccess.getTargetAccess().getLeftParenthesisKeyword_1());
+		}
 		(
 			(
-				lv_name_1_0=RULE_UNICODE
+				lv_term_2_0=RULE_UNICODE
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getTargetAccess().getNameUNICODETerminalRuleCall_1_0());
+					newLeafNode(lv_term_2_0, grammarAccess.getTargetAccess().getTermUNICODETerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -205,43 +190,15 @@ ruleTarget returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"name",
-						lv_name_1_0,
+						"term",
+						lv_term_2_0,
 						"xtext.magicSHACL.Simple.UNICODE");
 				}
 			)
 		)
-		(
-			otherlv_2='('
-			{
-				newLeafNode(otherlv_2, grammarAccess.getTargetAccess().getLeftParenthesisKeyword_2_0());
-			}
-			(
-				(
-					lv_term_3_0=RULE_UNICODE
-					{
-						newLeafNode(lv_term_3_0, grammarAccess.getTargetAccess().getTermUNICODETerminalRuleCall_2_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getTargetRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"term",
-							lv_term_3_0,
-							"xtext.magicSHACL.Simple.UNICODE");
-					}
-				)
-			)
-			otherlv_4=')'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getTargetAccess().getRightParenthesisKeyword_2_2());
-			}
-		)?
-		otherlv_5='?'
+		otherlv_3=')'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getTargetAccess().getQuestionMarkKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getTargetAccess().getRightParenthesisKeyword_3());
 		}
 	)
 ;
@@ -288,33 +245,63 @@ ruleShapeConstraint returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2=':-'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getShapeConstraintAccess().getColonHyphenMinusKeyword_2());
-		}
 		(
 			(
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getShapeConstraintAccess().getTargetsTargetParserRuleCall_2_0_0_0());
+						}
+						lv_targets_2_0=ruleTarget
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getShapeConstraintRule());
+							}
+							add(
+								$current,
+								"targets",
+								lv_targets_2_0,
+								"xtext.magicSHACL.Simple.Target");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				otherlv_3='?'
 				{
-					newCompositeNode(grammarAccess.getShapeConstraintAccess().getShapeExpressionsShapeExpressionParserRuleCall_3_0());
+					newLeafNode(otherlv_3, grammarAccess.getShapeConstraintAccess().getQuestionMarkKeyword_2_0_1());
 				}
-				lv_shapeExpressions_3_0=ruleShapeExpression
+			)
+			    |
+			(
+				otherlv_4=':-'
 				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getShapeConstraintRule());
-					}
-					add(
-						$current,
-						"shapeExpressions",
-						lv_shapeExpressions_3_0,
-						"xtext.magicSHACL.Simple.ShapeExpression");
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_4, grammarAccess.getShapeConstraintAccess().getColonHyphenMinusKeyword_2_1_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getShapeConstraintAccess().getShapeExpressionsShapeExpressionParserRuleCall_2_1_1_0());
+						}
+						lv_shapeExpressions_5_0=ruleShapeExpression
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getShapeConstraintRule());
+							}
+							add(
+								$current,
+								"shapeExpressions",
+								lv_shapeExpressions_5_0,
+								"xtext.magicSHACL.Simple.ShapeExpression");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				otherlv_6=';'
+				{
+					newLeafNode(otherlv_6, grammarAccess.getShapeConstraintAccess().getSemicolonKeyword_2_1_2());
 				}
 			)
 		)
-		otherlv_4=';'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getShapeConstraintAccess().getSemicolonKeyword_4());
-		}
 	)
 ;
 

@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.util.EcoreUtil
 
 /**
  * Generates code from your model files on save.
@@ -37,19 +39,48 @@ class TurtleGenerator extends AbstractGenerator {
 			fsa.generateFile(resource.URI.lastSegment.replace(".ttl", ".simple"), '''
 	            «FOR constraint : resource.allContents.filter(ShapeConstraint).toIterable»«
 	            	val shapes = shapeExpressionToAbstractString(constraint.shapeExpressions)»«
-	            	constraint.shapeName.name» :- «
+	            	constraint.shapeName.name.split(':').last» :- «
 	            	IF shapes.size == 1»«
 	            		shapes.get(0)» ;  
 	 				«ELSE»
 	 					«FOR shape : shapes SEPARATOR ' AND ' AFTER ';\n'»«
-	            			constraint.shapeName.name»_S«shapes.indexOf(shape)»«
+	            			constraint.shapeName.name.split(':').last»S«shapes.indexOf(shape)»«
 	            		ENDFOR»«
 	            		FOR shape : shapes SEPARATOR ';\n' AFTER ';\n'»«
-	            			constraint.shapeName.name»_S«shapes.indexOf(shape)» :- «shape»«
+	            			constraint.shapeName.name.split(':').last»S«shapes.indexOf(shape)» :- «shape»«
 	            		ENDFOR»	
 	            	«ENDIF»«
 	             ENDFOR»
 	        ''')
+	        
+	        /*for(ShapeConstraint c : resource.allContents.filter(ShapeConstraint).toIterable){
+	        	fsa.generateFile(resource.URI.lastSegment.replace(".ttl", "_" + c.shapeName.name + ".json"), '''
+	        	{
+	        		"name": "«c.shapeName.name»", 
+	        		«IF !c.eAllContents.filter(ShapeExpression).filter[e | e.type.equals(PropertyType.TARGET_CLASS)].empty»
+	        		"targetDef": {
+        				"query":"SELECT ?x WHERE {?x a «
+        					FOR exp : c.eAllContents.filter(ShapeExpression).filter[e | e.type.equals(PropertyType.TARGET_CLASS)].toIterable»«
+        						exp.values.get(0).name»«
+        					ENDFOR» }",
+        				"class": "«
+        					FOR exp : c.eAllContents.filter(ShapeExpression).filter[e | e.type.equals(PropertyType.TARGET_CLASS)].toIterable»«
+        						exp.values.get(0).name»«
+        					ENDFOR»"
+	        		},
+	        		«ENDIF»
+	        		"constraintDef" : {
+	        			"conjunctions" : [
+	        				[
+	        					«FOR exp : c.shapeExpressions.shapeExpressionToJsonString BEFORE '{' SEPARATOR '}, \n\t{' AFTER '}'»«
+	        						exp»«
+	        					ENDFOR»
+	        				]	
+	        			]
+	        		}
+	        	}
+	        ''')	
+	        }*/
         }
         
         //magic algorithm
@@ -82,12 +113,12 @@ class TurtleGenerator extends AbstractGenerator {
         		«FOR ms : magicShapes SEPARATOR '.\n' AFTER '.'»
 					«ms.shapeName.name»
 						a sh:NodeShape « 
-						FOR exp : ms.shapeExpressions.filter[exp | !exp.toString.equals('T')] BEFORE ';\n' SEPARATOR ';'»
-						sh:node «exp»«
+						FOR exp : ms.shapeExpressions.filter[exp | !exp.toString.equals('T')] BEFORE ';\n' »
+						«exp.expressionToString»«
 						ENDFOR»«
 				ENDFOR»	
 				
-«				FOR ms : modifiedShapes SEPARATOR '\n.\n' AFTER '.'»
+«				FOR ms : modifiedShapes SEPARATOR '\n.\n' AFTER '\n.'»
 «					ms.shapeName.name»
 	«				FOR exp : ms.shapeExpressions»«		
 						exp.expressionToString»«
@@ -127,7 +158,7 @@ class TurtleGenerator extends AbstractGenerator {
 	
 	def buildQuerySeeds(List<Target> targets) {
 		for(Target t : targets){
-			adornedShapes.push(t.toShapeName)
+			adornedShapes.push(t.shapeName)
 			magicShapes.add(t.getMagicQuerySeed)				
 		}
 	}
@@ -141,35 +172,44 @@ class TurtleGenerator extends AbstractGenerator {
 	}
 	
 	def generate(ShapeConstraint r) {
-		for(s_b : r.eAllContents.filter(Value).filter[v | v.isAdorned].toIterable){
-			var magicConstraint = new ShapeConstraintImpl
+		for(expression : r.eAllContents.filter(ShapeExpression).filter[e | !e.values.filter[v | v.isAdorned].empty].toIterable){
+			var ShapeConstraint magicConstraint
 			var magicExpression = new ShapeExpressionImpl
 			var magicValue = new ValueImpl
 			
-			val expression = (s_b.eContainer as ShapeExpression) 
-			if(expression.type == PropertyType.MAX_COUNT_CONSTRAINT_COMPONENT || 
-				expression.type == PropertyType.MIN_COUNT_CONSTRAINT_COMPONENT|| 
-				expression.type == PropertyType.PREDICATE_PATH
-			){
-				magicConstraint.shapeName = r.shapeName.magicShapeName
-				magicExpression.type = PropertyType.INVERSE_PATH
-				magicValue.name = s_b.name + '_magic'		
-			} else if (expression.type == PropertyType.INVERSE_PATH){
-				magicConstraint.shapeName = r.shapeName.magicShapeName
-				magicExpression.type = PropertyType.PREDICATE_PATH
-				magicValue.name = s_b.name + '_magic'
-			} else {
-				magicConstraint.shapeName = s_b.toShapeName.magicShapeName
-				magicExpression.type = PropertyType.PROPERTY
-				magicValue.name = r.shapeName.magicShapeName.name
+			val s_b = expression.values.findFirst[v | v.isAdorned]
+			val container = expression.eContainer 
+			
+			var ShapeExpression pathExpression 
+		
+			var pathExp = container.eAllContents.filter(ShapeExpression).findFirst[e | e.type == PropertyType.PREDICATE_PATH]
+			var inversePathExp = container.eAllContents.filter(ShapeExpression).findFirst[e | e.type == PropertyType.INVERSE_PATH]
+			
+			if (inversePathExp !== null){
+				pathExpression = EcoreUtil.copy(inversePathExp)
+				pathExpression.type = PropertyType.PREDICATE_PATH
+			} else if(pathExp !== null){
+				pathExpression = EcoreUtil.copy(pathExp)
+				pathExpression.type = PropertyType.INVERSE_PATH
 			}
+			
+			magicConstraint = magicShapes.findFirst[ms | ms.shapeName.name.equals(s_b.toShapeName.magicShapeName.name)]
+			if(magicConstraint === null){
+				magicConstraint = new ShapeConstraintImpl
+				magicConstraint.shapeName = s_b.toShapeName.magicShapeName
+			}
+			
+			magicExpression.type = PropertyType.NODE_CONSTRAINT_COMPONENT
+			if(pathExpression !== null)
+				magicConstraint.shapeExpressions.add(pathExpression)
+			
+			magicValue.name = r.shapeName.magicShapeName.name
 				
 			magicExpression.values.add(magicValue)
 			magicConstraint.shapeExpressions.add(magicExpression)
 				
 			if(!magicShapes.contains(magicConstraint))
 				magicShapes.add(magicConstraint)
-				
 		}
 	}
 	
@@ -177,24 +217,19 @@ class TurtleGenerator extends AbstractGenerator {
 		var swapedConstraint = new ShapeConstraintImpl
 		var swapedExpression = new ShapeExpressionImpl
 		var swapedvalue = new ValueImpl
-		
 		val expression = constraint.eAllContents.filter(Value).findFirst[v | v.name.equals(shapeName.name)].eContainer as ShapeExpression
 		if(expression.type == PropertyType.MAX_COUNT_CONSTRAINT_COMPONENT || 
 			expression.type == PropertyType.MIN_COUNT_CONSTRAINT_COMPONENT|| 
 			expression.type == PropertyType.PREDICATE_PATH
-		){
-			swapedConstraint.shapeName = constraint.shapeName
-			swapedExpression.type = PropertyType.INVERSE_PATH
-			swapedvalue.name = shapeName.name	
-		} else if (expression.type == PropertyType.INVERSE_PATH){
-			swapedConstraint.shapeName = constraint.shapeName
+		)
+			swapedExpression.type = PropertyType.INVERSE_PATH	
+		else if (expression.type == PropertyType.INVERSE_PATH)
 			swapedExpression.type = PropertyType.PREDICATE_PATH
-			swapedvalue.name = shapeName.name
-		} else {
-			swapedConstraint.shapeName = shapeName
+		else		
 			swapedExpression.type = PropertyType.PROPERTY
-			swapedvalue.name = constraint.shapeName.name
-		}
+		
+		swapedConstraint.shapeName = shapeName
+		swapedvalue.name = constraint.shapeName.name
 		
 		return swapedConstraint
 	}
@@ -209,6 +244,48 @@ class TurtleGenerator extends AbstractGenerator {
 		modifiedShapes.add(constraint)	
 	}
 	
+	def shapeExpressionToJsonString(List<ShapeExpression> shapeExpressions){
+		val jsonString = newArrayList
+		
+		val path = getValuesOfProperty(shapeExpressions, PropertyType.PREDICATE_PATH)
+		val inversePath = getValuesOfProperty(shapeExpressions, PropertyType.INVERSE_PATH)
+		val maxCount = getValuesOfProperty(shapeExpressions, PropertyType.MAX_COUNT_CONSTRAINT_COMPONENT)
+		val minCount = getValuesOfProperty(shapeExpressions, PropertyType.MIN_COUNT_CONSTRAINT_COMPONENT)
+		val class = getValuesOfProperty(shapeExpressions, PropertyType.CLASS_CONSTRAINT_COMPONENT)
+		val node = getValuesOfProperty(shapeExpressions, PropertyType.NODE_CONSTRAINT_COMPONENT)
+		val negated = getValuesOfProperty(shapeExpressions, PropertyType.NOT_CONSTRAINT_COMPONENT)
+		
+		var pathString = ''
+		if(path.size > 0)
+			pathString += path.get(0)
+		else if(inversePath.size > 0)
+			pathString += '^' + inversePath.get(0) 
+			
+		var subString = ''
+		if (class.size > 0 )
+			subString += ', \"value\": \"' + class.get(0).toString
+		if (node.size > 0 )
+			subString += ', \"shape\": \"' + node.get(0).toString
+		if (negated.size > 0)
+			subString += ', \"negated\": true\"'
+			
+		if(maxCount.size > 0)
+			jsonString.add('\"path\" : \"' + pathString + '\", ' + '\"max \": ' + maxCount.get(0) + subString)
+		if(minCount.size > 0)
+			jsonString.add('\"path\" : \"' + pathString + '\", ' + '\"min \": ' + minCount.get(0) + subString)
+		if(maxCount.size == 0 && minCount.size == 0 && !pathString.blank)
+			jsonString.add('\"path\" : \"' + pathString + subString)
+		
+		return jsonString
+	}
+	
+	def shapeConstraint(EObject exp){
+		if(exp.eContainer instanceof ShapeConstraint)
+			return exp.eContainer
+		
+		return shapeConstraint(exp.eContainer)
+	}
+	
 	def shapeExpressionToAbstractString(List<ShapeExpression> shapeExpressions){
 		val normalized = newArrayList
 	
@@ -218,36 +295,72 @@ class TurtleGenerator extends AbstractGenerator {
 		val minCount = getValuesOfProperty(shapeExpressions, PropertyType.MIN_COUNT_CONSTRAINT_COMPONENT)
 		val class = getValuesOfProperty(shapeExpressions, PropertyType.CLASS_CONSTRAINT_COMPONENT)
 		val node = getValuesOfProperty(shapeExpressions, PropertyType.NODE_CONSTRAINT_COMPONENT)
+		val hasValue = getValuesOfProperty(shapeExpressions, PropertyType.HAS_VALUE_CONSTRAINT_COMPONENT);
+		
+		val qualifiedMinCount = getValuesOfProperty(shapeExpressions, PropertyType.QUALIFIED_MIN_COUNT);
+		val qualifiedMaxCount = getValuesOfProperty(shapeExpressions, PropertyType.QUALIFIED_MAX_COUNT);
+		val qualifiedValueShape = getValuesOfProperty(shapeExpressions, PropertyType.QUALIFIED_VALUE_SHAPE);
 		
 		var object = TRUE
 		if (class.size > 0 )
 			object = class.get(0).toString
 		else if (node.size > 0 )
 			object = node.get(0).toString
+		else if (hasValue.size > 0)
+			object = hasValue.get(0).toString //.toLowerCase
+		else if(qualifiedValueShape.size > 0){
+			object = ''
+			for(qualifiedValue : qualifiedValueShape)
+				object += qualifiedValue
+		}	
 		
-		if(maxCount.size > 0)
-			normalized.add('MAX ' + maxCount.get(0) + ' ' + path.get(0) + ' ' + object)
-		if(minCount.size > 0)
-			normalized.add('MIN ' + minCount.get(0) + ' ' + path.get(0) + ' ' + object)
-		if(maxCount.size == 0 && minCount.size == 0 && path.size > 0)
-			normalized.add('SOME ' + path.get(0) + ' ' + object)
+		object = object.split(':').last
+		
+		var pathString = ''
 		if(inversePath.size > 0)
-			normalized.add('^' + inversePath.get(0)) 
+			pathString = '^' + inversePath.get(0).toString.split(':').last
+		else if(path.size > 0)
+			pathString = path.get(0).toString.split(':').last
 		
-		for(value : getValuesOfProperty(shapeExpressions, PropertyType.OR_CONSTRAINT_COMPONENT))
-			normalized.add(value)
+		if(minCount.size > 0)
+			normalized.add('MIN ' + minCount.get(0) + ' ' + pathString + ' ' + object)
+		if(maxCount.size > 0){
+			val newShapeName = (shapeExpressions.get(0).shapeConstraint as ShapeConstraint).shapeName.name.split(':').last + 'N' + normalized.size
+			normalized.add('NOT ' + newShapeName + ';\n' + newShapeName + ' :- ' + 'MIN ' + (Integer.parseInt(maxCount.get(0).toString)+1) + ' ' + pathString + ' ' + object)
+		}
+		if(maxCount.size == 0 && minCount.size == 0 &&qualifiedMinCount.size == 0 && qualifiedMaxCount.size == 0 && (path.size > 0 || inversePath.size > 0))
+			normalized.add('SOME ' + pathString + ' ' + object)
+			
+		if(qualifiedMaxCount.size > 0){
+			val newShapeName = (shapeExpressions.get(0).shapeConstraint as ShapeConstraint).shapeName.name.split(':').last + 'N' + normalized.size
+			normalized.add('NOT ' + newShapeName + ';\n' + newShapeName + ' :- ' + 'MIN ' + (Integer.parseInt(qualifiedMaxCount.get(0).toString)+1) + ' ' + pathString + ' ' + object)
+		}
+		if(qualifiedMinCount.size > 0)
+			normalized.add('MIN ' + qualifiedMinCount.get(0) + ' ' + pathString + ' ' + object)	
+		
+		if(normalized.empty && object != TRUE)
+			normalized.add(object);
+		
+		var or = ''
+		var orValues = newArrayList
+		for(value : getValuesOfProperty(shapeExpressions, PropertyType.OR_CONSTRAINT_COMPONENT)){
+			val newShapeName = (shapeExpressions.get(0).shapeConstraint as ShapeConstraint).shapeName.name.split(':').last + 'O' + orValues.size
+			orValues.add(';\n' + newShapeName + ' :- ' + value)
+			or += ' OR ' + newShapeName
+		}
+		
+		if(orValues.size > 0)
+			normalized.add(or.substring(4) + orValues.join)
+		
 		for(value : getValuesOfProperty(shapeExpressions, PropertyType.PROPERTY))
 			normalized.add(value)
 		val notValues = getValuesOfProperty(shapeExpressions, PropertyType.NOT_CONSTRAINT_COMPONENT)
 		for(value : notValues){
-			val newShapeName = (shapeExpressions.get(0).eContainer as ShapeConstraint).shapeName.name + '_S' + normalized.size
-			normalized.add('NOT ' + newShapeName + ';\n' + newShapeName + ' :- ' + value)
+			val newShapeName = (shapeExpressions.get(0).eContainer as ShapeConstraint).shapeName.name.split(':').last + 'N' + normalized.size
+			normalized.add('NOT ' + newShapeName + ';\n' + newShapeName + ' :- ' + value.toString.split(':').last)
 		}
 		for(value : getValuesOfProperty(shapeExpressions, PropertyType.AND_CONSTRAINT_COMPONENT))
 			normalized.add(value)
-			
-		if(normalized.empty)
-			normalized.add(object);
 		
 		return normalized
 	}
@@ -258,16 +371,11 @@ class TurtleGenerator extends AbstractGenerator {
 		
 		var properties = ''
 		for(expression : expressions){
-			if(expression.shapeExpressions.size > 0)
-				values.addAll(shapeExpressionToAbstractString(expression.shapeExpressions))
 			if (type == PropertyType.OR_CONSTRAINT_COMPONENT){
-				var s = ''
 				for(subexp : expression.shapeExpressions)
-					if(!subexp.abstractString.blank)
-						s += 'OR ' + subexp.abstractString
-				if(s.length > 4)
-						values.add(s.substring(3))
-			} 
+					values.addAll(shapeExpressionToAbstractString(subexp.shapeExpressions));
+			}else if(expression.shapeExpressions.size > 0)
+				values.addAll(shapeExpressionToAbstractString(expression.shapeExpressions))
 			if (expression.values.size > 0)
 				properties += ' AND ' + expression.values.get(0).name
 		}

@@ -30,7 +30,7 @@ PredicateObject returns PredicateObject:
 
 Subject returns Subject:
 	{Subject}
-	name=EString;
+	name=(EString | IRI);
 
 Predicate returns Predicate:
 	{Predicate}
@@ -47,24 +47,29 @@ ShapesGraph returns ShapesGraph:
 
 ShapeConstraint returns ShapeConstraint:
 	{ShapeConstraint} 
-	shapeName=ShapeName
-		shapeExpressions+=ShapeExpression+
+	shapeName=ShapeName 
+		(targets+=Target | 
+		shapeExpressions+=ShapeExpression)+
 	'.'
+;
+
+Target returns Target:
+	{Target}
+	type=('sh:targetClass' | 'sh:targetNode') term=(EString | IRI) ';'
 ;
 
 ShapeName returns ShapeName:
 	{ShapeName}
-	name=EString;
+	name= (IRI | EString) ;
 
 ShapeExpression returns ShapeExpression:
 	{ShapeExpression}
-	(ID 'sh:NodeShape' ';') | 
-	(type=PropertyType '('? ( values+=Value | '[' shapeExpressions+=ShapeExpression* ']')* ')'? ';'?)
+	((type=PropertyType values+=Value (',' values+=Value)*) | (type=PropertyType'(' (values+=Value | shapeExpressions+=ShapeExpression*) ')') | (type=PropertyType? '[' shapeExpressions+=ShapeExpression* ']'))  ';'?
 ;
 
 Value returns Value:
 	{Value}
-	name=EString ('^^' xsdType=EString)?;
+	name=(EString | IRI) ID? ('^^' xsdType=EString)? ;
 
 enum PropertyType:
 	MinCountConstraintComponent='sh:minCount' | 
@@ -83,16 +88,21 @@ enum PropertyType:
 	PredicatePath='sh:path' | 
 	InversePath='sh:inversePath' |
 	Property='sh:property' | 
-	Name='sh:name' | 
-	TargetClass='sh:targetClass' | 
-	TargetNode='sh:targetNode' | 
+	Name='sh:name' |  
 	Message='sh:message' | 
+	EqualsConstraintComponent='sh:equals' |
 	MinExclusiveConstraintComponent='sh:minExclusive' | 
 	MinInclusiveConstraintComponent='sh:minInclusive' | 
 	MaxExclusiveConstraintComponent='sh:maxExclusive' | 
 	MaxInclusiveConstraintComponent='sh:maxInclusive' | 
 	MaxLengthConstraintComponent='sh:maxLength' | 
-	MinLengthConstraintComponent='sh:minLength'
+	MinLengthConstraintComponent='sh:minLength' |
+	QualifiedValueShape='sh:qualifiedValueShape' | 
+	QualifiedMaxCount='sh:qualifiedMaxCount'|
+	QualifiedMinCount='sh:qualifiedMinCount'|
+	InstanceOf='a' | 
+	RdfsLabel='rdfs:label' |
+	Description='sh:description'
 ;
 
 @Override 
@@ -105,8 +115,8 @@ terminal IRI:
 
 @Override 
 terminal ID:
-    ('a'..'z'|'A'..'Z'|'_'|'0'..'9'('.''0'..'9')?|':'|'-')*;
+    '@'?('a'..'z'|'A'..'Z'|'_'|'0'..'9'('.''0'..'9')?|':'|'-')*;
 
 EString returns ecore::EString:
-	STRING | ID 
+	STRING | ID
 ;

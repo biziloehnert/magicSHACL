@@ -108,7 +108,6 @@ public class ShapesGraphItemProvider extends ItemProviderAdapter implements IEdi
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MagicSHACLPackage.Literals.SHAPES_GRAPH__SHAPE_CONSTRAINTS);
-			childrenFeatures.add(MagicSHACLPackage.Literals.SHAPES_GRAPH__TARGETS);
 		}
 		return childrenFeatures;
 	}
@@ -177,7 +176,6 @@ public class ShapesGraphItemProvider extends ItemProviderAdapter implements IEdi
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case MagicSHACLPackage.SHAPES_GRAPH__SHAPE_CONSTRAINTS:
-		case MagicSHACLPackage.SHAPES_GRAPH__TARGETS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -197,9 +195,6 @@ public class ShapesGraphItemProvider extends ItemProviderAdapter implements IEdi
 
 		newChildDescriptors.add(createChildParameter(MagicSHACLPackage.Literals.SHAPES_GRAPH__SHAPE_CONSTRAINTS,
 				MagicSHACLFactory.eINSTANCE.createShapeConstraint()));
-
-		newChildDescriptors.add(createChildParameter(MagicSHACLPackage.Literals.SHAPES_GRAPH__TARGETS,
-				MagicSHACLFactory.eINSTANCE.createTarget()));
 	}
 
 	/**

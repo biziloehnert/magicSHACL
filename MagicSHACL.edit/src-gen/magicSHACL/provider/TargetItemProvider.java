@@ -53,7 +53,7 @@ public class TargetItemProvider extends ItemProviderAdapter implements IEditingD
 			super.getPropertyDescriptors(object);
 
 			addTermPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,17 +74,17 @@ public class TargetItemProvider extends ItemProviderAdapter implements IEditingD
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Target_name_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Target_name_feature", "_UI_Target_type"),
-						MagicSHACLPackage.Literals.TARGET__NAME, true, false, false,
+						getResourceLocator(), getString("_UI_Target_type_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Target_type_feature", "_UI_Target_type"),
+						MagicSHACLPackage.Literals.TARGET__TYPE, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -117,7 +117,7 @@ public class TargetItemProvider extends ItemProviderAdapter implements IEditingD
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Target) object).getName();
+		String label = ((Target) object).getTerm();
 		return label == null || label.length() == 0 ? getString("_UI_Target_type")
 				: getString("_UI_Target_type") + " " + label;
 	}
@@ -135,7 +135,7 @@ public class TargetItemProvider extends ItemProviderAdapter implements IEditingD
 
 		switch (notification.getFeatureID(Target.class)) {
 		case MagicSHACLPackage.TARGET__TERM:
-		case MagicSHACLPackage.TARGET__NAME:
+		case MagicSHACLPackage.TARGET__TYPE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

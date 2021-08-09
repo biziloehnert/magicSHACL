@@ -123,6 +123,7 @@ public class ShapeConstraintItemProvider extends ItemProviderAdapter implements 
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MagicSHACLPackage.Literals.SHAPE_CONSTRAINT__SHAPE_NAME);
 			childrenFeatures.add(MagicSHACLPackage.Literals.SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS);
+			childrenFeatures.add(MagicSHACLPackage.Literals.SHAPE_CONSTRAINT__TARGETS);
 		}
 		return childrenFeatures;
 	}
@@ -192,6 +193,7 @@ public class ShapeConstraintItemProvider extends ItemProviderAdapter implements 
 			return;
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__SHAPE_NAME:
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS:
+		case MagicSHACLPackage.SHAPE_CONSTRAINT__TARGETS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -214,6 +216,9 @@ public class ShapeConstraintItemProvider extends ItemProviderAdapter implements 
 
 		newChildDescriptors.add(createChildParameter(MagicSHACLPackage.Literals.SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS,
 				MagicSHACLFactory.eINSTANCE.createShapeExpression()));
+
+		newChildDescriptors.add(createChildParameter(MagicSHACLPackage.Literals.SHAPE_CONSTRAINT__TARGETS,
+				MagicSHACLFactory.eINSTANCE.createTarget()));
 	}
 
 	/**

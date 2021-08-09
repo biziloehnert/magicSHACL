@@ -1,11 +1,13 @@
 Manifest-Version: 1.0
-Automatic-Module-Name: xtext.magicSHACL.ui
 Bundle-ManifestVersion: 2
 Bundle-Name: xtext.magicSHACL.ui
-Bundle-Vendor: My Company
+Bundle-SymbolicName: xtext.magicSHACL.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: xtext.magicSHACL.ui; singleton:=true
-Bundle-ActivationPolicy: lazy
+Bundle-Activator: xtext.magicSHACL.ui.internal.MagicSHACLActivator
+Bundle-Vendor: My Company
+Export-Package: xtext.magicSHACL.ui.contentassist,
+ xtext.magicSHACL.ui.internal,
+ xtext.magicSHACL.ui.quickfix
 Require-Bundle: xtext.magicSHACL,
  xtext.magicSHACL.ide,
  MagicSHACL,
@@ -15,10 +17,10 @@ Require-Bundle: xtext.magicSHACL,
  org.eclipse.compare,
  org.eclipse.xtext.builder,
  org.eclipse.ui,
- org.eclipse.ui.editors
+ org.eclipse.ui.editors,
+ org.eclipse.e4.ui.model.workbench;bundle-version="2.1.900.v20201014-0742",
+ org.eclipse.e4.ui.workbench;bundle-version="1.12.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: xtext.magicSHACL.ui.quickfix,
- xtext.magicSHACL.ui.contentassist,
- xtext.magicSHACL.ui.internal
-Bundle-Activator: xtext.magicSHACL.ui.internal.MagicSHACLActivator
+Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.log4j
+Automatic-Module-Name: xtext.magicSHACL.ui

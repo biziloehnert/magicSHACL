@@ -16,6 +16,7 @@ import magicSHACL.ShapeExpression;
 import magicSHACL.ShapeName;
 import magicSHACL.ShapesGraph;
 import magicSHACL.Subject;
+import magicSHACL.Target;
 import magicSHACL.Triples;
 import magicSHACL.Value;
 import org.eclipse.emf.ecore.EObject;
@@ -75,6 +76,9 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case MagicSHACLPackage.SUBJECT:
 				sequence_Subject(context, (Subject) semanticObject); 
+				return; 
+			case MagicSHACLPackage.TARGET:
+				sequence_Target(context, (Target) semanticObject); 
 				return; 
 			case MagicSHACLPackage.TRIPLES:
 				sequence_Triples(context, (Triples) semanticObject); 
@@ -188,7 +192,7 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ShapeConstraint returns ShapeConstraint
 	 *
 	 * Constraint:
-	 *     (shapeName=ShapeName shapeExpressions+=ShapeExpression+)
+	 *     (shapeName=ShapeName (targets+=Target | shapeExpressions+=ShapeExpression)+)
 	 */
 	protected void sequence_ShapeConstraint(ISerializationContext context, ShapeConstraint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -200,7 +204,11 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ShapeExpression returns ShapeExpression
 	 *
 	 * Constraint:
-	 *     (type=PropertyType (values+=Value | shapeExpressions+=ShapeExpression)*)?
+	 *     (
+	 *         (type=PropertyType values+=Value values+=Value*) | 
+	 *         (type=PropertyType (values+=Value | shapeExpressions+=ShapeExpression+)?) | 
+	 *         (type=PropertyType? shapeExpressions+=ShapeExpression*)
+	 *     )
 	 */
 	protected void sequence_ShapeExpression(ISerializationContext context, ShapeExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -212,16 +220,10 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ShapeName returns ShapeName
 	 *
 	 * Constraint:
-	 *     name=EString
+	 *     (name=IRI | name=EString)
 	 */
 	protected void sequence_ShapeName(ISerializationContext context, ShapeName semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MagicSHACLPackage.Literals.NODE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MagicSHACLPackage.Literals.NODE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getShapeNameAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -242,16 +244,22 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Subject returns Subject
 	 *
 	 * Constraint:
-	 *     name=EString
+	 *     (name=EString | name=IRI)
 	 */
 	protected void sequence_Subject(ISerializationContext context, Subject semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MagicSHACLPackage.Literals.NODE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MagicSHACLPackage.Literals.NODE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSubjectAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Target returns Target
+	 *
+	 * Constraint:
+	 *     ((type='sh:targetClass' | type='sh:targetNode') (term=EString | term=IRI))
+	 */
+	protected void sequence_Target(ISerializationContext context, Target semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -272,7 +280,7 @@ public class TurtleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Value returns Value
 	 *
 	 * Constraint:
-	 *     (name=EString xsdType=EString?)
+	 *     ((name=EString | name=IRI) xsdType=EString?)
 	 */
 	protected void sequence_Value(ISerializationContext context, Value semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

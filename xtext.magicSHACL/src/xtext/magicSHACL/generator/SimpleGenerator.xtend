@@ -74,6 +74,7 @@ class SimpleGenerator extends AbstractGenerator {
 		if(exp.type == PropertyType.PREDICATE_PATH || 
 			exp.type == PropertyType.INVERSE_PATH) {
 			val valuePath = values.get(0).name
+			
 			return exp.type.propertyToString + valuePath + ' ' + valueMagicShape
 		}
 		
@@ -89,7 +90,7 @@ class SimpleGenerator extends AbstractGenerator {
 	
 	private def buildQuerySeeds(List<Target> targets){
 		for(Target t : targets){
-			adornedShapes.push(t.toShapeName)
+			adornedShapes.push(t.shapeName)
 			magicShapes.add(t.getMagicQuerySeed)				
 		}
 	}
@@ -114,20 +115,16 @@ class SimpleGenerator extends AbstractGenerator {
 				expression.type == PropertyType.MIN_COUNT_CONSTRAINT_COMPONENT|| 
 				expression.type == PropertyType.PREDICATE_PATH
 			){
-				magicConstraint.shapeName = r.shapeName.magicShapeName
 				magicExpression.type = PropertyType.INVERSE_PATH
-				magicExpression.values.add(expression.values.get(expression.values.size-2)) //path
-				magicValue.name = expression.values.get(expression.values.size-1).name + '_magic'		
+				magicExpression.values.add(EcoreUtil.copy(expression.values.get(expression.values.size-2))) //path
 			} else if (expression.type == PropertyType.INVERSE_PATH){
-				magicConstraint.shapeName = r.shapeName.magicShapeName
 				magicExpression.type = PropertyType.PREDICATE_PATH
-				magicExpression.values.add(expression.values.get(expression.values.size-2)) //path
-				magicValue.name = expression.values.get(expression.values.size-1).name + '_magic'
-			} else {
-				magicConstraint.shapeName = s_b.toShapeName.magicShapeName
+				magicExpression.values.add(EcoreUtil.copy(expression.values.get(expression.values.size-2))) //path
+			} else	
 				magicExpression.type = PropertyType.PROPERTY
-				magicValue.name = r.shapeName.magicShapeName.name
-			}
+			
+			magicConstraint.shapeName = s_b.toShapeName.magicShapeName
+			magicValue.name = r.shapeName.magicShapeName.name
 				
 			magicExpression.values.add(magicValue)
 			magicConstraint.shapeExpressions.add(magicExpression)
@@ -139,8 +136,11 @@ class SimpleGenerator extends AbstractGenerator {
 	}
 	
 	private def modify(ShapeConstraint r){
+		if (r.shapeExpressions.size == 0)
+			return;
+			
 		val shapeName = r.shapeName.name
-		val originalShape = shapeName + "_original :- " + r.shapeExpressions.get(0).toString
+		val originalShape = shapeName + "_original :- " + r.shapeExpressions.get(0)
 		val modifiedShape = shapeName + " :- " + shapeName + "_magic AND " + shapeName + "_original"
 		
 		if(!modifiedShapes.contains(originalShape))
@@ -159,20 +159,18 @@ class SimpleGenerator extends AbstractGenerator {
 				expression.type == PropertyType.MIN_COUNT_CONSTRAINT_COMPONENT|| 
 				expression.type == PropertyType.PREDICATE_PATH
 			){
-				constraint.shapeName = EcoreUtil.copy(d.shapeName)
 				swaped_exp.type = PropertyType.INVERSE_PATH
 				swaped_exp.values.add(expression.values.get(expression.values.size-2)) //path
 				value.name = expression.values.get(expression.values.size-1).name	
 			} else if (expression.type == PropertyType.INVERSE_PATH){
-				constraint.shapeName = EcoreUtil.copy(d.shapeName)
 				swaped_exp.type = PropertyType.PREDICATE_PATH
 				swaped_exp.values.add(expression.values.get(expression.values.size-2)) //path
 				value.name = expression.values.get(expression.values.size-1).name
-			} else {
-				constraint.shapeName = EcoreUtil.copy(s)
+			} else
 				swaped_exp.type = PropertyType.PROPERTY
-				value.name = d.shapeName.name
-			}
+		
+		constraint.shapeName = EcoreUtil.copy(s)
+		value.name = d.shapeName.name
 		
 		swaped_exp.values.add(value)
 		constraint.shapeExpressions.add(swaped_exp)
