@@ -1,0 +1,101 @@
+@prefix dbo: <http://dbpedia.org/ontology/>.
+@prefix dbr: <http://dbpedia.org/resource/>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix : <http://example.org/>.
+        		
+:MovieShape_magic
+	a sh:NodeShape ; 
+	sh:targetClass dbo:Film ;.
+
+:ActorShape_magic
+	a sh:NodeShape ;
+	sh:property[
+		sh:node :MovieShape_magic ;
+		sh:path[
+			sh:inversePath dbo:starring 
+		];
+	].
+
+:LocationShape_magic
+	a sh:NodeShape ;
+	sh:property[
+		sh:node :ActorShape_magic ;
+		sh:path[
+			sh:inversePath dbo:birthPlace ;
+		]
+	].	
+				
+:MovieShape
+	sh:targetClass dbo:Film ;
+	sh:node :MovieShape_magic ;
+	sh:property [
+		sh:path dbo:writer ;
+		sh:minCount 1 ;
+	];
+	sh:property [
+		sh:path dbo:musicComposer ;
+		sh:minCount 1 ;
+	];
+	sh:property [
+		sh:path dbo:director ;
+		sh:node :DirectorShape ;
+		sh:minCount 1 ;
+	];
+	sh:property [
+		sh:path dbo:imdbId ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+	];
+	sh:property [
+		sh:path dbo:starring ;
+		sh:node :ActorShape ;
+		sh:minCount 1 ;
+	];
+	a sh:NodeShape ;
+.
+
+:ActorShape
+	sh:node :ActorShape_magic ;
+	sh:property [
+		sh:path dbo:birthPlace ;
+		sh:node :LocationShape ;
+	];
+	sh:property [
+		sh:path dbo:activeYearsStartYear ;
+		sh:minCount 1 ;
+	];
+	sh:property [
+		sh:path dbo:occupation ;
+		sh:hasValue dbr:Actor ;
+		sh:minCount 1 ;
+	];
+	sh:property [
+		sh:path dbo:imdbId ;
+		sh:minCount 1 ;
+	];
+	sh:property [
+		sh:path [
+		sh:inversePath dbo:starring ;
+	];
+		sh:minCount 1 ;
+	];
+	a sh:NodeShape ;
+.
+
+:LocationShape
+	sh:node :LocationShape_magic ;
+	sh:property [
+		sh:path dbo:country ;
+		sh:minCount 1 ;
+	];
+	sh:property [
+		sh:path dbo:leaderTitle ;
+		sh:minCount 1 ;
+	];
+	sh:property [
+		sh:path dbo:populationDensity ;
+		sh:minCount 1 ;
+	];
+	a sh:NodeShape ;
+
+.
