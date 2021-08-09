@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link magicSHACL.ShapeConstraint#getShapeName <em>Shape Name</em>}</li>
  *   <li>{@link magicSHACL.ShapeConstraint#getShapeExpressions <em>Shape Expressions</em>}</li>
  *   <li>{@link magicSHACL.ShapeConstraint#getDangerous <em>Dangerous</em>}</li>
+ *   <li>{@link magicSHACL.ShapeConstraint#getTargets <em>Targets</em>}</li>
  * </ul>
  *
  * @see magicSHACL.MagicSHACLPackage#getShapeConstraint()
@@ -80,6 +81,18 @@ public interface ShapeConstraint extends EObject {
 	 * @generated
 	 */
 	void setDangerous(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Targets</b></em>' containment reference list.
+	 * The list contents are of type {@link magicSHACL.Target}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Targets</em>' containment reference list.
+	 * @see magicSHACL.MagicSHACLPackage#getShapeConstraint_Targets()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Target> getTargets();
 
 	/**
 	 * <!-- begin-user-doc -->

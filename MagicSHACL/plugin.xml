@@ -13,5 +13,17 @@
             class="magicSHACL.MagicSHACLPackage"
             genModel="model/magicSHACL.genmodel"/>
    </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="MagicSHACL.rcp.application"
+            name="MagicSHACL.rcp">
+         <property
+               name="appName"
+               value="MagicSHACL.rcp">
+         </property>
+      </product>
+   </extension>
 
 </plugin>

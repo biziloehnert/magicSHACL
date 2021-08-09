@@ -19,9 +19,18 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum PropertyType implements Enumerator {
 	/**
-	 * The '<em><b>Class Constraint Component</b></em>' literal object.
+	 * The '<em><b>Blank</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see #BLANK_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	BLANK(0, "Blank", " "),
+	/**
+	 * The '<em><b>Class Constraint Component</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
 	 * @see #CLASS_CONSTRAINT_COMPONENT_VALUE
 	 * @generated
 	 * @ordered
@@ -114,7 +123,7 @@ public enum PropertyType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PROPERTY(0, "Property", "sh:property"),
+	PROPERTY(29, "Property", "sh:property"),
 	/**
 	 * The '<em><b>Name</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -123,7 +132,7 @@ public enum PropertyType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NAME(11, "Name", "sh:name"),
+	NAME(10, "Name", "sh:name"),
 	/**
 	 * The '<em><b>Datatype Constraint Component</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -258,7 +267,81 @@ public enum PropertyType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MAX_LENGTH_CONSTRAINT_COMPONENT(25, "MaxLengthConstraintComponent", "sh:maxLength");
+	MAX_LENGTH_CONSTRAINT_COMPONENT(25, "MaxLengthConstraintComponent", "sh:maxLength"),
+	/**
+	 * The '<em><b>Instance Of</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #INSTANCE_OF_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	INSTANCE_OF(26, "InstanceOf", "a"),
+	/**
+	 * The '<em><b>Rdfs Label</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #RDFS_LABEL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	RDFS_LABEL(27, "RdfsLabel", "rdfs:label"),
+	/**
+	 * The '<em><b>Description</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #DESCRIPTION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DESCRIPTION(28, "Description", "Description"),
+	/**
+	 * The '<em><b>Equals Constraint Component</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #EQUALS_CONSTRAINT_COMPONENT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	EQUALS_CONSTRAINT_COMPONENT(29, "EqualsConstraintComponent", "sh:equals"),
+	/**
+	 * The '<em><b>Qualified Value Shape</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #QUALIFIED_VALUE_SHAPE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	QUALIFIED_VALUE_SHAPE(30, "QualifiedValueShape", "sh:qualifiedValueShape"),
+	/**
+	 * The '<em><b>Qualified Min Count</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #QUALIFIED_MIN_COUNT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	QUALIFIED_MIN_COUNT(31, "QualifiedMinCount", "sh:qualifiedMinCount"),
+	/**
+	 * The '<em><b>Qualified Max Count</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #QUALIFIED_MAX_COUNT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	QUALIFIED_MAX_COUNT(32, "QualifiedMaxCount", "sh:qualifiedMaxCount");
+
+	/**
+	 * The '<em><b>Blank</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #BLANK
+	 * @model name="Blank" literal=" "
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BLANK_VALUE = 0;
 
 	/**
 	 * The '<em><b>Class Constraint Component</b></em>' literal value.
@@ -368,7 +451,7 @@ public enum PropertyType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PROPERTY_VALUE = 0;
+	public static final int PROPERTY_VALUE = 29;
 
 	/**
 	 * The '<em><b>Name</b></em>' literal value.
@@ -379,7 +462,7 @@ public enum PropertyType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NAME_VALUE = 11;
+	public static final int NAME_VALUE = 10;
 
 	/**
 	 * The '<em><b>Datatype Constraint Component</b></em>' literal value.
@@ -547,19 +630,97 @@ public enum PropertyType implements Enumerator {
 	public static final int MAX_LENGTH_CONSTRAINT_COMPONENT_VALUE = 25;
 
 	/**
+	 * The '<em><b>Instance Of</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #INSTANCE_OF
+	 * @model name="InstanceOf" literal="a"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int INSTANCE_OF_VALUE = 26;
+
+	/**
+	 * The '<em><b>Rdfs Label</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RDFS_LABEL
+	 * @model name="RdfsLabel" literal="rdfs:label"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RDFS_LABEL_VALUE = 27;
+
+	/**
+	 * The '<em><b>Description</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DESCRIPTION
+	 * @model name="Description"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DESCRIPTION_VALUE = 28;
+
+	/**
+	 * The '<em><b>Equals Constraint Component</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #EQUALS_CONSTRAINT_COMPONENT
+	 * @model name="EqualsConstraintComponent" literal="sh:equals"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int EQUALS_CONSTRAINT_COMPONENT_VALUE = 29;
+
+	/**
+	 * The '<em><b>Qualified Value Shape</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #QUALIFIED_VALUE_SHAPE
+	 * @model name="QualifiedValueShape" literal="sh:qualifiedValueShape"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int QUALIFIED_VALUE_SHAPE_VALUE = 30;
+
+	/**
+	 * The '<em><b>Qualified Min Count</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #QUALIFIED_MIN_COUNT
+	 * @model name="QualifiedMinCount" literal="sh:qualifiedMinCount"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int QUALIFIED_MIN_COUNT_VALUE = 31;
+
+	/**
+	 * The '<em><b>Qualified Max Count</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #QUALIFIED_MAX_COUNT
+	 * @model name="QualifiedMaxCount" literal="sh:qualifiedMaxCount"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int QUALIFIED_MAX_COUNT_VALUE = 32;
+
+	/**
 	 * An array of all the '<em><b>Property Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final PropertyType[] VALUES_ARRAY = new PropertyType[] { CLASS_CONSTRAINT_COMPONENT,
+	private static final PropertyType[] VALUES_ARRAY = new PropertyType[] { BLANK, CLASS_CONSTRAINT_COMPONENT,
 			MIN_COUNT_CONSTRAINT_COMPONENT, MAX_COUNT_CONSTRAINT_COMPONENT, NOT_CONSTRAINT_COMPONENT,
 			AND_CONSTRAINT_COMPONENT, OR_CONSTRAINT_COMPONENT, NODE_CONSTRAINT_COMPONENT,
 			HAS_VALUE_CONSTRAINT_COMPONENT, PREDICATE_PATH, PROPERTY, NAME, DATATYPE_CONSTRAINT_COMPONENT,
 			NODE_KIND_CONSTRAINT_COMPONENT, PATTERN_CONSTRAINT_COMPONENT, TARGET_CLASS, CLOSED_CONSTRAINT_COMPONENT,
 			CLOSED_CONSTRAINT_COMPONENT_IGNORE, INVERSE_PATH, TARGET_NODE, MESSAGE, MIN_EXCLUSIVE_CONSTRAINT_COMPONENT,
 			MIN_INCLUSIVE_CONSTRAINT_COMPONENT, MAX_EXCLUSIVE_CONSTRAINT_COMPONENT, MAX_INCLUSIVE_CONSTRAINT_COMPONENT,
-			MIN_LENGTH_CONSTRAINT_COMPONENT, MAX_LENGTH_CONSTRAINT_COMPONENT, };
+			MIN_LENGTH_CONSTRAINT_COMPONENT, MAX_LENGTH_CONSTRAINT_COMPONENT, INSTANCE_OF, RDFS_LABEL, DESCRIPTION,
+			EQUALS_CONSTRAINT_COMPONENT, QUALIFIED_VALUE_SHAPE, QUALIFIED_MIN_COUNT, QUALIFIED_MAX_COUNT, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Property Type</b></em>' enumerators.
@@ -615,6 +776,8 @@ public enum PropertyType implements Enumerator {
 	 */
 	public static PropertyType get(int value) {
 		switch (value) {
+		case BLANK_VALUE:
+			return BLANK;
 		case CLASS_CONSTRAINT_COMPONENT_VALUE:
 			return CLASS_CONSTRAINT_COMPONENT;
 		case MIN_COUNT_CONSTRAINT_COMPONENT_VALUE:
@@ -637,6 +800,8 @@ public enum PropertyType implements Enumerator {
 			return PROPERTY;
 		case NAME_VALUE:
 			return NAME;
+		case DATATYPE_CONSTRAINT_COMPONENT_VALUE:
+			return DATATYPE_CONSTRAINT_COMPONENT;
 		case NODE_KIND_CONSTRAINT_COMPONENT_VALUE:
 			return NODE_KIND_CONSTRAINT_COMPONENT;
 		case PATTERN_CONSTRAINT_COMPONENT_VALUE:
@@ -665,6 +830,18 @@ public enum PropertyType implements Enumerator {
 			return MIN_LENGTH_CONSTRAINT_COMPONENT;
 		case MAX_LENGTH_CONSTRAINT_COMPONENT_VALUE:
 			return MAX_LENGTH_CONSTRAINT_COMPONENT;
+		case INSTANCE_OF_VALUE:
+			return INSTANCE_OF;
+		case RDFS_LABEL_VALUE:
+			return RDFS_LABEL;
+		case DESCRIPTION_VALUE:
+			return DESCRIPTION;
+		case QUALIFIED_VALUE_SHAPE_VALUE:
+			return QUALIFIED_VALUE_SHAPE;
+		case QUALIFIED_MIN_COUNT_VALUE:
+			return QUALIFIED_MIN_COUNT;
+		case QUALIFIED_MAX_COUNT_VALUE:
+			return QUALIFIED_MAX_COUNT;
 		}
 		return null;
 	}

@@ -25,6 +25,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PropertyType">
+    <eLiterals name="Blank" literal=" "/>
     <eLiterals name="ClassConstraintComponent" value="9" literal="sh:class"/>
     <eLiterals name="MinCountConstraintComponent" value="1" literal="sh:minCount"/>
     <eLiterals name="MaxCountConstraintComponent" value="2" literal="sh:maxCount"/>
@@ -34,8 +35,8 @@
     <eLiterals name="NodeConstraintComponent" value="6" literal="sh:node"/>
     <eLiterals name="HasValueConstraintComponent" value="7" literal="sh:hasValue"/>
     <eLiterals name="PredicatePath" value="8" literal="sh:path"/>
-    <eLiterals name="Property" literal="sh:property"/>
-    <eLiterals name="Name" value="11" literal="sh:name"/>
+    <eLiterals name="Property" value="29" literal="sh:property"/>
+    <eLiterals name="Name" value="10" literal="sh:name"/>
     <eLiterals name="DatatypeConstraintComponent" value="11" literal="sh:datatype"/>
     <eLiterals name="NodeKindConstraintComponent" value="12" literal="sh:nodeKind"/>
     <eLiterals name="PatternConstraintComponent" value="13" literal="sh:pattern"/>
@@ -51,6 +52,13 @@
     <eLiterals name="MaxInclusiveConstraintComponent" value="23" literal="sh:maxInclusive"/>
     <eLiterals name="MinLengthConstraintComponent" value="24" literal="sh:minLength"/>
     <eLiterals name="MaxLengthConstraintComponent" value="25" literal="sh:maxLength"/>
+    <eLiterals name="InstanceOf" value="26" literal="a"/>
+    <eLiterals name="RdfsLabel" value="27" literal="rdfs:label"/>
+    <eLiterals name="Description" value="28"/>
+    <eLiterals name="EqualsConstraintComponent" value="29" literal="sh:equals"/>
+    <eLiterals name="QualifiedValueShape" value="30" literal="sh:qualifiedValueShape"/>
+    <eLiterals name="QualifiedMinCount" value="31" literal="sh:qualifiedMinCount"/>
+    <eLiterals name="QualifiedMaxCount" value="32" literal="sh:qualifiedMaxCount"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Namespace">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
@@ -82,6 +90,8 @@
         eType="#//ShapeExpression" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dangerous" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
         derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targets" upperBound="-1"
+        eType="#//Target" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ShapesGraph">
     <eOperations name="getAllShapeNames">
@@ -91,8 +101,6 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shapeConstraints" upperBound="-1"
         eType="#//ShapeConstraint" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targets" upperBound="-1"
-        eType="#//Target" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="oddCycles" transient="true">
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
         <eTypeArguments/>
@@ -127,9 +135,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="xsdType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Target">
-    <eOperations name="toShapeName" eType="#//ShapeName"/>
+    <eOperations name="getShapeName" eType="#//ShapeName"/>
     <eOperations name="getMagicQuerySeed" eType="#//ShapeConstraint"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="term" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

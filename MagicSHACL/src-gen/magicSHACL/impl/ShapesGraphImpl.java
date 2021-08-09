@@ -14,8 +14,6 @@ import magicSHACL.PropertyType;
 import magicSHACL.ShapeConstraint;
 import magicSHACL.ShapeExpression;
 import magicSHACL.ShapesGraph;
-
-import magicSHACL.Target;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -41,7 +39,6 @@ import org.jgrapht.graph.DefaultEdge;
  * </p>
  * <ul>
  *   <li>{@link magicSHACL.impl.ShapesGraphImpl#getShapeConstraints <em>Shape Constraints</em>}</li>
- *   <li>{@link magicSHACL.impl.ShapesGraphImpl#getTargets <em>Targets</em>}</li>
  *   <li>{@link magicSHACL.impl.ShapesGraphImpl#getOddCycles <em>Odd Cycles</em>}</li>
  * </ul>
  *
@@ -57,16 +54,6 @@ public class ShapesGraphImpl extends MinimalEObjectImpl.Container implements Sha
 	 * @ordered
 	 */
 	protected EList<ShapeConstraint> shapeConstraints;
-
-	/**
-	 * The cached value of the '{@link #getTargets() <em>Targets</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargets()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Target> targets;
 
 	/**
 	 * The cached value of the '{@link #getOddCycles() <em>Odd Cycles</em>}' attribute.
@@ -114,19 +101,6 @@ public class ShapesGraphImpl extends MinimalEObjectImpl.Container implements Sha
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Target> getTargets() {
-		if (targets == null) {
-			targets = new EObjectContainmentEList<Target>(Target.class, this, MagicSHACLPackage.SHAPES_GRAPH__TARGETS);
-		}
-		return targets;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public EList<EList<String>> getOddCycles() {
@@ -155,7 +129,8 @@ public class ShapesGraphImpl extends MinimalEObjectImpl.Container implements Sha
 				for (Object obj : objects.stream().filter(obj -> (obj instanceof ShapeExpression))
 						.collect(Collectors.toList())) {
 					ShapeExpression exp = (ShapeExpression) obj;
-					if (exp.getType() == PropertyType.NOT_CONSTRAINT_COMPONENT && exp.contains(shapeName))
+					if ((exp.getType() == PropertyType.NOT_CONSTRAINT_COMPONENT
+							|| exp.getType() == PropertyType.MAX_COUNT_CONSTRAINT_COMPONENT) && exp.contains(shapeName))
 						marked++;
 				}
 			}
@@ -218,8 +193,6 @@ public class ShapesGraphImpl extends MinimalEObjectImpl.Container implements Sha
 		switch (featureID) {
 		case MagicSHACLPackage.SHAPES_GRAPH__SHAPE_CONSTRAINTS:
 			return ((InternalEList<?>) getShapeConstraints()).basicRemove(otherEnd, msgs);
-		case MagicSHACLPackage.SHAPES_GRAPH__TARGETS:
-			return ((InternalEList<?>) getTargets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -234,8 +207,6 @@ public class ShapesGraphImpl extends MinimalEObjectImpl.Container implements Sha
 		switch (featureID) {
 		case MagicSHACLPackage.SHAPES_GRAPH__SHAPE_CONSTRAINTS:
 			return getShapeConstraints();
-		case MagicSHACLPackage.SHAPES_GRAPH__TARGETS:
-			return getTargets();
 		case MagicSHACLPackage.SHAPES_GRAPH__ODD_CYCLES:
 			return getOddCycles();
 		}
@@ -255,10 +226,6 @@ public class ShapesGraphImpl extends MinimalEObjectImpl.Container implements Sha
 			getShapeConstraints().clear();
 			getShapeConstraints().addAll((Collection<? extends ShapeConstraint>) newValue);
 			return;
-		case MagicSHACLPackage.SHAPES_GRAPH__TARGETS:
-			getTargets().clear();
-			getTargets().addAll((Collection<? extends Target>) newValue);
-			return;
 		case MagicSHACLPackage.SHAPES_GRAPH__ODD_CYCLES:
 			setOddCycles((EList<EList<String>>) newValue);
 			return;
@@ -277,9 +244,6 @@ public class ShapesGraphImpl extends MinimalEObjectImpl.Container implements Sha
 		case MagicSHACLPackage.SHAPES_GRAPH__SHAPE_CONSTRAINTS:
 			getShapeConstraints().clear();
 			return;
-		case MagicSHACLPackage.SHAPES_GRAPH__TARGETS:
-			getTargets().clear();
-			return;
 		case MagicSHACLPackage.SHAPES_GRAPH__ODD_CYCLES:
 			setOddCycles((EList<EList<String>>) null);
 			return;
@@ -297,8 +261,6 @@ public class ShapesGraphImpl extends MinimalEObjectImpl.Container implements Sha
 		switch (featureID) {
 		case MagicSHACLPackage.SHAPES_GRAPH__SHAPE_CONSTRAINTS:
 			return shapeConstraints != null && !shapeConstraints.isEmpty();
-		case MagicSHACLPackage.SHAPES_GRAPH__TARGETS:
-			return targets != null && !targets.isEmpty();
 		case MagicSHACLPackage.SHAPES_GRAPH__ODD_CYCLES:
 			return oddCycles != null;
 		}

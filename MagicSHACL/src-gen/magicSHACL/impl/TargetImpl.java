@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link magicSHACL.impl.TargetImpl#getTerm <em>Term</em>}</li>
- *   <li>{@link magicSHACL.impl.TargetImpl#getName <em>Name</em>}</li>
+ *   <li>{@link magicSHACL.impl.TargetImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -55,24 +56,24 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 	protected String term = TERM_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
+	 * @see #getType()
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final String TYPE_EDEFAULT = "sh:targetClass";
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected String type = TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -122,8 +123,8 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 	 * @generated
 	 */
 	@Override
-	public String getName() {
-		return name;
+	public String getType() {
+		return type;
 	}
 
 	/**
@@ -132,11 +133,11 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 	 * @generated
 	 */
 	@Override
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public void setType(String newType) {
+		String oldType = type;
+		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MagicSHACLPackage.TARGET__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, MagicSHACLPackage.TARGET__TYPE, oldType, type));
 	}
 
 	/**
@@ -144,11 +145,9 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public ShapeName toShapeName() {
-		ShapeName s = new ShapeNameImpl();
-		s.setName(this.name);
-		s.setAdorned(true);
-		return s;
+	@Override
+	public ShapeName getShapeName() {
+		return EcoreUtil.copy(((ShapeConstraint) eContainer()).getShapeName());
 	}
 
 	/**
@@ -158,17 +157,21 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 	 */
 	public ShapeConstraint getMagicQuerySeed() {
 		ShapeConstraint c = new ShapeConstraintImpl();
-		c.setShapeName(this.toShapeName().getMagicShapeName());
+		c.setShapeName(this.getShapeName().getMagicShapeName());
 
 		Value value = new ValueImpl();
 
 		if (term == null || term.isBlank())
-			value.setName("T");
+			value.setName("ADom");
 		else
 			value.setName(term);
 
 		ShapeExpression exp = new ShapeExpressionImpl();
-		exp.setType(PropertyType.PROPERTY);
+		if("sh:targetClass".equals(type))
+			exp.setType(PropertyType.TARGET_CLASS);
+		else if ("sh:targetNode".equals(type))
+			exp.setType(PropertyType.TARGET_NODE);
+		
 		exp.getValues().add(value);
 		c.getShapeExpressions().add(exp);
 		return c;
@@ -184,8 +187,8 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 		switch (featureID) {
 		case MagicSHACLPackage.TARGET__TERM:
 			return getTerm();
-		case MagicSHACLPackage.TARGET__NAME:
-			return getName();
+		case MagicSHACLPackage.TARGET__TYPE:
+			return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,8 +204,8 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 		case MagicSHACLPackage.TARGET__TERM:
 			setTerm((String) newValue);
 			return;
-		case MagicSHACLPackage.TARGET__NAME:
-			setName((String) newValue);
+		case MagicSHACLPackage.TARGET__TYPE:
+			setType((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -219,8 +222,8 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 		case MagicSHACLPackage.TARGET__TERM:
 			setTerm(TERM_EDEFAULT);
 			return;
-		case MagicSHACLPackage.TARGET__NAME:
-			setName(NAME_EDEFAULT);
+		case MagicSHACLPackage.TARGET__TYPE:
+			setType(TYPE_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -236,8 +239,8 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 		switch (featureID) {
 		case MagicSHACLPackage.TARGET__TERM:
 			return TERM_EDEFAULT == null ? term != null : !TERM_EDEFAULT.equals(term);
-		case MagicSHACLPackage.TARGET__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case MagicSHACLPackage.TARGET__TYPE:
+			return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -250,8 +253,8 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case MagicSHACLPackage.TARGET___TO_SHAPE_NAME:
-			return toShapeName();
+		case MagicSHACLPackage.TARGET___GET_SHAPE_NAME:
+			return getShapeName();
 		case MagicSHACLPackage.TARGET___GET_MAGIC_QUERY_SEED:
 			return getMagicQuerySeed();
 		}
@@ -271,8 +274,8 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (term: ");
 		result.append(term);
-		result.append(", name: ");
-		result.append(name);
+		result.append(", type: ");
+		result.append(type);
 		result.append(')');
 		return result.toString();
 	}

@@ -10,6 +10,7 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="MagicSHACL" disposableProviderFactory="true" ecorePackage="magicSHACL.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="magicSHACL.ecore#//PropertyType">
+      <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/Blank"/>
       <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/ClassConstraintComponent"/>
       <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/MinCountConstraintComponent"/>
       <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/MaxCountConstraintComponent"/>
@@ -36,6 +37,13 @@
       <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/MaxInclusiveConstraintComponent"/>
       <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/MinLengthConstraintComponent"/>
       <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/MaxLengthConstraintComponent"/>
+      <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/InstanceOf"/>
+      <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/RdfsLabel"/>
+      <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/Description"/>
+      <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/EqualsConstraintComponent"/>
+      <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/QualifiedValueShape"/>
+      <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/QualifiedMinCount"/>
+      <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/QualifiedMaxCount"/>
     </genEnums>
     <genClasses ecoreClass="magicSHACL.ecore#//DataGraph">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference magicSHACL.ecore#//DataGraph/triples"/>
@@ -70,6 +78,7 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference magicSHACL.ecore#//ShapeConstraint/shapeName"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference magicSHACL.ecore#//ShapeConstraint/shapeExpressions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute magicSHACL.ecore#//ShapeConstraint/dangerous"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference magicSHACL.ecore#//ShapeConstraint/targets"/>
       <genOperations ecoreOperation="magicSHACL.ecore#//ShapeConstraint/contains">
         <genParameters ecoreParameter="magicSHACL.ecore#//ShapeConstraint/contains/name"/>
       </genOperations>
@@ -77,7 +86,6 @@
     </genClasses>
     <genClasses ecoreClass="magicSHACL.ecore#//ShapesGraph">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference magicSHACL.ecore#//ShapesGraph/shapeConstraints"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference magicSHACL.ecore#//ShapesGraph/targets"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute magicSHACL.ecore#//ShapesGraph/oddCycles"/>
       <genOperations ecoreOperation="magicSHACL.ecore#//ShapesGraph/getAllShapeNames"/>
     </genClasses>
@@ -104,8 +112,8 @@
     </genClasses>
     <genClasses ecoreClass="magicSHACL.ecore#//Target">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute magicSHACL.ecore#//Target/term"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute magicSHACL.ecore#//Target/name"/>
-      <genOperations ecoreOperation="magicSHACL.ecore#//Target/toShapeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute magicSHACL.ecore#//Target/type"/>
+      <genOperations ecoreOperation="magicSHACL.ecore#//Target/getShapeName"/>
       <genOperations ecoreOperation="magicSHACL.ecore#//Target/getMagicQuerySeed"/>
     </genClasses>
   </genPackages>

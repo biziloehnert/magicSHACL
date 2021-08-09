@@ -13,6 +13,7 @@ import magicSHACL.Node;
 import magicSHACL.ShapeConstraint;
 import magicSHACL.ShapeExpression;
 import magicSHACL.ShapeName;
+import magicSHACL.Target;
 import magicSHACL.Value;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -39,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link magicSHACL.impl.ShapeConstraintImpl#getShapeName <em>Shape Name</em>}</li>
  *   <li>{@link magicSHACL.impl.ShapeConstraintImpl#getShapeExpressions <em>Shape Expressions</em>}</li>
  *   <li>{@link magicSHACL.impl.ShapeConstraintImpl#getDangerous <em>Dangerous</em>}</li>
+ *   <li>{@link magicSHACL.impl.ShapeConstraintImpl#getTargets <em>Targets</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,6 +85,16 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected Boolean dangerous = DANGEROUS_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTargets() <em>Targets</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargets()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Target> targets;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,7 +196,7 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	public Boolean getDangerous() {
-		if(dangerous == null) {
+		if (dangerous == null) {
 			dangerous = Boolean.valueOf(shapeName.isDangerous());
 			if (dangerous) {
 				for (Node node : getAllShapeNamesOfExpression()) {
@@ -209,6 +221,20 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS,
 					oldDangerous, dangerous));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Target> getTargets() {
+		if (targets == null) {
+			targets = new EObjectContainmentEList<Target>(Target.class, this,
+					MagicSHACLPackage.SHAPE_CONSTRAINT__TARGETS);
+		}
+		return targets;
 	}
 
 	/**
@@ -253,6 +279,8 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 			return basicSetShapeName(null, msgs);
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS:
 			return ((InternalEList<?>) getShapeExpressions()).basicRemove(otherEnd, msgs);
+		case MagicSHACLPackage.SHAPE_CONSTRAINT__TARGETS:
+			return ((InternalEList<?>) getTargets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -271,6 +299,8 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 			return getShapeExpressions();
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS:
 			return getDangerous();
+		case MagicSHACLPackage.SHAPE_CONSTRAINT__TARGETS:
+			return getTargets();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -294,6 +324,10 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS:
 			setDangerous((Boolean) newValue);
 			return;
+		case MagicSHACLPackage.SHAPE_CONSTRAINT__TARGETS:
+			getTargets().clear();
+			getTargets().addAll((Collection<? extends Target>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -315,6 +349,9 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS:
 			setDangerous(DANGEROUS_EDEFAULT);
 			return;
+		case MagicSHACLPackage.SHAPE_CONSTRAINT__TARGETS:
+			getTargets().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -333,6 +370,8 @@ public class ShapeConstraintImpl extends MinimalEObjectImpl.Container implements
 			return shapeExpressions != null && !shapeExpressions.isEmpty();
 		case MagicSHACLPackage.SHAPE_CONSTRAINT__DANGEROUS:
 			return DANGEROUS_EDEFAULT == null ? dangerous != null : !DANGEROUS_EDEFAULT.equals(dangerous);
+		case MagicSHACLPackage.SHAPE_CONSTRAINT__TARGETS:
+			return targets != null && !targets.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

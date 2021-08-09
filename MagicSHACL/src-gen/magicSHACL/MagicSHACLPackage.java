@@ -519,13 +519,22 @@ public interface MagicSHACLPackage extends EPackage {
 	int SHAPE_CONSTRAINT__DANGEROUS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Targets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE_CONSTRAINT__TARGETS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Shape Constraint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE_CONSTRAINT_FEATURE_COUNT = 3;
+	int SHAPE_CONSTRAINT_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Contains</em>' operation.
@@ -574,22 +583,13 @@ public interface MagicSHACLPackage extends EPackage {
 	int SHAPES_GRAPH__SHAPE_CONSTRAINTS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Targets</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SHAPES_GRAPH__TARGETS = 1;
-
-	/**
 	 * The feature id for the '<em><b>Odd Cycles</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPES_GRAPH__ODD_CYCLES = 2;
+	int SHAPES_GRAPH__ODD_CYCLES = 1;
 
 	/**
 	 * The number of structural features of the '<em>Shapes Graph</em>' class.
@@ -598,7 +598,7 @@ public interface MagicSHACLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPES_GRAPH_FEATURE_COUNT = 3;
+	int SHAPES_GRAPH_FEATURE_COUNT = 2;
 
 	/**
 	 * The operation id for the '<em>Get All Shape Names</em>' operation.
@@ -875,13 +875,13 @@ public interface MagicSHACLPackage extends EPackage {
 	int TARGET__TERM = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET__NAME = 1;
+	int TARGET__TYPE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Target</em>' class.
@@ -893,13 +893,13 @@ public interface MagicSHACLPackage extends EPackage {
 	int TARGET_FEATURE_COUNT = 2;
 
 	/**
-	 * The operation id for the '<em>To Shape Name</em>' operation.
+	 * The operation id for the '<em>Get Shape Name</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET___TO_SHAPE_NAME = 0;
+	int TARGET___GET_SHAPE_NAME = 0;
 
 	/**
 	 * The operation id for the '<em>Get Magic Query Seed</em>' operation.
@@ -1206,6 +1206,17 @@ public interface MagicSHACLPackage extends EPackage {
 	EAttribute getShapeConstraint_Dangerous();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link magicSHACL.ShapeConstraint#getTargets <em>Targets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Targets</em>'.
+	 * @see magicSHACL.ShapeConstraint#getTargets()
+	 * @see #getShapeConstraint()
+	 * @generated
+	 */
+	EReference getShapeConstraint_Targets();
+
+	/**
 	 * Returns the meta object for the '{@link magicSHACL.ShapeConstraint#contains(magicSHACL.Node) <em>Contains</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1245,17 +1256,6 @@ public interface MagicSHACLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getShapesGraph_ShapeConstraints();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link magicSHACL.ShapesGraph#getTargets <em>Targets</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Targets</em>'.
-	 * @see magicSHACL.ShapesGraph#getTargets()
-	 * @see #getShapesGraph()
-	 * @generated
-	 */
-	EReference getShapesGraph_Targets();
 
 	/**
 	 * Returns the meta object for the attribute '{@link magicSHACL.ShapesGraph#getOddCycles <em>Odd Cycles</em>}'.
@@ -1406,25 +1406,25 @@ public interface MagicSHACLPackage extends EPackage {
 	EAttribute getTarget_Term();
 
 	/**
-	 * Returns the meta object for the attribute '{@link magicSHACL.Target#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link magicSHACL.Target#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see magicSHACL.Target#getName()
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see magicSHACL.Target#getType()
 	 * @see #getTarget()
 	 * @generated
 	 */
-	EAttribute getTarget_Name();
+	EAttribute getTarget_Type();
 
 	/**
-	 * Returns the meta object for the '{@link magicSHACL.Target#toShapeName() <em>To Shape Name</em>}' operation.
+	 * Returns the meta object for the '{@link magicSHACL.Target#getShapeName() <em>Get Shape Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>To Shape Name</em>' operation.
-	 * @see magicSHACL.Target#toShapeName()
+	 * @return the meta object for the '<em>Get Shape Name</em>' operation.
+	 * @see magicSHACL.Target#getShapeName()
 	 * @generated
 	 */
-	EOperation getTarget__ToShapeName();
+	EOperation getTarget__GetShapeName();
 
 	/**
 	 * Returns the meta object for the '{@link magicSHACL.Target#getMagicQuerySeed() <em>Get Magic Query Seed</em>}' operation.
@@ -1762,6 +1762,14 @@ public interface MagicSHACLPackage extends EPackage {
 		EAttribute SHAPE_CONSTRAINT__DANGEROUS = eINSTANCE.getShapeConstraint_Dangerous();
 
 		/**
+		 * The meta object literal for the '<em><b>Targets</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SHAPE_CONSTRAINT__TARGETS = eINSTANCE.getShapeConstraint_Targets();
+
+		/**
 		 * The meta object literal for the '<em><b>Contains</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1795,14 +1803,6 @@ public interface MagicSHACLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SHAPES_GRAPH__SHAPE_CONSTRAINTS = eINSTANCE.getShapesGraph_ShapeConstraints();
-
-		/**
-		 * The meta object literal for the '<em><b>Targets</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SHAPES_GRAPH__TARGETS = eINSTANCE.getShapesGraph_Targets();
 
 		/**
 		 * The meta object literal for the '<em><b>Odd Cycles</b></em>' attribute feature.
@@ -1923,20 +1923,20 @@ public interface MagicSHACLPackage extends EPackage {
 		EAttribute TARGET__TERM = eINSTANCE.getTarget_Term();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TARGET__NAME = eINSTANCE.getTarget_Name();
+		EAttribute TARGET__TYPE = eINSTANCE.getTarget_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>To Shape Name</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Shape Name</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation TARGET___TO_SHAPE_NAME = eINSTANCE.getTarget__ToShapeName();
+		EOperation TARGET___GET_SHAPE_NAME = eINSTANCE.getTarget__GetShapeName();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Magic Query Seed</b></em>' operation.

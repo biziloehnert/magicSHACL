@@ -49,7 +49,7 @@ public class ShapeExpressionImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 * @ordered
 	 */
-	protected static final PropertyType TYPE_EDEFAULT = PropertyType.CLASS_CONSTRAINT_COMPONENT;
+	protected static final PropertyType TYPE_EDEFAULT = PropertyType.BLANK;
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->

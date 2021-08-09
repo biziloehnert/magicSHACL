@@ -484,6 +484,16 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 	 * @generated
 	 */
 	@Override
+	public EReference getShapeConstraint_Targets() {
+		return (EReference) shapeConstraintEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getShapeConstraint__Contains__Node() {
 		return shapeConstraintEClass.getEOperations().get(0);
 	}
@@ -524,18 +534,8 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 	 * @generated
 	 */
 	@Override
-	public EReference getShapesGraph_Targets() {
-		return (EReference) shapesGraphEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getShapesGraph_OddCycles() {
-		return (EAttribute) shapesGraphEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) shapesGraphEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -674,7 +674,7 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTarget_Name() {
+	public EAttribute getTarget_Type() {
 		return (EAttribute) targetEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -684,7 +684,7 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getTarget__ToShapeName() {
+	public EOperation getTarget__GetShapeName() {
 		return targetEClass.getEOperations().get(0);
 	}
 
@@ -833,12 +833,12 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 		createEReference(shapeConstraintEClass, SHAPE_CONSTRAINT__SHAPE_NAME);
 		createEReference(shapeConstraintEClass, SHAPE_CONSTRAINT__SHAPE_EXPRESSIONS);
 		createEAttribute(shapeConstraintEClass, SHAPE_CONSTRAINT__DANGEROUS);
+		createEReference(shapeConstraintEClass, SHAPE_CONSTRAINT__TARGETS);
 		createEOperation(shapeConstraintEClass, SHAPE_CONSTRAINT___CONTAINS__NODE);
 		createEOperation(shapeConstraintEClass, SHAPE_CONSTRAINT___GET_ALL_SHAPE_NAMES_OF_EXPRESSION);
 
 		shapesGraphEClass = createEClass(SHAPES_GRAPH);
 		createEReference(shapesGraphEClass, SHAPES_GRAPH__SHAPE_CONSTRAINTS);
-		createEReference(shapesGraphEClass, SHAPES_GRAPH__TARGETS);
 		createEAttribute(shapesGraphEClass, SHAPES_GRAPH__ODD_CYCLES);
 		createEOperation(shapesGraphEClass, SHAPES_GRAPH___GET_ALL_SHAPE_NAMES);
 
@@ -863,8 +863,8 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 
 		targetEClass = createEClass(TARGET);
 		createEAttribute(targetEClass, TARGET__TERM);
-		createEAttribute(targetEClass, TARGET__NAME);
-		createEOperation(targetEClass, TARGET___TO_SHAPE_NAME);
+		createEAttribute(targetEClass, TARGET__TYPE);
+		createEOperation(targetEClass, TARGET___GET_SHAPE_NAME);
 		createEOperation(targetEClass, TARGET___GET_MAGIC_QUERY_SEED);
 
 		// Create enums
@@ -980,6 +980,9 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 		initEAttribute(getShapeConstraint_Dangerous(), ecorePackage.getEBooleanObject(), "dangerous", null, 0, 1,
 				ShapeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				IS_DERIVED, IS_ORDERED);
+		initEReference(getShapeConstraint_Targets(), this.getTarget(), null, "targets", null, 0, -1,
+				ShapeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getShapeConstraint__Contains__Node(), theXMLTypePackage.getBoolean(), "contains",
 				0, 1, IS_UNIQUE, IS_ORDERED);
@@ -997,9 +1000,6 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 		initEReference(getShapesGraph_ShapeConstraints(), this.getShapeConstraint(), null, "shapeConstraints", null, 0,
 				-1, ShapesGraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getShapesGraph_Targets(), this.getTarget(), null, "targets", null, 0, -1, ShapesGraph.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEEList());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
@@ -1056,16 +1056,17 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 		initEClass(targetEClass, Target.class, "Target", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTarget_Term(), ecorePackage.getEString(), "term", null, 0, 1, Target.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTarget_Name(), ecorePackage.getEString(), "name", null, 0, 1, Target.class, !IS_TRANSIENT,
+		initEAttribute(getTarget_Type(), ecorePackage.getEString(), "type", null, 0, 1, Target.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getTarget__ToShapeName(), this.getShapeName(), "toShapeName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getTarget__GetShapeName(), this.getShapeName(), "getShapeName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getTarget__GetMagicQuerySeed(), this.getShapeConstraint(), "getMagicQuerySeed", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(propertyTypeEEnum, PropertyType.class, "PropertyType");
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.BLANK);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.CLASS_CONSTRAINT_COMPONENT);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.MIN_COUNT_CONSTRAINT_COMPONENT);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.MAX_COUNT_CONSTRAINT_COMPONENT);
@@ -1092,6 +1093,13 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.MAX_INCLUSIVE_CONSTRAINT_COMPONENT);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.MIN_LENGTH_CONSTRAINT_COMPONENT);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.MAX_LENGTH_CONSTRAINT_COMPONENT);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.INSTANCE_OF);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.RDFS_LABEL);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.DESCRIPTION);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.EQUALS_CONSTRAINT_COMPONENT);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.QUALIFIED_VALUE_SHAPE);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.QUALIFIED_MIN_COUNT);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.QUALIFIED_MAX_COUNT);
 
 		// Create resource
 		createResource(eNS_URI);
