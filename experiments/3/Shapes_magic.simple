@@ -21,7 +21,7 @@ ActorShapeS1 :- SOME birthPlace LocationShape;
 ActorShapeS2 :- MIN 1 activeYearsStartYear ADom;
 ActorShapeS3 :- MIN 1 occupation Actor;
 ActorShapeS4 :- MIN 1 imdbId ADom;
-ActorShapeS5 :- MIN 1 ^starring ADom ADom;
+ActorShapeS5 :- MIN 1 ^starring ADom ;
 LocationShape :- LocationShapeS0 AND LocationShapeS1 AND LocationShapeS2 AND LocationShapeS3;
 LocationShapeS0 :- LocationShape_magic;
 LocationShapeS1 :- MIN 1 country ADom;
