@@ -6,7 +6,7 @@
 :MusicianShape_magic
 	a sh:NodeShape ;
 	sh:targetClass dbo:Person ;.
-
+ 
 :PersonShape_magic 
 	a sh:NodeShape ;
 	sh:property[

@@ -33,7 +33,7 @@
 	];
 	a sh:NodeShape ;
 	sh:node :MusicianShape_magic ;
-	sh:node :PersonShape ;
+	sh:node :PersonShape ; 
 .
 
 :PersonShape
