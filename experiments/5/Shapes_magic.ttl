@@ -2,99 +2,55 @@
 @prefix dbr: <http://dbpedia.org/resource/>.
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 @prefix : <http://example.org/>.
-        		
-:MovieShape_magic 
+        		 
+:MusicianShape_magic
 	a sh:NodeShape ;
-	sh:property[
-		sh:node :DirectorShape_magic ;
-		sh:path dbo:director ;	
-	];
-	sh:targetClass dbo:Film ;.
+	sh:targetClass dbo:Person ;.
 
-:DirectorShape_magic
+:PersonShape_magic
 	a sh:NodeShape ;
 	sh:property[
-		sh:node :MovieShape_magic ;
+		sh:node :MusicianShape_magic ;
 		sh:path[
-			sh:inversePath dbo:director ;
-		];
-	].
-
-:ActorShape_magic
-	a sh:NodeShape ;
-	sh:property[
-		sh:node :MovieShape_magic ;
-		sh:path[
-			sh:inversePath dbo:starring ;
-		];
+			sh:inversePath dbo:instrument ;
+		]
 	].
 
 :LocationShape_magic
 	a sh:NodeShape ;
 	sh:property[
-		sh:node :DirectorShape_magic ;
+		sh:node :PersonShape_magic ;
 		sh:path[
 			sh:inversePath dbo:birthPlace ;
-		];
-	];
-	sh:property[
-		sh:node :ActorShape_magic ;
-		sh:path[
-			sh:inversePath dbo:birthPlace ;	
-		];
+		]
 	].	
 				
-:MovieShape
-	sh:node :MovieShape_magic ;
+:MusicianShape
+	sh:targetClass dbo:Person ;
+	sh:node :PersonShape ;
+	sh:node :MusicianShape_magic ;
 	sh:property [
-		sh:path dbo:writer ;
-		sh:minCount 1 ;
-	];
-	sh:property [
-		sh:path dbo:musicComposer ;
-		sh:minCount 1 ;
-	];
-	sh:property [
-		sh:path dbo:director ;
-		sh:node :DirectorShape ;
-		sh:minCount 1 ;
-	];
-	sh:property [
-		sh:path dbo:imdbId ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
-	];
-	sh:property [
-		sh:path dbo:starring ;
-		sh:node :ActorShape ;
+		sh:path dbo:instrument ;
 		sh:minCount 1 ;
 	];
 	a sh:NodeShape ;
 .
 
-:ActorShape
-	sh:node :ActorShape_magic ;
+:PersonShape
+	sh:node :PersonShape_magic ;
 	sh:property [
 		sh:path dbo:birthPlace ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
 		sh:node :LocationShape ;
 	];
 	sh:property [
-		sh:path dbo:activeYearsStartYear ;
+		sh:path dbo:birthDate ;
 		sh:minCount 1 ;
+		sh:maxCount 1 ;
 	];
 	sh:property [
-		sh:path dbo:occupation ;
-		sh:hasValue dbr:Actor ;
-		sh:minCount 1 ;
-	];
-	sh:property [
-		sh:path dbo:imdbId ;
-		sh:minCount 1 ;
-	];
-	sh:property [
-		sh:path [
-		sh:inversePath dbo:starring ;
-	];
+		sh:path dbo:birthName ;
 		sh:minCount 1 ;
 	];
 	a sh:NodeShape ;
@@ -112,26 +68,6 @@
 	];
 	sh:property [
 		sh:path dbo:populationDensity ;
-		sh:minCount 1 ;
-	];
-	a sh:NodeShape ;
-.
-
-:DirectorShape
-	sh:node :DirectorShape_magic ;
-	sh:property [
-		sh:path dbo:birthPlace ;
-		sh:node :LocationShape ;
-	];
-	sh:property [
-		sh:path dbo:imdbId ;
-		sh:minCount 1 ;
-	];
-	sh:property [
-		sh:path [
-		sh:inversePath dbo:director ;
-	];
-		sh:node :MovieShape ;
 		sh:minCount 1 ;
 	];
 	a sh:NodeShape ;

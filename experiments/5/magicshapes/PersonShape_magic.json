@@ -1,0 +1,14 @@
+{
+	"name": "PersonShape_magic", 
+	"prefix": {
+		"dbo": "<http://dbpedia.org/ontology/>",
+		"dbr" : "<http://dbpedia.org/resource/>"
+	},
+	"constraintDef" : {
+		"conjunctions" : [
+			[
+				{"path": "^dbo:instrument", "min": 1, "shape": "MusicianShape_magic"}
+			]	
+		]
+	}
+}

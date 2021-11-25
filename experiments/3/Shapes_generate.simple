@@ -1,0 +1,2 @@
+PersonShape_magic :- Actor;
+LocationShape_magic :- SOME ^birthPlace PersonShape_magic;

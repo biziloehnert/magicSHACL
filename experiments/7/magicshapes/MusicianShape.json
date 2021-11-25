@@ -1,0 +1,19 @@
+{
+	"name": "MusicianShape", 
+	"prefix": {
+		"dbo": "<http://dbpedia.org/ontology/>",
+		"dbr" : "<http://dbpedia.org/resource/>"
+	},
+	"targetDef":{
+		"query":"SELECT ?x WHERE {?x a dbo:Person}"
+	},
+	"constraintDef" : {
+		"conjunctions" : [
+			[
+				{"path": "dbo:empty", "min": 1, "shape": "MusicianShape_magic"},
+				{"path": "dbo:empty", "min": 1, "shape": "PersonShape"},
+				{"path": "dbo:instrument", "min": 1}
+			]	
+		]
+	}
+}

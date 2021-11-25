@@ -1,0 +1,3 @@
+MusicianShape_magic :- Actor;
+PersonShape_magic : SOME ^instrument MusicianShape_magic;
+LocationShape_magic :- SOME ^birthPlace PersonShape_magic;

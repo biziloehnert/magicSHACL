@@ -22,10 +22,10 @@
 		sh:minCount 1
 	] ;
 	sh:property [
-		sh:path[
-			sh:inversePath dbo:starring;
-		];
-		sh:minCount 1
+	sh:path[
+		sh:inversePath dbo:starring;
+	];
+	sh:minCount 1
 	] .
 
 :DirectorShape a sh:NodeShape;
@@ -66,6 +66,7 @@
 	] .
 
 :MovieShape a sh:NodeShape;
+	sh:targetClass dbo:Film;
 	sh:property [
 		sh:path dbo:writer;
 		sh:minCount 1
@@ -90,7 +91,7 @@
 		sh:minCount 1
 	] .
 
-:TranslatedMovieShape a sh:NodeShape; 
+:TranslatedMovieShape a sh:NodeShape;
 	sh:node :MovieShape;
 	sh:property [
 		sh:path dbo:language;
@@ -138,7 +139,6 @@
 .
 
 :MusicianShape a sh:NodeShape;
-	sh:targetClass dbo:Person;	
 	sh:node :PersonShape;
 	sh:property [ 
 		sh:path dbo:instrument;

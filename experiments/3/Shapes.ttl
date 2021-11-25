@@ -41,7 +41,6 @@
 		sh:path[
 			sh:inversePath dbo:director;
 		];
-		sh:node :MovieShape;
 		sh:minCount 1
 	] .
    
@@ -66,7 +65,6 @@
 	] .
 
 :MovieShape a sh:NodeShape;
-	sh:targetClass dbo:Film;
 	sh:property [
 		sh:path dbo:writer;
 		sh:minCount 1
@@ -121,6 +119,7 @@
 .
 
 :PersonShape a sh:NodeShape;
+	sh:targetClass dbo:Actor;
 	sh:property [ 
 		sh:path dbo:birthPlace;
 		sh:minCount 1;

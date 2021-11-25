@@ -1,0 +1,15 @@
+{
+	"name": "ReligiousPersonShape", 
+	"prefix": {
+		"dbo": "<http://dbpedia.org/ontology/>",
+		"dbr" : "<http://dbpedia.org/resource/>"
+	},
+	"constraintDef" : {
+		"conjunctions" : [
+			[
+				{"path": "dbo:empty", "min": 1, "shape": "PersonShape"},
+				{"path": "dbo:religion", "min": 1}
+			]	
+		]
+	}
+}

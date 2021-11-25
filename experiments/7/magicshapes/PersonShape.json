@@ -1,0 +1,19 @@
+{
+	"name": "PersonShape", 
+	"prefix": {
+		"dbo": "<http://dbpedia.org/ontology/>",
+		"dbr" : "<http://dbpedia.org/resource/>"
+	},
+	"constraintDef" : {
+		"conjunctions" : [
+			[
+				{"path": "dbo:empty", "min": 1, "shape": "PersonShape_magic"},
+				{"path": "dbo:birthPlace", "min": 1, "shape": "LocationShape"},
+				{"path": "dbo:birthPlace", "max": 1, "shape": "LocationShape"},
+				{"path": "dbo:birthDate", "min": 1},
+				{"path": "dbo:birthDate", "max": 1},
+				{"path": "dbo:birthName", "min": 1}
+			]	
+		]
+	}
+}

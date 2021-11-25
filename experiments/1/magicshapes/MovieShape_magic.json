@@ -1,0 +1,14 @@
+{
+	"name": "MovieShape_magic", 
+	"prefix": {
+		"dbo": "<http://dbpedia.org/ontology/>",
+		"dbr" : "<http://dbpedia.org/resource/>"
+	},
+	"constraintDef" : {
+		"disjunctions" : [
+			[
+				{"path": "a", "min":1, "value":"dbo:Film"},
+			]	
+		]
+	}
+}

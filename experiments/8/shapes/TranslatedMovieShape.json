@@ -1,0 +1,15 @@
+{
+	"name": "TranslatedMovieShape", 
+	"prefix": {
+		"dbo": "<http://dbpedia.org/ontology/>",
+		"dbr" : "<http://dbpedia.org/resource/>"
+	},
+	"constraintDef" : {
+		"conjunctions" : [
+			[
+				{"path": "dbo:empty", "min": 1, "shape": "MovieShape"},
+				{"path": "dbo:language", "min": 2}
+			]	
+		]
+	}
+}

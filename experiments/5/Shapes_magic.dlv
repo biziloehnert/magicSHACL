@@ -1,0 +1,256 @@
+ADom(X):-country(X,Y).
+ADom(Y):-country(X,Y).
+ADom(X):-leaderTitle(X,Y).
+ADom(Y):-leaderTitle(X,Y).
+ADom(X):-instrument(X,Y).
+ADom(Y):-instrument(X,Y).
+ADom(X):-MusicianShape(X).
+ADom(X):-birthName(X,Y).
+ADom(Y):-birthName(X,Y).
+ADom(X):-MusicianShapeS0(X).
+ADom(X):-birthPlace(X,Y).
+ADom(Y):-birthPlace(X,Y).
+ADom(X):-LocationShapeS3(X).
+ADom(X):-MusicianShapeS1(X).
+ADom(X):-LocationShapeS2(X).
+ADom(X):-LocationShapeS1(X).
+ADom(X):-LocationShapeS0(X).
+ADom(X):-LocationShape(X).
+ADom(X):-PersonShapeS2(X).
+ADom(X):-PersonShapeS1(X).
+ADom(X):-PersonShapeS0(X).
+ADom(X):-LocationShape_magic(X).
+ADom(X):-PersonShapeS5(X).
+ADom(X):-PersonShapeS4(X).
+ADom(X):-ADom(X).
+ADom(X):-PersonShapeS3(X).
+ADom(X):-instrument(X,Y).
+ADom(Y):-instrument(X,Y).
+ADom(X):-PersonShapeN2(X).
+ADom(X):-birthDate(X,Y).
+ADom(Y):-birthDate(X,Y).
+ADom(X):-populationDensity(X,Y).
+ADom(Y):-populationDensity(X,Y).
+ADom(X):-PersonShape_magic(X).
+ADom(X):-PersonShape(X).
+ADom(X):-birthPlace(X,Y).
+ADom(Y):-birthPlace(X,Y).
+ADom(X):-MusicianShape_magic(X).
+ADom(X):-PersonShapeN1(X).
+ADom(X):-Person(X).
+
+ % <LocationShapeS3/1> <= (ATLEAST 1 OF <populationDensity/2> ARE <ADom/1>)
+
+LocationShapeS3(X) :- AtLeast_1_populationDensity_ADom(X,Y).
+AtLeast_0_populationDensity_ADom(X,X) :- ADom(X). 
+AtLeast_1_populationDensity_ADom(X,Y) :- First_populationDensity(X,Y),ADom(Y).
+
+NonEmpty_populationDensity(X) :- populationDensity(X,Y). 
+Empty_populationDensity(X) :- ADom(X), not NonEmpty_populationDensity(X). 
+Next_populationDensity(X,Y,Z) :- populationDensity(X,Y),populationDensity(X,Z),Y<=Z. 
+NonFirst_populationDensity(X,Z) :- populationDensity(X,Y),populationDensity(X,Z), Y<Z. 
+First_populationDensity(X,Y) :- populationDensity(X,Y), not NonFirst_populationDensity(X,Y) .
+NonLast_populationDensity(X,Y) :- populationDensity(X,Y),populationDensity(X,Z), Y<Z.  
+Last_populationDensity(X,Y) :- populationDensity(X,Y), not NonLast_populationDensity(X,Y). 
+
+ 
+
+ % <LocationShapeS2/1> <= (ATLEAST 1 OF <leaderTitle/2> ARE <ADom/1>)
+
+LocationShapeS2(X) :- AtLeast_1_leaderTitle_ADom(X,Y).
+AtLeast_0_leaderTitle_ADom(X,X) :- ADom(X). 
+AtLeast_1_leaderTitle_ADom(X,Y) :- First_leaderTitle(X,Y),ADom(Y).
+
+NonEmpty_leaderTitle(X) :- leaderTitle(X,Y). 
+Empty_leaderTitle(X) :- ADom(X), not NonEmpty_leaderTitle(X). 
+Next_leaderTitle(X,Y,Z) :- leaderTitle(X,Y),leaderTitle(X,Z),Y<=Z. 
+NonFirst_leaderTitle(X,Z) :- leaderTitle(X,Y),leaderTitle(X,Z), Y<Z. 
+First_leaderTitle(X,Y) :- leaderTitle(X,Y), not NonFirst_leaderTitle(X,Y) .
+NonLast_leaderTitle(X,Y) :- leaderTitle(X,Y),leaderTitle(X,Z), Y<Z.  
+Last_leaderTitle(X,Y) :- leaderTitle(X,Y), not NonLast_leaderTitle(X,Y). 
+
+ 
+
+ % <LocationShapeS1/1> <= (ATLEAST 1 OF <country/2> ARE <ADom/1>)
+
+LocationShapeS1(X) :- AtLeast_1_country_ADom(X,Y).
+AtLeast_0_country_ADom(X,X) :- ADom(X). 
+AtLeast_1_country_ADom(X,Y) :- First_country(X,Y),ADom(Y).
+
+NonEmpty_country(X) :- country(X,Y). 
+Empty_country(X) :- ADom(X), not NonEmpty_country(X). 
+Next_country(X,Y,Z) :- country(X,Y),country(X,Z),Y<=Z. 
+NonFirst_country(X,Z) :- country(X,Y),country(X,Z), Y<Z. 
+First_country(X,Y) :- country(X,Y), not NonFirst_country(X,Y) .
+NonLast_country(X,Y) :- country(X,Y),country(X,Z), Y<Z.  
+Last_country(X,Y) :- country(X,Y), not NonLast_country(X,Y). 
+
+ 
+
+ % <LocationShapeS0/1> <= <LocationShape_magic/1>
+LocationShapeS0(Y) :- LocationShape_magic(Y).
+ 
+
+ % <LocationShape/1> <= (AND <LocationShapeS0/1> (AND <LocationShapeS1/1> (AND <LocationShapeS2/1> <LocationShapeS3/1>)))
+LocationShape(X) :- Aux1(X),Aux2(X).
+Aux1(Y) :- LocationShapeS0(Y).
+Aux2(X) :- Aux3(X),Aux4(X).
+Aux3(Y) :- LocationShapeS1(Y).
+Aux4(X) :- Aux5(X),Aux6(X).
+Aux5(Y) :- LocationShapeS2(Y).
+Aux6(Y) :- LocationShapeS3(Y).
+ 
+
+ % <PersonShapeS5/1> <= (ATLEAST 1 OF <birthName/2> ARE <ADom/1>)
+
+PersonShapeS5(X) :- AtLeast_1_birthName_ADom(X,Y).
+AtLeast_0_birthName_ADom(X,X) :- ADom(X). 
+AtLeast_1_birthName_ADom(X,Y) :- First_birthName(X,Y),ADom(Y).
+
+NonEmpty_birthName(X) :- birthName(X,Y). 
+Empty_birthName(X) :- ADom(X), not NonEmpty_birthName(X). 
+Next_birthName(X,Y,Z) :- birthName(X,Y),birthName(X,Z),Y<=Z. 
+NonFirst_birthName(X,Z) :- birthName(X,Y),birthName(X,Z), Y<Z. 
+First_birthName(X,Y) :- birthName(X,Y), not NonFirst_birthName(X,Y) .
+NonLast_birthName(X,Y) :- birthName(X,Y),birthName(X,Z), Y<Z.  
+Last_birthName(X,Y) :- birthName(X,Y), not NonLast_birthName(X,Y). 
+
+ 
+
+ % <PersonShapeN2/1> <= (ATLEAST 2 OF <birthDate/2> ARE <ADom/1>)
+
+PersonShapeN2(X) :- AtLeast_2_birthDate_ADom(X,Y).
+AtLeast_0_birthDate_ADom(X,X) :- ADom(X). 
+AtLeast_1_birthDate_ADom(X,Y) :- First_birthDate(X,Y),ADom(Y).
+AtLeast_2_birthDate_ADom(X,Z) :- Next_birthDate(X,Y,Z), AtLeast_2_birthDate_ADom(X,Y). 
+AtLeast_2_birthDate_ADom(X,Z) :- Next_birthDate(X,Y,Z), AtLeast_1_birthDate_ADom(X,Y),ADom(Z), Y!=Z. 
+
+NonEmpty_birthDate(X) :- birthDate(X,Y). 
+Empty_birthDate(X) :- ADom(X), not NonEmpty_birthDate(X). 
+Next_birthDate(X,Y,Z) :- birthDate(X,Y),birthDate(X,Z),Y<=Z. 
+NonFirst_birthDate(X,Z) :- birthDate(X,Y),birthDate(X,Z), Y<Z. 
+First_birthDate(X,Y) :- birthDate(X,Y), not NonFirst_birthDate(X,Y) .
+NonLast_birthDate(X,Y) :- birthDate(X,Y),birthDate(X,Z), Y<Z.  
+Last_birthDate(X,Y) :- birthDate(X,Y), not NonLast_birthDate(X,Y). 
+
+ 
+
+ % <PersonShapeS4/1> <= (NOT <PersonShapeN2/1>)
+PersonShapeS4(X) :-ADom(X), not Aux7(X).
+Aux7(Y) :- PersonShapeN2(Y).
+ 
+
+ % <PersonShapeS3/1> <= (ATLEAST 1 OF <birthDate/2> ARE <ADom/1>)
+
+PersonShapeS3(X) :- AtLeast_1_birthDate_ADom(X,Y).
+AtLeast_0_birthDate_ADom(X,X) :- ADom(X). 
+AtLeast_1_birthDate_ADom(X,Y) :- First_birthDate(X,Y),ADom(Y).
+
+NonEmpty_birthDate(X) :- birthDate(X,Y). 
+Empty_birthDate(X) :- ADom(X), not NonEmpty_birthDate(X). 
+Next_birthDate(X,Y,Z) :- birthDate(X,Y),birthDate(X,Z),Y<=Z. 
+NonFirst_birthDate(X,Z) :- birthDate(X,Y),birthDate(X,Z), Y<Z. 
+First_birthDate(X,Y) :- birthDate(X,Y), not NonFirst_birthDate(X,Y) .
+NonLast_birthDate(X,Y) :- birthDate(X,Y),birthDate(X,Z), Y<Z.  
+Last_birthDate(X,Y) :- birthDate(X,Y), not NonLast_birthDate(X,Y). 
+
+ 
+
+ % <PersonShapeN1/1> <= (ATLEAST 2 OF <birthPlace/2> ARE <LocationShape/1>)
+
+PersonShapeN1(X) :- AtLeast_2_birthPlace_LocationShape(X,Y).
+AtLeast_0_birthPlace_LocationShape(X,X) :- ADom(X). 
+AtLeast_1_birthPlace_LocationShape(X,Y) :- First_birthPlace(X,Y),LocationShape(Y).
+AtLeast_2_birthPlace_LocationShape(X,Z) :- Next_birthPlace(X,Y,Z), AtLeast_2_birthPlace_LocationShape(X,Y). 
+AtLeast_2_birthPlace_LocationShape(X,Z) :- Next_birthPlace(X,Y,Z), AtLeast_1_birthPlace_LocationShape(X,Y),LocationShape(Z), Y!=Z. 
+
+NonEmpty_birthPlace(X) :- birthPlace(X,Y). 
+Empty_birthPlace(X) :- ADom(X), not NonEmpty_birthPlace(X). 
+Next_birthPlace(X,Y,Z) :- birthPlace(X,Y),birthPlace(X,Z),Y<=Z. 
+NonFirst_birthPlace(X,Z) :- birthPlace(X,Y),birthPlace(X,Z), Y<Z. 
+First_birthPlace(X,Y) :- birthPlace(X,Y), not NonFirst_birthPlace(X,Y) .
+NonLast_birthPlace(X,Y) :- birthPlace(X,Y),birthPlace(X,Z), Y<Z.  
+Last_birthPlace(X,Y) :- birthPlace(X,Y), not NonLast_birthPlace(X,Y). 
+
+ 
+
+ % <PersonShapeS2/1> <= (NOT <PersonShapeN1/1>)
+PersonShapeS2(X) :-ADom(X), not Aux8(X).
+Aux8(Y) :- PersonShapeN1(Y).
+ 
+
+ % <PersonShapeS1/1> <= (ATLEAST 1 OF <birthPlace/2> ARE <LocationShape/1>)
+
+PersonShapeS1(X) :- AtLeast_1_birthPlace_LocationShape(X,Y).
+AtLeast_0_birthPlace_LocationShape(X,X) :- ADom(X). 
+AtLeast_1_birthPlace_LocationShape(X,Y) :- First_birthPlace(X,Y),LocationShape(Y).
+
+NonEmpty_birthPlace(X) :- birthPlace(X,Y). 
+Empty_birthPlace(X) :- ADom(X), not NonEmpty_birthPlace(X). 
+Next_birthPlace(X,Y,Z) :- birthPlace(X,Y),birthPlace(X,Z),Y<=Z. 
+NonFirst_birthPlace(X,Z) :- birthPlace(X,Y),birthPlace(X,Z), Y<Z. 
+First_birthPlace(X,Y) :- birthPlace(X,Y), not NonFirst_birthPlace(X,Y) .
+NonLast_birthPlace(X,Y) :- birthPlace(X,Y),birthPlace(X,Z), Y<Z.  
+Last_birthPlace(X,Y) :- birthPlace(X,Y), not NonLast_birthPlace(X,Y). 
+
+ 
+
+ % <PersonShapeS0/1> <= <PersonShape_magic/1>
+PersonShapeS0(Y) :- PersonShape_magic(Y).
+ 
+
+ % <PersonShape/1> <= (AND <PersonShapeS0/1> (AND <PersonShapeS1/1> (AND <PersonShapeS2/1> (AND <PersonShapeS3/1> (AND <PersonShapeS4/1> <PersonShapeS5/1>)))))
+PersonShape(X) :- Aux9(X),Aux10(X).
+Aux9(Y) :- PersonShapeS0(Y).
+Aux10(X) :- Aux11(X),Aux12(X).
+Aux11(Y) :- PersonShapeS1(Y).
+Aux12(X) :- Aux13(X),Aux14(X).
+Aux13(Y) :- PersonShapeS2(Y).
+Aux14(X) :- Aux15(X),Aux16(X).
+Aux15(Y) :- PersonShapeS3(Y).
+Aux16(X) :- Aux17(X),Aux18(X).
+Aux17(Y) :- PersonShapeS4(Y).
+Aux18(Y) :- PersonShapeS5(Y).
+ 
+
+ % <MusicianShapeS1/1> <= (ATLEAST 1 OF <instrument/2> ARE <ADom/1>)
+
+MusicianShapeS1(X) :- AtLeast_1_instrument_ADom(X,Y).
+AtLeast_0_instrument_ADom(X,X) :- ADom(X). 
+AtLeast_1_instrument_ADom(X,Y) :- First_instrument(X,Y),ADom(Y).
+
+NonEmpty_instrument(X) :- instrument(X,Y). 
+Empty_instrument(X) :- ADom(X), not NonEmpty_instrument(X). 
+Next_instrument(X,Y,Z) :- instrument(X,Y),instrument(X,Z),Y<=Z. 
+NonFirst_instrument(X,Z) :- instrument(X,Y),instrument(X,Z), Y<Z. 
+First_instrument(X,Y) :- instrument(X,Y), not NonFirst_instrument(X,Y) .
+NonLast_instrument(X,Y) :- instrument(X,Y),instrument(X,Z), Y<Z.  
+Last_instrument(X,Y) :- instrument(X,Y), not NonLast_instrument(X,Y). 
+
+ 
+
+ % <MusicianShapeS0/1> <= <MusicianShape_magic/1>
+MusicianShapeS0(Y) :- MusicianShape_magic(Y).
+ 
+
+ % <MusicianShape/1> <= (AND <MusicianShapeS0/1> <MusicianShapeS1/1>)
+MusicianShape(X) :- Aux19(X),Aux20(X).
+Aux19(Y) :- MusicianShapeS0(Y).
+Aux20(Y) :- MusicianShapeS1(Y).
+ 
+
+ % <LocationShape_magic/1> <= (SOME <^birthPlace/2> IS <PersonShape_magic/1>)
+LocationShape_magic(X) :- Rel1(X,Y),Aux21(Y).
+Rel1(X,Y) :- birthPlace(Y,X).
+Aux21(Y) :- PersonShape_magic(Y).
+ 
+
+ % <PersonShape_magic/1> <= (SOME <^instrument/2> IS <MusicianShape_magic/1>)
+PersonShape_magic(X) :- Rel2(X,Y),Aux22(Y).
+Rel2(X,Y) :- instrument(Y,X).
+Aux22(Y) :- MusicianShape_magic(Y).
+ 
+
+ % <MusicianShape_magic/1> <= <Person/1>
+MusicianShape_magic(Y) :- Person(Y).
+ 

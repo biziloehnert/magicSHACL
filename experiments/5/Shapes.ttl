@@ -66,7 +66,6 @@
 	] .
 
 :MovieShape a sh:NodeShape;
-	sh:targetClass dbo:Film;
 	sh:property [
 		sh:path dbo:writer;
 		sh:minCount 1
@@ -91,7 +90,7 @@
 		sh:minCount 1
 	] .
 
-:TranslatedMovieShape a sh:NodeShape;
+:TranslatedMovieShape a sh:NodeShape; 
 	sh:node :MovieShape;
 	sh:property [
 		sh:path dbo:language;
@@ -100,9 +99,6 @@
 .
 
 :InfluencerShape a sh:NodeShape;
-	sh:not [
-		sh:node :InfluencerShape;
-	];
 	sh:property [ 
 		sh:path dbo:influenced;
 		sh:minCount 1;
@@ -142,6 +138,7 @@
 .
 
 :MusicianShape a sh:NodeShape;
+	sh:targetClass dbo:Person;	
 	sh:node :PersonShape;
 	sh:property [ 
 		sh:path dbo:instrument;

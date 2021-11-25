@@ -1,0 +1,461 @@
+ADom(X):-country(X,Y).
+ADom(Y):-country(X,Y).
+ADom(X):-occupation(X,Y).
+ADom(Y):-occupation(X,Y).
+ADom(X):-Film(X).
+ADom(X):-imdbId(X,Y).
+ADom(Y):-imdbId(X,Y).
+ADom(X):-musicComposer(X,Y).
+ADom(Y):-musicComposer(X,Y).
+ADom(X):-ActorShape(X).
+ADom(X):-LocationShapeS3(X).
+ADom(X):-LocationShapeS2(X).
+ADom(X):-LocationShapeS1(X).
+ADom(X):-LocationShape(X).
+ADom(X):-LocationShapeS0(X).
+ADom(X):-Actor(X).
+ADom(X):-LocationShape_magic(X).
+ADom(X):-director(X,Y).
+ADom(Y):-director(X,Y).
+ADom(X):-ActorShape_magic(X).
+ADom(X):-director(X,Y).
+ADom(Y):-director(X,Y).
+ADom(X):-populationDensity(X,Y).
+ADom(Y):-populationDensity(X,Y).
+ADom(X):-birthPlace(X,Y).
+ADom(Y):-birthPlace(X,Y).
+ADom(X):-DirectorShapeN4(X).
+ADom(X):-MovieShape_magic(X).
+ADom(X):-leaderTitle(X,Y).
+ADom(Y):-leaderTitle(X,Y).
+ADom(X):-DirectorShape_magicS1(X).
+ADom(X):-DirectorShape_magicS0(X).
+ADom(X):-DirectorShape(X).
+ADom(X):-DirectorShapeS0(X).
+ADom(X):-DirectorShapeS1(X).
+ADom(X):-birthPlace(X,Y).
+ADom(Y):-birthPlace(X,Y).
+ADom(X):-LocationShape_magicS0(X).
+ADom(X):-DirectorShapeS4(X).
+ADom(X):-DirectorShapeS2(X).
+ADom(X):-DirectorShapeS3(X).
+ADom(X):-MovieShapeN1(X).
+ADom(X):-DirectorShape_magic(X).
+ADom(X):-LocationShape_magicS1(X).
+ADom(X):-ADom(X).
+ADom(X):-ActorShapeS5(X).
+ADom(X):-ActorShapeS3(X).
+ADom(X):-ActorShapeS4(X).
+ADom(X):-ActorShapeS1(X).
+ADom(X):-ActorShapeS2(X).
+ADom(X):-MovieShape(X).
+ADom(X):-ActorShapeS0(X).
+ADom(X):-activeYearsStartYear(X,Y).
+ADom(Y):-activeYearsStartYear(X,Y).
+ADom(X):-MovieShapeS1(X).
+ADom(X):-MovieShapeS0(X).
+ADom(X):-MovieShapeS5(X).
+ADom(X):-MovieShape_magicS0(X).
+ADom(X):-MovieShapeS4(X).
+ADom(X):-MovieShape_magicS1(X).
+ADom(X):-MovieShapeS3(X).
+ADom(X):-MovieShapeS2(X).
+ADom(X):-MovieShapeS6(X).
+ADom(X):-starring(X,Y).
+ADom(Y):-starring(X,Y).
+ADom(X):-writer(X,Y).
+ADom(Y):-writer(X,Y).
+ADom(X):-starring(X,Y).
+ADom(Y):-starring(X,Y).
+
+ % <DirectorShapeN4/1> <= <DirectorShape/1>
+DirectorShapeN4(Y) :- DirectorShape(Y).
+ 
+
+ % <DirectorShapeS4/1> <= (NOT <DirectorShapeN4/1>)
+DirectorShapeS4(X) :-ADom(X), not Aux1(X).
+Aux1(Y) :- DirectorShapeN4(Y).
+ 
+
+ % <DirectorShapeS3/1> <= (ATLEAST 1 OF <^director/2> ARE <MovieShape/1>)
+
+DirectorShapeS3(X) :- AtLeast_1_director_MovieShape(X,Y).
+AtLeast_0_director_MovieShape(X,X) :- ADom(X). 
+AtLeast_1_director_MovieShape(X,Y) :- First_director(X,Y),MovieShape(Y).
+
+NonEmpty_director(X) :- director(X,Y). 
+Empty_director(X) :- ADom(X), not NonEmpty_director(X). 
+Next_director(X,Y,Z) :- director(X,Y),director(X,Z),Y<=Z. 
+NonFirst_director(X,Z) :- director(X,Y),director(X,Z), Y<Z. 
+First_director(X,Y) :- director(X,Y), not NonFirst_director(X,Y) .
+NonLast_director(X,Y) :- director(X,Y),director(X,Z), Y<Z.  
+Last_director(X,Y) :- director(X,Y), not NonLast_director(X,Y). 
+
+ 
+
+ % <DirectorShapeS2/1> <= (ATLEAST 1 OF <imdbId/2> ARE <ADom/1>)
+
+DirectorShapeS2(X) :- AtLeast_1_imdbId_ADom(X,Y).
+AtLeast_0_imdbId_ADom(X,X) :- ADom(X). 
+AtLeast_1_imdbId_ADom(X,Y) :- First_imdbId(X,Y),ADom(Y).
+
+NonEmpty_imdbId(X) :- imdbId(X,Y). 
+Empty_imdbId(X) :- ADom(X), not NonEmpty_imdbId(X). 
+Next_imdbId(X,Y,Z) :- imdbId(X,Y),imdbId(X,Z),Y<=Z. 
+NonFirst_imdbId(X,Z) :- imdbId(X,Y),imdbId(X,Z), Y<Z. 
+First_imdbId(X,Y) :- imdbId(X,Y), not NonFirst_imdbId(X,Y) .
+NonLast_imdbId(X,Y) :- imdbId(X,Y),imdbId(X,Z), Y<Z.  
+Last_imdbId(X,Y) :- imdbId(X,Y), not NonLast_imdbId(X,Y). 
+
+ 
+
+ % <DirectorShapeS1/1> <= (SOME <birthPlace/2> IS <LocationShape/1>)
+DirectorShapeS1(X) :- Rel1(X,Y),Aux2(Y).
+Rel1(X,Y) :- birthPlace(X,Y).
+Aux2(Y) :- LocationShape(Y).
+ 
+
+ % <DirectorShapeS0/1> <= <DirectorShape_magic/1>
+DirectorShapeS0(Y) :- DirectorShape_magic(Y).
+ 
+
+ % <DirectorShape/1> <= (AND <DirectorShapeS0/1> (AND <DirectorShapeS1/1> (AND <DirectorShapeS2/1> (AND <DirectorShapeS3/1> <DirectorShapeS4/1>))))
+DirectorShape(X) :- Aux3(X),Aux4(X).
+Aux3(Y) :- DirectorShapeS0(Y).
+Aux4(X) :- Aux5(X),Aux6(X).
+Aux5(Y) :- DirectorShapeS1(Y).
+Aux6(X) :- Aux7(X),Aux8(X).
+Aux7(Y) :- DirectorShapeS2(Y).
+Aux8(X) :- Aux9(X),Aux10(X).
+Aux9(Y) :- DirectorShapeS3(Y).
+Aux10(Y) :- DirectorShapeS4(Y).
+ 
+
+ % <LocationShapeS3/1> <= (ATLEAST 1 OF <populationDensity/2> ARE <ADom/1>)
+
+LocationShapeS3(X) :- AtLeast_1_populationDensity_ADom(X,Y).
+AtLeast_0_populationDensity_ADom(X,X) :- ADom(X). 
+AtLeast_1_populationDensity_ADom(X,Y) :- First_populationDensity(X,Y),ADom(Y).
+
+NonEmpty_populationDensity(X) :- populationDensity(X,Y). 
+Empty_populationDensity(X) :- ADom(X), not NonEmpty_populationDensity(X). 
+Next_populationDensity(X,Y,Z) :- populationDensity(X,Y),populationDensity(X,Z),Y<=Z. 
+NonFirst_populationDensity(X,Z) :- populationDensity(X,Y),populationDensity(X,Z), Y<Z. 
+First_populationDensity(X,Y) :- populationDensity(X,Y), not NonFirst_populationDensity(X,Y) .
+NonLast_populationDensity(X,Y) :- populationDensity(X,Y),populationDensity(X,Z), Y<Z.  
+Last_populationDensity(X,Y) :- populationDensity(X,Y), not NonLast_populationDensity(X,Y). 
+
+ 
+
+ % <LocationShapeS2/1> <= (ATLEAST 1 OF <leaderTitle/2> ARE <ADom/1>)
+
+LocationShapeS2(X) :- AtLeast_1_leaderTitle_ADom(X,Y).
+AtLeast_0_leaderTitle_ADom(X,X) :- ADom(X). 
+AtLeast_1_leaderTitle_ADom(X,Y) :- First_leaderTitle(X,Y),ADom(Y).
+
+NonEmpty_leaderTitle(X) :- leaderTitle(X,Y). 
+Empty_leaderTitle(X) :- ADom(X), not NonEmpty_leaderTitle(X). 
+Next_leaderTitle(X,Y,Z) :- leaderTitle(X,Y),leaderTitle(X,Z),Y<=Z. 
+NonFirst_leaderTitle(X,Z) :- leaderTitle(X,Y),leaderTitle(X,Z), Y<Z. 
+First_leaderTitle(X,Y) :- leaderTitle(X,Y), not NonFirst_leaderTitle(X,Y) .
+NonLast_leaderTitle(X,Y) :- leaderTitle(X,Y),leaderTitle(X,Z), Y<Z.  
+Last_leaderTitle(X,Y) :- leaderTitle(X,Y), not NonLast_leaderTitle(X,Y). 
+
+ 
+
+ % <LocationShapeS1/1> <= (ATLEAST 1 OF <country/2> ARE <ADom/1>)
+
+LocationShapeS1(X) :- AtLeast_1_country_ADom(X,Y).
+AtLeast_0_country_ADom(X,X) :- ADom(X). 
+AtLeast_1_country_ADom(X,Y) :- First_country(X,Y),ADom(Y).
+
+NonEmpty_country(X) :- country(X,Y). 
+Empty_country(X) :- ADom(X), not NonEmpty_country(X). 
+Next_country(X,Y,Z) :- country(X,Y),country(X,Z),Y<=Z. 
+NonFirst_country(X,Z) :- country(X,Y),country(X,Z), Y<Z. 
+First_country(X,Y) :- country(X,Y), not NonFirst_country(X,Y) .
+NonLast_country(X,Y) :- country(X,Y),country(X,Z), Y<Z.  
+Last_country(X,Y) :- country(X,Y), not NonLast_country(X,Y). 
+
+ 
+
+ % <LocationShapeS0/1> <= <LocationShape_magic/1>
+LocationShapeS0(Y) :- LocationShape_magic(Y).
+ 
+
+ % <LocationShape/1> <= (AND <LocationShapeS0/1> (AND <LocationShapeS1/1> (AND <LocationShapeS2/1> <LocationShapeS3/1>)))
+LocationShape(X) :- Aux11(X),Aux12(X).
+Aux11(Y) :- LocationShapeS0(Y).
+Aux12(X) :- Aux13(X),Aux14(X).
+Aux13(Y) :- LocationShapeS1(Y).
+Aux14(X) :- Aux15(X),Aux16(X).
+Aux15(Y) :- LocationShapeS2(Y).
+Aux16(Y) :- LocationShapeS3(Y).
+ 
+
+ % <ActorShapeS5/1> <= (ATLEAST 1 OF <^starring/2> ARE <ADom/1>)
+
+ActorShapeS5(X) :- AtLeast_1_starring_ADom(X,Y).
+AtLeast_0_starring_ADom(X,X) :- ADom(X). 
+AtLeast_1_starring_ADom(X,Y) :- First_starring(X,Y),ADom(Y).
+
+NonEmpty_starring(X) :- starring(X,Y). 
+Empty_starring(X) :- ADom(X), not NonEmpty_starring(X). 
+Next_starring(X,Y,Z) :- starring(X,Y),starring(X,Z),Y<=Z. 
+NonFirst_starring(X,Z) :- starring(X,Y),starring(X,Z), Y<Z. 
+First_starring(X,Y) :- starring(X,Y), not NonFirst_starring(X,Y) .
+NonLast_starring(X,Y) :- starring(X,Y),starring(X,Z), Y<Z.  
+Last_starring(X,Y) :- starring(X,Y), not NonLast_starring(X,Y). 
+
+ 
+
+ % <ActorShapeS4/1> <= (ATLEAST 1 OF <imdbId/2> ARE <ADom/1>)
+
+ActorShapeS4(X) :- AtLeast_1_imdbId_ADom(X,Y).
+AtLeast_0_imdbId_ADom(X,X) :- ADom(X). 
+AtLeast_1_imdbId_ADom(X,Y) :- First_imdbId(X,Y),ADom(Y).
+
+NonEmpty_imdbId(X) :- imdbId(X,Y). 
+Empty_imdbId(X) :- ADom(X), not NonEmpty_imdbId(X). 
+Next_imdbId(X,Y,Z) :- imdbId(X,Y),imdbId(X,Z),Y<=Z. 
+NonFirst_imdbId(X,Z) :- imdbId(X,Y),imdbId(X,Z), Y<Z. 
+First_imdbId(X,Y) :- imdbId(X,Y), not NonFirst_imdbId(X,Y) .
+NonLast_imdbId(X,Y) :- imdbId(X,Y),imdbId(X,Z), Y<Z.  
+Last_imdbId(X,Y) :- imdbId(X,Y), not NonLast_imdbId(X,Y). 
+
+ 
+
+ % <ActorShapeS3/1> <= (ATLEAST 1 OF <occupation/2> ARE <Actor/1>)
+
+ActorShapeS3(X) :- AtLeast_1_occupation_Actor(X,Y).
+AtLeast_0_occupation_Actor(X,X) :- ADom(X). 
+AtLeast_1_occupation_Actor(X,Y) :- First_occupation(X,Y),Actor(Y).
+
+NonEmpty_occupation(X) :- occupation(X,Y). 
+Empty_occupation(X) :- ADom(X), not NonEmpty_occupation(X). 
+Next_occupation(X,Y,Z) :- occupation(X,Y),occupation(X,Z),Y<=Z. 
+NonFirst_occupation(X,Z) :- occupation(X,Y),occupation(X,Z), Y<Z. 
+First_occupation(X,Y) :- occupation(X,Y), not NonFirst_occupation(X,Y) .
+NonLast_occupation(X,Y) :- occupation(X,Y),occupation(X,Z), Y<Z.  
+Last_occupation(X,Y) :- occupation(X,Y), not NonLast_occupation(X,Y). 
+
+ 
+
+ % <ActorShapeS2/1> <= (ATLEAST 1 OF <activeYearsStartYear/2> ARE <ADom/1>)
+
+ActorShapeS2(X) :- AtLeast_1_activeYearsStartYear_ADom(X,Y).
+AtLeast_0_activeYearsStartYear_ADom(X,X) :- ADom(X). 
+AtLeast_1_activeYearsStartYear_ADom(X,Y) :- First_activeYearsStartYear(X,Y),ADom(Y).
+
+NonEmpty_activeYearsStartYear(X) :- activeYearsStartYear(X,Y). 
+Empty_activeYearsStartYear(X) :- ADom(X), not NonEmpty_activeYearsStartYear(X). 
+Next_activeYearsStartYear(X,Y,Z) :- activeYearsStartYear(X,Y),activeYearsStartYear(X,Z),Y<=Z. 
+NonFirst_activeYearsStartYear(X,Z) :- activeYearsStartYear(X,Y),activeYearsStartYear(X,Z), Y<Z. 
+First_activeYearsStartYear(X,Y) :- activeYearsStartYear(X,Y), not NonFirst_activeYearsStartYear(X,Y) .
+NonLast_activeYearsStartYear(X,Y) :- activeYearsStartYear(X,Y),activeYearsStartYear(X,Z), Y<Z.  
+Last_activeYearsStartYear(X,Y) :- activeYearsStartYear(X,Y), not NonLast_activeYearsStartYear(X,Y). 
+
+ 
+
+ % <ActorShapeS1/1> <= (SOME <birthPlace/2> IS <LocationShape/1>)
+ActorShapeS1(X) :- Rel2(X,Y),Aux17(Y).
+Rel2(X,Y) :- birthPlace(X,Y).
+Aux17(Y) :- LocationShape(Y).
+ 
+
+ % <ActorShapeS0/1> <= <ActorShape_magic/1>
+ActorShapeS0(Y) :- ActorShape_magic(Y).
+ 
+
+ % <ActorShape/1> <= (AND <ActorShapeS0/1> (AND <ActorShapeS1/1> (AND <ActorShapeS2/1> (AND <ActorShapeS3/1> (AND <ActorShapeS4/1> <ActorShapeS5/1>)))))
+ActorShape(X) :- Aux18(X),Aux19(X).
+Aux18(Y) :- ActorShapeS0(Y).
+Aux19(X) :- Aux20(X),Aux21(X).
+Aux20(Y) :- ActorShapeS1(Y).
+Aux21(X) :- Aux22(X),Aux23(X).
+Aux22(Y) :- ActorShapeS2(Y).
+Aux23(X) :- Aux24(X),Aux25(X).
+Aux24(Y) :- ActorShapeS3(Y).
+Aux25(X) :- Aux26(X),Aux27(X).
+Aux26(Y) :- ActorShapeS4(Y).
+Aux27(Y) :- ActorShapeS5(Y).
+ 
+
+ % <MovieShapeS6/1> <= (ATLEAST 1 OF <starring/2> ARE <ActorShape/1>)
+
+MovieShapeS6(X) :- AtLeast_1_starring_ActorShape(X,Y).
+AtLeast_0_starring_ActorShape(X,X) :- ADom(X). 
+AtLeast_1_starring_ActorShape(X,Y) :- First_starring(X,Y),ActorShape(Y).
+
+NonEmpty_starring(X) :- starring(X,Y). 
+Empty_starring(X) :- ADom(X), not NonEmpty_starring(X). 
+Next_starring(X,Y,Z) :- starring(X,Y),starring(X,Z),Y<=Z. 
+NonFirst_starring(X,Z) :- starring(X,Y),starring(X,Z), Y<Z. 
+First_starring(X,Y) :- starring(X,Y), not NonFirst_starring(X,Y) .
+NonLast_starring(X,Y) :- starring(X,Y),starring(X,Z), Y<Z.  
+Last_starring(X,Y) :- starring(X,Y), not NonLast_starring(X,Y). 
+
+ 
+
+ % <MovieShapeN1/1> <= (ATLEAST 2 OF <imdbId/2> ARE <ADom/1>)
+
+MovieShapeN1(X) :- AtLeast_2_imdbId_ADom(X,Y).
+AtLeast_0_imdbId_ADom(X,X) :- ADom(X). 
+AtLeast_1_imdbId_ADom(X,Y) :- First_imdbId(X,Y),ADom(Y).
+AtLeast_2_imdbId_ADom(X,Z) :- Next_imdbId(X,Y,Z), AtLeast_2_imdbId_ADom(X,Y). 
+AtLeast_2_imdbId_ADom(X,Z) :- Next_imdbId(X,Y,Z), AtLeast_1_imdbId_ADom(X,Y),ADom(Z), Y!=Z. 
+
+NonEmpty_imdbId(X) :- imdbId(X,Y). 
+Empty_imdbId(X) :- ADom(X), not NonEmpty_imdbId(X). 
+Next_imdbId(X,Y,Z) :- imdbId(X,Y),imdbId(X,Z),Y<=Z. 
+NonFirst_imdbId(X,Z) :- imdbId(X,Y),imdbId(X,Z), Y<Z. 
+First_imdbId(X,Y) :- imdbId(X,Y), not NonFirst_imdbId(X,Y) .
+NonLast_imdbId(X,Y) :- imdbId(X,Y),imdbId(X,Z), Y<Z.  
+Last_imdbId(X,Y) :- imdbId(X,Y), not NonLast_imdbId(X,Y). 
+
+ 
+
+ % <MovieShapeS5/1> <= (NOT <MovieShapeN1/1>)
+MovieShapeS5(X) :-ADom(X), not Aux28(X).
+Aux28(Y) :- MovieShapeN1(Y).
+ 
+
+ % <MovieShapeS4/1> <= (ATLEAST 1 OF <imdbId/2> ARE <ADom/1>)
+
+MovieShapeS4(X) :- AtLeast_1_imdbId_ADom(X,Y).
+AtLeast_0_imdbId_ADom(X,X) :- ADom(X). 
+AtLeast_1_imdbId_ADom(X,Y) :- First_imdbId(X,Y),ADom(Y).
+
+NonEmpty_imdbId(X) :- imdbId(X,Y). 
+Empty_imdbId(X) :- ADom(X), not NonEmpty_imdbId(X). 
+Next_imdbId(X,Y,Z) :- imdbId(X,Y),imdbId(X,Z),Y<=Z. 
+NonFirst_imdbId(X,Z) :- imdbId(X,Y),imdbId(X,Z), Y<Z. 
+First_imdbId(X,Y) :- imdbId(X,Y), not NonFirst_imdbId(X,Y) .
+NonLast_imdbId(X,Y) :- imdbId(X,Y),imdbId(X,Z), Y<Z.  
+Last_imdbId(X,Y) :- imdbId(X,Y), not NonLast_imdbId(X,Y). 
+
+ 
+
+ % <MovieShapeS3/1> <= (ATLEAST 1 OF <director/2> ARE <DirectorShape/1>)
+
+MovieShapeS3(X) :- AtLeast_1_director_DirectorShape(X,Y).
+AtLeast_0_director_DirectorShape(X,X) :- ADom(X). 
+AtLeast_1_director_DirectorShape(X,Y) :- First_director(X,Y),DirectorShape(Y).
+
+NonEmpty_director(X) :- director(X,Y). 
+Empty_director(X) :- ADom(X), not NonEmpty_director(X). 
+Next_director(X,Y,Z) :- director(X,Y),director(X,Z),Y<=Z. 
+NonFirst_director(X,Z) :- director(X,Y),director(X,Z), Y<Z. 
+First_director(X,Y) :- director(X,Y), not NonFirst_director(X,Y) .
+NonLast_director(X,Y) :- director(X,Y),director(X,Z), Y<Z.  
+Last_director(X,Y) :- director(X,Y), not NonLast_director(X,Y). 
+
+ 
+
+ % <MovieShapeS2/1> <= (ATLEAST 1 OF <musicComposer/2> ARE <ADom/1>)
+
+MovieShapeS2(X) :- AtLeast_1_musicComposer_ADom(X,Y).
+AtLeast_0_musicComposer_ADom(X,X) :- ADom(X). 
+AtLeast_1_musicComposer_ADom(X,Y) :- First_musicComposer(X,Y),ADom(Y).
+
+NonEmpty_musicComposer(X) :- musicComposer(X,Y). 
+Empty_musicComposer(X) :- ADom(X), not NonEmpty_musicComposer(X). 
+Next_musicComposer(X,Y,Z) :- musicComposer(X,Y),musicComposer(X,Z),Y<=Z. 
+NonFirst_musicComposer(X,Z) :- musicComposer(X,Y),musicComposer(X,Z), Y<Z. 
+First_musicComposer(X,Y) :- musicComposer(X,Y), not NonFirst_musicComposer(X,Y) .
+NonLast_musicComposer(X,Y) :- musicComposer(X,Y),musicComposer(X,Z), Y<Z.  
+Last_musicComposer(X,Y) :- musicComposer(X,Y), not NonLast_musicComposer(X,Y). 
+
+ 
+
+ % <MovieShapeS1/1> <= (ATLEAST 1 OF <writer/2> ARE <ADom/1>)
+
+MovieShapeS1(X) :- AtLeast_1_writer_ADom(X,Y).
+AtLeast_0_writer_ADom(X,X) :- ADom(X). 
+AtLeast_1_writer_ADom(X,Y) :- First_writer(X,Y),ADom(Y).
+
+NonEmpty_writer(X) :- writer(X,Y). 
+Empty_writer(X) :- ADom(X), not NonEmpty_writer(X). 
+Next_writer(X,Y,Z) :- writer(X,Y),writer(X,Z),Y<=Z. 
+NonFirst_writer(X,Z) :- writer(X,Y),writer(X,Z), Y<Z. 
+First_writer(X,Y) :- writer(X,Y), not NonFirst_writer(X,Y) .
+NonLast_writer(X,Y) :- writer(X,Y),writer(X,Z), Y<Z.  
+Last_writer(X,Y) :- writer(X,Y), not NonLast_writer(X,Y). 
+
+ 
+
+ % <MovieShapeS0/1> <= <MovieShape_magic/1>
+MovieShapeS0(Y) :- MovieShape_magic(Y).
+ 
+
+ % <MovieShape/1> <= (AND <MovieShapeS0/1> (AND <MovieShapeS1/1> (AND <MovieShapeS2/1> (AND <MovieShapeS3/1> (AND <MovieShapeS4/1> (AND <MovieShapeS5/1> <MovieShapeS6/1>))))))
+MovieShape(X) :- Aux29(X),Aux30(X).
+Aux29(Y) :- MovieShapeS0(Y).
+Aux30(X) :- Aux31(X),Aux32(X).
+Aux31(Y) :- MovieShapeS1(Y).
+Aux32(X) :- Aux33(X),Aux34(X).
+Aux33(Y) :- MovieShapeS2(Y).
+Aux34(X) :- Aux35(X),Aux36(X).
+Aux35(Y) :- MovieShapeS3(Y).
+Aux36(X) :- Aux37(X),Aux38(X).
+Aux37(Y) :- MovieShapeS4(Y).
+Aux38(X) :- Aux39(X),Aux40(X).
+Aux39(Y) :- MovieShapeS5(Y).
+Aux40(Y) :- MovieShapeS6(Y).
+ 
+
+ % <LocationShape_magicS1/1> <= (SOME <^birthPlace/2> IS <ActorShape_magic/1>)
+LocationShape_magicS1(X) :- Rel3(X,Y),Aux41(Y).
+Rel3(X,Y) :- birthPlace(Y,X).
+Aux41(Y) :- ActorShape_magic(Y).
+ 
+
+ % <LocationShape_magicS0/1> <= (SOME <^birthPlace/2> IS <DirectorShape_magic/1>)
+LocationShape_magicS0(X) :- Rel4(X,Y),Aux42(Y).
+Rel4(X,Y) :- birthPlace(Y,X).
+Aux42(Y) :- DirectorShape_magic(Y).
+ 
+
+ % <LocationShape_magic/1> <= (AND <LocationShape_magicS0/1> <LocationShape_magicS1/1>)
+LocationShape_magic(X) :- Aux43(X),Aux44(X).
+Aux43(Y) :- LocationShape_magicS0(Y).
+Aux44(Y) :- LocationShape_magicS1(Y).
+ 
+
+ % <ActorShape_magic/1> <= (SOME <^starring/2> IS <MovieShape_magic/1>)
+ActorShape_magic(X) :- Rel5(X,Y),Aux45(Y).
+Rel5(X,Y) :- starring(Y,X).
+Aux45(Y) :- MovieShape_magic(Y).
+ 
+
+ % <DirectorShape_magicS1/1> <= (SOME <^director/2> IS <DirectorShape_magic/1>)
+DirectorShape_magicS1(X) :- Rel6(X,Y),Aux46(Y).
+Rel6(X,Y) :- director(Y,X).
+Aux46(Y) :- DirectorShape_magic(Y).
+ 
+
+ % <DirectorShape_magicS0/1> <= <MovieShape_magic/1>
+DirectorShape_magicS0(Y) :- MovieShape_magic(Y).
+ 
+
+ % <DirectorShape_magic/1> <= (AND <DirectorShape_magicS0/1> <DirectorShape_magicS1/1>)
+DirectorShape_magic(X) :- Aux47(X),Aux48(X).
+Aux47(Y) :- DirectorShape_magicS0(Y).
+Aux48(Y) :- DirectorShape_magicS1(Y).
+ 
+
+ % <MovieShape_magicS1/1> <= <Film/1>
+MovieShape_magicS1(Y) :- Film(Y).
+ 
+
+ % <MovieShape_magicS0/1> <= (SOME <director/2> IS <DirectorShape_magic/1>)
+MovieShape_magicS0(X) :- Rel7(X,Y),Aux49(Y).
+Rel7(X,Y) :- director(X,Y).
+Aux49(Y) :- DirectorShape_magic(Y).
+ 
+
+ % <MovieShape_magic/1> <= (AND <MovieShape_magicS0/1> <MovieShape_magicS1/1>)
+MovieShape_magic(X) :- Aux50(X),Aux51(X).
+Aux50(Y) :- MovieShape_magicS0(Y).
+Aux51(Y) :- MovieShape_magicS1(Y).
+ 

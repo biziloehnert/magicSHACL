@@ -1,0 +1,14 @@
+{
+	"name": "InfluencerShape", 
+	"prefix": {
+		"dbo": "<http://dbpedia.org/ontology/>",
+		"dbr" : "<http://dbpedia.org/resource/>"
+	},
+	"constraintDef" : {
+		"conjunctions" : [
+			[
+				{"path": "dbo:influenced", "min": 1}
+			]	
+		]
+	}
+}

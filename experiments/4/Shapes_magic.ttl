@@ -6,8 +6,8 @@
 :MusicianShape_magic
 	a sh:NodeShape ;
 	sh:targetClass dbo:Person ;.
- 
-:PersonShape_magic 
+
+:PersonShape_magic
 	a sh:NodeShape ;
 	sh:property[
 		sh:node :MusicianShape_magic ;
@@ -27,13 +27,13 @@
 				
 :MusicianShape
 	sh:targetClass dbo:Person ;
-	sh:node :PersonShape ;
-	sh:node :MusicianShape_magic ;
 	sh:property [
 		sh:path dbo:instrument ;
 		sh:minCount 1 ;
 	];
 	a sh:NodeShape ;
+	sh:node :MusicianShape_magic ;
+	sh:node :PersonShape ; 
 .
 
 :PersonShape

@@ -1,0 +1,8 @@
+MovieShape_magic :- MovieShape_magicS0 AND MovieShape_magicS1;
+MovieShape_magicS0 :- Film;
+MovieShape_magicS1 :- SOME director DirectorShape_magic ;  
+DirectorShape_magic :- SOME ^director MovieShape_magic ;  
+ActorShape_magic :- SOME ^starring MovieShape_magic ;  
+LocationShape_magic :- LocationShape_magicS0 AND LocationShape_magicS1;
+LocationShape_magicS0 :- SOME ^birthPlace DirectorShape_magic;
+LocationShape_magicS1 :- SOME ^birthPlace ActorShape_magic;

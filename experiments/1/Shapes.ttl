@@ -22,10 +22,10 @@
 		sh:minCount 1
 	] ;
 	sh:property [
-		sh:path[
-			sh:inversePath dbo:starring;
-		];
-		sh:minCount 1
+	sh:path[
+		sh:inversePath dbo:starring;
+	];
+	sh:minCount 1
 	] .
 
 :DirectorShape a sh:NodeShape;
@@ -41,22 +41,22 @@
 		sh:path[
 			sh:inversePath dbo:director;
 		];
-	 	sh:minCount 1
+		sh:minCount 1
 	] .
    
 :LocationShape a sh:NodeShape;
-   sh:property [
+	sh:property [
 		sh:path dbo:country;
 		sh:minCount 1
-   ] ;
-   sh:property [
+	] ;
+	sh:property [
 		sh:path dbo:leaderTitle;
 		sh:minCount 1
-   ] ;
-   sh:property [
+	] ;
+	sh:property [
 		sh:path dbo:populationDensity;
 		sh:minCount 1
-   ] .
+	] .
 
 :AnarchyShape a sh:NodeShape;
 	sh:property [
@@ -65,6 +65,7 @@
 	] .
 
 :MovieShape a sh:NodeShape;
+	sh:targetClass dbo:Film;
 	sh:property [
 		sh:path dbo:writer;
 		sh:minCount 1
@@ -137,7 +138,6 @@
 .
 
 :MusicianShape a sh:NodeShape;
-	sh:targetClass dbo:Person;	
 	sh:node :PersonShape;
 	sh:property [ 
 		sh:path dbo:instrument;

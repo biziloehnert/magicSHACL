@@ -1,0 +1,14 @@
+{
+	"name": "AwardWinningShape", 
+	"prefix": {
+		"dbo": "<http://dbpedia.org/ontology/>",
+		"dbr" : "<http://dbpedia.org/resource/>"
+	},
+	"constraintDef" : {
+		"conjunctions" : [
+			[
+				{"path": "dbo:award", "min": 1}
+			]	
+		]
+	}
+}

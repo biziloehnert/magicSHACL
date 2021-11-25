@@ -1,0 +1,15 @@
+{
+	"name": "ParentShape", 
+	"prefix": {
+		"dbo": "<http://dbpedia.org/ontology/>",
+		"dbr" : "<http://dbpedia.org/resource/>"
+	},
+	"constraintDef" : {
+		"conjunctions" : [
+			[
+				{"path": "dbo:child", "min": 1},
+				{"path": "dbo:empty", "min": 1, "shape": "PersonShape"}
+			]	
+		]
+	}
+}

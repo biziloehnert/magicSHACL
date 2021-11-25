@@ -1,0 +1,14 @@
+{
+	"name": "FamousShape", 
+	"prefix": {
+		"dbo": "<http://dbpedia.org/ontology/>",
+		"dbr" : "<http://dbpedia.org/resource/>"
+	},
+	"constraintDef" : {
+		"conjunctions" : [
+			[
+				{"path": "dbo:knownFor", "min": 1}
+			]	
+		]
+	}
+}

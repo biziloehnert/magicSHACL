@@ -22,10 +22,10 @@
 		sh:minCount 1
 	] ;
 	sh:property [
-	sh:path[
-		sh:inversePath dbo:starring;
-	];
-	sh:minCount 1
+		sh:path[
+			sh:inversePath dbo:starring;
+		];
+		sh:minCount 1
 	] .
 
 :DirectorShape a sh:NodeShape;
@@ -41,22 +41,22 @@
 		sh:path[
 			sh:inversePath dbo:director;
 		];
-		sh:minCount 1
+	 	sh:minCount 1
 	] .
    
 :LocationShape a sh:NodeShape;
-	sh:property [
+   sh:property [
 		sh:path dbo:country;
 		sh:minCount 1
-	] ;
-	sh:property [
+   ] ;
+   sh:property [
 		sh:path dbo:leaderTitle;
 		sh:minCount 1
-	] ;
-	sh:property [
+   ] ;
+   sh:property [
 		sh:path dbo:populationDensity;
 		sh:minCount 1
-	] .
+   ] .
 
 :AnarchyShape a sh:NodeShape;
 	sh:property [
@@ -98,9 +98,6 @@
 .
 
 :InfluencerShape a sh:NodeShape;
-	sh:not [
-		sh:node :InfluencerShape;
-	];
 	sh:property [ 
 		sh:path dbo:influenced;
 		sh:minCount 1;

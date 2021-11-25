@@ -1,0 +1,14 @@
+{
+	"name": "LocationShape_magic", 
+	"prefix": {
+		"dbo": "<http://dbpedia.org/ontology/>",
+		"dbr" : "<http://dbpedia.org/resource/>"
+	},
+	"constraintDef" : {
+		"conjunctions" : [
+			[
+				{"path": "^dbo:birthPlace", "min": 1, "shape": "PersonShape_magic"}
+			]	
+		]
+	}
+}

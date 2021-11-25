@@ -2,14 +2,12 @@ ActorShape :- ActorShapeS0 AND ActorShapeS1 AND ActorShapeS2 AND ActorShapeS3 AN
 ActorShapeS0 :- SOME birthPlace LocationShape;
 ActorShapeS1 :- MIN 1 activeYearsStartYear ADom;
 ActorShapeS2 :- MIN 1 occupation Actor;
-ActorShapeS3 :- MIN 1 imdbId ADom;
-ActorShapeS4 :- MIN 1 ^starring ADom;
-DirectorShape :- DirectorShapeS0 AND DirectorShapeS1 AND DirectorShapeS2 AND DirectorShapeS3;
+ActorShapeS3 :- MIN 1 imdbId ADom; 
+ActorShapeS4 :- MIN 1 ^starring  ADom;
+DirectorShape :- DirectorShapeS0 AND DirectorShapeS1 AND DirectorShapeS2;
 DirectorShapeS0 :- SOME birthPlace LocationShape;
 DirectorShapeS1 :- MIN 1 imdbId ADom;
 DirectorShapeS2 :- MIN 1 ^director MovieShape;
-DirectorShapeS3 :- NOT DirectorShapeN3;
-DirectorShapeN3 :- DirectorShape;
 LocationShape :- LocationShapeS0 AND LocationShapeS1 AND LocationShapeS2;
 LocationShapeS0 :- MIN 1 country ADom;
 LocationShapeS1 :- MIN 1 leaderTitle ADom;
