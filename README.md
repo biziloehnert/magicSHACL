@@ -1,3 +1,5 @@
+<div id="top"></div>
+
 # Magic Shapes for SHACL Validation
 
 <!-- TABLE OF CONTENTS -->
@@ -25,6 +27,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+This project implements the **Magic Shapes Algorithm**, that is an optimization technique for [SHACL](https://www.w3.org/TR/shacl/) validation. It takes as input a shapes graph (in [Turtle](https://www.w3.org/TR/turtle/) or abstract syntax) and outputs a new **magic** shapes graph (in [Turtle](https://www.w3.org/TR/turtle/) and abstract syntax). The magic shapes graph contains shape constraints relevant for validating the target(s) and enable validation only on nodes of an [RDF](https://www.w3.org/TR/rdf11-concepts/) data graph relevant to the target(s).  
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
