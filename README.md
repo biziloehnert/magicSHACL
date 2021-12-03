@@ -36,23 +36,39 @@ This project implements the **Magic Shapes Algorithm**, that is an optimization 
 * [Eclipse Modeling Framework](https://www.eclipse.org/modeling/emf/)
 * [Xtend](https://www.eclipse.org/xtend/index.html)
 * [Xtext](https://www.eclipse.org/Xtext/)
-* [Java](https://www.oracle.com/java/)
+* [Java JDK 14](https://www.oracle.com/java/technologies/javase/jdk14-archive-downloads.html)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
+There are two ways to run the prototype: 
+1) from the command line 
+2) by integrating the plugin to the [Eclipse IDE](https://www.eclipse.org/downloads/), that provides a text editor for [Turtle](https://www.w3.org/TR/turtle/) and abstract syntax
 
 ### Prerequisites
+The implementation requires JRE 14, which can be installed by the following command:
+```
+$ apt install openjdk-14-jre-headless
+```
+In order to use the plugin a running [Eclipse IDE](https://www.eclipse.org/downloads/) is additionally required. 
 
 ### Installation
+The command line tool is provided as **MagicShapes.jar** with the release and does not need further installation. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+To perform the magic shapes transformation on some input shapes graph execute the following command: 
+```
+$ java -jar <pathToJar> <pathToShapesGraph>
+```
+For example to run the transformation on a shapes graph from the [experiments](https://github.com/biziloehnert/magicSHACL/experiments) directory (assuming that the MagicShapes.jar is there) enter: 
+```
+$ java -jar MagicShapes.jar 1/Shapes.ttl
+```
+More examples and explanations are provided in the [experiments](https://github.com/biziloehnert/magicSHACL/experiments) directory. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
