@@ -64,11 +64,11 @@ To perform the magic shapes transformation on some input shapes graph execute th
 ```
 $ java -jar <pathToJar> <pathToShapesGraph>
 ```
-For example to run the transformation on a shapes graph from the [experiments](https://github.com/biziloehnert/magicSHACL/experiments) directory (assuming that the MagicShapes.jar is there) enter: 
+For example to run the transformation on a shapes graph from the [experiments](https://github.com/biziloehnert/magicSHACL/tree/master/experiments) directory (assuming that the MagicShapes.jar is there) enter: 
 ```
 $ java -jar MagicShapes.jar 1/Shapes.ttl
 ```
-More examples and explanations are provided in the [experiments](https://github.com/biziloehnert/magicSHACL/experiments) directory. 
+More examples and explanations are provided in the [experiments](https://github.com/biziloehnert/magicSHACL/tree/master/experiments) directory. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
