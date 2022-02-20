@@ -1,6 +1,15 @@
 # Experiments
 
 ## Data Graph
+[DBPedia dataset](https://databus.dbpedia.org/dbpedia/collections/latest-core) (latest core dataset release, publication year 2020) 11.78GB
+
+```
+$ query=$(curl -H "Accept:text/sparql" https://databus.dbpedia.org/dbpedia/collections/latest-core)
+$ files=$(curl -H "Accept: text/csv" --data-urlencode "query=${query}" https://databus.dbpedia.org/repo/sparql | tail -n+2 | sed 's/"//g')
+$ while IFS= read -r file ; do wget $file; done <<< "$files"
+```
+
+
 
 ## Shapes Graph
 
@@ -16,4 +25,4 @@
 |8|     C4    | Movie(Film)     | Director <-> Movie, Influencer <-> not Influencer |
 |9|     C5    | Movie(Film)     | Director <-> Movie, Director <-> not Director|
 
-*todo: modify C3, C4 and C5 such that they the same set of shape constraints?*
+*todo: modify C3, C4 and C5 such that they become the same set of shape constraints?*
