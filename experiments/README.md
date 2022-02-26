@@ -24,6 +24,7 @@ sed -i 's/<.*[BAD CHARACTER].*>/d' *.ttl
 
 
 ## Shapes Graph
+Employee <-- MIN 1 employer.NOT Employee
 
 |S|Constraints| Targets | Recursion | 
 |-|:---------:|:---------------:|:---------------: |
