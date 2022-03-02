@@ -19,9 +19,8 @@ $ ./apache-jena-4.0.0/bin/tdb2.tdbloader --loc tdb *.ttl *.nt
 ```
 When loading the tripels to the tdb the tdbloader may complain about "Bad IRI". Lines containing a character that does not match the grammar for IRIs (i.e. BAD CHARACTER) can be deleted by the command below: 
 ```
-sed -i 's/<.*[BAD CHARACTER].*>/d' *.ttl 
+sed -i 's/[BAD CHARACTER]/d' *.ttl 
 ```
-
 
 ## Shapes Graph
 Employee <-- MIN 1 employer.NOT Employee
