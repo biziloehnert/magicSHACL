@@ -23,7 +23,11 @@ As a triple data base [Apache Jena TDB2](https://jena.apache.org/documentation/t
 ```cmd
 [PATH-TO]/apache-jena-4.0.0/bin/tdb2.tdbloader --loc tdb *.ttl
 ```
-When loading the tripels to the tdb the tdbloader may complain about "Bad IRI". Lines containing a character that does not match the grammar for IRIs (i.e. BAD CHARACTER) can be deleted by the command below: 
+When loading the tripels to the tdb the tdbloader may complain about "Bad IRI". Apache Jena provides a tool to validate the syntax of the datasets before loading it to the triple store: 
+```cmd
+[PATH-TO]/apache-jena-4.0.0/bin/riot --validate *.ttl
+```
+Lines containing a character that does not match the grammar for IRIs (i.e. BAD CHARACTER) can be deleted by the command below: 
 ```cmd
 sed -i 's/[BAD CHARACTER]/d' *.ttl 
 ```
