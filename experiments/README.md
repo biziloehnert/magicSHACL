@@ -8,9 +8,9 @@ query=$(curl -H "Accept:text/sparql" https://databus.dbpedia.org/dbpedia/collect
 files=$(curl -H "Accept: text/csv" --data-urlencode "query=${query}" https://databus.dbpedia.org/repo/sparql | tail -n+2 | sed 's/"//g')
 while IFS= read -r file ; do wget $file; done <<< "$files"
 ```
-For the experiments merely the files "InstanceTypes", "Labels", "Mappingbased Literals", "Mappingbased Objects" and "PersonData" are required. Use the following command to download these files directly:
+For the experiments merely the files "InstanceTypes", "Labels", "Mappingbased Literals", "Mappingbased Objects" and "PersonData" (from 2016, because the PersonData from 2021 is empty) are required. Use the following command to download these files directly:
 ```cmd
-$files = https://databus.dbpedia.org/dbpedia/mappings/instance-types/2021.12.01/instance-types_lang=en_specific.ttl.bz2 https://databus.dbpedia.org/dbpedia/mappings/instance-types/2021.12.01/instance-types_lang=en_transitive.ttl.bz2 https://databus.dbpedia.org/vehnem/yago/instance-types/2016.10.01/instance-types_tag=specific.ttl.bz2 https://databus.dbpedia.org/dbpedia/generic/labels/2021.12.01/labels_lang=en.ttl.bz2 https://databus.dbpedia.org/dbpedia/mappings/mappingbased-literals/2021.12.01/mappingbased-literals_lang=en.ttl.bz2 https://databus.dbpedia.org/dbpedia/mappings/mappingbased-objects/2021.12.01/mappingbased-objects_lang=en.ttl.bz2 https://databus.dbpedia.org/dbpedia/generic/persondata/2021.12.01/persondata_lang=en.ttl.bz2 
+files="https://databus.dbpedia.org/dbpedia/mappings/instance-types/2021.12.01/instance-types_lang=en_specific.ttl.bz2 https://databus.dbpedia.org/dbpedia/mappings/instance-types/2021.12.01/instance-types_lang=en_transitive.ttl.bz2 https://databus.dbpedia.org/vehnem/yago/instance-types/2016.10.01/instance-types_tag=specific.ttl.bz2 https://databus.dbpedia.org/dbpedia/generic/labels/2021.12.01/labels_lang=en.ttl.bz2 https://databus.dbpedia.org/dbpedia/mappings/mappingbased-literals/2021.12.01/mappingbased-literals_lang=en.ttl.bz2 https://databus.dbpedia.org/dbpedia/mappings/mappingbased-objects/2021.12.01/mappingbased-objects_lang=en.ttl.bz2 https://databus.dbpedia.org/dbpedia/generic/persondata/2016.10.01/persondata_lang=en.ttl.bz2"
 while IFS= read -r file ; do wget $file; done <<< "$files"
 ```
 
