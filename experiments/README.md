@@ -21,7 +21,7 @@ bzip2 -d *.bz2
 ```
 As a triple data base [Apache Jena TDB2](https://jena.apache.org/documentation/tdb2/tdb2_cmds.html) is used. The triples from DBPedia are loaded into the TDB by the following command: 
 ```cmd
-./apache-jena-4.0.0/bin/tdb2.tdbloader --loc tdb *.ttl *.nt 
+[PATH-TO]/apache-jena-4.0.0/bin/tdb2.tdbloader --loc tdb *.ttl
 ```
 When loading the tripels to the tdb the tdbloader may complain about "Bad IRI". Lines containing a character that does not match the grammar for IRIs (i.e. BAD CHARACTER) can be deleted by the command below: 
 ```cmd
