@@ -58,11 +58,12 @@ public class Main {
 		}
 		
 		// Configure and start the generator
-		fileAccess.setOutputPath("src-gen/");
+		String outputPath = resource.getURI().trimSegments(URI.FRAGMENT_LAST_SEPARATOR-1)+"/src-gen/";
+		fileAccess.setOutputPath(outputPath);
 		GeneratorContext context = new GeneratorContext();
 		context.setCancelIndicator(CancelIndicator.NullImpl);
 		generator.generate(resource, fileAccess, context);
-
+		System.out.println("Generated magic shapes graphs to " + outputPath);
 		System.out.println("Magic shapes transformation finished.");
 	}
 }
