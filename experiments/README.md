@@ -21,19 +21,23 @@ bzip2 -d *.bz2
 ```
 As a triple data base [Apache Jena TDB2](https://jena.apache.org/documentation/tdb2/tdb2_cmds.html) is used. The triples from DBPedia are loaded into the TDB by the following command: 
 ```cmd
-[PATH-TO]/apache-jena-4.0.0/bin/tdb2.tdbloader --loc tdb *.ttl
+<PATH-TO>/apache-jena-4.0.0/bin/tdb2.tdbloader --loc <PATH-TO>/tdb *.ttl
 ```
 When loading the tripels to the tdb the tdbloader may complain about "Bad IRI". Apache Jena provides a tool to validate the syntax of the datasets before loading it to the triple store: 
 ```cmd
-[PATH-TO]/apache-jena-4.0.0/bin/riot --validate *.ttl
+<PATH-TO>/apache-jena-4.0.0/bin/riot --validate *.ttl
 ```
 The dataset can be converted into ASCII encoding by the following command (note that by this some IRIs might change):
 ```cmd
-iconv -f utf-8 -t ascii//TRANSLIT [INPUT_PATH] -o [OUTPUT_PATH] 
+iconv -f utf-8 -t ascii//TRANSLIT <INPUT_PATH> -o <OUTPUT_PATH>
 ```
 Lines containing a character that does not match the grammar for IRIs (i.e. BAD CHARACTER) can be deleted by the command below: 
 ```cmd
-sed -i 's/[BAD CHARACTER]/d' *.ttl 
+sed -i 's/<BAD CHARACTER>/d' *.ttl 
+```
+As a SPARQL server we used [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/fuseki-webapp.html#fuseki-standalone-server). To start the server with the triple dataset loaded above execute the command below. 
+```cmd
+fuseki-server --loc=<PATH-TO>/tdb --update /DBPedia
 ```
 
 ## Shapes Graph
