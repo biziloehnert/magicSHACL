@@ -42,14 +42,12 @@ This project implements the **Magic Shapes Algorithm**, that is an optimization 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-There are two ways to run the prototype: 
-1) from the command line 
-2) by integrating the plugin to the [Eclipse IDE](https://www.eclipse.org/downloads/), that provides a text editor for [Turtle](https://www.w3.org/TR/turtle/) and abstract syntax
+The magic shapes algorithm prototype can be executed from the command line. 
 
 ### Prerequisites
 The implementation requires JRE 14, which can be installed by the following command:
-```
-$ apt install openjdk-14-jre-headless
+```cmd
+apt install openjdk-14-jre-headless
 ```
 In order to use the plugin a running [Eclipse IDE](https://www.eclipse.org/downloads/) is additionally required. 
 
@@ -61,12 +59,12 @@ The command line tool is provided as **MagicShapes.jar** with the release and do
 <!-- USAGE EXAMPLES -->
 ## Usage
 To perform the magic shapes transformation on some input shapes graph execute the following command: 
-```
-$ java -jar <pathToJar> <pathToShapesGraph>
+```cmd
+java -jar <pathToJar> <pathToShapesGraph>
 ```
 For example to run the transformation on a shapes graph from the [experiments](https://github.com/biziloehnert/magicSHACL/tree/master/experiments) directory (assuming that the MagicShapes.jar is there) enter: 
-```
-$ java -jar MagicShapes.jar 1/Shapes.ttl
+```cmd
+java -jar MagicShapes.jar 1/Shapes.ttl
 ```
 More examples and explanations are provided in the [experiments](https://github.com/biziloehnert/magicSHACL/tree/master/experiments) directory. 
 
