@@ -41,7 +41,7 @@ class TurtleGenerator extends AbstractGenerator {
 	            	val shapes = shapeExpressionToAbstractString(constraint.shapeExpressions)»«
 	            	constraint.shapeName.name.split(':').last» :- «
 	            	IF shapes.size == 1»«
-	            		shapes.get(0)» ;  
+	            		shapes.get(0)» ; 
 	 				«ELSE»
 	 					«FOR shape : shapes SEPARATOR ' AND ' AFTER ';\n'»«
 	            			constraint.shapeName.name.split(':').last»S«shapes.indexOf(shape)»«
@@ -53,7 +53,7 @@ class TurtleGenerator extends AbstractGenerator {
 	             ENDFOR»
 	        ''')
 	        
-	        for(ShapeConstraint c : resource.allContents.filter(ShapeConstraint).toIterable){
+	        /*for(ShapeConstraint c : resource.allContents.filter(ShapeConstraint).toIterable){
 	        	fsa.generateFile(resource.URI.lastSegment.replace(":","").replace(".ttl", "_" + c.shapeName.name + ".json"), '''
 	        	{
 	        		"name": "«c.shapeName.name»", 
@@ -80,9 +80,9 @@ class TurtleGenerator extends AbstractGenerator {
 	        		}
 	        	}
 	        ''')	
-	        }
+	        }*/
         }
-        
+      
         //magic algorithm
         if(!resource.URI.path.contains("src-gen") && !resource.URI.lastSegment.contains("_magic")){
         	adornedShapes = new Stack	
