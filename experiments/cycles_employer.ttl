@@ -1,0 +1,3 @@
+<http://dbpedia.org/resource/Bill> <http://dbpedia.org/ontology/employer> <http://dbpedia.org/resource/Bob> .
+<http://dbpedia.org/resource/Bob> <http://dbpedia.org/ontology/employer> <http://dbpedia.org/resource/Jim> .
+<http://dbpedia.org/resource/Jim> <http://dbpedia.org/ontology/employer> <http://dbpedia.org/resource/Bill> .
