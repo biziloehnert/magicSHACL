@@ -27,6 +27,10 @@ When loading the tripels to the tdb the tdbloader may complain about "Bad IRI". 
 ```cmd
 [PATH-TO]/apache-jena-4.0.0/bin/riot --validate *.ttl
 ```
+The dataset can be converted into ASCII encoding by the following command (note that by this some IRIs might change):
+```cmd
+iconv -f utf-8 -t ascii//TRANSLIT [INPUT_PATH] -o [OUTPUT_PATH] 
+```
 Lines containing a character that does not match the grammar for IRIs (i.e. BAD CHARACTER) can be deleted by the command below: 
 ```cmd
 sed -i 's/[BAD CHARACTER]/d' *.ttl 
