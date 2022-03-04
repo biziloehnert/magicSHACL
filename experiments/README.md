@@ -35,10 +35,11 @@ Lines containing a character that does not match the grammar for IRIs (i.e. BAD 
 ```cmd
 sed -i 's/<BAD CHARACTER>/d' *.ttl 
 ```
-As a SPARQL server we used [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/fuseki-webapp.html#fuseki-standalone-server). To start the server with the triple dataset loaded above execute the command below. 
+<!---As a SPARQL server we used [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/fuseki-webapp.html#fuseki-standalone-server). To start the server with the triple dataset loaded above execute the command below. 
 ```cmd
 fuseki-server --loc=<PATH-TO>/tdb --update /DBPedia
 ```
+-->
 
 ## Shapes Graph
 Employee <-- MIN 1 employer.NOT Employee
