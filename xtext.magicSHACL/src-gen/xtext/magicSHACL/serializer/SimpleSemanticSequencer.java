@@ -99,7 +99,7 @@ public class SimpleSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ShapeExpression returns ShapeExpression
 	 *
 	 * Constraint:
-	 *     (values+=Value | (type=PropertyType values+=Value*) | (values+=Value (type=PropertyType values+=Value)+))
+	 *     ((type=PropertyType values+=Value*) | (values+=Value (type=PropertyType values+=Value)*))
 	 */
 	protected void sequence_ShapeExpression(ISerializationContext context, ShapeExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

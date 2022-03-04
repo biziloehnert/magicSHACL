@@ -375,22 +375,43 @@ ruleShapeExpression returns [EObject current=null]
 			)
 			(
 				(
-					{
-						newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_0_1_0());
-					}
-					lv_values_1_0=ruleValue
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getShapeExpressionAccess().getTypePropertyTypeEnumRuleCall_0_1_0_0());
 						}
-						add(
-							$current,
-							"values",
-							lv_values_1_0,
-							"xtext.magicSHACL.Simple.Value");
-						afterParserOrEnumRuleCall();
-					}
+						lv_type_1_0=rulePropertyType
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
+							}
+							set(
+								$current,
+								"type",
+								lv_type_1_0,
+								"xtext.magicSHACL.Simple.PropertyType");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_0_1_1_0());
+						}
+						lv_values_2_0=ruleValue
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
+							}
+							add(
+								$current,
+								"values",
+								lv_values_2_0,
+								"xtext.magicSHACL.Simple.Value");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)*
 			)
 		)
 		    |
@@ -398,26 +419,7 @@ ruleShapeExpression returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getShapeExpressionAccess().getTypePropertyTypeEnumRuleCall_1_0_0());
-					}
-					lv_type_2_0=rulePropertyType
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
-						}
-						set(
-							$current,
-							"type",
-							lv_type_2_0,
-							"xtext.magicSHACL.Simple.PropertyType");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_1_0_0());
 					}
 					lv_values_3_0=ruleValue
 					{
@@ -432,36 +434,14 @@ ruleShapeExpression returns [EObject current=null]
 						afterParserOrEnumRuleCall();
 					}
 				)
-			)*
-		)
-		    |
-		(
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_2_0_0());
-					}
-					lv_values_4_0=ruleValue
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
-						}
-						add(
-							$current,
-							"values",
-							lv_values_4_0,
-							"xtext.magicSHACL.Simple.Value");
-						afterParserOrEnumRuleCall();
-					}
-				)
 			)
 			(
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getShapeExpressionAccess().getTypePropertyTypeEnumRuleCall_2_1_0_0());
+							newCompositeNode(grammarAccess.getShapeExpressionAccess().getTypePropertyTypeEnumRuleCall_1_1_0_0());
 						}
-						lv_type_5_0=rulePropertyType
+						lv_type_4_0=rulePropertyType
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
@@ -469,7 +449,7 @@ ruleShapeExpression returns [EObject current=null]
 							set(
 								$current,
 								"type",
-								lv_type_5_0,
+								lv_type_4_0,
 								"xtext.magicSHACL.Simple.PropertyType");
 							afterParserOrEnumRuleCall();
 						}
@@ -478,9 +458,9 @@ ruleShapeExpression returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_2_1_1_0());
+							newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_1_1_1_0());
 						}
-						lv_values_6_0=ruleValue
+						lv_values_5_0=ruleValue
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
@@ -488,13 +468,13 @@ ruleShapeExpression returns [EObject current=null]
 							add(
 								$current,
 								"values",
-								lv_values_6_0,
+								lv_values_5_0,
 								"xtext.magicSHACL.Simple.Value");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
-			)+
+			)*
 		)
 	)
 ;
@@ -610,11 +590,11 @@ rulePropertyType returns [Enumerator current=null]
 	)
 ;
 
-RULE_UNICODE : '^'? ('a'..'z'|'A'..'Z'|RULE_INT|'_'|':'|'#'|'/'|'.'|'-'|'"'|'{'|'}'|'\\'|'$')*;
+RULE_UNICODE : '^'? ('a'..'z'|'A'..'Z'|'0'..'9'|'_'|':'|'#'|'/'|'.'|'-'|'"'|'{'|'}'|'\\'|'$')*;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-fragment RULE_INT : ('0'..'9')+;
+RULE_INT : ('0'..'9')+;
 
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 

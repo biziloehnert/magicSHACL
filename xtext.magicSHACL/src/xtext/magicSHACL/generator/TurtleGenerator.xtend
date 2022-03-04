@@ -53,8 +53,8 @@ class TurtleGenerator extends AbstractGenerator {
 	             ENDFOR»
 	        ''')
 	        
-	        /*for(ShapeConstraint c : resource.allContents.filter(ShapeConstraint).toIterable){
-	        	fsa.generateFile(resource.URI.lastSegment.replace(".ttl", "_" + c.shapeName.name + ".json"), '''
+	        for(ShapeConstraint c : resource.allContents.filter(ShapeConstraint).toIterable){
+	        	fsa.generateFile(resource.URI.lastSegment.replace(":","").replace(".ttl", "_" + c.shapeName.name + ".json"), '''
 	        	{
 	        		"name": "«c.shapeName.name»", 
 	        		«IF !c.eAllContents.filter(ShapeExpression).filter[e | e.type.equals(PropertyType.TARGET_CLASS)].empty»
@@ -80,7 +80,7 @@ class TurtleGenerator extends AbstractGenerator {
 	        		}
 	        	}
 	        ''')	
-	        }*/
+	        }
         }
         
         //magic algorithm

@@ -3,6 +3,11 @@
  */
 package xtext.magicSHACL;
 
+import org.eclipse.emf.ecore.EPackage;
+
+import com.google.inject.Injector;
+
+import magicSHACL.MagicSHACLPackage;
 
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
@@ -11,5 +16,11 @@ public class TurtleStandaloneSetup extends TurtleStandaloneSetupGenerated {
 
 	public static void doSetup() {
 		new TurtleStandaloneSetup().createInjectorAndDoEMFRegistration();
+	}
+	
+	@Override
+	public void register(Injector injector) {
+		EPackage.Registry.INSTANCE.put(MagicSHACLPackage.eNS_URI, MagicSHACLPackage.eINSTANCE);
+		super.register(injector);
 	}
 }

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSimpleParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_UNICODE", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'('", "')'", "'?'", "':-'", "';'", "'MIN'", "'MAX'", "'AND'", "'OR'", "'NOT'", "'SOME '", "'SOME ^'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_UNICODE", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'('", "')'", "'?'", "':-'", "';'", "'MIN'", "'MAX'", "'AND'", "'OR'", "'NOT'", "'SOME '", "'SOME ^'"
     };
     public static final int RULE_STRING=7;
     public static final int RULE_SL_COMMENT=9;
@@ -35,11 +35,11 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
-    public static final int RULE_ID=6;
+    public static final int RULE_ID=5;
     public static final int RULE_WS=10;
     public static final int RULE_ANY_OTHER=11;
     public static final int RULE_UNICODE=4;
-    public static final int RULE_INT=5;
+    public static final int RULE_INT=6;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=8;
     public static final int T__23=23;
@@ -853,51 +853,36 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleShapeExpression"
-    // InternalSimple.g:360:1: ruleShapeExpression returns [EObject current=null] : ( ( () ( (lv_values_1_0= ruleValue ) ) ) | ( ( (lv_type_2_0= rulePropertyType ) ) ( (lv_values_3_0= ruleValue ) )* ) | ( ( (lv_values_4_0= ruleValue ) ) ( ( (lv_type_5_0= rulePropertyType ) ) ( (lv_values_6_0= ruleValue ) ) )+ ) ) ;
+    // InternalSimple.g:360:1: ruleShapeExpression returns [EObject current=null] : ( ( () ( ( (lv_type_1_0= rulePropertyType ) ) ( (lv_values_2_0= ruleValue ) )* ) ) | ( ( (lv_values_3_0= ruleValue ) ) ( ( (lv_type_4_0= rulePropertyType ) ) ( (lv_values_5_0= ruleValue ) ) )* ) ) ;
     public final EObject ruleShapeExpression() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_values_1_0 = null;
+        Enumerator lv_type_1_0 = null;
 
-        Enumerator lv_type_2_0 = null;
+        EObject lv_values_2_0 = null;
 
         EObject lv_values_3_0 = null;
 
-        EObject lv_values_4_0 = null;
+        Enumerator lv_type_4_0 = null;
 
-        Enumerator lv_type_5_0 = null;
-
-        EObject lv_values_6_0 = null;
+        EObject lv_values_5_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalSimple.g:366:2: ( ( ( () ( (lv_values_1_0= ruleValue ) ) ) | ( ( (lv_type_2_0= rulePropertyType ) ) ( (lv_values_3_0= ruleValue ) )* ) | ( ( (lv_values_4_0= ruleValue ) ) ( ( (lv_type_5_0= rulePropertyType ) ) ( (lv_values_6_0= ruleValue ) ) )+ ) ) )
-            // InternalSimple.g:367:2: ( ( () ( (lv_values_1_0= ruleValue ) ) ) | ( ( (lv_type_2_0= rulePropertyType ) ) ( (lv_values_3_0= ruleValue ) )* ) | ( ( (lv_values_4_0= ruleValue ) ) ( ( (lv_type_5_0= rulePropertyType ) ) ( (lv_values_6_0= ruleValue ) ) )+ ) )
+            // InternalSimple.g:366:2: ( ( ( () ( ( (lv_type_1_0= rulePropertyType ) ) ( (lv_values_2_0= ruleValue ) )* ) ) | ( ( (lv_values_3_0= ruleValue ) ) ( ( (lv_type_4_0= rulePropertyType ) ) ( (lv_values_5_0= ruleValue ) ) )* ) ) )
+            // InternalSimple.g:367:2: ( ( () ( ( (lv_type_1_0= rulePropertyType ) ) ( (lv_values_2_0= ruleValue ) )* ) ) | ( ( (lv_values_3_0= ruleValue ) ) ( ( (lv_type_4_0= rulePropertyType ) ) ( (lv_values_5_0= ruleValue ) ) )* ) )
             {
-            // InternalSimple.g:367:2: ( ( () ( (lv_values_1_0= ruleValue ) ) ) | ( ( (lv_type_2_0= rulePropertyType ) ) ( (lv_values_3_0= ruleValue ) )* ) | ( ( (lv_values_4_0= ruleValue ) ) ( ( (lv_type_5_0= rulePropertyType ) ) ( (lv_values_6_0= ruleValue ) ) )+ ) )
-            int alt5=3;
+            // InternalSimple.g:367:2: ( ( () ( ( (lv_type_1_0= rulePropertyType ) ) ( (lv_values_2_0= ruleValue ) )* ) ) | ( ( (lv_values_3_0= ruleValue ) ) ( ( (lv_type_4_0= rulePropertyType ) ) ( (lv_values_5_0= ruleValue ) ) )* ) )
+            int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==RULE_UNICODE) ) {
-                int LA5_1 = input.LA(2);
-
-                if ( (LA5_1==EOF||LA5_1==16) ) {
-                    alt5=1;
-                }
-                else if ( ((LA5_1>=17 && LA5_1<=23)) ) {
-                    alt5=3;
-                }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 5, 1, input);
-
-                    throw nvae;
-                }
+            if ( ((LA5_0>=17 && LA5_0<=23)) ) {
+                alt5=1;
             }
-            else if ( ((LA5_0>=17 && LA5_0<=23)) ) {
+            else if ( (LA5_0==RULE_UNICODE) ) {
                 alt5=2;
             }
             else {
@@ -908,10 +893,10 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalSimple.g:368:3: ( () ( (lv_values_1_0= ruleValue ) ) )
+                    // InternalSimple.g:368:3: ( () ( ( (lv_type_1_0= rulePropertyType ) ) ( (lv_values_2_0= ruleValue ) )* ) )
                     {
-                    // InternalSimple.g:368:3: ( () ( (lv_values_1_0= ruleValue ) ) )
-                    // InternalSimple.g:369:4: () ( (lv_values_1_0= ruleValue ) )
+                    // InternalSimple.g:368:3: ( () ( ( (lv_type_1_0= rulePropertyType ) ) ( (lv_values_2_0= ruleValue ) )* ) )
+                    // InternalSimple.g:369:4: () ( ( (lv_type_1_0= rulePropertyType ) ) ( (lv_values_2_0= ruleValue ) )* )
                     {
                     // InternalSimple.g:369:4: ()
                     // InternalSimple.g:370:5: 
@@ -924,81 +909,41 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalSimple.g:376:4: ( (lv_values_1_0= ruleValue ) )
-                    // InternalSimple.g:377:5: (lv_values_1_0= ruleValue )
+                    // InternalSimple.g:376:4: ( ( (lv_type_1_0= rulePropertyType ) ) ( (lv_values_2_0= ruleValue ) )* )
+                    // InternalSimple.g:377:5: ( (lv_type_1_0= rulePropertyType ) ) ( (lv_values_2_0= ruleValue ) )*
                     {
-                    // InternalSimple.g:377:5: (lv_values_1_0= ruleValue )
-                    // InternalSimple.g:378:6: lv_values_1_0= ruleValue
+                    // InternalSimple.g:377:5: ( (lv_type_1_0= rulePropertyType ) )
+                    // InternalSimple.g:378:6: (lv_type_1_0= rulePropertyType )
+                    {
+                    // InternalSimple.g:378:6: (lv_type_1_0= rulePropertyType )
+                    // InternalSimple.g:379:7: lv_type_1_0= rulePropertyType
                     {
 
-                    						newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_0_1_0());
-                    					
-                    pushFollow(FOLLOW_2);
-                    lv_values_1_0=ruleValue();
+                    							newCompositeNode(grammarAccess.getShapeExpressionAccess().getTypePropertyTypeEnumRuleCall_0_1_0_0());
+                    						
+                    pushFollow(FOLLOW_10);
+                    lv_type_1_0=rulePropertyType();
 
                     state._fsp--;
 
 
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
-                    						}
-                    						add(
-                    							current,
-                    							"values",
-                    							lv_values_1_0,
-                    							"xtext.magicSHACL.Simple.Value");
-                    						afterParserOrEnumRuleCall();
-                    					
+                    							if (current==null) {
+                    								current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
+                    							}
+                    							set(
+                    								current,
+                    								"type",
+                    								lv_type_1_0,
+                    								"xtext.magicSHACL.Simple.PropertyType");
+                    							afterParserOrEnumRuleCall();
+                    						
 
                     }
 
 
                     }
 
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // InternalSimple.g:397:3: ( ( (lv_type_2_0= rulePropertyType ) ) ( (lv_values_3_0= ruleValue ) )* )
-                    {
-                    // InternalSimple.g:397:3: ( ( (lv_type_2_0= rulePropertyType ) ) ( (lv_values_3_0= ruleValue ) )* )
-                    // InternalSimple.g:398:4: ( (lv_type_2_0= rulePropertyType ) ) ( (lv_values_3_0= ruleValue ) )*
-                    {
-                    // InternalSimple.g:398:4: ( (lv_type_2_0= rulePropertyType ) )
-                    // InternalSimple.g:399:5: (lv_type_2_0= rulePropertyType )
-                    {
-                    // InternalSimple.g:399:5: (lv_type_2_0= rulePropertyType )
-                    // InternalSimple.g:400:6: lv_type_2_0= rulePropertyType
-                    {
-
-                    						newCompositeNode(grammarAccess.getShapeExpressionAccess().getTypePropertyTypeEnumRuleCall_1_0_0());
-                    					
-                    pushFollow(FOLLOW_3);
-                    lv_type_2_0=rulePropertyType();
-
-                    state._fsp--;
-
-
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
-                    						}
-                    						set(
-                    							current,
-                    							"type",
-                    							lv_type_2_0,
-                    							"xtext.magicSHACL.Simple.PropertyType");
-                    						afterParserOrEnumRuleCall();
-                    					
-
-                    }
-
-
-                    }
-
-                    // InternalSimple.g:417:4: ( (lv_values_3_0= ruleValue ) )*
+                    // InternalSimple.g:396:5: ( (lv_values_2_0= ruleValue ) )*
                     loop3:
                     do {
                         int alt3=2;
@@ -1011,30 +956,30 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
 
                         switch (alt3) {
                     	case 1 :
-                    	    // InternalSimple.g:418:5: (lv_values_3_0= ruleValue )
+                    	    // InternalSimple.g:397:6: (lv_values_2_0= ruleValue )
                     	    {
-                    	    // InternalSimple.g:418:5: (lv_values_3_0= ruleValue )
-                    	    // InternalSimple.g:419:6: lv_values_3_0= ruleValue
+                    	    // InternalSimple.g:397:6: (lv_values_2_0= ruleValue )
+                    	    // InternalSimple.g:398:7: lv_values_2_0= ruleValue
                     	    {
 
-                    	    						newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_1_1_0());
-                    	    					
-                    	    pushFollow(FOLLOW_3);
-                    	    lv_values_3_0=ruleValue();
+                    	    							newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_0_1_1_0());
+                    	    						
+                    	    pushFollow(FOLLOW_10);
+                    	    lv_values_2_0=ruleValue();
 
                     	    state._fsp--;
 
 
-                    	    						if (current==null) {
-                    	    							current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
-                    	    						}
-                    	    						add(
-                    	    							current,
-                    	    							"values",
-                    	    							lv_values_3_0,
-                    	    							"xtext.magicSHACL.Simple.Value");
-                    	    						afterParserOrEnumRuleCall();
-                    	    					
+                    	    							if (current==null) {
+                    	    								current = createModelElementForParent(grammarAccess.getShapeExpressionRule());
+                    	    							}
+                    	    							add(
+                    	    								current,
+                    	    								"values",
+                    	    								lv_values_2_0,
+                    	    								"xtext.magicSHACL.Simple.Value");
+                    	    							afterParserOrEnumRuleCall();
+                    	    						
 
                     	    }
 
@@ -1052,24 +997,27 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
 
 
                     }
+
+
+                    }
                     break;
-                case 3 :
-                    // InternalSimple.g:438:3: ( ( (lv_values_4_0= ruleValue ) ) ( ( (lv_type_5_0= rulePropertyType ) ) ( (lv_values_6_0= ruleValue ) ) )+ )
+                case 2 :
+                    // InternalSimple.g:418:3: ( ( (lv_values_3_0= ruleValue ) ) ( ( (lv_type_4_0= rulePropertyType ) ) ( (lv_values_5_0= ruleValue ) ) )* )
                     {
-                    // InternalSimple.g:438:3: ( ( (lv_values_4_0= ruleValue ) ) ( ( (lv_type_5_0= rulePropertyType ) ) ( (lv_values_6_0= ruleValue ) ) )+ )
-                    // InternalSimple.g:439:4: ( (lv_values_4_0= ruleValue ) ) ( ( (lv_type_5_0= rulePropertyType ) ) ( (lv_values_6_0= ruleValue ) ) )+
+                    // InternalSimple.g:418:3: ( ( (lv_values_3_0= ruleValue ) ) ( ( (lv_type_4_0= rulePropertyType ) ) ( (lv_values_5_0= ruleValue ) ) )* )
+                    // InternalSimple.g:419:4: ( (lv_values_3_0= ruleValue ) ) ( ( (lv_type_4_0= rulePropertyType ) ) ( (lv_values_5_0= ruleValue ) ) )*
                     {
-                    // InternalSimple.g:439:4: ( (lv_values_4_0= ruleValue ) )
-                    // InternalSimple.g:440:5: (lv_values_4_0= ruleValue )
+                    // InternalSimple.g:419:4: ( (lv_values_3_0= ruleValue ) )
+                    // InternalSimple.g:420:5: (lv_values_3_0= ruleValue )
                     {
-                    // InternalSimple.g:440:5: (lv_values_4_0= ruleValue )
-                    // InternalSimple.g:441:6: lv_values_4_0= ruleValue
+                    // InternalSimple.g:420:5: (lv_values_3_0= ruleValue )
+                    // InternalSimple.g:421:6: lv_values_3_0= ruleValue
                     {
 
-                    						newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_2_0_0());
+                    						newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_1_0_0());
                     					
-                    pushFollow(FOLLOW_10);
-                    lv_values_4_0=ruleValue();
+                    pushFollow(FOLLOW_11);
+                    lv_values_3_0=ruleValue();
 
                     state._fsp--;
 
@@ -1080,7 +1028,7 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
                     						add(
                     							current,
                     							"values",
-                    							lv_values_4_0,
+                    							lv_values_3_0,
                     							"xtext.magicSHACL.Simple.Value");
                     						afterParserOrEnumRuleCall();
                     					
@@ -1090,8 +1038,7 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalSimple.g:458:4: ( ( (lv_type_5_0= rulePropertyType ) ) ( (lv_values_6_0= ruleValue ) ) )+
-                    int cnt4=0;
+                    // InternalSimple.g:438:4: ( ( (lv_type_4_0= rulePropertyType ) ) ( (lv_values_5_0= ruleValue ) ) )*
                     loop4:
                     do {
                         int alt4=2;
@@ -1104,19 +1051,19 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalSimple.g:459:5: ( (lv_type_5_0= rulePropertyType ) ) ( (lv_values_6_0= ruleValue ) )
+                    	    // InternalSimple.g:439:5: ( (lv_type_4_0= rulePropertyType ) ) ( (lv_values_5_0= ruleValue ) )
                     	    {
-                    	    // InternalSimple.g:459:5: ( (lv_type_5_0= rulePropertyType ) )
-                    	    // InternalSimple.g:460:6: (lv_type_5_0= rulePropertyType )
+                    	    // InternalSimple.g:439:5: ( (lv_type_4_0= rulePropertyType ) )
+                    	    // InternalSimple.g:440:6: (lv_type_4_0= rulePropertyType )
                     	    {
-                    	    // InternalSimple.g:460:6: (lv_type_5_0= rulePropertyType )
-                    	    // InternalSimple.g:461:7: lv_type_5_0= rulePropertyType
+                    	    // InternalSimple.g:440:6: (lv_type_4_0= rulePropertyType )
+                    	    // InternalSimple.g:441:7: lv_type_4_0= rulePropertyType
                     	    {
 
-                    	    							newCompositeNode(grammarAccess.getShapeExpressionAccess().getTypePropertyTypeEnumRuleCall_2_1_0_0());
+                    	    							newCompositeNode(grammarAccess.getShapeExpressionAccess().getTypePropertyTypeEnumRuleCall_1_1_0_0());
                     	    						
-                    	    pushFollow(FOLLOW_4);
-                    	    lv_type_5_0=rulePropertyType();
+                    	    pushFollow(FOLLOW_8);
+                    	    lv_type_4_0=rulePropertyType();
 
                     	    state._fsp--;
 
@@ -1127,7 +1074,7 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
                     	    							set(
                     	    								current,
                     	    								"type",
-                    	    								lv_type_5_0,
+                    	    								lv_type_4_0,
                     	    								"xtext.magicSHACL.Simple.PropertyType");
                     	    							afterParserOrEnumRuleCall();
                     	    						
@@ -1137,17 +1084,17 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    // InternalSimple.g:478:5: ( (lv_values_6_0= ruleValue ) )
-                    	    // InternalSimple.g:479:6: (lv_values_6_0= ruleValue )
+                    	    // InternalSimple.g:458:5: ( (lv_values_5_0= ruleValue ) )
+                    	    // InternalSimple.g:459:6: (lv_values_5_0= ruleValue )
                     	    {
-                    	    // InternalSimple.g:479:6: (lv_values_6_0= ruleValue )
-                    	    // InternalSimple.g:480:7: lv_values_6_0= ruleValue
+                    	    // InternalSimple.g:459:6: (lv_values_5_0= ruleValue )
+                    	    // InternalSimple.g:460:7: lv_values_5_0= ruleValue
                     	    {
 
-                    	    							newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_2_1_1_0());
+                    	    							newCompositeNode(grammarAccess.getShapeExpressionAccess().getValuesValueParserRuleCall_1_1_1_0());
                     	    						
                     	    pushFollow(FOLLOW_11);
-                    	    lv_values_6_0=ruleValue();
+                    	    lv_values_5_0=ruleValue();
 
                     	    state._fsp--;
 
@@ -1158,7 +1105,7 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
                     	    							add(
                     	    								current,
                     	    								"values",
-                    	    								lv_values_6_0,
+                    	    								lv_values_5_0,
                     	    								"xtext.magicSHACL.Simple.Value");
                     	    							afterParserOrEnumRuleCall();
                     	    						
@@ -1173,12 +1120,8 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt4 >= 1 ) break loop4;
-                                EarlyExitException eee =
-                                    new EarlyExitException(4, input);
-                                throw eee;
+                    	    break loop4;
                         }
-                        cnt4++;
                     } while (true);
 
 
@@ -1210,7 +1153,7 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleValue"
-    // InternalSimple.g:503:1: entryRuleValue returns [EObject current=null] : iv_ruleValue= ruleValue EOF ;
+    // InternalSimple.g:483:1: entryRuleValue returns [EObject current=null] : iv_ruleValue= ruleValue EOF ;
     public final EObject entryRuleValue() throws RecognitionException {
         EObject current = null;
 
@@ -1218,8 +1161,8 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSimple.g:503:46: (iv_ruleValue= ruleValue EOF )
-            // InternalSimple.g:504:2: iv_ruleValue= ruleValue EOF
+            // InternalSimple.g:483:46: (iv_ruleValue= ruleValue EOF )
+            // InternalSimple.g:484:2: iv_ruleValue= ruleValue EOF
             {
              newCompositeNode(grammarAccess.getValueRule()); 
             pushFollow(FOLLOW_1);
@@ -1246,7 +1189,7 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleValue"
-    // InternalSimple.g:510:1: ruleValue returns [EObject current=null] : ( () ( (lv_name_1_0= RULE_UNICODE ) ) ) ;
+    // InternalSimple.g:490:1: ruleValue returns [EObject current=null] : ( () ( (lv_name_1_0= RULE_UNICODE ) ) ) ;
     public final EObject ruleValue() throws RecognitionException {
         EObject current = null;
 
@@ -1256,14 +1199,14 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSimple.g:516:2: ( ( () ( (lv_name_1_0= RULE_UNICODE ) ) ) )
-            // InternalSimple.g:517:2: ( () ( (lv_name_1_0= RULE_UNICODE ) ) )
+            // InternalSimple.g:496:2: ( ( () ( (lv_name_1_0= RULE_UNICODE ) ) ) )
+            // InternalSimple.g:497:2: ( () ( (lv_name_1_0= RULE_UNICODE ) ) )
             {
-            // InternalSimple.g:517:2: ( () ( (lv_name_1_0= RULE_UNICODE ) ) )
-            // InternalSimple.g:518:3: () ( (lv_name_1_0= RULE_UNICODE ) )
+            // InternalSimple.g:497:2: ( () ( (lv_name_1_0= RULE_UNICODE ) ) )
+            // InternalSimple.g:498:3: () ( (lv_name_1_0= RULE_UNICODE ) )
             {
-            // InternalSimple.g:518:3: ()
-            // InternalSimple.g:519:4: 
+            // InternalSimple.g:498:3: ()
+            // InternalSimple.g:499:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1273,11 +1216,11 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSimple.g:525:3: ( (lv_name_1_0= RULE_UNICODE ) )
-            // InternalSimple.g:526:4: (lv_name_1_0= RULE_UNICODE )
+            // InternalSimple.g:505:3: ( (lv_name_1_0= RULE_UNICODE ) )
+            // InternalSimple.g:506:4: (lv_name_1_0= RULE_UNICODE )
             {
-            // InternalSimple.g:526:4: (lv_name_1_0= RULE_UNICODE )
-            // InternalSimple.g:527:5: lv_name_1_0= RULE_UNICODE
+            // InternalSimple.g:506:4: (lv_name_1_0= RULE_UNICODE )
+            // InternalSimple.g:507:5: lv_name_1_0= RULE_UNICODE
             {
             lv_name_1_0=(Token)match(input,RULE_UNICODE,FOLLOW_2); 
 
@@ -1322,7 +1265,7 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePropertyType"
-    // InternalSimple.g:547:1: rulePropertyType returns [Enumerator current=null] : ( (enumLiteral_0= 'MIN' ) | (enumLiteral_1= 'MAX' ) | (enumLiteral_2= 'AND' ) | (enumLiteral_3= 'OR' ) | (enumLiteral_4= 'NOT' ) | (enumLiteral_5= 'SOME ' ) | (enumLiteral_6= 'SOME ^' ) ) ;
+    // InternalSimple.g:527:1: rulePropertyType returns [Enumerator current=null] : ( (enumLiteral_0= 'MIN' ) | (enumLiteral_1= 'MAX' ) | (enumLiteral_2= 'AND' ) | (enumLiteral_3= 'OR' ) | (enumLiteral_4= 'NOT' ) | (enumLiteral_5= 'SOME ' ) | (enumLiteral_6= 'SOME ^' ) ) ;
     public final Enumerator rulePropertyType() throws RecognitionException {
         Enumerator current = null;
 
@@ -1338,10 +1281,10 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSimple.g:553:2: ( ( (enumLiteral_0= 'MIN' ) | (enumLiteral_1= 'MAX' ) | (enumLiteral_2= 'AND' ) | (enumLiteral_3= 'OR' ) | (enumLiteral_4= 'NOT' ) | (enumLiteral_5= 'SOME ' ) | (enumLiteral_6= 'SOME ^' ) ) )
-            // InternalSimple.g:554:2: ( (enumLiteral_0= 'MIN' ) | (enumLiteral_1= 'MAX' ) | (enumLiteral_2= 'AND' ) | (enumLiteral_3= 'OR' ) | (enumLiteral_4= 'NOT' ) | (enumLiteral_5= 'SOME ' ) | (enumLiteral_6= 'SOME ^' ) )
+            // InternalSimple.g:533:2: ( ( (enumLiteral_0= 'MIN' ) | (enumLiteral_1= 'MAX' ) | (enumLiteral_2= 'AND' ) | (enumLiteral_3= 'OR' ) | (enumLiteral_4= 'NOT' ) | (enumLiteral_5= 'SOME ' ) | (enumLiteral_6= 'SOME ^' ) ) )
+            // InternalSimple.g:534:2: ( (enumLiteral_0= 'MIN' ) | (enumLiteral_1= 'MAX' ) | (enumLiteral_2= 'AND' ) | (enumLiteral_3= 'OR' ) | (enumLiteral_4= 'NOT' ) | (enumLiteral_5= 'SOME ' ) | (enumLiteral_6= 'SOME ^' ) )
             {
-            // InternalSimple.g:554:2: ( (enumLiteral_0= 'MIN' ) | (enumLiteral_1= 'MAX' ) | (enumLiteral_2= 'AND' ) | (enumLiteral_3= 'OR' ) | (enumLiteral_4= 'NOT' ) | (enumLiteral_5= 'SOME ' ) | (enumLiteral_6= 'SOME ^' ) )
+            // InternalSimple.g:534:2: ( (enumLiteral_0= 'MIN' ) | (enumLiteral_1= 'MAX' ) | (enumLiteral_2= 'AND' ) | (enumLiteral_3= 'OR' ) | (enumLiteral_4= 'NOT' ) | (enumLiteral_5= 'SOME ' ) | (enumLiteral_6= 'SOME ^' ) )
             int alt6=7;
             switch ( input.LA(1) ) {
             case 17:
@@ -1388,10 +1331,10 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
 
             switch (alt6) {
                 case 1 :
-                    // InternalSimple.g:555:3: (enumLiteral_0= 'MIN' )
+                    // InternalSimple.g:535:3: (enumLiteral_0= 'MIN' )
                     {
-                    // InternalSimple.g:555:3: (enumLiteral_0= 'MIN' )
-                    // InternalSimple.g:556:4: enumLiteral_0= 'MIN'
+                    // InternalSimple.g:535:3: (enumLiteral_0= 'MIN' )
+                    // InternalSimple.g:536:4: enumLiteral_0= 'MIN'
                     {
                     enumLiteral_0=(Token)match(input,17,FOLLOW_2); 
 
@@ -1405,10 +1348,10 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSimple.g:563:3: (enumLiteral_1= 'MAX' )
+                    // InternalSimple.g:543:3: (enumLiteral_1= 'MAX' )
                     {
-                    // InternalSimple.g:563:3: (enumLiteral_1= 'MAX' )
-                    // InternalSimple.g:564:4: enumLiteral_1= 'MAX'
+                    // InternalSimple.g:543:3: (enumLiteral_1= 'MAX' )
+                    // InternalSimple.g:544:4: enumLiteral_1= 'MAX'
                     {
                     enumLiteral_1=(Token)match(input,18,FOLLOW_2); 
 
@@ -1422,10 +1365,10 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalSimple.g:571:3: (enumLiteral_2= 'AND' )
+                    // InternalSimple.g:551:3: (enumLiteral_2= 'AND' )
                     {
-                    // InternalSimple.g:571:3: (enumLiteral_2= 'AND' )
-                    // InternalSimple.g:572:4: enumLiteral_2= 'AND'
+                    // InternalSimple.g:551:3: (enumLiteral_2= 'AND' )
+                    // InternalSimple.g:552:4: enumLiteral_2= 'AND'
                     {
                     enumLiteral_2=(Token)match(input,19,FOLLOW_2); 
 
@@ -1439,10 +1382,10 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalSimple.g:579:3: (enumLiteral_3= 'OR' )
+                    // InternalSimple.g:559:3: (enumLiteral_3= 'OR' )
                     {
-                    // InternalSimple.g:579:3: (enumLiteral_3= 'OR' )
-                    // InternalSimple.g:580:4: enumLiteral_3= 'OR'
+                    // InternalSimple.g:559:3: (enumLiteral_3= 'OR' )
+                    // InternalSimple.g:560:4: enumLiteral_3= 'OR'
                     {
                     enumLiteral_3=(Token)match(input,20,FOLLOW_2); 
 
@@ -1456,10 +1399,10 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalSimple.g:587:3: (enumLiteral_4= 'NOT' )
+                    // InternalSimple.g:567:3: (enumLiteral_4= 'NOT' )
                     {
-                    // InternalSimple.g:587:3: (enumLiteral_4= 'NOT' )
-                    // InternalSimple.g:588:4: enumLiteral_4= 'NOT'
+                    // InternalSimple.g:567:3: (enumLiteral_4= 'NOT' )
+                    // InternalSimple.g:568:4: enumLiteral_4= 'NOT'
                     {
                     enumLiteral_4=(Token)match(input,21,FOLLOW_2); 
 
@@ -1473,10 +1416,10 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalSimple.g:595:3: (enumLiteral_5= 'SOME ' )
+                    // InternalSimple.g:575:3: (enumLiteral_5= 'SOME ' )
                     {
-                    // InternalSimple.g:595:3: (enumLiteral_5= 'SOME ' )
-                    // InternalSimple.g:596:4: enumLiteral_5= 'SOME '
+                    // InternalSimple.g:575:3: (enumLiteral_5= 'SOME ' )
+                    // InternalSimple.g:576:4: enumLiteral_5= 'SOME '
                     {
                     enumLiteral_5=(Token)match(input,22,FOLLOW_2); 
 
@@ -1490,10 +1433,10 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalSimple.g:603:3: (enumLiteral_6= 'SOME ^' )
+                    // InternalSimple.g:583:3: (enumLiteral_6= 'SOME ^' )
                     {
-                    // InternalSimple.g:603:3: (enumLiteral_6= 'SOME ^' )
-                    // InternalSimple.g:604:4: enumLiteral_6= 'SOME ^'
+                    // InternalSimple.g:583:3: (enumLiteral_6= 'SOME ^' )
+                    // InternalSimple.g:584:4: enumLiteral_6= 'SOME ^'
                     {
                     enumLiteral_6=(Token)match(input,23,FOLLOW_2); 
 
@@ -1541,7 +1484,7 @@ public class InternalSimpleParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000FE0010L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000FE0000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000FE0012L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000FE0002L});
 
 }
