@@ -42,6 +42,7 @@ fuseki-server --loc=<PATH-TO>/tdb --update /DBPedia
 -->
 
 ## Shapes Graph
+The shapes graphs for the experiments are created based on two different sets of shape constraints, namely C1 and C2. Each of the sets is combined with 20 different targets to form 40 different shapes graphs/test cases. The targets used for this purpose are shown in the Table below.
 
 |S | Targets                | S |  Targets              |  
 |- |:----------------------:|-  | :--------------------:|
