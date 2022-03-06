@@ -42,16 +42,16 @@ fuseki-server --loc=<PATH-TO>/tdb --update /DBPedia
 -->
 
 ## Shapes Graph
-Employee <-- MIN 1 employer.NOT Employee
 
-|S|Constraints| Targets | Recursion | 
-|-|:---------:|:---------------:|:---------------: |
-|1|     C1    | Movie(Film)     | |
-|2|     C1    | Musician(Actor) | |
-|3|     C1    | Person(Actor)   | |
-|4|     C1    | Musician(Person)| |
-|5|     C2    | Musician(Person)| Director <-> Movie |
-|6|     C2    | Movie(Film)     | Director <-> Movie |
-|7|     C3    | Musician(Person)| Influencer <-> not Influencer |
-|8|     C4    | Movie(Film)     | Director <-> Movie, Influencer <-> not Influencer |
-|9|     C5    | Movie(Film)     | Director <-> Movie, Director <-> not Director
+|S | Targets                | S |  Targets              |  
+|- |:----------------------:|-  | :--------------------:|
+|1 | Musician(node)         |11 | Employee(Actor)       |
+|2 | Musician(Actor)        |12 | Employee(Person)      |
+|3 | Musician(Person)       |13 | WorkingPerson(bill)   |
+|4 | Actor(node)            |14 | WorkingPerson(node)   |
+|5 | Actor(Actor)           |15 | WorkingPerson(Actor)  |
+|6 | Actor(Person)          |16 | WorkingPerson(Person) |
+|7 | Movie(Film)            |17 | WorkingClass(bill)    |
+|8 | TranslatedMovie(Film)  |18 | WorkingClass(node)    |
+|9 | Employee(bill)         |19 | WorkingClass(Actor)   |
+|10| Employee(node)         |20 | WorkingClass(Person)  |
