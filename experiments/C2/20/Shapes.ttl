@@ -1,0 +1,130 @@
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix : <http://example.org/> .
+
+:ActorShape a sh:NodeShape;
+	sh:node :PersonShape;
+	sh:property [
+		sh:path[
+			sh:inversePath dbo:starring;
+		];
+		sh:node :MovieShape;
+		sh:minCount 1
+	] .
+
+:DirectorShape a sh:NodeShape;
+	sh:node :PersonShape;
+	sh:property [
+		sh:path[
+			sh:inversePath dbo:director;
+		];
+		sh:node :MovieShape;
+		sh:minCount 1
+	] .
+	
+:LocationShape a sh:NodeShape;
+	sh:property [
+		sh:path dbo:country;
+		sh:minCount 1
+	] .
+
+:MovieShape a sh:NodeShape;
+	sh:property [
+		sh:path dbo:director;
+		sh:node :DirectorShape;
+		sh:minCount 1
+	] ;
+	sh:property [
+		sh:path dbo:imdbId;
+		sh:minCount 1;
+		sh:maxCount 1
+	];
+	sh:property [
+		sh:path dbo:starring;
+		sh:node :ActorShape;
+		sh:minCount 1
+	] .
+   
+:TranslatedMovieShape a sh:NodeShape;
+	sh:node :MovieShape;
+	sh:property [
+		sh:path dbo:language;
+		sh:node :LivingLanguageShape;
+		sh:minCount 2
+	] .
+
+:PersonShape a sh:NodeShape;
+	sh:property [ 
+		sh:path dbo:birthPlace;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:node :LocationShape
+	] .
+	
+:WorkingPersonShape a sh:NodeShape;
+	sh:node :PersonShape;
+	sh:node :EmployeeShape .
+	
+:WorkingClassShape a sh:NodeShape;
+	sh:node :PersonShape;
+	sh:property [ 
+		sh:path[
+			sh:inversePath dbo:child;
+		];
+		sh:minCount 1;
+		sh:node :WorkingParentShape
+	] .
+
+:FamousShape a sh:NodeShape;
+	sh:property [ 
+		sh:path dbo:knownFor;
+		sh:minCount 1;
+	] .
+
+:AwardWinningShape a sh:NodeShape;
+	sh:property [ 
+		sh:path dbo:award;
+		sh:minCount 1;
+	] .
+
+:AnarchyShape a sh:NodeShape;
+	sh:node LocationShape; 
+	sh:property [
+		sh:path dbo:leaderTitle ;
+		sh:maxCount 0;
+	] .
+
+:LivingLanguageShape a sh:NodeShape;
+	sh:property [
+		sh:path dbo:spokenIn;
+		sh:minCount 1;
+		sh:node:LocationShape
+	] .
+
+:MusicianShape a sh:NodeShape;
+	sh:node :PersonShape;
+	sh:property [ 
+		sh:path dbo:instrument;
+		sh:minCount 1;
+	] .
+
+:EmployeeShape a sh:NodeShape;
+	sh:property [ 
+		sh:path dbo:employer;
+		sh:minCount 1;
+		sh:not [
+			sh:node :EmployeeShape;
+		];
+	] .
+
+:ParentShape a sh:NodeShape;
+	sh:node :PersonShape;
+	sh:property [ 
+		sh:path dbo:child;
+		sh:minCount 1;
+	] .
+
+:WorkingParentShape a sh:NodeShape;
+	sh:node :ParentShape;
+	sh:node :WorkingPersonShape .
