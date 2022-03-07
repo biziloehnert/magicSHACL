@@ -4,7 +4,7 @@
 @prefix : <http://example.org/> .
 
 :ActorShape a sh:NodeShape;
-	sh:targetClass ...;
+	sh:targetNode dbr:Wolfgang_Amadeus_Mozart;
 	sh:node :PersonShape;
 	sh:property [
 		sh:path[

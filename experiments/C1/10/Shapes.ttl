@@ -110,7 +110,7 @@
 	] .
 
 :EmployeeShape a sh:NodeShape;
-	sh:targetNode ...;
+	sh:targetNode dbr:Joe_Ranft;
 	sh:property [ 
 		sh:path dbo:employer;
 		sh:minCount 1;

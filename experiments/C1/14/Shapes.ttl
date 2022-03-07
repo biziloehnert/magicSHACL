@@ -63,7 +63,7 @@
 	] .
 	
 :WorkingPersonShape a sh:NodeShape;
-	sh:targetNode ...;
+	sh:targetNode dbr:Joe_Ranft;
 	sh:node :PersonShape;
 	sh:node :EmployeeShape .
 	

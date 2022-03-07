@@ -103,7 +103,7 @@
 	] .
 
 :MusicianShape a sh:NodeShape;
-	sh:targetNode ...;
+	sh:targetNode dbr:Wolfgang_Amadeus_Mozart;
 	sh:node :PersonShape;
 	sh:property [ 
 		sh:path dbo:instrument;
@@ -114,10 +114,13 @@
 	sh:property [ 
 		sh:path dbo:employer;
 		sh:minCount 1;
-		sh:not [
-			sh:node :EmployeeShape;
-		];
+		sh:node :NotEmployeeShape;
 	] .
+
+:NotEmployeeShape a sh:NodeShape;
+	sh:not [
+		sh:node :EmployeeShape
+	].
 
 :ParentShape a sh:NodeShape;
 	sh:node :PersonShape;

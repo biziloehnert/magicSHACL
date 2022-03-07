@@ -103,7 +103,7 @@
 	] .
 
 :MusicianShape a sh:NodeShape;
-	sh:targetNode ;
+	sh:targetNode dbr:Wolfgang_Amadeus_Mozart;
 	sh:node :PersonShape;
 	sh:property [ 
 		sh:path dbo:instrument;
