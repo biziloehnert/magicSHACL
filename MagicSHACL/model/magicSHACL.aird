@@ -8,6 +8,9 @@
     <semanticResources>bundleentry://885.fwk1980218532/cache/www.w3.org/2001/XMLSchema.xsd</semanticResources>
     <semanticResources>http://www.w3.org/2001/xml.xsd</semanticResources>
     <semanticResources>bundleentry://885.fwk1980218532/cache/www.w3.org/2001/MagicXMLSchema.xsd</semanticResources>
+    <semanticResources>bundleentry://885.fwk1765803974/cache/www.w3.org/2001/XMLSchema-instance.xsd</semanticResources>
+    <semanticResources>bundleentry://885.fwk1765803974/cache/www.w3.org/2001/XMLSchema.xsd</semanticResources>
+    <semanticResources>bundleentry://885.fwk1765803974/cache/www.w3.org/2001/MagicXMLSchema.xsd</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_BtHeMGYMEeu2w-3UtNQsWw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Xsb_wWYNEeu2w-3UtNQsWw" name="magicSHACL" repPath="#_XsaxoGYNEeu2w-3UtNQsWw" changeId="39d3d0f2-f5d7-4e14-8675-9654f9eb0259">
