@@ -99,7 +99,7 @@
 	sh:property [
 		sh:path dbo:spokenIn;
 		sh:minCount 1;
-		sh:node:LocationShape
+		sh:node :LocationShape
 	] .
 
 :MusicianShape a sh:NodeShape;
@@ -110,6 +110,7 @@
 	] .
 
 :EmployeeShape a sh:NodeShape;
+	sh:targetClass dbo:Person;
 	sh:property [ 
 		sh:path dbo:employer;
 		sh:minCount 1;

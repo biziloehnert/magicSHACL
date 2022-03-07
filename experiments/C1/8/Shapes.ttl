@@ -47,6 +47,7 @@
 	] .
    
 :TranslatedMovieShape a sh:NodeShape;
+	sh:targetClass dbo:Film;
 	sh:node :MovieShape;
 	sh:property [
 		sh:path dbo:language;
@@ -99,7 +100,7 @@
 	sh:property [
 		sh:path dbo:spokenIn;
 		sh:minCount 1;
-		sh:node:LocationShape
+		sh:node :LocationShape
 	] .
 
 :MusicianShape a sh:NodeShape;
