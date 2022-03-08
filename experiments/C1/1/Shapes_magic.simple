@@ -1,0 +1,14 @@
+MusicianShape_magic :- 	
+PersonShape_magic :- SOME ^instrument MusicianShape_magic ; 
+LocationShape_magic :- SOME ^birthPlace PersonShape_magic ; 
+MusicianShape :- MusicianShapeS0 AND MusicianShapeS1;
+MusicianShapeS0 :- MusicianShape_magic;
+MusicianShapeS1 :- MIN 1 instrument ADom;
+PersonShape :- PersonShapeS0 AND PersonShapeS1 AND PersonShapeS2;
+PersonShapeS0 :- PersonShape_magic;
+PersonShapeS1 :- MIN 1 birthPlace LocationShape;
+PersonShapeS2 :- NOT PersonShapeN1;
+PersonShapeN1 :- MIN 2 birthPlace LocationShape;
+LocationShape :- LocationShapeS0 AND LocationShapeS1;
+LocationShapeS0 :- LocationShape_magic;
+LocationShapeS1 :- MIN 1 country ADom;

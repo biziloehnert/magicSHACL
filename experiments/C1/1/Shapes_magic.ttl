@@ -1,0 +1,50 @@
+@prefix dbo: <http://dbpedia.org/ontology/>.
+@prefix dbr: <http://dbpedia.org/resource/>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix : <http://example.org/>.
+        		
+:MusicianShape_magic
+	a sh:NodeShape ;
+	sh:targetNode dbr:Wolfgang_Amadeus_Mozart ;.
+
+	:PersonShape_magic
+	a sh:NodeShape ;
+	sh:node :MusicianShape_magic ;
+	sh:inversePath dbo:instrument ;.
+
+	:LocationShape_magic
+	a sh:NodeShape ;
+	sh:node :PersonShape_magic ;
+	sh:inversePath dbo:birthPlace ;
+	.	
+				
+:MusicianShape
+	sh:node :PersonShape ;
+	sh:node :MusicianShape_magic ;
+	sh:property [
+		sh:path dbo:instrument ;
+		sh:minCount 1 ;
+	];
+	a sh:NodeShape ;
+.
+
+:PersonShape
+	sh:node :PersonShape_magic ;
+	sh:property [
+		sh:path dbo:birthPlace ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:node :LocationShape ;
+	];
+	a sh:NodeShape ;
+.
+
+:LocationShape
+	sh:node :LocationShape_magic ;
+	sh:property [
+		sh:path dbo:country ;
+		sh:minCount 1 ;
+	];
+	a sh:NodeShape ;
+
+.
