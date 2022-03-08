@@ -1,6 +1,7 @@
 EmployeeShape_magic :- NotEmployeeShape_magic ; 
+EmployeeShape_magic :- Joe_Ranft ; 
 NotEmployeeShape_magic :- SOME ^employer EmployeeShape_magic ; 
-EmployeeShape :- EmployeeShapeS0 AND EmployeeShapeS1;
+EmployeeShape :- EmployeeShapeS0 AND EmployeeShapeS1 AND Joe_Ranft;
 EmployeeShapeS0 :- EmployeeShape_magic;
 EmployeeShapeS1 :- MIN 1 employer NotEmployeeShape;
 NotEmployeeShape :- NotEmployeeShapeS0 AND NotEmployeeShapeS1;

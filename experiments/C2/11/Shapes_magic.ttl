@@ -6,15 +6,17 @@
 :EmployeeShape_magic
 	a sh:NodeShape ;
 	sh:node :NotEmployeeShape_magic ;
-	sh:targetClass dbo:Actor ;.
+	sh:class dbo:Actor ;.
 
-	:NotEmployeeShape_magic
+:NotEmployeeShape_magic
 	a sh:NodeShape ;
 	sh:node :EmployeeShape_magic ;
-	sh:inversePath dbo:employer ;
-	.	
+	sh:path[
+		sh:inversePath dbo:employer ;
+	].	
 				
 :EmployeeShape
+	sh:targetClass dbo:Actor ;
 	sh:node :EmployeeShape_magic ;
 	sh:property [
 		sh:path dbo:employer ;

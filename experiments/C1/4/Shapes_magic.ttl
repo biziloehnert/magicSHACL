@@ -5,36 +5,59 @@
         		
 :ActorShape_magic
 	a sh:NodeShape ;
+	sh:property[
+		sh:node :MovieShape_magic ;
+		sh:path[
+			sh:inversePath dbo:starring ;
+		];
+	].
+	
+:ActorShape_magic
+	a sh:NodeShape ;
+	sh:hasValue dbr:Wolfgang_Amadeus_Mozart ;.
+
+:PersonShape_magic
+	a sh:NodeShape ;
+	sh:property [
+		sh:node :ActorShape_magic ;
+		sh:path dbo:starring ;
+	].
+:PersonShape_magic
+	a sh:NodeShape ;
+	sh:property [
+		sh:node :DirectorShape_magic ;
+		sh:path dbo:director ;
+	].
+
+:MovieShape_magic
+	a sh:NodeShape ;
+	sh:property [
+		sh:path dbo:starring ;
+		sh:node :ActorShape_magic ;
+	]. 
+:MovieShape_magic
+	a sh:NodeShape ;
+	sh:property[
+		sh:node :DirectorShape_magic ;	
+		sh:path dbo:director ;
+	].
+
+:DirectorShape_magic
+	a sh:NodeShape ;
 	sh:node :MovieShape_magic ;
-	sh:inversePath dbo:starring ;
-	sh:targetNode dbr:Wolfgang_Amadeus_Mozart ;.
+	sh:path[
+		sh:inversePath dbo:director ;
+	].
 
-	:PersonShape_magic
-	a sh:NodeShape ;
-	sh:node :ActorShape_magic ;
-	sh:node :DirectorShape_magic ;
-	sh:path dbo:starring ;
-	sh:path dbo:director ;.
-
-	:MovieShape_magic
-	a sh:NodeShape ;
-	sh:node :ActorShape_magic ;
-	sh:node :DirectorShape_magic ;
-	sh:path dbo:starring ;
-	sh:path dbo:director ;.
-
-	:DirectorShape_magic
-	a sh:NodeShape ;
-	sh:node :MovieShape_magic ;
-	sh:inversePath dbo:director ;.
-
-	:LocationShape_magic
+:LocationShape_magic
 	a sh:NodeShape ;
 	sh:node :PersonShape_magic ;
-	sh:inversePath dbo:birthPlace ;
-	.	
+	sh:path[
+		sh:inversePath dbo:birthPlace ;
+	].	
 				
 :ActorShape
+	sh:targetNode dbr:Wolfgang_Amadeus_Mozart ;
 	sh:node :PersonShape ;
 	sh:node :ActorShape_magic ;
 	sh:property [

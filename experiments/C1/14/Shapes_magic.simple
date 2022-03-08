@@ -1,8 +1,8 @@
-WorkingPersonShape_magic :- 	
+WorkingPersonShape_magic :- Joe_Ranft ; 
 PersonShape_magic :- WorkingPersonShape_magic ; 
 EmployeeShape_magic :- WorkingPersonShape_magic ; 
 LocationShape_magic :- SOME ^birthPlace PersonShape_magic ; 
-WorkingPersonShape :- WorkingPersonShape_magic ; 
+WorkingPersonShape :- WorkingPersonShape_magic AND PersonShape AND EmployeeShape AND Joe_Ranft ; 
 EmployeeShape :- EmployeeShapeS0 AND EmployeeShapeS1;
 EmployeeShapeS0 :- EmployeeShape_magic;
 EmployeeShapeS1 :- MIN 1 employer ADom;

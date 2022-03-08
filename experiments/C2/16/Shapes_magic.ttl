@@ -5,29 +5,33 @@
         		
 :WorkingPersonShape_magic
 	a sh:NodeShape ;
-	sh:targetClass dbo:Person ;.
+	sh:class dbo:Person ;.
 
-	:PersonShape_magic
+:PersonShape_magic
 	a sh:NodeShape ;
 	sh:node :WorkingPersonShape_magic ;.
 
-	:EmployeeShape_magic
+:EmployeeShape_magic
 	a sh:NodeShape ;
 	sh:node :WorkingPersonShape_magic ;
 	sh:node :NotEmployeeShape_magic ;.
 
-	:NotEmployeeShape_magic
+:NotEmployeeShape_magic
 	a sh:NodeShape ;
 	sh:node :EmployeeShape_magic ;
-	sh:inversePath dbo:employer ;.
+	sh:path[
+		sh:inversePath dbo:employer ;
+	].
 
-	:LocationShape_magic
+:LocationShape_magic
 	a sh:NodeShape ;
 	sh:node :PersonShape_magic ;
-	sh:inversePath dbo:birthPlace ;
-	.	
+	sh:path[
+		sh:inversePath dbo:birthPlace ;
+	].
 				
 :WorkingPersonShape
+	sh:targetClass dbo:Person ;
 	sh:node :PersonShape ;
 	sh:node :EmployeeShape ;
 	sh:node :WorkingPersonShape_magic ;

@@ -5,46 +5,56 @@
         		
 :WorkingClassShape_magic
 	a sh:NodeShape ;
-	sh:targetClass dbo:Person ;.
+	sh:class dbo:Person ;.
 
-	:PersonShape_magic
+:PersonShape_magic
 	a sh:NodeShape ;
 	sh:node :WorkingClassShape_magic ;
-	sh:node :WorkingPersonShape_magic ;
-	sh:node :ParentShape_magic ;
-	sh:path dbo:child ;
-	sh:inversePath dbo:child ;.
+	sh:property[
+		sh:node :WorkingPersonShape_magic ;
+		sh:path dbo:child ;
+	];
+	sh:property[
+		sh:node :ParentShape_magic ;
+		sh:path[
+			sh:inversePath dbo:child ;
+		];
+	].
 
-	:WorkingParentShape_magic
+:WorkingParentShape_magic
 	a sh:NodeShape ;
 	sh:node :WorkingClassShape_magic ;
 	sh:path dbo:child ;.
 
-	:ParentShape_magic
+:ParentShape_magic
 	a sh:NodeShape ;
 	sh:node :WorkingParentShape_magic ;.
 
-	:WorkingPersonShape_magic
+:WorkingPersonShape_magic
 	a sh:NodeShape ;
 	sh:node :WorkingParentShape_magic ;.
 
-	:EmployeeShape_magic
+:EmployeeShape_magic
 	a sh:NodeShape ;
 	sh:node :WorkingPersonShape_magic ;
 	sh:node :NotEmployeeShape_magic ;.
 
-	:NotEmployeeShape_magic
+:NotEmployeeShape_magic
 	a sh:NodeShape ;
 	sh:node :EmployeeShape_magic ;
-	sh:inversePath dbo:employer ;.
+	sh:path[
+		sh:inversePath dbo:employer ;
+	].
 
-	:LocationShape_magic
+:LocationShape_magic
 	a sh:NodeShape ;
 	sh:node :PersonShape_magic ;
-	sh:inversePath dbo:birthPlace ;
-	.	
+	sh:path[
+		sh:inversePath dbo:birthPlace ;
+	].			
 				
 :WorkingClassShape
+	sh:targetClass dbo:Person ;
 	sh:node :PersonShape ;
 	sh:node :WorkingClassShape_magic ;
 	sh:property [
