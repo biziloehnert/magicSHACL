@@ -161,7 +161,7 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 
 		Value value = new ValueImpl();
 
-		if (term == null || term.isBlank())
+		if (term == null || term=="")
 			value.setName("ADom");
 		else
 			value.setName(term);

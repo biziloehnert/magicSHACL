@@ -244,7 +244,7 @@ class TurtleGenerator extends AbstractGenerator {
 		modifiedShapes.add(constraint)	
 	}
 	
-	def shapeExpressionToJsonString(List<ShapeExpression> shapeExpressions){
+	/*def shapeExpressionToJsonString(List<ShapeExpression> shapeExpressions){
 		val jsonString = newArrayList
 		
 		val path = getValuesOfProperty(shapeExpressions, PropertyType.PREDICATE_PATH)
@@ -277,7 +277,7 @@ class TurtleGenerator extends AbstractGenerator {
 			jsonString.add('\"path\" : \"' + pathString + subString)
 		
 		return jsonString
-	}
+	}*/
 	
 	def shapeConstraint(EObject exp){
 		if(exp.eContainer instanceof ShapeConstraint)
