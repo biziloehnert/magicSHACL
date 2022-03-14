@@ -49,7 +49,7 @@ The shapes graphs for the experiments are created based on two different sets of
 |1 | Musician(Wolfgang_Amadeus_Mozart)|11 | Employee(Actor)         |
 |2 | Musician(Actor)                  |12 | Employee(Person)        |
 |3 | Musician(Person)                 |13 | WorkingPerson(bill)     |
-|4 | Actor(sandrineKiberlain)         |14 | WorkingPerson(markMadoff)|
+|4 | Actor(cameronHallactor)          |14 | WorkingPerson(markMadoff)|
 |5 | Actor(Actor)                     |15 | WorkingPerson(Actor)    |
 |6 | Actor(Person)                    |16 | WorkingPerson(Person)   |
 |7 | Movie(Film)                      |17 | WorkingClass(bill)      |
