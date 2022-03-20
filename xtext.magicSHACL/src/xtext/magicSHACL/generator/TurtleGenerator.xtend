@@ -313,7 +313,7 @@ class TurtleGenerator extends AbstractGenerator {
 		if (class.size > 0 )
 			object = class.get(0).toString
 		else if (node.size > 0 )
-			object = node.get(0).toString
+			object = node.get(0).toString.replace(':','')
 		else if (hasValue.size >0)
 			object = hasValue.get(0).toString.toLowerCase //.toLowerCase
 		else if (hasClass.size > 0)
@@ -324,7 +324,7 @@ class TurtleGenerator extends AbstractGenerator {
 				object += qualifiedValue
 		}	
 		
-		object = object.replace(':', '')
+		object = object.split(':').last
 		
 		var pathString = ''
 		if(path.size > 0)
