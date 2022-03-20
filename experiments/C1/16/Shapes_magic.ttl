@@ -1,0 +1,58 @@
+@prefix dbo: <http://dbpedia.org/ontology/>.
+@prefix dbr: <http://dbpedia.org/resource/>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix : <http://example.org/>.
+
+:WorkingPersonShape_magic a sh:NodeShape;
+	sh:hasClass dbo:Person ;.
+
+:PersonShape_magic a sh:NodeShape;
+	sh:node :WorkingPersonShape_magic ;.
+
+:EmployeeShape_magic a sh:NodeShape;
+	sh:node :WorkingPersonShape_magic ;.
+
+:LocationShape_magic a sh:NodeShape;
+	sh:node :PersonShape_magic ;
+	sh:path [
+	sh:inversePath dbo:birthPlace ;
+];
+.	
+				
+:WorkingPersonShape				
+	sh:targetClass dbo:Person;
+	sh:node :PersonShape ;
+	sh:node :EmployeeShape ;
+	sh:node :WorkingPersonShape_magic ;
+	a sh:NodeShape ;
+.
+
+:EmployeeShape				
+	sh:node :EmployeeShape_magic ;
+	sh:property [
+		sh:path dbo:employer ;
+		sh:minCount 1 ;
+	];
+	a sh:NodeShape ;
+.
+
+:PersonShape				
+	sh:node :PersonShape_magic ;
+	sh:property [
+		sh:path dbo:birthPlace ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:node :LocationShape ;
+	];
+	a sh:NodeShape ;
+.
+
+:LocationShape				
+	sh:node :LocationShape_magic ;
+	sh:property [
+		sh:path dbo:country ;
+		sh:minCount 1 ;
+	];
+	a sh:NodeShape ;
+
+.

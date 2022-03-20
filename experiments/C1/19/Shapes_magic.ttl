@@ -1,0 +1,104 @@
+@prefix dbo: <http://dbpedia.org/ontology/>.
+@prefix dbr: <http://dbpedia.org/resource/>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix : <http://example.org/>.
+
+:WorkingClassShape_magic a sh:NodeShape;
+	sh:hasClass dbo:Actor ;.
+
+:PersonShape_magic a sh:NodeShape;
+	sh:node :WorkingClassShape_magic ;.
+
+:WorkingParentShape_magic a sh:NodeShape;
+	sh:node :WorkingClassShape_magic ;
+	sh:path dbo:child ;.
+
+:ParentShape_magic a sh:NodeShape;
+	sh:node :WorkingParentShape_magic ;.
+
+:WorkingPersonShape_magic a sh:NodeShape;
+	sh:node :WorkingParentShape_magic ;.
+
+:PersonShape_magic a sh:NodeShape;
+	sh:node :WorkingPersonShape_magic ;.
+
+:EmployeeShape_magic a sh:NodeShape;
+	sh:node :WorkingPersonShape_magic ;.
+
+:LocationShape_magic a sh:NodeShape;
+	sh:node :PersonShape_magic ;
+	sh:path [
+	sh:inversePath dbo:birthPlace ;
+];.
+
+:PersonShape_magic a sh:NodeShape;
+	sh:node :ParentShape_magic ;
+.	
+				
+:WorkingClassShape				
+	sh:targetClass dbo:Actor;
+	sh:node :PersonShape ;
+	sh:node :WorkingClassShape_magic ;
+	sh:property [
+		sh:path [
+		sh:inversePath dbo:child ;
+	];
+		sh:minCount 1 ;
+		sh:node :WorkingParentShape ;
+	];
+	a sh:NodeShape ;
+.
+
+:WorkingParentShape				
+	sh:node :ParentShape ;
+	sh:node :WorkingPersonShape ;
+	sh:node :WorkingParentShape_magic ;
+	a sh:NodeShape ;
+.
+
+:WorkingPersonShape				
+	sh:node :PersonShape ;
+	sh:node :EmployeeShape ;
+	sh:node :WorkingPersonShape_magic ;
+	a sh:NodeShape ;
+.
+
+:EmployeeShape				
+	sh:node :EmployeeShape_magic ;
+	sh:property [
+		sh:path dbo:employer ;
+		sh:minCount 1 ;
+	];
+	a sh:NodeShape ;
+.
+
+:PersonShape				
+	sh:node :PersonShape_magic ;
+	sh:property [
+		sh:path dbo:birthPlace ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:node :LocationShape ;
+	];
+	a sh:NodeShape ;
+.
+
+:LocationShape				
+	sh:node :LocationShape_magic ;
+	sh:property [
+		sh:path dbo:country ;
+		sh:minCount 1 ;
+	];
+	a sh:NodeShape ;
+.
+
+:ParentShape				
+	sh:node :PersonShape ;
+	sh:node :ParentShape_magic ;
+	sh:property [
+		sh:path dbo:child ;
+		sh:minCount 1 ;
+	];
+	a sh:NodeShape ;
+
+.

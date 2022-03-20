@@ -1,0 +1,23 @@
+WorkingPersonShape(bill)?
+WorkingPersonShape_magic :- bill ; 
+PersonShape_magic :- WorkingPersonShape_magic ; 
+EmployeeShape_magic :- WorkingPersonShape_magic ; 
+NotEmployeeShape_magic :- SOME ^employer EmployeeShape_magic ; 
+EmployeeShape_magic :- NotEmployeeShape_magic ; 
+LocationShape_magic :- SOME ^birthPlace PersonShape_magic ; 
+WorkingPersonShape :- PersonShape AND EmployeeShape AND WorkingPersonShape_magic ; 
+EmployeeShape :- EmployeeShapeS0 AND EmployeeShapeS1;
+EmployeeShapeS0 :- EmployeeShape_magic;
+EmployeeShapeS1 :- MIN 1 employer NotEmployeeShape;
+NotEmployeeShape :- NotEmployeeShapeS0 AND NotEmployeeShapeS1;
+NotEmployeeShapeS0 :- NotEmployeeShape_magic;
+NotEmployeeShapeS1 :- NOT NotEmployeeShapeN1;
+NotEmployeeShapeN1 :- EmployeeShape;
+PersonShape :- PersonShapeS0 AND PersonShapeS1 AND PersonShapeS2;
+PersonShapeS0 :- PersonShape_magic;
+PersonShapeS1 :- MIN 1 birthPlace LocationShape;
+PersonShapeS2 :- NOT PersonShapeN1;
+PersonShapeN1 :- MIN 2 birthPlace LocationShape;
+LocationShape :- LocationShapeS0 AND LocationShapeS1;
+LocationShapeS0 :- LocationShape_magic;
+LocationShapeS1 :- MIN 1 country ADom;

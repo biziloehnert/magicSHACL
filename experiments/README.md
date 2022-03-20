@@ -10,7 +10,7 @@ while IFS= read -r file ; do wget $file; done <<< "$files"
 ```
 For the experiments merely the files "InstanceTypes", "Labels", "Mappingbased Literals", "Mappingbased Objects" and "PersonData" (from 2016, because the PersonData from 2021 is empty) are required. Use the following command to download these files directly:
 ```cmd
-files="https://databus.dbpedia.org/dbpedia/mappings/instance-types/2021.12.01/instance-types_lang=en_specific.ttl.bz2 https://databus.dbpedia.org/dbpedia/mappings/instance-types/2021.12.01/instance-types_lang=en_transitive.ttl.bz2 https://databus.dbpedia.org/vehnem/yago/instance-types/2016.10.01/instance-types_tag=specific.ttl.bz2 https://databus.dbpedia.org/dbpedia/generic/labels/2021.12.01/labels_lang=en.ttl.bz2 https://databus.dbpedia.org/dbpedia/mappings/mappingbased-literals/2021.12.01/mappingbased-literals_lang=en.ttl.bz2 https://databus.dbpedia.org/dbpedia/mappings/mappingbased-objects/2021.12.01/mappingbased-objects_lang=en.ttl.bz2 https://databus.dbpedia.org/dbpedia/generic/persondata/2016.10.01/persondata_lang=en.ttl.bz2"
+files="https://databus.dbpedia.org/dbpedia/mappings/instance-types/2021.12.01/instance-types_lang=en_specific.ttl.bz2 https://databus.dbpedia.org/dbpedia/mappings/instance-types/2021.12.01/instance-types_lang=en_transitive.ttl.bz2 https://databus.dbpedia.org/dbpedia/generic/labels/2021.12.01/labels_lang=en.ttl.bz2 https://databus.dbpedia.org/dbpedia/mappings/mappingbased-literals/2021.12.01/mappingbased-literals_lang=en.ttl.bz2 https://databus.dbpedia.org/dbpedia/mappings/mappingbased-objects/2021.12.01/mappingbased-objects_lang=en.ttl.bz2 https://databus.dbpedia.org/dbpedia/generic/persondata/2016.10.01/persondata_lang=en.ttl.bz2"
 while IFS= read -r file ; do wget $file; done <<< "$files"
 ```
 
@@ -42,16 +42,37 @@ fuseki-server --loc=<PATH-TO>/tdb --update /DBPedia
 -->
 
 ## Shapes Graph
-Employee <-- MIN 1 employer.NOT Employee
+The shapes graphs for the experiments are created based on two different sets of shape constraints, namely C1 and C2. Each of the sets is combined with 20 different targets to form 40 different shapes graphs/test cases. The targets used for this purpose are shown in the Table below.
 
-|S|Constraints| Targets | Recursion | 
-|-|:---------:|:---------------:|:---------------: |
-|1|     C1    | Movie(Film)     | |
-|2|     C1    | Musician(Actor) | |
-|3|     C1    | Person(Actor)   | |
-|4|     C1    | Musician(Person)| |
-|5|     C2    | Musician(Person)| Director <-> Movie |
-|6|     C2    | Movie(Film)     | Director <-> Movie |
-|7|     C3    | Musician(Person)| Influencer <-> not Influencer |
-|8|     C4    | Movie(Film)     | Director <-> Movie, Influencer <-> not Influencer |
-|9|     C5    | Movie(Film)     | Director <-> Movie, Director <-> not Director
+|S | Targets                          | S |  Targets                |  
+|- |:--------------------------------:|-  | :----------------------:|
+|1 | Musician(Wolfgang_Amadeus_Mozart)|11 | Employee(Actor)         |
+|2 | Musician(Actor)                  |12 | Employee(Person)        |
+|3 | Musician(Person)                 |13 | WorkingPerson(bill)     |
+|4 | Actor(cameronHallactor)          |14 | WorkingPerson(markMadoff)|
+|5 | Actor(Actor)                     |15 | WorkingPerson(Actor)    |
+|6 | Actor(Person)                    |16 | WorkingPerson(Person)   |
+|7 | Movie(Film)                      |17 | WorkingClass(bill)      |
+|8 | TranslatedMovie(Film)            |18 | WorkingClass(markMadoff)|
+|9 | Employee(bill)                   |19 | WorkingClass(Actor)     |
+|10| Employee(markMadoff)             |20 | WorkingClass(Person)    |
+
+## Magic Shapes Algorithm
+We ran the magic shapes algorithm on each of the 40 shapes graphs by the following commands: 
+```cmd
+for shapesGraph in C1/{1..20}; do java -jar MagicShapes.jar $shapesGraph/Shapes.ttl ; done
+for shapesGraph in C2/{1..20}; do java -jar MagicShapes.jar $shapesGraph/Shapes.ttl ; done
+```
+This produces two shapes graphs, i.e. Shapes_magic.ttl and Shapes.simple, to $shapesGraph/src-gen/. Since the SHACL-ASP validator is only able to read abstract syntax, the following command translates the magic shapes graph from turle syntax to abstract syntax (after copying it to the same directory as Shapes.ttl):
+```cmd
+for shapesGraph in C1/{1..20}; do java -jar MagicShapes.jar $shapesGraph/Shapes_magic.ttl ; done
+for shapesGraph in C2/{1..20}; do java -jar MagicShapes.jar $shapesGraph/Shapes_magic.ttl ; done
+```
+All generated files are also stored in this repository next to the input shapes graphs. 
+
+## Validation
+For the validation we used the [SHACL-ASP](https://github.com/medinaandresel/shacl-asp) engine, which is based on the stable model semantics.
+
+### RDF-TO-ASP
+
+### SHACL-ASP

@@ -1,0 +1,5 @@
+EmployeeShape(joe_Ranft)?
+EmployeeShape_magic :- joe_ranft ; 
+EmployeeShape :- EmployeeShapeS0 AND EmployeeShapeS1;
+EmployeeShapeS0 :- EmployeeShape_magic;
+EmployeeShapeS1 :- MIN 1 employer ADom;
