@@ -2,81 +2,47 @@
 @prefix dbr: <http://dbpedia.org/resource/>.
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 @prefix : <http://example.org/>.
-        		
-:TranslatedMovieShape_magic
-	a sh:NodeShape ;
-	sh:class dbo:Film .
 
-:MovieShape_magic
-	a sh:NodeShape ;
-	sh:property[
-		sh:node :TranslatedMovieShape_magic ;
-		sh:path[
-			sh:inversePath dbo:language ;
-		];
-	];
-	sh:property[
-		sh:node :ActorShape_magic ;
-		sh:path dbo:starring ;
-	];
-	sh:property[
-		sh:path dbo:director ;
-		sh:node :DirectorShape_magic ;
-	].
+:TranslatedMovieShape_magic a sh:NodeShape;
+	sh:hasClass dbo:Film ;.
 
-:LivingLanguageShape_magic
-	a sh:NodeShape ;
+:MovieShape_magic a sh:NodeShape;
+	sh:node :TranslatedMovieShape_magic ;.
+
+:LivingLanguageShape_magic a sh:NodeShape;
 	sh:node :TranslatedMovieShape_magic ;
-	sh:path[
-		sh:inversePath dbo:language ;
-	].
+	sh:path [
+	sh:inversePath dbo:language ;
+];.
 
-:LocationShape_magic
-	a sh:NodeShape ;
-	sh:property[
-		sh:path[
-			sh:inversePath dbo:spokenIn ;
-		];
-		sh:node :LivingLanguageShape_magic ;
-	];
-	sh:property[
-		sh:path[
-			sh:inversePath dbo:birthPlace ;
-		];
-		sh:node :PersonShape_magic ;
-	].
+:LocationShape_magic a sh:NodeShape;
+	sh:node :LivingLanguageShape_magic ;
+	sh:path [
+	sh:inversePath dbo:spokenIn ;
+];.
 
-:DirectorShape_magic
-	a sh:NodeShape ;
-	sh:property[
-		sh:path[
-			sh:inversePath dbo:director ;	
-		];
-		sh:node :MovieShape_magic ;
-	].
+:ActorShape_magic a sh:NodeShape;
+	sh:node :MovieShape_magic ;
+	sh:path [
+	sh:inversePath dbo:starring ;
+];.
 
-:ActorShape_magic
-	a sh:NodeShape ;
-	sh:property[
-		sh:node :MovieShape_magic ;
-		sh:path[
-			sh:inversePath dbo:starring ;
-		];
-	].
+:PersonShape_magic a sh:NodeShape;
+	sh:node :ActorShape_magic ;.
 
-:PersonShape_magic
-	a sh:NodeShape ;
-	sh:property[
-		sh:path dbo:starring ;
-		sh:node :ActorShape_magic ;
-	];
-	sh:property[
-		sh:node :DirectorShape_magic ;
-		sh:path dbo:director ;
-	].	
+:MovieShape_magic a sh:NodeShape;
+	sh:node :ActorShape_magic ;
+	sh:path dbo:starring ;.
+
+:LocationShape_magic a sh:NodeShape;
+	sh:node :PersonShape_magic ;
+	sh:path [
+	sh:inversePath dbo:birthPlace ;
+];
+.	
 				
-:TranslatedMovieShape
-	sh:targetClass dbo:Film ;
+:TranslatedMovieShape				
+	sh:targetClass dbo:Film;
 	sh:node :MovieShape ;
 	sh:node :TranslatedMovieShape_magic ;
 	sh:property [
@@ -87,7 +53,7 @@
 	a sh:NodeShape ;
 .
 
-:LivingLanguageShape
+:LivingLanguageShape				
 	sh:node :LivingLanguageShape_magic ;
 	sh:property [
 		sh:path dbo:spokenIn ;
@@ -97,7 +63,7 @@
 	a sh:NodeShape ;
 .
 
-:LocationShape
+:LocationShape				
 	sh:node :LocationShape_magic ;
 	sh:property [
 		sh:path dbo:country ;
@@ -106,13 +72,8 @@
 	a sh:NodeShape ;
 .
 
-:MovieShape
+:MovieShape				
 	sh:node :MovieShape_magic ;
-	sh:property [
-		sh:path dbo:director ;
-		sh:node :DirectorShape ;
-		sh:minCount 1 ;
-	];
 	sh:property [
 		sh:path dbo:imdbId ;
 		sh:minCount 1 ;
@@ -126,39 +87,33 @@
 	a sh:NodeShape ;
 .
 
-:ActorShape
+:ActorShape				
 	sh:node :PersonShape ;
 	sh:node :ActorShape_magic ;
 	sh:property [
+		sh:or (
+		  [
 		sh:path [
 		sh:inversePath dbo:starring ;
-	];
+		]
 		sh:node :MovieShape ;
 		sh:minCount 1 ;
-	];
+		]
+		  [
+		sh:path dbo:occupation ;
+		sh:class dbr:Actor ;
+		]
+	);];
 	a sh:NodeShape ;
 .
 
-:PersonShape
+:PersonShape				
 	sh:node :PersonShape_magic ;
 	sh:property [
 		sh:path dbo:birthPlace ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:node :LocationShape ;
-	];
-	a sh:NodeShape ;
-.
-
-:DirectorShape
-	sh:node :PersonShape ;
-	sh:node :DirectorShape_magic ;
-	sh:property [
-		sh:path [
-		sh:inversePath dbo:director ;
-	];
-		sh:node :MovieShape ;
-		sh:minCount 1 ;
 	];
 	a sh:NodeShape ;
 

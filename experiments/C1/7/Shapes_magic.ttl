@@ -2,59 +2,33 @@
 @prefix dbr: <http://dbpedia.org/resource/>.
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 @prefix : <http://example.org/>.
-        		
-:MovieShape_magic
-	a sh:NodeShape ;
-	sh:property[
-		sh:path dbo:starring ;
-		sh:node :ActorShape_magic ;
-	];
-	sh:property[
-		sh:path dbo:director ;
-		sh:node :DirectorShape_magic ;	
-	];
-	sh:class dbo:Film ;.
 
-:DirectorShape_magic
-	a sh:NodeShape ;
+:MovieShape_magic a sh:NodeShape;
+	sh:hasClass dbo:Film ;.
+
+:ActorShape_magic a sh:NodeShape;
 	sh:node :MovieShape_magic ;
-	sh:path[
-		sh:inversePath dbo:director ;
-	].
+	sh:path [
+	sh:inversePath dbo:starring ;
+];.
 
-:ActorShape_magic
-	a sh:NodeShape ;
-	sh:node :MovieShape_magic ;
-	sh:path[
-		sh:inversePath dbo:starring ;
-	].
+:PersonShape_magic a sh:NodeShape;
+	sh:node :ActorShape_magic ;.
 
-:PersonShape_magic
-	a sh:NodeShape ;
-	sh:property[
-		sh:path dbo:starring ;
-		sh:node :ActorShape_magic ;
-	];
-	sh:property[
-		sh:path dbo:director ;
-		sh:node :DirectorShape_magic ;	
-	].
+:MovieShape_magic a sh:NodeShape;
+	sh:node :ActorShape_magic ;
+	sh:path dbo:starring ;.
 
-:LocationShape_magic
-	a sh:NodeShape ;
+:LocationShape_magic a sh:NodeShape;
 	sh:node :PersonShape_magic ;
-	sh:path[
-		sh:inversePath dbo:birthPlace ;
-	].	
+	sh:path [
+	sh:inversePath dbo:birthPlace ;
+];
+.	
 				
-:MovieShape
-	sh:targetClass dbo:Film ;
+:MovieShape				
+	sh:targetClass dbo:Film;
 	sh:node :MovieShape_magic ;
-	sh:property [
-		sh:path dbo:director ;
-		sh:node :DirectorShape ;
-		sh:minCount 1 ;
-	];
 	sh:property [
 		sh:path dbo:imdbId ;
 		sh:minCount 1 ;
@@ -68,20 +42,28 @@
 	a sh:NodeShape ;
 .
 
-:ActorShape
+:ActorShape				
+	sh:node :PersonShape ;
 	sh:node :PersonShape ;
 	sh:node :ActorShape_magic ;
 	sh:property [
+		sh:or (
+		  [
 		sh:path [
 		sh:inversePath dbo:starring ;
-	];
+		]
 		sh:node :MovieShape ;
 		sh:minCount 1 ;
-	];
+		]
+		  [
+		sh:path dbo:occupation ;
+		sh:class dbr:Actor ;
+		]
+	);];
 	a sh:NodeShape ;
 .
 
-:PersonShape
+:PersonShape				
 	sh:node :PersonShape_magic ;
 	sh:property [
 		sh:path dbo:birthPlace ;
@@ -92,23 +74,10 @@
 	a sh:NodeShape ;
 .
 
-:LocationShape
+:LocationShape				
 	sh:node :LocationShape_magic ;
 	sh:property [
 		sh:path dbo:country ;
-		sh:minCount 1 ;
-	];
-	a sh:NodeShape ;
-.
-
-:DirectorShape
-	sh:node :PersonShape ;
-	sh:node :DirectorShape_magic ;
-	sh:property [
-		sh:path [
-		sh:inversePath dbo:director ;
-	];
-		sh:node :MovieShape ;
 		sh:minCount 1 ;
 	];
 	a sh:NodeShape ;

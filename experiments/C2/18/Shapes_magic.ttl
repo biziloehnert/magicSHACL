@@ -2,59 +2,50 @@
 @prefix dbr: <http://dbpedia.org/resource/>.
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 @prefix : <http://example.org/>.
-        		
-:WorkingClassShape_magic
-	a sh:NodeShape ;
-	sh:hasValue dbr:Joe_Ranft ;.
 
-:PersonShape_magic
-	a sh:NodeShape ;
-	sh:node :WorkingClassShape_magic ;
-	sh:property[
-		sh:node :WorkingPersonShape_magic ;
-		sh:path dbo:child ;
-	];
-	sh:property[
-		sh:node :ParentShape_magic ;
-		sh:path[
-			sh:inversePath dbo:child ;
-		];
-	].
+:WorkingClassShape_magic a sh:NodeShape;
+	sh:hasValue dbr:markMadoff ;.
 
-:WorkingParentShape_magic
-	a sh:NodeShape ;
+:PersonShape_magic a sh:NodeShape;
+	sh:node :WorkingClassShape_magic ;.
+
+:WorkingParentShape_magic a sh:NodeShape;
 	sh:node :WorkingClassShape_magic ;
 	sh:path dbo:child ;.
 
-:ParentShape_magic
-	a sh:NodeShape ;
+:ParentShape_magic a sh:NodeShape;
 	sh:node :WorkingParentShape_magic ;.
 
-:WorkingPersonShape_magic
-	a sh:NodeShape ;
+:WorkingPersonShape_magic a sh:NodeShape;
 	sh:node :WorkingParentShape_magic ;.
 
-:EmployeeShape_magic
-	a sh:NodeShape ;
-	sh:node :WorkingPersonShape_magic ;
+:PersonShape_magic a sh:NodeShape;
+	sh:node :WorkingPersonShape_magic ;.
+
+:EmployeeShape_magic a sh:NodeShape;
+	sh:node :WorkingPersonShape_magic ;.
+
+:NotEmployeeShape_magic a sh:NodeShape;
+	sh:node :EmployeeShape_magic ;
+	sh:path [
+	sh:inversePath dbo:employer ;
+];.
+
+:EmployeeShape_magic a sh:NodeShape;
 	sh:node :NotEmployeeShape_magic ;.
 
-:NotEmployeeShape_magic
-	a sh:NodeShape ;
-	sh:node :EmployeeShape_magic ;
-	sh:path[
-		sh:inversePath dbo:employer ;
-	].
-
-:LocationShape_magic
-	a sh:NodeShape ;
+:LocationShape_magic a sh:NodeShape;
 	sh:node :PersonShape_magic ;
-	sh:path[
-		sh:inversePath dbo:birthPlace ;
-	].	
+	sh:path [
+	sh:inversePath dbo:birthPlace ;
+];.
+
+:PersonShape_magic a sh:NodeShape;
+	sh:node :ParentShape_magic ;
+.	
 				
-:WorkingClassShape
-	sh:targetNode dbr:Joe_Ranft ;
+:WorkingClassShape				
+	sh:targetNode dbr:markMadoff;
 	sh:node :PersonShape ;
 	sh:node :WorkingClassShape_magic ;
 	sh:property [
@@ -67,21 +58,21 @@
 	a sh:NodeShape ;
 .
 
-:WorkingParentShape
+:WorkingParentShape				
 	sh:node :ParentShape ;
 	sh:node :WorkingPersonShape ;
 	sh:node :WorkingParentShape_magic ;
 	a sh:NodeShape ;
 .
 
-:WorkingPersonShape
+:WorkingPersonShape				
 	sh:node :PersonShape ;
 	sh:node :EmployeeShape ;
 	sh:node :WorkingPersonShape_magic ;
 	a sh:NodeShape ;
 .
 
-:EmployeeShape
+:EmployeeShape				
 	sh:node :EmployeeShape_magic ;
 	sh:property [
 		sh:path dbo:employer ;
@@ -91,7 +82,7 @@
 	a sh:NodeShape ;
 .
 
-:NotEmployeeShape
+:NotEmployeeShape				
 	sh:not [
 		sh:node :EmployeeShape ;
 	];
@@ -99,7 +90,7 @@
 	a sh:NodeShape ;
 .
 
-:PersonShape
+:PersonShape				
 	sh:node :PersonShape_magic ;
 	sh:property [
 		sh:path dbo:birthPlace ;
@@ -110,7 +101,7 @@
 	a sh:NodeShape ;
 .
 
-:LocationShape
+:LocationShape				
 	sh:node :LocationShape_magic ;
 	sh:property [
 		sh:path dbo:country ;
@@ -119,7 +110,7 @@
 	a sh:NodeShape ;
 .
 
-:ParentShape
+:ParentShape				
 	sh:node :PersonShape ;
 	sh:node :ParentShape_magic ;
 	sh:property [

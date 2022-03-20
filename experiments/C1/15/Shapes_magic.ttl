@@ -2,35 +2,32 @@
 @prefix dbr: <http://dbpedia.org/resource/>.
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 @prefix : <http://example.org/>.
-        		
-:WorkingPersonShape_magic
-	a sh:NodeShape ;
-	sh:class dbo:Actor ;.
 
-:PersonShape_magic
-	a sh:NodeShape ;
+:WorkingPersonShape_magic a sh:NodeShape;
+	sh:hasClass dbo:Actor ;.
+
+:PersonShape_magic a sh:NodeShape;
 	sh:node :WorkingPersonShape_magic ;.
 
-:EmployeeShape_magic
-	a sh:NodeShape ;
+:EmployeeShape_magic a sh:NodeShape;
 	sh:node :WorkingPersonShape_magic ;.
 
-:LocationShape_magic
-	a sh:NodeShape ;
+:LocationShape_magic a sh:NodeShape;
 	sh:node :PersonShape_magic ;
-	sh:path[
-		sh:inversePath dbo:birthPlace ;
-	].	
+	sh:path [
+	sh:inversePath dbo:birthPlace ;
+];
+.	
 				
-:WorkingPersonShape
-	sh:targetClass dbo:Actor ;
+:WorkingPersonShape				
+	sh:targetClass dbo:Actor;
 	sh:node :PersonShape ;
 	sh:node :EmployeeShape ;
 	sh:node :WorkingPersonShape_magic ;
 	a sh:NodeShape ;
 .
 
-:EmployeeShape
+:EmployeeShape				
 	sh:node :EmployeeShape_magic ;
 	sh:property [
 		sh:path dbo:employer ;
@@ -39,7 +36,7 @@
 	a sh:NodeShape ;
 .
 
-:PersonShape
+:PersonShape				
 	sh:node :PersonShape_magic ;
 	sh:property [
 		sh:path dbo:birthPlace ;
@@ -50,7 +47,7 @@
 	a sh:NodeShape ;
 .
 
-:LocationShape
+:LocationShape				
 	sh:node :LocationShape_magic ;
 	sh:property [
 		sh:path dbo:country ;

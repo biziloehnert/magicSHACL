@@ -70,7 +70,7 @@
 	sh:node :EmployeeShape .
 	
 :WorkingClassShape a sh:NodeShape;
-	sh:targetNode dbr:Joe_Ranft;
+	sh:targetNode dbr:markMadoff;
 	sh:node :PersonShape;
 	sh:property [ 
 		sh:path[

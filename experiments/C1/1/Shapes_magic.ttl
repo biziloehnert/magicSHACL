@@ -2,26 +2,21 @@
 @prefix dbr: <http://dbpedia.org/resource/>.
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 @prefix : <http://example.org/>.
-        		
-:MusicianShape_magic
-	a sh:NodeShape ;
+
+:MusicianShape_magic a sh:NodeShape;
 	sh:hasValue dbr:Wolfgang_Amadeus_Mozart ;.
 
-:PersonShape_magic
-	a sh:NodeShape ;
-	sh:node :MusicianShape_magic ;
-	sh:path[
-		sh:inversePath dbo:instrument ;
-	].
-	
-:LocationShape_magic
-	a sh:NodeShape ;
+:PersonShape_magic a sh:NodeShape;
+	sh:node :MusicianShape_magic ;.
+
+:LocationShape_magic a sh:NodeShape;
 	sh:node :PersonShape_magic ;
-	sh:path[
-		sh:inversePath dbo:birthPlace ;
-	].	
+	sh:path [
+	sh:inversePath dbo:birthPlace ;
+];
+.	
 				
-:MusicianShape
+:MusicianShape				
 	sh:targetNode dbr:Wolfgang_Amadeus_Mozart;
 	sh:node :PersonShape ;
 	sh:node :MusicianShape_magic ;
@@ -32,7 +27,7 @@
 	a sh:NodeShape ;
 .
 
-:PersonShape
+:PersonShape				
 	sh:node :PersonShape_magic ;
 	sh:property [
 		sh:path dbo:birthPlace ;
@@ -43,7 +38,7 @@
 	a sh:NodeShape ;
 .
 
-:LocationShape
+:LocationShape				
 	sh:node :LocationShape_magic ;
 	sh:property [
 		sh:path dbo:country ;

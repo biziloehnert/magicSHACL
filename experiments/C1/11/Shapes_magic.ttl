@@ -2,14 +2,13 @@
 @prefix dbr: <http://dbpedia.org/resource/>.
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 @prefix : <http://example.org/>.
-        		
-:EmployeeShape_magic
-	a sh:NodeShape ;
-	sh:class dbo:Actor ;
-	.	
+
+:EmployeeShape_magic a sh:NodeShape;
+	sh:hasClass dbo:Actor ;
+.	
 				
-:EmployeeShape
-	sh:targetClass dbo:Actor ;
+:EmployeeShape				
+	sh:targetClass dbo:Actor;
 	sh:node :EmployeeShape_magic ;
 	sh:property [
 		sh:path dbo:employer ;
