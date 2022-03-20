@@ -302,7 +302,7 @@ class TurtleGenerator extends AbstractGenerator {
 		val maxCount = getValuesOfProperty(shapeExpressions, PropertyType.MAX_COUNT_CONSTRAINT_COMPONENT)
 		val minCount = getValuesOfProperty(shapeExpressions, PropertyType.MIN_COUNT_CONSTRAINT_COMPONENT)
 		val class = getValuesOfProperty(shapeExpressions, PropertyType.CLASS_CONSTRAINT_COMPONENT)
-		val node = getValuesOfProperty(shapeExpressions, PropertyType.NODE_CONSTRAINT_COMPONENT)
+		val node = getValuesOfProperty(shapeExpressions, PropertyType.NODE_CONSTRAINT_COMPONENT)	
 		val hasValue = getValuesOfProperty(shapeExpressions, PropertyType.HAS_VALUE_CONSTRAINT_COMPONENT);
 		val hasClass = getValuesOfProperty(shapeExpressions, PropertyType.HAS_CLASS_CONSTRAINT_COMPONENT);
 		
@@ -314,8 +314,8 @@ class TurtleGenerator extends AbstractGenerator {
 			object = class.get(0).toString
 		else if (node.size > 0 )
 			object = node.get(0).toString
-		else if (hasValue.size > 0)
-			object = hasValue.get(0).toString //.toLowerCase
+		else if (hasValue.size >0)
+			object = hasValue.get(0).toString.toLowerCase //.toLowerCase
 		else if (hasClass.size > 0)
 			object = hasClass.get(0).toString
 		else if(qualifiedValueShape.size > 0){
@@ -324,7 +324,7 @@ class TurtleGenerator extends AbstractGenerator {
 				object += qualifiedValue
 		}	
 		
-		object = object.split(':').last
+		object = object.replace(':', '')
 		
 		var pathString = ''
 		if(path.size > 0)
