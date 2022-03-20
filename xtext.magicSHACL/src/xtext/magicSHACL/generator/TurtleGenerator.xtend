@@ -244,7 +244,7 @@ class TurtleGenerator extends AbstractGenerator {
 		modifiedShapes.add(constraint)	
 	}
 	
-	def shapeExpressionToJsonString(List<ShapeExpression> shapeExpressions){
+	/*def shapeExpressionToJsonString(List<ShapeExpression> shapeExpressions){
 		val jsonString = newArrayList
 		
 		val path = getValuesOfProperty(shapeExpressions, PropertyType.PREDICATE_PATH)
@@ -277,7 +277,7 @@ class TurtleGenerator extends AbstractGenerator {
 			jsonString.add('\"path\" : \"' + pathString + subString)
 		
 		return jsonString
-	}
+	}*/
 	
 	def shapeConstraint(EObject exp){
 		if(exp.eContainer instanceof ShapeConstraint)
@@ -317,20 +317,20 @@ class TurtleGenerator extends AbstractGenerator {
 		object = object.split(':').last
 		
 		var pathString = ''
-		if(inversePath.size > 0)
-			pathString = '^' + inversePath.get(0).toString.split(':').last
-		else if(path.size > 0)
+		if(path.size > 0)
 			pathString = path.get(0).toString.split(':').last
 		
+		if(inversePath.size > 0)
+			normalized.add('^' + inversePath.get(0).toString.split(':').last)
 		if(minCount.size > 0)
 			normalized.add('MIN ' + minCount.get(0) + ' ' + pathString + ' ' + object)
 		if(maxCount.size > 0){
 			val newShapeName = (shapeExpressions.get(0).shapeConstraint as ShapeConstraint).shapeName.name.split(':').last + 'N' + normalized.size
 			normalized.add('NOT ' + newShapeName + ';\n' + newShapeName + ' :- ' + 'MIN ' + (Integer.parseInt(maxCount.get(0).toString)+1) + ' ' + pathString + ' ' + object)
 		}
-		if(maxCount.size == 0 && minCount.size == 0 &&qualifiedMinCount.size == 0 && qualifiedMaxCount.size == 0 && (path.size > 0 || inversePath.size > 0))
+		if(maxCount.size == 0 && minCount.size == 0 &&qualifiedMinCount.size == 0 && qualifiedMaxCount.size == 0 && path.size > 0)
 			normalized.add('SOME ' + pathString + ' ' + object)
-			
+		
 		if(qualifiedMaxCount.size > 0){
 			val newShapeName = (shapeExpressions.get(0).shapeConstraint as ShapeConstraint).shapeName.name.split(':').last + 'N' + normalized.size
 			normalized.add('NOT ' + newShapeName + ';\n' + newShapeName + ' :- ' + 'MIN ' + (Integer.parseInt(qualifiedMaxCount.get(0).toString)+1) + ' ' + pathString + ' ' + object)
