@@ -185,7 +185,7 @@ class TurtleGenerator extends AbstractGenerator {
 			val s_b = expression.values.findFirst[v | v.isAdorned]
 			val container = expression.eContainer 
 			
-			var ShapeExpression pathExpression 
+			var ShapeExpression pathExpression = new ShapeExpressionImpl
 		
 			var pathExp = container.eAllContents.filter(ShapeExpression).findFirst[e | e.type == PropertyType.PREDICATE_PATH]
 			var inversePathExp = container.eAllContents.filter(ShapeExpression).findFirst[e | e.type == PropertyType.INVERSE_PATH]
@@ -194,8 +194,11 @@ class TurtleGenerator extends AbstractGenerator {
 				pathExpression = EcoreUtil.copy(inversePathExp)
 				pathExpression.type = PropertyType.PREDICATE_PATH
 			} else if(pathExp !== null){
-				pathExpression = EcoreUtil.copy(pathExp)
-				pathExpression.type = PropertyType.INVERSE_PATH
+				var ShapeExpression inversePathExpression
+				inversePathExpression = EcoreUtil.copy(pathExp)
+				pathExpression.type = PropertyType.PREDICATE_PATH
+				inversePathExpression.type = PropertyType.INVERSE_PATH
+				pathExpression.shapeExpressions.add(inversePathExpression)
 			}
 			
 			magicConstraint = magicShapes.findFirst[ms | ms.shapeName.name.equals(s_b.toShapeName.magicShapeName.name)]
