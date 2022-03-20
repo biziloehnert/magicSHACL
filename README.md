@@ -52,7 +52,7 @@ apt install openjdk-14-jre-headless
 In order to use the plugin a running [Eclipse IDE](https://www.eclipse.org/downloads/) is additionally required. 
 
 ### Installation
-The command line tool is provided as **MagicShapes.jar** with the release and does not need further installation. 
+The command line tool is provided as [**MagicShapes.jar**](https://github.com/biziloehnert/magicSHACL/releases/download/v22.03/MagicShapes.jar) with the [release](https://github.com/biziloehnert/magicSHACL/releases) and does not need further installation. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -60,13 +60,13 @@ The command line tool is provided as **MagicShapes.jar** with the release and do
 ## Usage
 To perform the magic shapes transformation on some input shapes graph execute the following command: 
 ```cmd
-java -jar <pathToJar> <pathToShapesGraph>
+java -jar <pathToJar>MagicShapes.jar <pathToShapesGraph>
 ```
-For example to run the transformation on a shapes graph from the [experiments](https://github.com/biziloehnert/magicSHACL/tree/master/experiments) directory (assuming that the MagicShapes.jar is there) enter: 
+The prototype generates the output files to <pathToShapesGraph>/src-gen/. For example to run the transformation on a shapes graph from the [experiments](https://github.com/biziloehnert/magicSHACL/tree/master/experiments) directory (assuming that the MagicShapes.jar is there) enter: 
 ```cmd
-java -jar MagicShapes.jar 1/Shapes.ttl
+java -jar MagicShapes.jar C1/1/Shapes.ttl
 ```
-More examples and explanations are provided in the [experiments](https://github.com/biziloehnert/magicSHACL/tree/master/experiments) directory. 
+Then two files, i.e. Shapes_magic.ttl and Shapes.simple are generated and saved to C1/1/src-gen. A more detailed explanation and the shapes graphs used to conducted experiments to demonstrate the **magic shapes algorithm** are provided in the [experiments](https://github.com/biziloehnert/magicSHACL/tree/master/experiments) directory. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
