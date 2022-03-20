@@ -57,4 +57,22 @@ The shapes graphs for the experiments are created based on two different sets of
 |9 | Employee(bill)                   |19 | WorkingClass(Actor)     |
 |10| Employee(markMadoff)             |20 | WorkingClass(Person)    |
 
+## Magic Shapes Algorithm
+We ran the magic shapes algorithm on each of the 40 shapes graphs by the following commands: 
+```cmd
+for shapesGraph in C1/{1..20}; do java -jar MagicShapes.jar $shapesGraph/Shapes.ttl ; done
+for shapesGraph in C2/{1..20}; do java -jar MagicShapes.jar $shapesGraph/Shapes.ttl ; done
+```
+This produces two shapes graphs, i.e. Shapes_magic.ttl and Shapes.simple, to $shapesGraph/src-gen/. Since the SHACL-ASP validator is only able to read abstract syntax, the following command translates the magic shapes graph from turle syntax to abstract syntax:
+```cmd
+for shapesGraph in C1/{1..20}; do java -jar MagicShapes.jar $shapesGraph/Shapes_magic.ttl ; done
+for shapesGraph in C2/{1..20}; do java -jar MagicShapes.jar $shapesGraph/Shapes_magic.ttl ; done
+```
+All generated files are also stored in this repository next to the input shapes graphs. 
+
 ## Validation
+For the validation we used the [SHACL-ASP](https://github.com/medinaandresel/shacl-asp) engine, which is based on the stable model semantics.
+
+### RDF-TO-ASP
+
+### SHACL-ASP
