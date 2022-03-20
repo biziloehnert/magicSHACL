@@ -71,4 +71,8 @@ for shapesGraph in C2/{1..20}; do java -jar MagicShapes.jar $shapesGraph/Shapes_
 All generated files are also stored in this repository next to the input shapes graphs. 
 
 ## Validation
+For the validation we used the [SHACL-ASP](https://github.com/medinaandresel/shacl-asp) engine, which is based on the stable model semantics.
 
+### RDF-TO-ASP
+
+### SHACL-ASP
