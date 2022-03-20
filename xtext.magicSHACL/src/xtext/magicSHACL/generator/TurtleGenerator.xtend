@@ -37,7 +37,10 @@ class TurtleGenerator extends AbstractGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		if(!resource.URI.path.contains("src-gen")){
 			fsa.generateFile(resource.URI.lastSegment.replace(".ttl", ".simple"), '''
-	            «FOR constraint : resource.allContents.filter(ShapeConstraint).toIterable»«
+				«FOR target : resource.allContents.filter(Target).toIterable SEPARATOR '\n' AFTER '\n'»«
+					target.shapeName.name.split(':').last»(«target.type.equals('sh:targetNode') ? target.term.split(':').last.toFirstLower : target.term.split(':').last»)?«
+				ENDFOR»«
+	            FOR constraint : resource.allContents.filter(ShapeConstraint).toIterable»«
 	            	val shapes = shapeExpressionToAbstractString(constraint.shapeExpressions)»«
 	            	constraint.shapeName.name.split(':').last» :- «
 	            	IF shapes.size == 1»«
@@ -54,7 +57,7 @@ class TurtleGenerator extends AbstractGenerator {
 	        ''')
 	        
 	        /*for(ShapeConstraint c : resource.allContents.filter(ShapeConstraint).toIterable){
-	        	fsa.generateFile(resource.URI.lastSegment.replace(":","").replace(".ttl", "_" + c.shapeName.name + ".json"), '''
+	        	fsa.generateFile(resource.URI.lastSegment.replace(".ttl", "_" + c.shapeName.name + ".json"), '''
 	        	{
 	        		"name": "«c.shapeName.name»", 
 	        		«IF !c.eAllContents.filter(ShapeExpression).filter[e | e.type.equals(PropertyType.TARGET_CLASS)].empty»
@@ -82,7 +85,7 @@ class TurtleGenerator extends AbstractGenerator {
 	        ''')	
 	        }*/
         }
-      
+        
         //magic algorithm
         if(!resource.URI.path.contains("src-gen") && !resource.URI.lastSegment.contains("_magic")){
         	adornedShapes = new Stack	
