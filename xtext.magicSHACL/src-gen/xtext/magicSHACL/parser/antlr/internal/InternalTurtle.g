@@ -1255,194 +1255,202 @@ rulePropertyType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_7='sh:nodeKind'
+			enumLiteral_7='sh:hasClass'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getNodeKindConstraintComponentEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_7, grammarAccess.getPropertyTypeAccess().getNodeKindConstraintComponentEnumLiteralDeclaration_7());
+				$current = grammarAccess.getPropertyTypeAccess().getHasClassConstraintComponentEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_7, grammarAccess.getPropertyTypeAccess().getHasClassConstraintComponentEnumLiteralDeclaration_7());
 			}
 		)
 		    |
 		(
-			enumLiteral_8='sh:node'
+			enumLiteral_8='sh:nodeKind'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getNodeConstraintComponentEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_8, grammarAccess.getPropertyTypeAccess().getNodeConstraintComponentEnumLiteralDeclaration_8());
+				$current = grammarAccess.getPropertyTypeAccess().getNodeKindConstraintComponentEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_8, grammarAccess.getPropertyTypeAccess().getNodeKindConstraintComponentEnumLiteralDeclaration_8());
 			}
 		)
 		    |
 		(
-			enumLiteral_9='sh:datatype'
+			enumLiteral_9='sh:node'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getDatatypeConstraintComponentEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_9, grammarAccess.getPropertyTypeAccess().getDatatypeConstraintComponentEnumLiteralDeclaration_9());
+				$current = grammarAccess.getPropertyTypeAccess().getNodeConstraintComponentEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_9, grammarAccess.getPropertyTypeAccess().getNodeConstraintComponentEnumLiteralDeclaration_9());
 			}
 		)
 		    |
 		(
-			enumLiteral_10='sh:pattern'
+			enumLiteral_10='sh:datatype'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getPatternConstraintComponentEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_10, grammarAccess.getPropertyTypeAccess().getPatternConstraintComponentEnumLiteralDeclaration_10());
+				$current = grammarAccess.getPropertyTypeAccess().getDatatypeConstraintComponentEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_10, grammarAccess.getPropertyTypeAccess().getDatatypeConstraintComponentEnumLiteralDeclaration_10());
 			}
 		)
 		    |
 		(
-			enumLiteral_11='sh:closed'
+			enumLiteral_11='sh:pattern'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getClosedConstraintComponentEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_11, grammarAccess.getPropertyTypeAccess().getClosedConstraintComponentEnumLiteralDeclaration_11());
+				$current = grammarAccess.getPropertyTypeAccess().getPatternConstraintComponentEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_11, grammarAccess.getPropertyTypeAccess().getPatternConstraintComponentEnumLiteralDeclaration_11());
 			}
 		)
 		    |
 		(
-			enumLiteral_12='sh:ignoredProperties'
+			enumLiteral_12='sh:closed'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getClosedConstraintComponent_ignoreEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_12, grammarAccess.getPropertyTypeAccess().getClosedConstraintComponent_ignoreEnumLiteralDeclaration_12());
+				$current = grammarAccess.getPropertyTypeAccess().getClosedConstraintComponentEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_12, grammarAccess.getPropertyTypeAccess().getClosedConstraintComponentEnumLiteralDeclaration_12());
 			}
 		)
 		    |
 		(
-			enumLiteral_13='sh:path'
+			enumLiteral_13='sh:ignoredProperties'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getPredicatePathEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_13, grammarAccess.getPropertyTypeAccess().getPredicatePathEnumLiteralDeclaration_13());
+				$current = grammarAccess.getPropertyTypeAccess().getClosedConstraintComponent_ignoreEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_13, grammarAccess.getPropertyTypeAccess().getClosedConstraintComponent_ignoreEnumLiteralDeclaration_13());
 			}
 		)
 		    |
 		(
-			enumLiteral_14='sh:inversePath'
+			enumLiteral_14='sh:path'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getInversePathEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_14, grammarAccess.getPropertyTypeAccess().getInversePathEnumLiteralDeclaration_14());
+				$current = grammarAccess.getPropertyTypeAccess().getPredicatePathEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_14, grammarAccess.getPropertyTypeAccess().getPredicatePathEnumLiteralDeclaration_14());
 			}
 		)
 		    |
 		(
-			enumLiteral_15='sh:property'
+			enumLiteral_15='sh:inversePath'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getPropertyEnumLiteralDeclaration_15().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_15, grammarAccess.getPropertyTypeAccess().getPropertyEnumLiteralDeclaration_15());
+				$current = grammarAccess.getPropertyTypeAccess().getInversePathEnumLiteralDeclaration_15().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_15, grammarAccess.getPropertyTypeAccess().getInversePathEnumLiteralDeclaration_15());
 			}
 		)
 		    |
 		(
-			enumLiteral_16='sh:name'
+			enumLiteral_16='sh:property'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getNameEnumLiteralDeclaration_16().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_16, grammarAccess.getPropertyTypeAccess().getNameEnumLiteralDeclaration_16());
+				$current = grammarAccess.getPropertyTypeAccess().getPropertyEnumLiteralDeclaration_16().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_16, grammarAccess.getPropertyTypeAccess().getPropertyEnumLiteralDeclaration_16());
 			}
 		)
 		    |
 		(
-			enumLiteral_17='sh:message'
+			enumLiteral_17='sh:name'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getMessageEnumLiteralDeclaration_17().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_17, grammarAccess.getPropertyTypeAccess().getMessageEnumLiteralDeclaration_17());
+				$current = grammarAccess.getPropertyTypeAccess().getNameEnumLiteralDeclaration_17().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_17, grammarAccess.getPropertyTypeAccess().getNameEnumLiteralDeclaration_17());
 			}
 		)
 		    |
 		(
-			enumLiteral_18='sh:equals'
+			enumLiteral_18='sh:message'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getEqualsConstraintComponentEnumLiteralDeclaration_18().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_18, grammarAccess.getPropertyTypeAccess().getEqualsConstraintComponentEnumLiteralDeclaration_18());
+				$current = grammarAccess.getPropertyTypeAccess().getMessageEnumLiteralDeclaration_18().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_18, grammarAccess.getPropertyTypeAccess().getMessageEnumLiteralDeclaration_18());
 			}
 		)
 		    |
 		(
-			enumLiteral_19='sh:minExclusive'
+			enumLiteral_19='sh:equals'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getMinExclusiveConstraintComponentEnumLiteralDeclaration_19().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_19, grammarAccess.getPropertyTypeAccess().getMinExclusiveConstraintComponentEnumLiteralDeclaration_19());
+				$current = grammarAccess.getPropertyTypeAccess().getEqualsConstraintComponentEnumLiteralDeclaration_19().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_19, grammarAccess.getPropertyTypeAccess().getEqualsConstraintComponentEnumLiteralDeclaration_19());
 			}
 		)
 		    |
 		(
-			enumLiteral_20='sh:minInclusive'
+			enumLiteral_20='sh:minExclusive'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getMinInclusiveConstraintComponentEnumLiteralDeclaration_20().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_20, grammarAccess.getPropertyTypeAccess().getMinInclusiveConstraintComponentEnumLiteralDeclaration_20());
+				$current = grammarAccess.getPropertyTypeAccess().getMinExclusiveConstraintComponentEnumLiteralDeclaration_20().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_20, grammarAccess.getPropertyTypeAccess().getMinExclusiveConstraintComponentEnumLiteralDeclaration_20());
 			}
 		)
 		    |
 		(
-			enumLiteral_21='sh:maxExclusive'
+			enumLiteral_21='sh:minInclusive'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getMaxExclusiveConstraintComponentEnumLiteralDeclaration_21().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_21, grammarAccess.getPropertyTypeAccess().getMaxExclusiveConstraintComponentEnumLiteralDeclaration_21());
+				$current = grammarAccess.getPropertyTypeAccess().getMinInclusiveConstraintComponentEnumLiteralDeclaration_21().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_21, grammarAccess.getPropertyTypeAccess().getMinInclusiveConstraintComponentEnumLiteralDeclaration_21());
 			}
 		)
 		    |
 		(
-			enumLiteral_22='sh:maxInclusive'
+			enumLiteral_22='sh:maxExclusive'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getMaxInclusiveConstraintComponentEnumLiteralDeclaration_22().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_22, grammarAccess.getPropertyTypeAccess().getMaxInclusiveConstraintComponentEnumLiteralDeclaration_22());
+				$current = grammarAccess.getPropertyTypeAccess().getMaxExclusiveConstraintComponentEnumLiteralDeclaration_22().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_22, grammarAccess.getPropertyTypeAccess().getMaxExclusiveConstraintComponentEnumLiteralDeclaration_22());
 			}
 		)
 		    |
 		(
-			enumLiteral_23='sh:maxLength'
+			enumLiteral_23='sh:maxInclusive'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getMaxLengthConstraintComponentEnumLiteralDeclaration_23().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_23, grammarAccess.getPropertyTypeAccess().getMaxLengthConstraintComponentEnumLiteralDeclaration_23());
+				$current = grammarAccess.getPropertyTypeAccess().getMaxInclusiveConstraintComponentEnumLiteralDeclaration_23().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_23, grammarAccess.getPropertyTypeAccess().getMaxInclusiveConstraintComponentEnumLiteralDeclaration_23());
 			}
 		)
 		    |
 		(
-			enumLiteral_24='sh:minLength'
+			enumLiteral_24='sh:maxLength'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getMinLengthConstraintComponentEnumLiteralDeclaration_24().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_24, grammarAccess.getPropertyTypeAccess().getMinLengthConstraintComponentEnumLiteralDeclaration_24());
+				$current = grammarAccess.getPropertyTypeAccess().getMaxLengthConstraintComponentEnumLiteralDeclaration_24().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_24, grammarAccess.getPropertyTypeAccess().getMaxLengthConstraintComponentEnumLiteralDeclaration_24());
 			}
 		)
 		    |
 		(
-			enumLiteral_25='sh:qualifiedValueShape'
+			enumLiteral_25='sh:minLength'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getQualifiedValueShapeEnumLiteralDeclaration_25().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_25, grammarAccess.getPropertyTypeAccess().getQualifiedValueShapeEnumLiteralDeclaration_25());
+				$current = grammarAccess.getPropertyTypeAccess().getMinLengthConstraintComponentEnumLiteralDeclaration_25().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_25, grammarAccess.getPropertyTypeAccess().getMinLengthConstraintComponentEnumLiteralDeclaration_25());
 			}
 		)
 		    |
 		(
-			enumLiteral_26='sh:qualifiedMaxCount'
+			enumLiteral_26='sh:qualifiedValueShape'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getQualifiedMaxCountEnumLiteralDeclaration_26().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_26, grammarAccess.getPropertyTypeAccess().getQualifiedMaxCountEnumLiteralDeclaration_26());
+				$current = grammarAccess.getPropertyTypeAccess().getQualifiedValueShapeEnumLiteralDeclaration_26().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_26, grammarAccess.getPropertyTypeAccess().getQualifiedValueShapeEnumLiteralDeclaration_26());
 			}
 		)
 		    |
 		(
-			enumLiteral_27='sh:qualifiedMinCount'
+			enumLiteral_27='sh:qualifiedMaxCount'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getQualifiedMinCountEnumLiteralDeclaration_27().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_27, grammarAccess.getPropertyTypeAccess().getQualifiedMinCountEnumLiteralDeclaration_27());
+				$current = grammarAccess.getPropertyTypeAccess().getQualifiedMaxCountEnumLiteralDeclaration_27().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_27, grammarAccess.getPropertyTypeAccess().getQualifiedMaxCountEnumLiteralDeclaration_27());
 			}
 		)
 		    |
 		(
-			enumLiteral_28='a'
+			enumLiteral_28='sh:qualifiedMinCount'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getInstanceOfEnumLiteralDeclaration_28().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_28, grammarAccess.getPropertyTypeAccess().getInstanceOfEnumLiteralDeclaration_28());
+				$current = grammarAccess.getPropertyTypeAccess().getQualifiedMinCountEnumLiteralDeclaration_28().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_28, grammarAccess.getPropertyTypeAccess().getQualifiedMinCountEnumLiteralDeclaration_28());
 			}
 		)
 		    |
 		(
-			enumLiteral_29='rdfs:label'
+			enumLiteral_29='a'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getRdfsLabelEnumLiteralDeclaration_29().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_29, grammarAccess.getPropertyTypeAccess().getRdfsLabelEnumLiteralDeclaration_29());
+				$current = grammarAccess.getPropertyTypeAccess().getInstanceOfEnumLiteralDeclaration_29().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_29, grammarAccess.getPropertyTypeAccess().getInstanceOfEnumLiteralDeclaration_29());
 			}
 		)
 		    |
 		(
-			enumLiteral_30='sh:description'
+			enumLiteral_30='rdfs:label'
 			{
-				$current = grammarAccess.getPropertyTypeAccess().getDescriptionEnumLiteralDeclaration_30().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_30, grammarAccess.getPropertyTypeAccess().getDescriptionEnumLiteralDeclaration_30());
+				$current = grammarAccess.getPropertyTypeAccess().getRdfsLabelEnumLiteralDeclaration_30().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_30, grammarAccess.getPropertyTypeAccess().getRdfsLabelEnumLiteralDeclaration_30());
+			}
+		)
+		    |
+		(
+			enumLiteral_31='sh:description'
+			{
+				$current = grammarAccess.getPropertyTypeAccess().getDescriptionEnumLiteralDeclaration_31().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_31, grammarAccess.getPropertyTypeAccess().getDescriptionEnumLiteralDeclaration_31());
 			}
 		)
 	)

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalTurtleParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_IRI", "RULE_STRING", "RULE_SL_COMMENT", "RULE_INT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'@prefix'", "'.'", "';'", "'^^'", "'sh:targetClass'", "'sh:targetNode'", "','", "'('", "')'", "'['", "']'", "'sh:minCount'", "'sh:maxCount'", "'sh:and'", "'sh:or'", "'sh:not'", "'sh:class'", "'sh:hasValue'", "'sh:nodeKind'", "'sh:node'", "'sh:datatype'", "'sh:pattern'", "'sh:closed'", "'sh:ignoredProperties'", "'sh:path'", "'sh:inversePath'", "'sh:property'", "'sh:name'", "'sh:message'", "'sh:equals'", "'sh:minExclusive'", "'sh:minInclusive'", "'sh:maxExclusive'", "'sh:maxInclusive'", "'sh:maxLength'", "'sh:minLength'", "'sh:qualifiedValueShape'", "'sh:qualifiedMaxCount'", "'sh:qualifiedMinCount'", "'a'", "'rdfs:label'", "'sh:description'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_IRI", "RULE_STRING", "RULE_SL_COMMENT", "RULE_INT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'@prefix'", "'.'", "';'", "'^^'", "'sh:targetClass'", "'sh:targetNode'", "','", "'('", "')'", "'['", "']'", "'sh:minCount'", "'sh:maxCount'", "'sh:and'", "'sh:or'", "'sh:not'", "'sh:class'", "'sh:hasValue'", "'sh:hasClass'", "'sh:nodeKind'", "'sh:node'", "'sh:datatype'", "'sh:pattern'", "'sh:closed'", "'sh:ignoredProperties'", "'sh:path'", "'sh:inversePath'", "'sh:property'", "'sh:name'", "'sh:message'", "'sh:equals'", "'sh:minExclusive'", "'sh:minInclusive'", "'sh:maxExclusive'", "'sh:maxInclusive'", "'sh:maxLength'", "'sh:minLength'", "'sh:qualifiedValueShape'", "'sh:qualifiedMaxCount'", "'sh:qualifiedMinCount'", "'a'", "'rdfs:label'", "'sh:description'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -36,6 +36,7 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
     public static final int T__51=51;
     public static final int T__52=52;
     public static final int T__53=53;
+    public static final int T__54=54;
     public static final int RULE_ID=4;
     public static final int T__26=26;
     public static final int T__27=27;
@@ -1638,7 +1639,7 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                 if ( ((LA7_0>=16 && LA7_0<=17)) ) {
                     alt7=1;
                 }
-                else if ( (LA7_0==21||(LA7_0>=23 && LA7_0<=53)) ) {
+                else if ( (LA7_0==21||(LA7_0>=23 && LA7_0<=54)) ) {
                     alt7=2;
                 }
 
@@ -2425,7 +2426,7 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     if ( ((LA13_0>=RULE_ID && LA13_0<=RULE_STRING)) ) {
                         alt13=1;
                     }
-                    else if ( ((LA13_0>=20 && LA13_0<=21)||(LA13_0>=23 && LA13_0<=53)) ) {
+                    else if ( ((LA13_0>=20 && LA13_0<=21)||(LA13_0>=23 && LA13_0<=54)) ) {
                         alt13=2;
                     }
                     else {
@@ -2481,7 +2482,7 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                                 int alt12=2;
                                 int LA12_0 = input.LA(1);
 
-                                if ( (LA12_0==21||(LA12_0>=23 && LA12_0<=53)) ) {
+                                if ( (LA12_0==21||(LA12_0>=23 && LA12_0<=54)) ) {
                                     alt12=1;
                                 }
 
@@ -2550,7 +2551,7 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     int alt14=2;
                     int LA14_0 = input.LA(1);
 
-                    if ( ((LA14_0>=23 && LA14_0<=53)) ) {
+                    if ( ((LA14_0>=23 && LA14_0<=54)) ) {
                         alt14=1;
                     }
                     switch (alt14) {
@@ -2598,7 +2599,7 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                         int alt15=2;
                         int LA15_0 = input.LA(1);
 
-                        if ( (LA15_0==21||(LA15_0>=23 && LA15_0<=53)) ) {
+                        if ( (LA15_0==21||(LA15_0>=23 && LA15_0<=54)) ) {
                             alt15=1;
                         }
 
@@ -3056,7 +3057,7 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePropertyType"
-    // InternalTurtle.g:1193:1: rulePropertyType returns [Enumerator current=null] : ( (enumLiteral_0= 'sh:minCount' ) | (enumLiteral_1= 'sh:maxCount' ) | (enumLiteral_2= 'sh:and' ) | (enumLiteral_3= 'sh:or' ) | (enumLiteral_4= 'sh:not' ) | (enumLiteral_5= 'sh:class' ) | (enumLiteral_6= 'sh:hasValue' ) | (enumLiteral_7= 'sh:nodeKind' ) | (enumLiteral_8= 'sh:node' ) | (enumLiteral_9= 'sh:datatype' ) | (enumLiteral_10= 'sh:pattern' ) | (enumLiteral_11= 'sh:closed' ) | (enumLiteral_12= 'sh:ignoredProperties' ) | (enumLiteral_13= 'sh:path' ) | (enumLiteral_14= 'sh:inversePath' ) | (enumLiteral_15= 'sh:property' ) | (enumLiteral_16= 'sh:name' ) | (enumLiteral_17= 'sh:message' ) | (enumLiteral_18= 'sh:equals' ) | (enumLiteral_19= 'sh:minExclusive' ) | (enumLiteral_20= 'sh:minInclusive' ) | (enumLiteral_21= 'sh:maxExclusive' ) | (enumLiteral_22= 'sh:maxInclusive' ) | (enumLiteral_23= 'sh:maxLength' ) | (enumLiteral_24= 'sh:minLength' ) | (enumLiteral_25= 'sh:qualifiedValueShape' ) | (enumLiteral_26= 'sh:qualifiedMaxCount' ) | (enumLiteral_27= 'sh:qualifiedMinCount' ) | (enumLiteral_28= 'a' ) | (enumLiteral_29= 'rdfs:label' ) | (enumLiteral_30= 'sh:description' ) ) ;
+    // InternalTurtle.g:1193:1: rulePropertyType returns [Enumerator current=null] : ( (enumLiteral_0= 'sh:minCount' ) | (enumLiteral_1= 'sh:maxCount' ) | (enumLiteral_2= 'sh:and' ) | (enumLiteral_3= 'sh:or' ) | (enumLiteral_4= 'sh:not' ) | (enumLiteral_5= 'sh:class' ) | (enumLiteral_6= 'sh:hasValue' ) | (enumLiteral_7= 'sh:hasClass' ) | (enumLiteral_8= 'sh:nodeKind' ) | (enumLiteral_9= 'sh:node' ) | (enumLiteral_10= 'sh:datatype' ) | (enumLiteral_11= 'sh:pattern' ) | (enumLiteral_12= 'sh:closed' ) | (enumLiteral_13= 'sh:ignoredProperties' ) | (enumLiteral_14= 'sh:path' ) | (enumLiteral_15= 'sh:inversePath' ) | (enumLiteral_16= 'sh:property' ) | (enumLiteral_17= 'sh:name' ) | (enumLiteral_18= 'sh:message' ) | (enumLiteral_19= 'sh:equals' ) | (enumLiteral_20= 'sh:minExclusive' ) | (enumLiteral_21= 'sh:minInclusive' ) | (enumLiteral_22= 'sh:maxExclusive' ) | (enumLiteral_23= 'sh:maxInclusive' ) | (enumLiteral_24= 'sh:maxLength' ) | (enumLiteral_25= 'sh:minLength' ) | (enumLiteral_26= 'sh:qualifiedValueShape' ) | (enumLiteral_27= 'sh:qualifiedMaxCount' ) | (enumLiteral_28= 'sh:qualifiedMinCount' ) | (enumLiteral_29= 'a' ) | (enumLiteral_30= 'rdfs:label' ) | (enumLiteral_31= 'sh:description' ) ) ;
     public final Enumerator rulePropertyType() throws RecognitionException {
         Enumerator current = null;
 
@@ -3091,16 +3092,17 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
         Token enumLiteral_28=null;
         Token enumLiteral_29=null;
         Token enumLiteral_30=null;
+        Token enumLiteral_31=null;
 
 
         	enterRule();
 
         try {
-            // InternalTurtle.g:1199:2: ( ( (enumLiteral_0= 'sh:minCount' ) | (enumLiteral_1= 'sh:maxCount' ) | (enumLiteral_2= 'sh:and' ) | (enumLiteral_3= 'sh:or' ) | (enumLiteral_4= 'sh:not' ) | (enumLiteral_5= 'sh:class' ) | (enumLiteral_6= 'sh:hasValue' ) | (enumLiteral_7= 'sh:nodeKind' ) | (enumLiteral_8= 'sh:node' ) | (enumLiteral_9= 'sh:datatype' ) | (enumLiteral_10= 'sh:pattern' ) | (enumLiteral_11= 'sh:closed' ) | (enumLiteral_12= 'sh:ignoredProperties' ) | (enumLiteral_13= 'sh:path' ) | (enumLiteral_14= 'sh:inversePath' ) | (enumLiteral_15= 'sh:property' ) | (enumLiteral_16= 'sh:name' ) | (enumLiteral_17= 'sh:message' ) | (enumLiteral_18= 'sh:equals' ) | (enumLiteral_19= 'sh:minExclusive' ) | (enumLiteral_20= 'sh:minInclusive' ) | (enumLiteral_21= 'sh:maxExclusive' ) | (enumLiteral_22= 'sh:maxInclusive' ) | (enumLiteral_23= 'sh:maxLength' ) | (enumLiteral_24= 'sh:minLength' ) | (enumLiteral_25= 'sh:qualifiedValueShape' ) | (enumLiteral_26= 'sh:qualifiedMaxCount' ) | (enumLiteral_27= 'sh:qualifiedMinCount' ) | (enumLiteral_28= 'a' ) | (enumLiteral_29= 'rdfs:label' ) | (enumLiteral_30= 'sh:description' ) ) )
-            // InternalTurtle.g:1200:2: ( (enumLiteral_0= 'sh:minCount' ) | (enumLiteral_1= 'sh:maxCount' ) | (enumLiteral_2= 'sh:and' ) | (enumLiteral_3= 'sh:or' ) | (enumLiteral_4= 'sh:not' ) | (enumLiteral_5= 'sh:class' ) | (enumLiteral_6= 'sh:hasValue' ) | (enumLiteral_7= 'sh:nodeKind' ) | (enumLiteral_8= 'sh:node' ) | (enumLiteral_9= 'sh:datatype' ) | (enumLiteral_10= 'sh:pattern' ) | (enumLiteral_11= 'sh:closed' ) | (enumLiteral_12= 'sh:ignoredProperties' ) | (enumLiteral_13= 'sh:path' ) | (enumLiteral_14= 'sh:inversePath' ) | (enumLiteral_15= 'sh:property' ) | (enumLiteral_16= 'sh:name' ) | (enumLiteral_17= 'sh:message' ) | (enumLiteral_18= 'sh:equals' ) | (enumLiteral_19= 'sh:minExclusive' ) | (enumLiteral_20= 'sh:minInclusive' ) | (enumLiteral_21= 'sh:maxExclusive' ) | (enumLiteral_22= 'sh:maxInclusive' ) | (enumLiteral_23= 'sh:maxLength' ) | (enumLiteral_24= 'sh:minLength' ) | (enumLiteral_25= 'sh:qualifiedValueShape' ) | (enumLiteral_26= 'sh:qualifiedMaxCount' ) | (enumLiteral_27= 'sh:qualifiedMinCount' ) | (enumLiteral_28= 'a' ) | (enumLiteral_29= 'rdfs:label' ) | (enumLiteral_30= 'sh:description' ) )
+            // InternalTurtle.g:1199:2: ( ( (enumLiteral_0= 'sh:minCount' ) | (enumLiteral_1= 'sh:maxCount' ) | (enumLiteral_2= 'sh:and' ) | (enumLiteral_3= 'sh:or' ) | (enumLiteral_4= 'sh:not' ) | (enumLiteral_5= 'sh:class' ) | (enumLiteral_6= 'sh:hasValue' ) | (enumLiteral_7= 'sh:hasClass' ) | (enumLiteral_8= 'sh:nodeKind' ) | (enumLiteral_9= 'sh:node' ) | (enumLiteral_10= 'sh:datatype' ) | (enumLiteral_11= 'sh:pattern' ) | (enumLiteral_12= 'sh:closed' ) | (enumLiteral_13= 'sh:ignoredProperties' ) | (enumLiteral_14= 'sh:path' ) | (enumLiteral_15= 'sh:inversePath' ) | (enumLiteral_16= 'sh:property' ) | (enumLiteral_17= 'sh:name' ) | (enumLiteral_18= 'sh:message' ) | (enumLiteral_19= 'sh:equals' ) | (enumLiteral_20= 'sh:minExclusive' ) | (enumLiteral_21= 'sh:minInclusive' ) | (enumLiteral_22= 'sh:maxExclusive' ) | (enumLiteral_23= 'sh:maxInclusive' ) | (enumLiteral_24= 'sh:maxLength' ) | (enumLiteral_25= 'sh:minLength' ) | (enumLiteral_26= 'sh:qualifiedValueShape' ) | (enumLiteral_27= 'sh:qualifiedMaxCount' ) | (enumLiteral_28= 'sh:qualifiedMinCount' ) | (enumLiteral_29= 'a' ) | (enumLiteral_30= 'rdfs:label' ) | (enumLiteral_31= 'sh:description' ) ) )
+            // InternalTurtle.g:1200:2: ( (enumLiteral_0= 'sh:minCount' ) | (enumLiteral_1= 'sh:maxCount' ) | (enumLiteral_2= 'sh:and' ) | (enumLiteral_3= 'sh:or' ) | (enumLiteral_4= 'sh:not' ) | (enumLiteral_5= 'sh:class' ) | (enumLiteral_6= 'sh:hasValue' ) | (enumLiteral_7= 'sh:hasClass' ) | (enumLiteral_8= 'sh:nodeKind' ) | (enumLiteral_9= 'sh:node' ) | (enumLiteral_10= 'sh:datatype' ) | (enumLiteral_11= 'sh:pattern' ) | (enumLiteral_12= 'sh:closed' ) | (enumLiteral_13= 'sh:ignoredProperties' ) | (enumLiteral_14= 'sh:path' ) | (enumLiteral_15= 'sh:inversePath' ) | (enumLiteral_16= 'sh:property' ) | (enumLiteral_17= 'sh:name' ) | (enumLiteral_18= 'sh:message' ) | (enumLiteral_19= 'sh:equals' ) | (enumLiteral_20= 'sh:minExclusive' ) | (enumLiteral_21= 'sh:minInclusive' ) | (enumLiteral_22= 'sh:maxExclusive' ) | (enumLiteral_23= 'sh:maxInclusive' ) | (enumLiteral_24= 'sh:maxLength' ) | (enumLiteral_25= 'sh:minLength' ) | (enumLiteral_26= 'sh:qualifiedValueShape' ) | (enumLiteral_27= 'sh:qualifiedMaxCount' ) | (enumLiteral_28= 'sh:qualifiedMinCount' ) | (enumLiteral_29= 'a' ) | (enumLiteral_30= 'rdfs:label' ) | (enumLiteral_31= 'sh:description' ) )
             {
-            // InternalTurtle.g:1200:2: ( (enumLiteral_0= 'sh:minCount' ) | (enumLiteral_1= 'sh:maxCount' ) | (enumLiteral_2= 'sh:and' ) | (enumLiteral_3= 'sh:or' ) | (enumLiteral_4= 'sh:not' ) | (enumLiteral_5= 'sh:class' ) | (enumLiteral_6= 'sh:hasValue' ) | (enumLiteral_7= 'sh:nodeKind' ) | (enumLiteral_8= 'sh:node' ) | (enumLiteral_9= 'sh:datatype' ) | (enumLiteral_10= 'sh:pattern' ) | (enumLiteral_11= 'sh:closed' ) | (enumLiteral_12= 'sh:ignoredProperties' ) | (enumLiteral_13= 'sh:path' ) | (enumLiteral_14= 'sh:inversePath' ) | (enumLiteral_15= 'sh:property' ) | (enumLiteral_16= 'sh:name' ) | (enumLiteral_17= 'sh:message' ) | (enumLiteral_18= 'sh:equals' ) | (enumLiteral_19= 'sh:minExclusive' ) | (enumLiteral_20= 'sh:minInclusive' ) | (enumLiteral_21= 'sh:maxExclusive' ) | (enumLiteral_22= 'sh:maxInclusive' ) | (enumLiteral_23= 'sh:maxLength' ) | (enumLiteral_24= 'sh:minLength' ) | (enumLiteral_25= 'sh:qualifiedValueShape' ) | (enumLiteral_26= 'sh:qualifiedMaxCount' ) | (enumLiteral_27= 'sh:qualifiedMinCount' ) | (enumLiteral_28= 'a' ) | (enumLiteral_29= 'rdfs:label' ) | (enumLiteral_30= 'sh:description' ) )
-            int alt22=31;
+            // InternalTurtle.g:1200:2: ( (enumLiteral_0= 'sh:minCount' ) | (enumLiteral_1= 'sh:maxCount' ) | (enumLiteral_2= 'sh:and' ) | (enumLiteral_3= 'sh:or' ) | (enumLiteral_4= 'sh:not' ) | (enumLiteral_5= 'sh:class' ) | (enumLiteral_6= 'sh:hasValue' ) | (enumLiteral_7= 'sh:hasClass' ) | (enumLiteral_8= 'sh:nodeKind' ) | (enumLiteral_9= 'sh:node' ) | (enumLiteral_10= 'sh:datatype' ) | (enumLiteral_11= 'sh:pattern' ) | (enumLiteral_12= 'sh:closed' ) | (enumLiteral_13= 'sh:ignoredProperties' ) | (enumLiteral_14= 'sh:path' ) | (enumLiteral_15= 'sh:inversePath' ) | (enumLiteral_16= 'sh:property' ) | (enumLiteral_17= 'sh:name' ) | (enumLiteral_18= 'sh:message' ) | (enumLiteral_19= 'sh:equals' ) | (enumLiteral_20= 'sh:minExclusive' ) | (enumLiteral_21= 'sh:minInclusive' ) | (enumLiteral_22= 'sh:maxExclusive' ) | (enumLiteral_23= 'sh:maxInclusive' ) | (enumLiteral_24= 'sh:maxLength' ) | (enumLiteral_25= 'sh:minLength' ) | (enumLiteral_26= 'sh:qualifiedValueShape' ) | (enumLiteral_27= 'sh:qualifiedMaxCount' ) | (enumLiteral_28= 'sh:qualifiedMinCount' ) | (enumLiteral_29= 'a' ) | (enumLiteral_30= 'rdfs:label' ) | (enumLiteral_31= 'sh:description' ) )
+            int alt22=32;
             switch ( input.LA(1) ) {
             case 23:
                 {
@@ -3257,6 +3259,11 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                 alt22=31;
                 }
                 break;
+            case 54:
+                {
+                alt22=32;
+                }
+                break;
             default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 22, 0, input);
@@ -3385,15 +3392,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalTurtle.g:1257:3: (enumLiteral_7= 'sh:nodeKind' )
+                    // InternalTurtle.g:1257:3: (enumLiteral_7= 'sh:hasClass' )
                     {
-                    // InternalTurtle.g:1257:3: (enumLiteral_7= 'sh:nodeKind' )
-                    // InternalTurtle.g:1258:4: enumLiteral_7= 'sh:nodeKind'
+                    // InternalTurtle.g:1257:3: (enumLiteral_7= 'sh:hasClass' )
+                    // InternalTurtle.g:1258:4: enumLiteral_7= 'sh:hasClass'
                     {
                     enumLiteral_7=(Token)match(input,30,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getNodeKindConstraintComponentEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_7, grammarAccess.getPropertyTypeAccess().getNodeKindConstraintComponentEnumLiteralDeclaration_7());
+                    				current = grammarAccess.getPropertyTypeAccess().getHasClassConstraintComponentEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_7, grammarAccess.getPropertyTypeAccess().getHasClassConstraintComponentEnumLiteralDeclaration_7());
                     			
 
                     }
@@ -3402,15 +3409,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // InternalTurtle.g:1265:3: (enumLiteral_8= 'sh:node' )
+                    // InternalTurtle.g:1265:3: (enumLiteral_8= 'sh:nodeKind' )
                     {
-                    // InternalTurtle.g:1265:3: (enumLiteral_8= 'sh:node' )
-                    // InternalTurtle.g:1266:4: enumLiteral_8= 'sh:node'
+                    // InternalTurtle.g:1265:3: (enumLiteral_8= 'sh:nodeKind' )
+                    // InternalTurtle.g:1266:4: enumLiteral_8= 'sh:nodeKind'
                     {
                     enumLiteral_8=(Token)match(input,31,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getNodeConstraintComponentEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_8, grammarAccess.getPropertyTypeAccess().getNodeConstraintComponentEnumLiteralDeclaration_8());
+                    				current = grammarAccess.getPropertyTypeAccess().getNodeKindConstraintComponentEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_8, grammarAccess.getPropertyTypeAccess().getNodeKindConstraintComponentEnumLiteralDeclaration_8());
                     			
 
                     }
@@ -3419,15 +3426,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // InternalTurtle.g:1273:3: (enumLiteral_9= 'sh:datatype' )
+                    // InternalTurtle.g:1273:3: (enumLiteral_9= 'sh:node' )
                     {
-                    // InternalTurtle.g:1273:3: (enumLiteral_9= 'sh:datatype' )
-                    // InternalTurtle.g:1274:4: enumLiteral_9= 'sh:datatype'
+                    // InternalTurtle.g:1273:3: (enumLiteral_9= 'sh:node' )
+                    // InternalTurtle.g:1274:4: enumLiteral_9= 'sh:node'
                     {
                     enumLiteral_9=(Token)match(input,32,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getDatatypeConstraintComponentEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_9, grammarAccess.getPropertyTypeAccess().getDatatypeConstraintComponentEnumLiteralDeclaration_9());
+                    				current = grammarAccess.getPropertyTypeAccess().getNodeConstraintComponentEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_9, grammarAccess.getPropertyTypeAccess().getNodeConstraintComponentEnumLiteralDeclaration_9());
                     			
 
                     }
@@ -3436,15 +3443,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // InternalTurtle.g:1281:3: (enumLiteral_10= 'sh:pattern' )
+                    // InternalTurtle.g:1281:3: (enumLiteral_10= 'sh:datatype' )
                     {
-                    // InternalTurtle.g:1281:3: (enumLiteral_10= 'sh:pattern' )
-                    // InternalTurtle.g:1282:4: enumLiteral_10= 'sh:pattern'
+                    // InternalTurtle.g:1281:3: (enumLiteral_10= 'sh:datatype' )
+                    // InternalTurtle.g:1282:4: enumLiteral_10= 'sh:datatype'
                     {
                     enumLiteral_10=(Token)match(input,33,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getPatternConstraintComponentEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_10, grammarAccess.getPropertyTypeAccess().getPatternConstraintComponentEnumLiteralDeclaration_10());
+                    				current = grammarAccess.getPropertyTypeAccess().getDatatypeConstraintComponentEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_10, grammarAccess.getPropertyTypeAccess().getDatatypeConstraintComponentEnumLiteralDeclaration_10());
                     			
 
                     }
@@ -3453,15 +3460,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // InternalTurtle.g:1289:3: (enumLiteral_11= 'sh:closed' )
+                    // InternalTurtle.g:1289:3: (enumLiteral_11= 'sh:pattern' )
                     {
-                    // InternalTurtle.g:1289:3: (enumLiteral_11= 'sh:closed' )
-                    // InternalTurtle.g:1290:4: enumLiteral_11= 'sh:closed'
+                    // InternalTurtle.g:1289:3: (enumLiteral_11= 'sh:pattern' )
+                    // InternalTurtle.g:1290:4: enumLiteral_11= 'sh:pattern'
                     {
                     enumLiteral_11=(Token)match(input,34,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getClosedConstraintComponentEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_11, grammarAccess.getPropertyTypeAccess().getClosedConstraintComponentEnumLiteralDeclaration_11());
+                    				current = grammarAccess.getPropertyTypeAccess().getPatternConstraintComponentEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_11, grammarAccess.getPropertyTypeAccess().getPatternConstraintComponentEnumLiteralDeclaration_11());
                     			
 
                     }
@@ -3470,15 +3477,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 13 :
-                    // InternalTurtle.g:1297:3: (enumLiteral_12= 'sh:ignoredProperties' )
+                    // InternalTurtle.g:1297:3: (enumLiteral_12= 'sh:closed' )
                     {
-                    // InternalTurtle.g:1297:3: (enumLiteral_12= 'sh:ignoredProperties' )
-                    // InternalTurtle.g:1298:4: enumLiteral_12= 'sh:ignoredProperties'
+                    // InternalTurtle.g:1297:3: (enumLiteral_12= 'sh:closed' )
+                    // InternalTurtle.g:1298:4: enumLiteral_12= 'sh:closed'
                     {
                     enumLiteral_12=(Token)match(input,35,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getClosedConstraintComponent_ignoreEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_12, grammarAccess.getPropertyTypeAccess().getClosedConstraintComponent_ignoreEnumLiteralDeclaration_12());
+                    				current = grammarAccess.getPropertyTypeAccess().getClosedConstraintComponentEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_12, grammarAccess.getPropertyTypeAccess().getClosedConstraintComponentEnumLiteralDeclaration_12());
                     			
 
                     }
@@ -3487,15 +3494,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 14 :
-                    // InternalTurtle.g:1305:3: (enumLiteral_13= 'sh:path' )
+                    // InternalTurtle.g:1305:3: (enumLiteral_13= 'sh:ignoredProperties' )
                     {
-                    // InternalTurtle.g:1305:3: (enumLiteral_13= 'sh:path' )
-                    // InternalTurtle.g:1306:4: enumLiteral_13= 'sh:path'
+                    // InternalTurtle.g:1305:3: (enumLiteral_13= 'sh:ignoredProperties' )
+                    // InternalTurtle.g:1306:4: enumLiteral_13= 'sh:ignoredProperties'
                     {
                     enumLiteral_13=(Token)match(input,36,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getPredicatePathEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_13, grammarAccess.getPropertyTypeAccess().getPredicatePathEnumLiteralDeclaration_13());
+                    				current = grammarAccess.getPropertyTypeAccess().getClosedConstraintComponent_ignoreEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_13, grammarAccess.getPropertyTypeAccess().getClosedConstraintComponent_ignoreEnumLiteralDeclaration_13());
                     			
 
                     }
@@ -3504,15 +3511,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 15 :
-                    // InternalTurtle.g:1313:3: (enumLiteral_14= 'sh:inversePath' )
+                    // InternalTurtle.g:1313:3: (enumLiteral_14= 'sh:path' )
                     {
-                    // InternalTurtle.g:1313:3: (enumLiteral_14= 'sh:inversePath' )
-                    // InternalTurtle.g:1314:4: enumLiteral_14= 'sh:inversePath'
+                    // InternalTurtle.g:1313:3: (enumLiteral_14= 'sh:path' )
+                    // InternalTurtle.g:1314:4: enumLiteral_14= 'sh:path'
                     {
                     enumLiteral_14=(Token)match(input,37,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getInversePathEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_14, grammarAccess.getPropertyTypeAccess().getInversePathEnumLiteralDeclaration_14());
+                    				current = grammarAccess.getPropertyTypeAccess().getPredicatePathEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_14, grammarAccess.getPropertyTypeAccess().getPredicatePathEnumLiteralDeclaration_14());
                     			
 
                     }
@@ -3521,15 +3528,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 16 :
-                    // InternalTurtle.g:1321:3: (enumLiteral_15= 'sh:property' )
+                    // InternalTurtle.g:1321:3: (enumLiteral_15= 'sh:inversePath' )
                     {
-                    // InternalTurtle.g:1321:3: (enumLiteral_15= 'sh:property' )
-                    // InternalTurtle.g:1322:4: enumLiteral_15= 'sh:property'
+                    // InternalTurtle.g:1321:3: (enumLiteral_15= 'sh:inversePath' )
+                    // InternalTurtle.g:1322:4: enumLiteral_15= 'sh:inversePath'
                     {
                     enumLiteral_15=(Token)match(input,38,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getPropertyEnumLiteralDeclaration_15().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_15, grammarAccess.getPropertyTypeAccess().getPropertyEnumLiteralDeclaration_15());
+                    				current = grammarAccess.getPropertyTypeAccess().getInversePathEnumLiteralDeclaration_15().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_15, grammarAccess.getPropertyTypeAccess().getInversePathEnumLiteralDeclaration_15());
                     			
 
                     }
@@ -3538,15 +3545,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 17 :
-                    // InternalTurtle.g:1329:3: (enumLiteral_16= 'sh:name' )
+                    // InternalTurtle.g:1329:3: (enumLiteral_16= 'sh:property' )
                     {
-                    // InternalTurtle.g:1329:3: (enumLiteral_16= 'sh:name' )
-                    // InternalTurtle.g:1330:4: enumLiteral_16= 'sh:name'
+                    // InternalTurtle.g:1329:3: (enumLiteral_16= 'sh:property' )
+                    // InternalTurtle.g:1330:4: enumLiteral_16= 'sh:property'
                     {
                     enumLiteral_16=(Token)match(input,39,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getNameEnumLiteralDeclaration_16().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_16, grammarAccess.getPropertyTypeAccess().getNameEnumLiteralDeclaration_16());
+                    				current = grammarAccess.getPropertyTypeAccess().getPropertyEnumLiteralDeclaration_16().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_16, grammarAccess.getPropertyTypeAccess().getPropertyEnumLiteralDeclaration_16());
                     			
 
                     }
@@ -3555,15 +3562,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 18 :
-                    // InternalTurtle.g:1337:3: (enumLiteral_17= 'sh:message' )
+                    // InternalTurtle.g:1337:3: (enumLiteral_17= 'sh:name' )
                     {
-                    // InternalTurtle.g:1337:3: (enumLiteral_17= 'sh:message' )
-                    // InternalTurtle.g:1338:4: enumLiteral_17= 'sh:message'
+                    // InternalTurtle.g:1337:3: (enumLiteral_17= 'sh:name' )
+                    // InternalTurtle.g:1338:4: enumLiteral_17= 'sh:name'
                     {
                     enumLiteral_17=(Token)match(input,40,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getMessageEnumLiteralDeclaration_17().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_17, grammarAccess.getPropertyTypeAccess().getMessageEnumLiteralDeclaration_17());
+                    				current = grammarAccess.getPropertyTypeAccess().getNameEnumLiteralDeclaration_17().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_17, grammarAccess.getPropertyTypeAccess().getNameEnumLiteralDeclaration_17());
                     			
 
                     }
@@ -3572,15 +3579,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 19 :
-                    // InternalTurtle.g:1345:3: (enumLiteral_18= 'sh:equals' )
+                    // InternalTurtle.g:1345:3: (enumLiteral_18= 'sh:message' )
                     {
-                    // InternalTurtle.g:1345:3: (enumLiteral_18= 'sh:equals' )
-                    // InternalTurtle.g:1346:4: enumLiteral_18= 'sh:equals'
+                    // InternalTurtle.g:1345:3: (enumLiteral_18= 'sh:message' )
+                    // InternalTurtle.g:1346:4: enumLiteral_18= 'sh:message'
                     {
                     enumLiteral_18=(Token)match(input,41,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getEqualsConstraintComponentEnumLiteralDeclaration_18().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_18, grammarAccess.getPropertyTypeAccess().getEqualsConstraintComponentEnumLiteralDeclaration_18());
+                    				current = grammarAccess.getPropertyTypeAccess().getMessageEnumLiteralDeclaration_18().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_18, grammarAccess.getPropertyTypeAccess().getMessageEnumLiteralDeclaration_18());
                     			
 
                     }
@@ -3589,15 +3596,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 20 :
-                    // InternalTurtle.g:1353:3: (enumLiteral_19= 'sh:minExclusive' )
+                    // InternalTurtle.g:1353:3: (enumLiteral_19= 'sh:equals' )
                     {
-                    // InternalTurtle.g:1353:3: (enumLiteral_19= 'sh:minExclusive' )
-                    // InternalTurtle.g:1354:4: enumLiteral_19= 'sh:minExclusive'
+                    // InternalTurtle.g:1353:3: (enumLiteral_19= 'sh:equals' )
+                    // InternalTurtle.g:1354:4: enumLiteral_19= 'sh:equals'
                     {
                     enumLiteral_19=(Token)match(input,42,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getMinExclusiveConstraintComponentEnumLiteralDeclaration_19().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_19, grammarAccess.getPropertyTypeAccess().getMinExclusiveConstraintComponentEnumLiteralDeclaration_19());
+                    				current = grammarAccess.getPropertyTypeAccess().getEqualsConstraintComponentEnumLiteralDeclaration_19().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_19, grammarAccess.getPropertyTypeAccess().getEqualsConstraintComponentEnumLiteralDeclaration_19());
                     			
 
                     }
@@ -3606,15 +3613,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 21 :
-                    // InternalTurtle.g:1361:3: (enumLiteral_20= 'sh:minInclusive' )
+                    // InternalTurtle.g:1361:3: (enumLiteral_20= 'sh:minExclusive' )
                     {
-                    // InternalTurtle.g:1361:3: (enumLiteral_20= 'sh:minInclusive' )
-                    // InternalTurtle.g:1362:4: enumLiteral_20= 'sh:minInclusive'
+                    // InternalTurtle.g:1361:3: (enumLiteral_20= 'sh:minExclusive' )
+                    // InternalTurtle.g:1362:4: enumLiteral_20= 'sh:minExclusive'
                     {
                     enumLiteral_20=(Token)match(input,43,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getMinInclusiveConstraintComponentEnumLiteralDeclaration_20().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_20, grammarAccess.getPropertyTypeAccess().getMinInclusiveConstraintComponentEnumLiteralDeclaration_20());
+                    				current = grammarAccess.getPropertyTypeAccess().getMinExclusiveConstraintComponentEnumLiteralDeclaration_20().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_20, grammarAccess.getPropertyTypeAccess().getMinExclusiveConstraintComponentEnumLiteralDeclaration_20());
                     			
 
                     }
@@ -3623,15 +3630,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 22 :
-                    // InternalTurtle.g:1369:3: (enumLiteral_21= 'sh:maxExclusive' )
+                    // InternalTurtle.g:1369:3: (enumLiteral_21= 'sh:minInclusive' )
                     {
-                    // InternalTurtle.g:1369:3: (enumLiteral_21= 'sh:maxExclusive' )
-                    // InternalTurtle.g:1370:4: enumLiteral_21= 'sh:maxExclusive'
+                    // InternalTurtle.g:1369:3: (enumLiteral_21= 'sh:minInclusive' )
+                    // InternalTurtle.g:1370:4: enumLiteral_21= 'sh:minInclusive'
                     {
                     enumLiteral_21=(Token)match(input,44,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getMaxExclusiveConstraintComponentEnumLiteralDeclaration_21().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_21, grammarAccess.getPropertyTypeAccess().getMaxExclusiveConstraintComponentEnumLiteralDeclaration_21());
+                    				current = grammarAccess.getPropertyTypeAccess().getMinInclusiveConstraintComponentEnumLiteralDeclaration_21().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_21, grammarAccess.getPropertyTypeAccess().getMinInclusiveConstraintComponentEnumLiteralDeclaration_21());
                     			
 
                     }
@@ -3640,15 +3647,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 23 :
-                    // InternalTurtle.g:1377:3: (enumLiteral_22= 'sh:maxInclusive' )
+                    // InternalTurtle.g:1377:3: (enumLiteral_22= 'sh:maxExclusive' )
                     {
-                    // InternalTurtle.g:1377:3: (enumLiteral_22= 'sh:maxInclusive' )
-                    // InternalTurtle.g:1378:4: enumLiteral_22= 'sh:maxInclusive'
+                    // InternalTurtle.g:1377:3: (enumLiteral_22= 'sh:maxExclusive' )
+                    // InternalTurtle.g:1378:4: enumLiteral_22= 'sh:maxExclusive'
                     {
                     enumLiteral_22=(Token)match(input,45,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getMaxInclusiveConstraintComponentEnumLiteralDeclaration_22().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_22, grammarAccess.getPropertyTypeAccess().getMaxInclusiveConstraintComponentEnumLiteralDeclaration_22());
+                    				current = grammarAccess.getPropertyTypeAccess().getMaxExclusiveConstraintComponentEnumLiteralDeclaration_22().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_22, grammarAccess.getPropertyTypeAccess().getMaxExclusiveConstraintComponentEnumLiteralDeclaration_22());
                     			
 
                     }
@@ -3657,15 +3664,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 24 :
-                    // InternalTurtle.g:1385:3: (enumLiteral_23= 'sh:maxLength' )
+                    // InternalTurtle.g:1385:3: (enumLiteral_23= 'sh:maxInclusive' )
                     {
-                    // InternalTurtle.g:1385:3: (enumLiteral_23= 'sh:maxLength' )
-                    // InternalTurtle.g:1386:4: enumLiteral_23= 'sh:maxLength'
+                    // InternalTurtle.g:1385:3: (enumLiteral_23= 'sh:maxInclusive' )
+                    // InternalTurtle.g:1386:4: enumLiteral_23= 'sh:maxInclusive'
                     {
                     enumLiteral_23=(Token)match(input,46,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getMaxLengthConstraintComponentEnumLiteralDeclaration_23().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_23, grammarAccess.getPropertyTypeAccess().getMaxLengthConstraintComponentEnumLiteralDeclaration_23());
+                    				current = grammarAccess.getPropertyTypeAccess().getMaxInclusiveConstraintComponentEnumLiteralDeclaration_23().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_23, grammarAccess.getPropertyTypeAccess().getMaxInclusiveConstraintComponentEnumLiteralDeclaration_23());
                     			
 
                     }
@@ -3674,15 +3681,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 25 :
-                    // InternalTurtle.g:1393:3: (enumLiteral_24= 'sh:minLength' )
+                    // InternalTurtle.g:1393:3: (enumLiteral_24= 'sh:maxLength' )
                     {
-                    // InternalTurtle.g:1393:3: (enumLiteral_24= 'sh:minLength' )
-                    // InternalTurtle.g:1394:4: enumLiteral_24= 'sh:minLength'
+                    // InternalTurtle.g:1393:3: (enumLiteral_24= 'sh:maxLength' )
+                    // InternalTurtle.g:1394:4: enumLiteral_24= 'sh:maxLength'
                     {
                     enumLiteral_24=(Token)match(input,47,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getMinLengthConstraintComponentEnumLiteralDeclaration_24().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_24, grammarAccess.getPropertyTypeAccess().getMinLengthConstraintComponentEnumLiteralDeclaration_24());
+                    				current = grammarAccess.getPropertyTypeAccess().getMaxLengthConstraintComponentEnumLiteralDeclaration_24().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_24, grammarAccess.getPropertyTypeAccess().getMaxLengthConstraintComponentEnumLiteralDeclaration_24());
                     			
 
                     }
@@ -3691,15 +3698,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 26 :
-                    // InternalTurtle.g:1401:3: (enumLiteral_25= 'sh:qualifiedValueShape' )
+                    // InternalTurtle.g:1401:3: (enumLiteral_25= 'sh:minLength' )
                     {
-                    // InternalTurtle.g:1401:3: (enumLiteral_25= 'sh:qualifiedValueShape' )
-                    // InternalTurtle.g:1402:4: enumLiteral_25= 'sh:qualifiedValueShape'
+                    // InternalTurtle.g:1401:3: (enumLiteral_25= 'sh:minLength' )
+                    // InternalTurtle.g:1402:4: enumLiteral_25= 'sh:minLength'
                     {
                     enumLiteral_25=(Token)match(input,48,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getQualifiedValueShapeEnumLiteralDeclaration_25().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_25, grammarAccess.getPropertyTypeAccess().getQualifiedValueShapeEnumLiteralDeclaration_25());
+                    				current = grammarAccess.getPropertyTypeAccess().getMinLengthConstraintComponentEnumLiteralDeclaration_25().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_25, grammarAccess.getPropertyTypeAccess().getMinLengthConstraintComponentEnumLiteralDeclaration_25());
                     			
 
                     }
@@ -3708,15 +3715,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 27 :
-                    // InternalTurtle.g:1409:3: (enumLiteral_26= 'sh:qualifiedMaxCount' )
+                    // InternalTurtle.g:1409:3: (enumLiteral_26= 'sh:qualifiedValueShape' )
                     {
-                    // InternalTurtle.g:1409:3: (enumLiteral_26= 'sh:qualifiedMaxCount' )
-                    // InternalTurtle.g:1410:4: enumLiteral_26= 'sh:qualifiedMaxCount'
+                    // InternalTurtle.g:1409:3: (enumLiteral_26= 'sh:qualifiedValueShape' )
+                    // InternalTurtle.g:1410:4: enumLiteral_26= 'sh:qualifiedValueShape'
                     {
                     enumLiteral_26=(Token)match(input,49,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getQualifiedMaxCountEnumLiteralDeclaration_26().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_26, grammarAccess.getPropertyTypeAccess().getQualifiedMaxCountEnumLiteralDeclaration_26());
+                    				current = grammarAccess.getPropertyTypeAccess().getQualifiedValueShapeEnumLiteralDeclaration_26().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_26, grammarAccess.getPropertyTypeAccess().getQualifiedValueShapeEnumLiteralDeclaration_26());
                     			
 
                     }
@@ -3725,15 +3732,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 28 :
-                    // InternalTurtle.g:1417:3: (enumLiteral_27= 'sh:qualifiedMinCount' )
+                    // InternalTurtle.g:1417:3: (enumLiteral_27= 'sh:qualifiedMaxCount' )
                     {
-                    // InternalTurtle.g:1417:3: (enumLiteral_27= 'sh:qualifiedMinCount' )
-                    // InternalTurtle.g:1418:4: enumLiteral_27= 'sh:qualifiedMinCount'
+                    // InternalTurtle.g:1417:3: (enumLiteral_27= 'sh:qualifiedMaxCount' )
+                    // InternalTurtle.g:1418:4: enumLiteral_27= 'sh:qualifiedMaxCount'
                     {
                     enumLiteral_27=(Token)match(input,50,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getQualifiedMinCountEnumLiteralDeclaration_27().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_27, grammarAccess.getPropertyTypeAccess().getQualifiedMinCountEnumLiteralDeclaration_27());
+                    				current = grammarAccess.getPropertyTypeAccess().getQualifiedMaxCountEnumLiteralDeclaration_27().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_27, grammarAccess.getPropertyTypeAccess().getQualifiedMaxCountEnumLiteralDeclaration_27());
                     			
 
                     }
@@ -3742,15 +3749,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 29 :
-                    // InternalTurtle.g:1425:3: (enumLiteral_28= 'a' )
+                    // InternalTurtle.g:1425:3: (enumLiteral_28= 'sh:qualifiedMinCount' )
                     {
-                    // InternalTurtle.g:1425:3: (enumLiteral_28= 'a' )
-                    // InternalTurtle.g:1426:4: enumLiteral_28= 'a'
+                    // InternalTurtle.g:1425:3: (enumLiteral_28= 'sh:qualifiedMinCount' )
+                    // InternalTurtle.g:1426:4: enumLiteral_28= 'sh:qualifiedMinCount'
                     {
                     enumLiteral_28=(Token)match(input,51,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getInstanceOfEnumLiteralDeclaration_28().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_28, grammarAccess.getPropertyTypeAccess().getInstanceOfEnumLiteralDeclaration_28());
+                    				current = grammarAccess.getPropertyTypeAccess().getQualifiedMinCountEnumLiteralDeclaration_28().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_28, grammarAccess.getPropertyTypeAccess().getQualifiedMinCountEnumLiteralDeclaration_28());
                     			
 
                     }
@@ -3759,15 +3766,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 30 :
-                    // InternalTurtle.g:1433:3: (enumLiteral_29= 'rdfs:label' )
+                    // InternalTurtle.g:1433:3: (enumLiteral_29= 'a' )
                     {
-                    // InternalTurtle.g:1433:3: (enumLiteral_29= 'rdfs:label' )
-                    // InternalTurtle.g:1434:4: enumLiteral_29= 'rdfs:label'
+                    // InternalTurtle.g:1433:3: (enumLiteral_29= 'a' )
+                    // InternalTurtle.g:1434:4: enumLiteral_29= 'a'
                     {
                     enumLiteral_29=(Token)match(input,52,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getRdfsLabelEnumLiteralDeclaration_29().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_29, grammarAccess.getPropertyTypeAccess().getRdfsLabelEnumLiteralDeclaration_29());
+                    				current = grammarAccess.getPropertyTypeAccess().getInstanceOfEnumLiteralDeclaration_29().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_29, grammarAccess.getPropertyTypeAccess().getInstanceOfEnumLiteralDeclaration_29());
                     			
 
                     }
@@ -3776,15 +3783,32 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 31 :
-                    // InternalTurtle.g:1441:3: (enumLiteral_30= 'sh:description' )
+                    // InternalTurtle.g:1441:3: (enumLiteral_30= 'rdfs:label' )
                     {
-                    // InternalTurtle.g:1441:3: (enumLiteral_30= 'sh:description' )
-                    // InternalTurtle.g:1442:4: enumLiteral_30= 'sh:description'
+                    // InternalTurtle.g:1441:3: (enumLiteral_30= 'rdfs:label' )
+                    // InternalTurtle.g:1442:4: enumLiteral_30= 'rdfs:label'
                     {
                     enumLiteral_30=(Token)match(input,53,FOLLOW_2); 
 
-                    				current = grammarAccess.getPropertyTypeAccess().getDescriptionEnumLiteralDeclaration_30().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_30, grammarAccess.getPropertyTypeAccess().getDescriptionEnumLiteralDeclaration_30());
+                    				current = grammarAccess.getPropertyTypeAccess().getRdfsLabelEnumLiteralDeclaration_30().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_30, grammarAccess.getPropertyTypeAccess().getRdfsLabelEnumLiteralDeclaration_30());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 32 :
+                    // InternalTurtle.g:1449:3: (enumLiteral_31= 'sh:description' )
+                    {
+                    // InternalTurtle.g:1449:3: (enumLiteral_31= 'sh:description' )
+                    // InternalTurtle.g:1450:4: enumLiteral_31= 'sh:description'
+                    {
+                    enumLiteral_31=(Token)match(input,54,FOLLOW_2); 
+
+                    				current = grammarAccess.getPropertyTypeAccess().getDescriptionEnumLiteralDeclaration_31().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_31, grammarAccess.getPropertyTypeAccess().getDescriptionEnumLiteralDeclaration_31());
                     			
 
                     }
@@ -3817,44 +3841,45 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
 
 
     protected DFA16 dfa16 = new DFA16(this);
-    static final String dfa_1s = "\43\uffff";
-    static final String dfa_2s = "\1\25\37\4\3\uffff";
-    static final String dfa_3s = "\1\65\37\25\3\uffff";
-    static final String dfa_4s = "\40\uffff\1\3\1\1\1\2";
-    static final String dfa_5s = "\43\uffff}>";
+    static final String dfa_1s = "\44\uffff";
+    static final String dfa_2s = "\1\25\40\4\3\uffff";
+    static final String dfa_3s = "\1\66\40\25\3\uffff";
+    static final String dfa_4s = "\41\uffff\1\3\1\1\1\2";
+    static final String dfa_5s = "\44\uffff}>";
     static final String[] dfa_6s = {
-            "\1\40\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
-            "\3\41\14\uffff\1\42\1\uffff\1\40",
+            "\1\41\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\1\40",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
+            "\3\42\14\uffff\1\43\1\uffff\1\41",
             "",
             "",
             ""
@@ -3898,16 +3923,16 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000050L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x003FFFFFFFA30000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x003FFFFFFFA32000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x007FFFFFFFA30000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x007FFFFFFFA32000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000044002L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x003FFFFFFFB30070L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x007FFFFFFFB30070L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x003FFFFFFFB30000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x007FFFFFFFB30000L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000004002L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x003FFFFFFFE30000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x007FFFFFFFE30000L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000008012L});
 
 }

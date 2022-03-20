@@ -184,22 +184,24 @@ class TurtleGenerator extends AbstractGenerator {
 			
 			val s_b = expression.values.findFirst[v | v.isAdorned]
 			val container = expression.eContainer 
-			
 			var ShapeExpression pathExpression
-			var pathExp = container.eAllContents.filter(ShapeExpression).findFirst[e | e.type == PropertyType.PREDICATE_PATH]
-			var inversePathExp = container.eAllContents.filter(ShapeExpression).findFirst[e | e.type == PropertyType.INVERSE_PATH]
 			
-			if (inversePathExp !== null){
-				pathExpression = new ShapeExpressionImpl
-				pathExpression = EcoreUtil.copy(inversePathExp)
-				pathExpression.type = PropertyType.PREDICATE_PATH
-			} else if(pathExp !== null){
-				pathExpression = new ShapeExpressionImpl
-				var ShapeExpression inversePathExpression
-				inversePathExpression = EcoreUtil.copy(pathExp)
-				pathExpression.type = PropertyType.PREDICATE_PATH
-				inversePathExpression.type = PropertyType.INVERSE_PATH
-				pathExpression.shapeExpressions.add(inversePathExpression)
+			if (!(container instanceof ShapeConstraint)){
+				var pathExp = container.eAllContents.filter(ShapeExpression).findFirst[e | e.type == PropertyType.PREDICATE_PATH]
+				var inversePathExp = container.eAllContents.filter(ShapeExpression).findFirst[e | e.type == PropertyType.INVERSE_PATH]
+			
+				if (inversePathExp !== null){
+					pathExpression = new ShapeExpressionImpl
+					pathExpression = EcoreUtil.copy(inversePathExp)
+					pathExpression.type = PropertyType.PREDICATE_PATH
+				} else if(pathExp !== null){
+					pathExpression = new ShapeExpressionImpl
+					var ShapeExpression inversePathExpression
+					inversePathExpression = EcoreUtil.copy(pathExp)
+					pathExpression.type = PropertyType.PREDICATE_PATH
+					inversePathExpression.type = PropertyType.INVERSE_PATH
+					pathExpression.shapeExpressions.add(inversePathExpression)
+				}
 			}
 			
 			magicConstraint = new ShapeConstraintImpl
@@ -302,11 +304,11 @@ class TurtleGenerator extends AbstractGenerator {
 		val class = getValuesOfProperty(shapeExpressions, PropertyType.CLASS_CONSTRAINT_COMPONENT)
 		val node = getValuesOfProperty(shapeExpressions, PropertyType.NODE_CONSTRAINT_COMPONENT)
 		val hasValue = getValuesOfProperty(shapeExpressions, PropertyType.HAS_VALUE_CONSTRAINT_COMPONENT);
+		val hasClass = getValuesOfProperty(shapeExpressions, PropertyType.HAS_CLASS_CONSTRAINT_COMPONENT);
 		
 		val qualifiedMinCount = getValuesOfProperty(shapeExpressions, PropertyType.QUALIFIED_MIN_COUNT);
 		val qualifiedMaxCount = getValuesOfProperty(shapeExpressions, PropertyType.QUALIFIED_MAX_COUNT);
 		val qualifiedValueShape = getValuesOfProperty(shapeExpressions, PropertyType.QUALIFIED_VALUE_SHAPE);
-		
 		var object = TRUE
 		if (class.size > 0 )
 			object = class.get(0).toString
@@ -314,6 +316,8 @@ class TurtleGenerator extends AbstractGenerator {
 			object = node.get(0).toString
 		else if (hasValue.size > 0)
 			object = hasValue.get(0).toString //.toLowerCase
+		else if (hasClass.size > 0)
+			object = hasClass.get(0).toString
 		else if(qualifiedValueShape.size > 0){
 			object = ''
 			for(qualifiedValue : qualifiedValueShape)
