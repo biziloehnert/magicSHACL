@@ -1100,6 +1100,7 @@ public class MagicSHACLPackageImpl extends EPackageImpl implements MagicSHACLPac
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.QUALIFIED_VALUE_SHAPE);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.QUALIFIED_MIN_COUNT);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.QUALIFIED_MAX_COUNT);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.HAS_CLASS_CONSTRAINT_COMPONENT);
 
 		// Create resource
 		createResource(eNS_URI);

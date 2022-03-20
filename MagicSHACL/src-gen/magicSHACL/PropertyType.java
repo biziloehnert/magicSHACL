@@ -330,7 +330,16 @@ public enum PropertyType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	QUALIFIED_MAX_COUNT(32, "QualifiedMaxCount", "sh:qualifiedMaxCount");
+	QUALIFIED_MAX_COUNT(32, "QualifiedMaxCount", "sh:qualifiedMaxCount"),
+	/**
+	* The '<em><b>Has Class Constraint Component</b></em>' literal object.
+	* <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	* @see #HAS_CLASS_CONSTRAINT_COMPONENT_VALUE
+	* @generated
+	* @ordered
+	*/
+	HAS_CLASS_CONSTRAINT_COMPONENT(33, "HasClassConstraintComponent", "sh:hasClass");
 
 	/**
 	 * The '<em><b>Blank</b></em>' literal value.
@@ -707,6 +716,17 @@ public enum PropertyType implements Enumerator {
 	public static final int QUALIFIED_MAX_COUNT_VALUE = 32;
 
 	/**
+	 * The '<em><b>Has Class Constraint Component</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #HAS_CLASS_CONSTRAINT_COMPONENT
+	 * @model name="HasClassConstraintComponent" literal="sh:hasClass"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int HAS_CLASS_CONSTRAINT_COMPONENT_VALUE = 33;
+
+	/**
 	 * An array of all the '<em><b>Property Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -720,7 +740,8 @@ public enum PropertyType implements Enumerator {
 			CLOSED_CONSTRAINT_COMPONENT_IGNORE, INVERSE_PATH, TARGET_NODE, MESSAGE, MIN_EXCLUSIVE_CONSTRAINT_COMPONENT,
 			MIN_INCLUSIVE_CONSTRAINT_COMPONENT, MAX_EXCLUSIVE_CONSTRAINT_COMPONENT, MAX_INCLUSIVE_CONSTRAINT_COMPONENT,
 			MIN_LENGTH_CONSTRAINT_COMPONENT, MAX_LENGTH_CONSTRAINT_COMPONENT, INSTANCE_OF, RDFS_LABEL, DESCRIPTION,
-			EQUALS_CONSTRAINT_COMPONENT, QUALIFIED_VALUE_SHAPE, QUALIFIED_MIN_COUNT, QUALIFIED_MAX_COUNT, };
+			EQUALS_CONSTRAINT_COMPONENT, QUALIFIED_VALUE_SHAPE, QUALIFIED_MIN_COUNT, QUALIFIED_MAX_COUNT,
+			HAS_CLASS_CONSTRAINT_COMPONENT, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Property Type</b></em>' enumerators.
@@ -842,6 +863,8 @@ public enum PropertyType implements Enumerator {
 			return QUALIFIED_MIN_COUNT;
 		case QUALIFIED_MAX_COUNT_VALUE:
 			return QUALIFIED_MAX_COUNT;
+		case HAS_CLASS_CONSTRAINT_COMPONENT_VALUE:
+			return HAS_CLASS_CONSTRAINT_COMPONENT;
 		}
 		return null;
 	}
