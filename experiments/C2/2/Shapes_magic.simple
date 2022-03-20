@@ -1,8 +1,9 @@
+MusicianShape(Actor)?
 MusicianShape_magic :- Actor ; 
-PersonShape_magic :- SOME ^instrument MusicianShape_magic ; 
+PersonShape_magic :- MusicianShape_magic ; 
 LocationShape_magic :- SOME ^birthPlace PersonShape_magic ; 
-MusicianShape :- MusicianShapeS0 AND MusicianShapeS1 AND MusicianShape_magic AND Actor;
-MusicianShapeS0 :- PersonShape;
+MusicianShape :- MusicianShapeS0 AND MusicianShapeS1;
+MusicianShapeS0 :- PersonShape AND MusicianShape_magic;
 MusicianShapeS1 :- MIN 1 instrument ADom;
 PersonShape :- PersonShapeS0 AND PersonShapeS1 AND PersonShapeS2;
 PersonShapeS0 :- PersonShape_magic;

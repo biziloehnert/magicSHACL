@@ -1,4 +1,5 @@
+EmployeeShape(Actor)?
 EmployeeShape_magic :- Actor ; 
-EmployeeShape :- EmployeeShapeS0 AND EmployeeShapeS1 AND Actor;
+EmployeeShape :- EmployeeShapeS0 AND EmployeeShapeS1;
 EmployeeShapeS0 :- EmployeeShape_magic;
 EmployeeShapeS1 :- MIN 1 employer ADom;

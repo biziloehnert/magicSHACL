@@ -1,7 +1,8 @@
-EmployeeShape_magic :- NotEmployeeShape_magic ;
-EmployeeShape_magic :- Person ;
+EmployeeShape(Person)?
+EmployeeShape_magic :- Person ; 
 NotEmployeeShape_magic :- SOME ^employer EmployeeShape_magic ; 
-EmployeeShape :- EmployeeShapeS0 AND EmployeeShapeS1 AND Person;
+EmployeeShape_magic :- NotEmployeeShape_magic ; 
+EmployeeShape :- EmployeeShapeS0 AND EmployeeShapeS1;
 EmployeeShapeS0 :- EmployeeShape_magic;
 EmployeeShapeS1 :- MIN 1 employer NotEmployeeShape;
 NotEmployeeShape :- NotEmployeeShapeS0 AND NotEmployeeShapeS1;
