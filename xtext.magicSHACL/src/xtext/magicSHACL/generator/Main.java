@@ -18,6 +18,8 @@ import org.eclipse.xtext.util.CancelIndicator;
 import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
+
+import xtext.magicSHACL.SimpleStandaloneSetup;
 import xtext.magicSHACL.TurtleStandaloneSetup;
 
 public class Main {
@@ -27,7 +29,13 @@ public class Main {
 			System.err.println("Aborting: no path to EMF resource provided!");
 			return;
 		}
-		Injector injector = new TurtleStandaloneSetup().createInjectorAndDoEMFRegistration();
+		Injector injector = null;
+		if(args[0].endsWith(".ttl"))
+			injector = new TurtleStandaloneSetup().createInjectorAndDoEMFRegistration();
+		else if(args[0].endsWith(".simple"))
+			injector = new SimpleStandaloneSetup().createInjectorAndDoEMFRegistration();
+		else
+			System.err.println("Aborting: unknown inout file extension!");
 		Main main = injector.getInstance(Main.class);
 		main.runGenerator(args[0]);
 	}

@@ -112,18 +112,20 @@ class TurtleGenerator extends AbstractGenerator {
         		'''«FOR namespace : resource.allContents.filter(Namespace).toIterable
         			»@prefix «namespace.prefix» «namespace.namespace».
         		«ENDFOR»
-        		
-        		«FOR ms : magicShapes SEPARATOR '.\n' AFTER '.'»
-					«ms.shapeName.name»
-						a sh:NodeShape « 
-						FOR exp : ms.shapeExpressions.filter[exp | !exp.toString.equals('T')] BEFORE ';\n' »
-						«exp.expressionToString»«
-						ENDFOR»«
+
+«				FOR ms : magicShapes SEPARATOR '.\n' AFTER '.'»
+«   				ms.shapeName.name» a sh:NodeShape« 
+					FOR exp : ms.shapeExpressions.filter[exp | !exp.toString.equals('T')] BEFORE ';\n'»
+						«'\t' + exp.expressionToString»«
+					ENDFOR»«
 				ENDFOR»	
 				
 «				FOR ms : modifiedShapes SEPARATOR '\n.\n' AFTER '\n.'»
-«					ms.shapeName.name»
-	«				FOR exp : ms.shapeExpressions»«		
+«					ms.shapeName.name»				
+	«				FOR target : ms.targets SEPARATOR ';\n' AFTER ';\n'»«		
+						target.type» «target.term»«
+					ENDFOR»«				
+					FOR exp : ms.shapeExpressions»«		
 						exp.expressionToString»«
 					ENDFOR»
 				«ENDFOR»
