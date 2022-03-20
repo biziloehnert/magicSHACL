@@ -7,11 +7,19 @@
 	sh:targetClass dbo:Person;
 	sh:node :PersonShape;
 	sh:property [
-		sh:path[
-			sh:inversePath dbo:starring;
-		];
-		sh:node :MovieShape;
-		sh:minCount 1
+		sh:or (
+			[
+				sh:path[
+					sh:inversePath dbo:starring;
+				];
+				sh:node :MovieShape;
+				sh:minCount 1;
+			]
+			[
+				sh:path dbo:occupation;
+				sh:class dbr:Actor;
+			]
+		)
 	] .
 
 :DirectorShape a sh:NodeShape;
@@ -31,11 +39,6 @@
 	] .
 
 :MovieShape a sh:NodeShape;
-	sh:property [
-		sh:path dbo:director;
-		sh:node :DirectorShape;
-		sh:minCount 1
-	] ;
 	sh:property [
 		sh:path dbo:imdbId;
 		sh:minCount 1;
