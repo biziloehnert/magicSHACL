@@ -63,7 +63,7 @@ We ran the magic shapes algorithm on each of the 40 shapes graphs by the followi
 for shapesGraph in C1/{1..20}; do java -jar MagicShapes.jar $shapesGraph/Shapes.ttl ; done
 for shapesGraph in C2/{1..20}; do java -jar MagicShapes.jar $shapesGraph/Shapes.ttl ; done
 ```
-This produces two shapes graphs, i.e. Shapes_magic.ttl and Shapes.simple, to $shapesGraph/src-gen/. Since the SHACL-ASP validator is only able to read abstract syntax, the following command translates the magic shapes graph from turle syntax to abstract syntax:
+This produces two shapes graphs, i.e. Shapes_magic.ttl and Shapes.simple, to $shapesGraph/src-gen/. Since the SHACL-ASP validator is only able to read abstract syntax, the following command translates the magic shapes graph from turle syntax to abstract syntax (after copying it to the same directory as Shapes.ttl):
 ```cmd
 for shapesGraph in C1/{1..20}; do java -jar MagicShapes.jar $shapesGraph/Shapes_magic.ttl ; done
 for shapesGraph in C2/{1..20}; do java -jar MagicShapes.jar $shapesGraph/Shapes_magic.ttl ; done
