@@ -167,11 +167,11 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 			value.setName(term);
 
 		ShapeExpression exp = new ShapeExpressionImpl();
-		if("sh:targetClass".equals(type))
-			exp.setType(PropertyType.TARGET_CLASS);
+		if ("sh:targetClass".equals(type))
+			exp.setType(PropertyType.HAS_CLASS_CONSTRAINT_COMPONENT);
 		else if ("sh:targetNode".equals(type))
-			exp.setType(PropertyType.TARGET_NODE);
-		
+			exp.setType(PropertyType.HAS_VALUE_CONSTRAINT_COMPONENT);
+
 		exp.getValues().add(value);
 		c.getShapeExpressions().add(exp);
 		return c;

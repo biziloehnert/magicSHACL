@@ -683,147 +683,153 @@ rule__PropertyType__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getNodeKindConstraintComponentEnumLiteralDeclaration_7()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getHasClassConstraintComponentEnumLiteralDeclaration_7()); }
+		('sh:hasClass')
+		{ after(grammarAccess.getPropertyTypeAccess().getHasClassConstraintComponentEnumLiteralDeclaration_7()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getPropertyTypeAccess().getNodeKindConstraintComponentEnumLiteralDeclaration_8()); }
 		('sh:nodeKind')
-		{ after(grammarAccess.getPropertyTypeAccess().getNodeKindConstraintComponentEnumLiteralDeclaration_7()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getNodeKindConstraintComponentEnumLiteralDeclaration_8()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getNodeConstraintComponentEnumLiteralDeclaration_8()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getNodeConstraintComponentEnumLiteralDeclaration_9()); }
 		('sh:node')
-		{ after(grammarAccess.getPropertyTypeAccess().getNodeConstraintComponentEnumLiteralDeclaration_8()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getNodeConstraintComponentEnumLiteralDeclaration_9()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getDatatypeConstraintComponentEnumLiteralDeclaration_9()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getDatatypeConstraintComponentEnumLiteralDeclaration_10()); }
 		('sh:datatype')
-		{ after(grammarAccess.getPropertyTypeAccess().getDatatypeConstraintComponentEnumLiteralDeclaration_9()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getDatatypeConstraintComponentEnumLiteralDeclaration_10()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getPatternConstraintComponentEnumLiteralDeclaration_10()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getPatternConstraintComponentEnumLiteralDeclaration_11()); }
 		('sh:pattern')
-		{ after(grammarAccess.getPropertyTypeAccess().getPatternConstraintComponentEnumLiteralDeclaration_10()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getPatternConstraintComponentEnumLiteralDeclaration_11()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getClosedConstraintComponentEnumLiteralDeclaration_11()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getClosedConstraintComponentEnumLiteralDeclaration_12()); }
 		('sh:closed')
-		{ after(grammarAccess.getPropertyTypeAccess().getClosedConstraintComponentEnumLiteralDeclaration_11()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getClosedConstraintComponentEnumLiteralDeclaration_12()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getClosedConstraintComponent_ignoreEnumLiteralDeclaration_12()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getClosedConstraintComponent_ignoreEnumLiteralDeclaration_13()); }
 		('sh:ignoredProperties')
-		{ after(grammarAccess.getPropertyTypeAccess().getClosedConstraintComponent_ignoreEnumLiteralDeclaration_12()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getClosedConstraintComponent_ignoreEnumLiteralDeclaration_13()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getPredicatePathEnumLiteralDeclaration_13()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getPredicatePathEnumLiteralDeclaration_14()); }
 		('sh:path')
-		{ after(grammarAccess.getPropertyTypeAccess().getPredicatePathEnumLiteralDeclaration_13()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getPredicatePathEnumLiteralDeclaration_14()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getInversePathEnumLiteralDeclaration_14()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getInversePathEnumLiteralDeclaration_15()); }
 		('sh:inversePath')
-		{ after(grammarAccess.getPropertyTypeAccess().getInversePathEnumLiteralDeclaration_14()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getInversePathEnumLiteralDeclaration_15()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getPropertyEnumLiteralDeclaration_15()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getPropertyEnumLiteralDeclaration_16()); }
 		('sh:property')
-		{ after(grammarAccess.getPropertyTypeAccess().getPropertyEnumLiteralDeclaration_15()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getPropertyEnumLiteralDeclaration_16()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getNameEnumLiteralDeclaration_16()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getNameEnumLiteralDeclaration_17()); }
 		('sh:name')
-		{ after(grammarAccess.getPropertyTypeAccess().getNameEnumLiteralDeclaration_16()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getNameEnumLiteralDeclaration_17()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getMessageEnumLiteralDeclaration_17()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getMessageEnumLiteralDeclaration_18()); }
 		('sh:message')
-		{ after(grammarAccess.getPropertyTypeAccess().getMessageEnumLiteralDeclaration_17()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getMessageEnumLiteralDeclaration_18()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getEqualsConstraintComponentEnumLiteralDeclaration_18()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getEqualsConstraintComponentEnumLiteralDeclaration_19()); }
 		('sh:equals')
-		{ after(grammarAccess.getPropertyTypeAccess().getEqualsConstraintComponentEnumLiteralDeclaration_18()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getEqualsConstraintComponentEnumLiteralDeclaration_19()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getMinExclusiveConstraintComponentEnumLiteralDeclaration_19()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getMinExclusiveConstraintComponentEnumLiteralDeclaration_20()); }
 		('sh:minExclusive')
-		{ after(grammarAccess.getPropertyTypeAccess().getMinExclusiveConstraintComponentEnumLiteralDeclaration_19()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getMinExclusiveConstraintComponentEnumLiteralDeclaration_20()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getMinInclusiveConstraintComponentEnumLiteralDeclaration_20()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getMinInclusiveConstraintComponentEnumLiteralDeclaration_21()); }
 		('sh:minInclusive')
-		{ after(grammarAccess.getPropertyTypeAccess().getMinInclusiveConstraintComponentEnumLiteralDeclaration_20()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getMinInclusiveConstraintComponentEnumLiteralDeclaration_21()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getMaxExclusiveConstraintComponentEnumLiteralDeclaration_21()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getMaxExclusiveConstraintComponentEnumLiteralDeclaration_22()); }
 		('sh:maxExclusive')
-		{ after(grammarAccess.getPropertyTypeAccess().getMaxExclusiveConstraintComponentEnumLiteralDeclaration_21()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getMaxExclusiveConstraintComponentEnumLiteralDeclaration_22()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getMaxInclusiveConstraintComponentEnumLiteralDeclaration_22()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getMaxInclusiveConstraintComponentEnumLiteralDeclaration_23()); }
 		('sh:maxInclusive')
-		{ after(grammarAccess.getPropertyTypeAccess().getMaxInclusiveConstraintComponentEnumLiteralDeclaration_22()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getMaxInclusiveConstraintComponentEnumLiteralDeclaration_23()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getMaxLengthConstraintComponentEnumLiteralDeclaration_23()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getMaxLengthConstraintComponentEnumLiteralDeclaration_24()); }
 		('sh:maxLength')
-		{ after(grammarAccess.getPropertyTypeAccess().getMaxLengthConstraintComponentEnumLiteralDeclaration_23()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getMaxLengthConstraintComponentEnumLiteralDeclaration_24()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getMinLengthConstraintComponentEnumLiteralDeclaration_24()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getMinLengthConstraintComponentEnumLiteralDeclaration_25()); }
 		('sh:minLength')
-		{ after(grammarAccess.getPropertyTypeAccess().getMinLengthConstraintComponentEnumLiteralDeclaration_24()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getMinLengthConstraintComponentEnumLiteralDeclaration_25()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getQualifiedValueShapeEnumLiteralDeclaration_25()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getQualifiedValueShapeEnumLiteralDeclaration_26()); }
 		('sh:qualifiedValueShape')
-		{ after(grammarAccess.getPropertyTypeAccess().getQualifiedValueShapeEnumLiteralDeclaration_25()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getQualifiedValueShapeEnumLiteralDeclaration_26()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getQualifiedMaxCountEnumLiteralDeclaration_26()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getQualifiedMaxCountEnumLiteralDeclaration_27()); }
 		('sh:qualifiedMaxCount')
-		{ after(grammarAccess.getPropertyTypeAccess().getQualifiedMaxCountEnumLiteralDeclaration_26()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getQualifiedMaxCountEnumLiteralDeclaration_27()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getQualifiedMinCountEnumLiteralDeclaration_27()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getQualifiedMinCountEnumLiteralDeclaration_28()); }
 		('sh:qualifiedMinCount')
-		{ after(grammarAccess.getPropertyTypeAccess().getQualifiedMinCountEnumLiteralDeclaration_27()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getQualifiedMinCountEnumLiteralDeclaration_28()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getInstanceOfEnumLiteralDeclaration_28()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getInstanceOfEnumLiteralDeclaration_29()); }
 		('a')
-		{ after(grammarAccess.getPropertyTypeAccess().getInstanceOfEnumLiteralDeclaration_28()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getInstanceOfEnumLiteralDeclaration_29()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getRdfsLabelEnumLiteralDeclaration_29()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getRdfsLabelEnumLiteralDeclaration_30()); }
 		('rdfs:label')
-		{ after(grammarAccess.getPropertyTypeAccess().getRdfsLabelEnumLiteralDeclaration_29()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getRdfsLabelEnumLiteralDeclaration_30()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPropertyTypeAccess().getDescriptionEnumLiteralDeclaration_30()); }
+		{ before(grammarAccess.getPropertyTypeAccess().getDescriptionEnumLiteralDeclaration_31()); }
 		('sh:description')
-		{ after(grammarAccess.getPropertyTypeAccess().getDescriptionEnumLiteralDeclaration_30()); }
+		{ after(grammarAccess.getPropertyTypeAccess().getDescriptionEnumLiteralDeclaration_31()); }
 	)
 ;
 finally {

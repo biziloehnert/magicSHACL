@@ -44,6 +44,7 @@
       <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/QualifiedValueShape"/>
       <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/QualifiedMinCount"/>
       <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/QualifiedMaxCount"/>
+      <genEnumLiterals ecoreEnumLiteral="magicSHACL.ecore#//PropertyType/HasClassConstraintComponent"/>
     </genEnums>
     <genClasses ecoreClass="magicSHACL.ecore#//DataGraph">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference magicSHACL.ecore#//DataGraph/triples"/>

@@ -6,7 +6,6 @@ package xtext.magicSHACL.generator
 import java.util.ArrayList
 import java.util.List
 import java.util.Stack
-import magicSHACL.Node
 import magicSHACL.PropertyType
 import magicSHACL.ShapeConstraint
 import magicSHACL.ShapeExpression

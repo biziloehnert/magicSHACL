@@ -661,77 +661,79 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Keyword cClassConstraintComponentShClassKeyword_5_0 = (Keyword)cClassConstraintComponentEnumLiteralDeclaration_5.eContents().get(0);
 		private final EnumLiteralDeclaration cHasValueConstraintComponentEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
 		private final Keyword cHasValueConstraintComponentShHasValueKeyword_6_0 = (Keyword)cHasValueConstraintComponentEnumLiteralDeclaration_6.eContents().get(0);
-		private final EnumLiteralDeclaration cNodeKindConstraintComponentEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
-		private final Keyword cNodeKindConstraintComponentShNodeKindKeyword_7_0 = (Keyword)cNodeKindConstraintComponentEnumLiteralDeclaration_7.eContents().get(0);
-		private final EnumLiteralDeclaration cNodeConstraintComponentEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
-		private final Keyword cNodeConstraintComponentShNodeKeyword_8_0 = (Keyword)cNodeConstraintComponentEnumLiteralDeclaration_8.eContents().get(0);
-		private final EnumLiteralDeclaration cDatatypeConstraintComponentEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
-		private final Keyword cDatatypeConstraintComponentShDatatypeKeyword_9_0 = (Keyword)cDatatypeConstraintComponentEnumLiteralDeclaration_9.eContents().get(0);
-		private final EnumLiteralDeclaration cPatternConstraintComponentEnumLiteralDeclaration_10 = (EnumLiteralDeclaration)cAlternatives.eContents().get(10);
-		private final Keyword cPatternConstraintComponentShPatternKeyword_10_0 = (Keyword)cPatternConstraintComponentEnumLiteralDeclaration_10.eContents().get(0);
-		private final EnumLiteralDeclaration cClosedConstraintComponentEnumLiteralDeclaration_11 = (EnumLiteralDeclaration)cAlternatives.eContents().get(11);
-		private final Keyword cClosedConstraintComponentShClosedKeyword_11_0 = (Keyword)cClosedConstraintComponentEnumLiteralDeclaration_11.eContents().get(0);
-		private final EnumLiteralDeclaration cClosedConstraintComponent_ignoreEnumLiteralDeclaration_12 = (EnumLiteralDeclaration)cAlternatives.eContents().get(12);
-		private final Keyword cClosedConstraintComponent_ignoreShIgnoredPropertiesKeyword_12_0 = (Keyword)cClosedConstraintComponent_ignoreEnumLiteralDeclaration_12.eContents().get(0);
-		private final EnumLiteralDeclaration cPredicatePathEnumLiteralDeclaration_13 = (EnumLiteralDeclaration)cAlternatives.eContents().get(13);
-		private final Keyword cPredicatePathShPathKeyword_13_0 = (Keyword)cPredicatePathEnumLiteralDeclaration_13.eContents().get(0);
-		private final EnumLiteralDeclaration cInversePathEnumLiteralDeclaration_14 = (EnumLiteralDeclaration)cAlternatives.eContents().get(14);
-		private final Keyword cInversePathShInversePathKeyword_14_0 = (Keyword)cInversePathEnumLiteralDeclaration_14.eContents().get(0);
-		private final EnumLiteralDeclaration cPropertyEnumLiteralDeclaration_15 = (EnumLiteralDeclaration)cAlternatives.eContents().get(15);
-		private final Keyword cPropertyShPropertyKeyword_15_0 = (Keyword)cPropertyEnumLiteralDeclaration_15.eContents().get(0);
-		private final EnumLiteralDeclaration cNameEnumLiteralDeclaration_16 = (EnumLiteralDeclaration)cAlternatives.eContents().get(16);
-		private final Keyword cNameShNameKeyword_16_0 = (Keyword)cNameEnumLiteralDeclaration_16.eContents().get(0);
-		private final EnumLiteralDeclaration cMessageEnumLiteralDeclaration_17 = (EnumLiteralDeclaration)cAlternatives.eContents().get(17);
-		private final Keyword cMessageShMessageKeyword_17_0 = (Keyword)cMessageEnumLiteralDeclaration_17.eContents().get(0);
-		private final EnumLiteralDeclaration cEqualsConstraintComponentEnumLiteralDeclaration_18 = (EnumLiteralDeclaration)cAlternatives.eContents().get(18);
-		private final Keyword cEqualsConstraintComponentShEqualsKeyword_18_0 = (Keyword)cEqualsConstraintComponentEnumLiteralDeclaration_18.eContents().get(0);
-		private final EnumLiteralDeclaration cMinExclusiveConstraintComponentEnumLiteralDeclaration_19 = (EnumLiteralDeclaration)cAlternatives.eContents().get(19);
-		private final Keyword cMinExclusiveConstraintComponentShMinExclusiveKeyword_19_0 = (Keyword)cMinExclusiveConstraintComponentEnumLiteralDeclaration_19.eContents().get(0);
-		private final EnumLiteralDeclaration cMinInclusiveConstraintComponentEnumLiteralDeclaration_20 = (EnumLiteralDeclaration)cAlternatives.eContents().get(20);
-		private final Keyword cMinInclusiveConstraintComponentShMinInclusiveKeyword_20_0 = (Keyword)cMinInclusiveConstraintComponentEnumLiteralDeclaration_20.eContents().get(0);
-		private final EnumLiteralDeclaration cMaxExclusiveConstraintComponentEnumLiteralDeclaration_21 = (EnumLiteralDeclaration)cAlternatives.eContents().get(21);
-		private final Keyword cMaxExclusiveConstraintComponentShMaxExclusiveKeyword_21_0 = (Keyword)cMaxExclusiveConstraintComponentEnumLiteralDeclaration_21.eContents().get(0);
-		private final EnumLiteralDeclaration cMaxInclusiveConstraintComponentEnumLiteralDeclaration_22 = (EnumLiteralDeclaration)cAlternatives.eContents().get(22);
-		private final Keyword cMaxInclusiveConstraintComponentShMaxInclusiveKeyword_22_0 = (Keyword)cMaxInclusiveConstraintComponentEnumLiteralDeclaration_22.eContents().get(0);
-		private final EnumLiteralDeclaration cMaxLengthConstraintComponentEnumLiteralDeclaration_23 = (EnumLiteralDeclaration)cAlternatives.eContents().get(23);
-		private final Keyword cMaxLengthConstraintComponentShMaxLengthKeyword_23_0 = (Keyword)cMaxLengthConstraintComponentEnumLiteralDeclaration_23.eContents().get(0);
-		private final EnumLiteralDeclaration cMinLengthConstraintComponentEnumLiteralDeclaration_24 = (EnumLiteralDeclaration)cAlternatives.eContents().get(24);
-		private final Keyword cMinLengthConstraintComponentShMinLengthKeyword_24_0 = (Keyword)cMinLengthConstraintComponentEnumLiteralDeclaration_24.eContents().get(0);
-		private final EnumLiteralDeclaration cQualifiedValueShapeEnumLiteralDeclaration_25 = (EnumLiteralDeclaration)cAlternatives.eContents().get(25);
-		private final Keyword cQualifiedValueShapeShQualifiedValueShapeKeyword_25_0 = (Keyword)cQualifiedValueShapeEnumLiteralDeclaration_25.eContents().get(0);
-		private final EnumLiteralDeclaration cQualifiedMaxCountEnumLiteralDeclaration_26 = (EnumLiteralDeclaration)cAlternatives.eContents().get(26);
-		private final Keyword cQualifiedMaxCountShQualifiedMaxCountKeyword_26_0 = (Keyword)cQualifiedMaxCountEnumLiteralDeclaration_26.eContents().get(0);
-		private final EnumLiteralDeclaration cQualifiedMinCountEnumLiteralDeclaration_27 = (EnumLiteralDeclaration)cAlternatives.eContents().get(27);
-		private final Keyword cQualifiedMinCountShQualifiedMinCountKeyword_27_0 = (Keyword)cQualifiedMinCountEnumLiteralDeclaration_27.eContents().get(0);
-		private final EnumLiteralDeclaration cInstanceOfEnumLiteralDeclaration_28 = (EnumLiteralDeclaration)cAlternatives.eContents().get(28);
-		private final Keyword cInstanceOfAKeyword_28_0 = (Keyword)cInstanceOfEnumLiteralDeclaration_28.eContents().get(0);
-		private final EnumLiteralDeclaration cRdfsLabelEnumLiteralDeclaration_29 = (EnumLiteralDeclaration)cAlternatives.eContents().get(29);
-		private final Keyword cRdfsLabelRdfsLabelKeyword_29_0 = (Keyword)cRdfsLabelEnumLiteralDeclaration_29.eContents().get(0);
-		private final EnumLiteralDeclaration cDescriptionEnumLiteralDeclaration_30 = (EnumLiteralDeclaration)cAlternatives.eContents().get(30);
-		private final Keyword cDescriptionShDescriptionKeyword_30_0 = (Keyword)cDescriptionEnumLiteralDeclaration_30.eContents().get(0);
+		private final EnumLiteralDeclaration cHasClassConstraintComponentEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
+		private final Keyword cHasClassConstraintComponentShHasClassKeyword_7_0 = (Keyword)cHasClassConstraintComponentEnumLiteralDeclaration_7.eContents().get(0);
+		private final EnumLiteralDeclaration cNodeKindConstraintComponentEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
+		private final Keyword cNodeKindConstraintComponentShNodeKindKeyword_8_0 = (Keyword)cNodeKindConstraintComponentEnumLiteralDeclaration_8.eContents().get(0);
+		private final EnumLiteralDeclaration cNodeConstraintComponentEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
+		private final Keyword cNodeConstraintComponentShNodeKeyword_9_0 = (Keyword)cNodeConstraintComponentEnumLiteralDeclaration_9.eContents().get(0);
+		private final EnumLiteralDeclaration cDatatypeConstraintComponentEnumLiteralDeclaration_10 = (EnumLiteralDeclaration)cAlternatives.eContents().get(10);
+		private final Keyword cDatatypeConstraintComponentShDatatypeKeyword_10_0 = (Keyword)cDatatypeConstraintComponentEnumLiteralDeclaration_10.eContents().get(0);
+		private final EnumLiteralDeclaration cPatternConstraintComponentEnumLiteralDeclaration_11 = (EnumLiteralDeclaration)cAlternatives.eContents().get(11);
+		private final Keyword cPatternConstraintComponentShPatternKeyword_11_0 = (Keyword)cPatternConstraintComponentEnumLiteralDeclaration_11.eContents().get(0);
+		private final EnumLiteralDeclaration cClosedConstraintComponentEnumLiteralDeclaration_12 = (EnumLiteralDeclaration)cAlternatives.eContents().get(12);
+		private final Keyword cClosedConstraintComponentShClosedKeyword_12_0 = (Keyword)cClosedConstraintComponentEnumLiteralDeclaration_12.eContents().get(0);
+		private final EnumLiteralDeclaration cClosedConstraintComponent_ignoreEnumLiteralDeclaration_13 = (EnumLiteralDeclaration)cAlternatives.eContents().get(13);
+		private final Keyword cClosedConstraintComponent_ignoreShIgnoredPropertiesKeyword_13_0 = (Keyword)cClosedConstraintComponent_ignoreEnumLiteralDeclaration_13.eContents().get(0);
+		private final EnumLiteralDeclaration cPredicatePathEnumLiteralDeclaration_14 = (EnumLiteralDeclaration)cAlternatives.eContents().get(14);
+		private final Keyword cPredicatePathShPathKeyword_14_0 = (Keyword)cPredicatePathEnumLiteralDeclaration_14.eContents().get(0);
+		private final EnumLiteralDeclaration cInversePathEnumLiteralDeclaration_15 = (EnumLiteralDeclaration)cAlternatives.eContents().get(15);
+		private final Keyword cInversePathShInversePathKeyword_15_0 = (Keyword)cInversePathEnumLiteralDeclaration_15.eContents().get(0);
+		private final EnumLiteralDeclaration cPropertyEnumLiteralDeclaration_16 = (EnumLiteralDeclaration)cAlternatives.eContents().get(16);
+		private final Keyword cPropertyShPropertyKeyword_16_0 = (Keyword)cPropertyEnumLiteralDeclaration_16.eContents().get(0);
+		private final EnumLiteralDeclaration cNameEnumLiteralDeclaration_17 = (EnumLiteralDeclaration)cAlternatives.eContents().get(17);
+		private final Keyword cNameShNameKeyword_17_0 = (Keyword)cNameEnumLiteralDeclaration_17.eContents().get(0);
+		private final EnumLiteralDeclaration cMessageEnumLiteralDeclaration_18 = (EnumLiteralDeclaration)cAlternatives.eContents().get(18);
+		private final Keyword cMessageShMessageKeyword_18_0 = (Keyword)cMessageEnumLiteralDeclaration_18.eContents().get(0);
+		private final EnumLiteralDeclaration cEqualsConstraintComponentEnumLiteralDeclaration_19 = (EnumLiteralDeclaration)cAlternatives.eContents().get(19);
+		private final Keyword cEqualsConstraintComponentShEqualsKeyword_19_0 = (Keyword)cEqualsConstraintComponentEnumLiteralDeclaration_19.eContents().get(0);
+		private final EnumLiteralDeclaration cMinExclusiveConstraintComponentEnumLiteralDeclaration_20 = (EnumLiteralDeclaration)cAlternatives.eContents().get(20);
+		private final Keyword cMinExclusiveConstraintComponentShMinExclusiveKeyword_20_0 = (Keyword)cMinExclusiveConstraintComponentEnumLiteralDeclaration_20.eContents().get(0);
+		private final EnumLiteralDeclaration cMinInclusiveConstraintComponentEnumLiteralDeclaration_21 = (EnumLiteralDeclaration)cAlternatives.eContents().get(21);
+		private final Keyword cMinInclusiveConstraintComponentShMinInclusiveKeyword_21_0 = (Keyword)cMinInclusiveConstraintComponentEnumLiteralDeclaration_21.eContents().get(0);
+		private final EnumLiteralDeclaration cMaxExclusiveConstraintComponentEnumLiteralDeclaration_22 = (EnumLiteralDeclaration)cAlternatives.eContents().get(22);
+		private final Keyword cMaxExclusiveConstraintComponentShMaxExclusiveKeyword_22_0 = (Keyword)cMaxExclusiveConstraintComponentEnumLiteralDeclaration_22.eContents().get(0);
+		private final EnumLiteralDeclaration cMaxInclusiveConstraintComponentEnumLiteralDeclaration_23 = (EnumLiteralDeclaration)cAlternatives.eContents().get(23);
+		private final Keyword cMaxInclusiveConstraintComponentShMaxInclusiveKeyword_23_0 = (Keyword)cMaxInclusiveConstraintComponentEnumLiteralDeclaration_23.eContents().get(0);
+		private final EnumLiteralDeclaration cMaxLengthConstraintComponentEnumLiteralDeclaration_24 = (EnumLiteralDeclaration)cAlternatives.eContents().get(24);
+		private final Keyword cMaxLengthConstraintComponentShMaxLengthKeyword_24_0 = (Keyword)cMaxLengthConstraintComponentEnumLiteralDeclaration_24.eContents().get(0);
+		private final EnumLiteralDeclaration cMinLengthConstraintComponentEnumLiteralDeclaration_25 = (EnumLiteralDeclaration)cAlternatives.eContents().get(25);
+		private final Keyword cMinLengthConstraintComponentShMinLengthKeyword_25_0 = (Keyword)cMinLengthConstraintComponentEnumLiteralDeclaration_25.eContents().get(0);
+		private final EnumLiteralDeclaration cQualifiedValueShapeEnumLiteralDeclaration_26 = (EnumLiteralDeclaration)cAlternatives.eContents().get(26);
+		private final Keyword cQualifiedValueShapeShQualifiedValueShapeKeyword_26_0 = (Keyword)cQualifiedValueShapeEnumLiteralDeclaration_26.eContents().get(0);
+		private final EnumLiteralDeclaration cQualifiedMaxCountEnumLiteralDeclaration_27 = (EnumLiteralDeclaration)cAlternatives.eContents().get(27);
+		private final Keyword cQualifiedMaxCountShQualifiedMaxCountKeyword_27_0 = (Keyword)cQualifiedMaxCountEnumLiteralDeclaration_27.eContents().get(0);
+		private final EnumLiteralDeclaration cQualifiedMinCountEnumLiteralDeclaration_28 = (EnumLiteralDeclaration)cAlternatives.eContents().get(28);
+		private final Keyword cQualifiedMinCountShQualifiedMinCountKeyword_28_0 = (Keyword)cQualifiedMinCountEnumLiteralDeclaration_28.eContents().get(0);
+		private final EnumLiteralDeclaration cInstanceOfEnumLiteralDeclaration_29 = (EnumLiteralDeclaration)cAlternatives.eContents().get(29);
+		private final Keyword cInstanceOfAKeyword_29_0 = (Keyword)cInstanceOfEnumLiteralDeclaration_29.eContents().get(0);
+		private final EnumLiteralDeclaration cRdfsLabelEnumLiteralDeclaration_30 = (EnumLiteralDeclaration)cAlternatives.eContents().get(30);
+		private final Keyword cRdfsLabelRdfsLabelKeyword_30_0 = (Keyword)cRdfsLabelEnumLiteralDeclaration_30.eContents().get(0);
+		private final EnumLiteralDeclaration cDescriptionEnumLiteralDeclaration_31 = (EnumLiteralDeclaration)cAlternatives.eContents().get(31);
+		private final Keyword cDescriptionShDescriptionKeyword_31_0 = (Keyword)cDescriptionEnumLiteralDeclaration_31.eContents().get(0);
 		
 		//enum PropertyType:
 		//	MinCountConstraintComponent='sh:minCount' | MaxCountConstraintComponent='sh:maxCount' |
 		//	AndConstraintComponent='sh:and' | OrConstraintComponent='sh:or' | NotConstraintComponent='sh:not' |
 		//	ClassConstraintComponent="sh:class" | HasValueConstraintComponent='sh:hasValue' |
-		//	NodeKindConstraintComponent='sh:nodeKind' | NodeConstraintComponent='sh:node' |
-		//	DatatypeConstraintComponent='sh:datatype' | PatternConstraintComponent='sh:pattern' |
-		//	ClosedConstraintComponent='sh:closed' | ClosedConstraintComponent_ignore='sh:ignoredProperties' |
-		//	PredicatePath='sh:path' | InversePath='sh:inversePath' | Property='sh:property' | Name='sh:name' |
-		//	Message='sh:message' | EqualsConstraintComponent='sh:equals' | MinExclusiveConstraintComponent='sh:minExclusive' |
-		//	MinInclusiveConstraintComponent='sh:minInclusive' | MaxExclusiveConstraintComponent='sh:maxExclusive' |
-		//	MaxInclusiveConstraintComponent='sh:maxInclusive' | MaxLengthConstraintComponent='sh:maxLength' |
-		//	MinLengthConstraintComponent='sh:minLength' | QualifiedValueShape='sh:qualifiedValueShape' |
-		//	QualifiedMaxCount='sh:qualifiedMaxCount' | QualifiedMinCount='sh:qualifiedMinCount' | InstanceOf='a' |
-		//	RdfsLabel='rdfs:label' | Description='sh:description';
+		//	HasClassConstraintComponent='sh:hasClass' | NodeKindConstraintComponent='sh:nodeKind' |
+		//	NodeConstraintComponent='sh:node' | DatatypeConstraintComponent='sh:datatype' |
+		//	PatternConstraintComponent='sh:pattern' | ClosedConstraintComponent='sh:closed' |
+		//	ClosedConstraintComponent_ignore='sh:ignoredProperties' | PredicatePath='sh:path' | InversePath='sh:inversePath' |
+		//	Property='sh:property' | Name='sh:name' | Message='sh:message' | EqualsConstraintComponent='sh:equals' |
+		//	MinExclusiveConstraintComponent='sh:minExclusive' | MinInclusiveConstraintComponent='sh:minInclusive' |
+		//	MaxExclusiveConstraintComponent='sh:maxExclusive' | MaxInclusiveConstraintComponent='sh:maxInclusive' |
+		//	MaxLengthConstraintComponent='sh:maxLength' | MinLengthConstraintComponent='sh:minLength' |
+		//	QualifiedValueShape='sh:qualifiedValueShape' | QualifiedMaxCount='sh:qualifiedMaxCount' |
+		//	QualifiedMinCount='sh:qualifiedMinCount' | InstanceOf='a' | RdfsLabel='rdfs:label' | Description='sh:description';
 		public EnumRule getRule() { return rule; }
 		
 		//MinCountConstraintComponent='sh:minCount' | MaxCountConstraintComponent='sh:maxCount' |
 		//AndConstraintComponent='sh:and' | OrConstraintComponent='sh:or' | NotConstraintComponent='sh:not' |
 		//ClassConstraintComponent="sh:class" | HasValueConstraintComponent='sh:hasValue' |
-		//NodeKindConstraintComponent='sh:nodeKind' | NodeConstraintComponent='sh:node' |
-		//DatatypeConstraintComponent='sh:datatype' | PatternConstraintComponent='sh:pattern' |
-		//ClosedConstraintComponent='sh:closed' | ClosedConstraintComponent_ignore='sh:ignoredProperties' |
+		//HasClassConstraintComponent='sh:hasClass' | NodeKindConstraintComponent='sh:nodeKind' |
+		//NodeConstraintComponent='sh:node' | DatatypeConstraintComponent='sh:datatype' | PatternConstraintComponent='sh:pattern'
+		//| ClosedConstraintComponent='sh:closed' | ClosedConstraintComponent_ignore='sh:ignoredProperties' |
 		//PredicatePath='sh:path' | InversePath='sh:inversePath' | Property='sh:property' | Name='sh:name' | Message='sh:message'
 		//| EqualsConstraintComponent='sh:equals' | MinExclusiveConstraintComponent='sh:minExclusive' |
 		//MinInclusiveConstraintComponent='sh:minInclusive' | MaxExclusiveConstraintComponent='sh:maxExclusive' |
@@ -783,149 +785,155 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//'sh:hasValue'
 		public Keyword getHasValueConstraintComponentShHasValueKeyword_6_0() { return cHasValueConstraintComponentShHasValueKeyword_6_0; }
 		
+		//HasClassConstraintComponent='sh:hasClass'
+		public EnumLiteralDeclaration getHasClassConstraintComponentEnumLiteralDeclaration_7() { return cHasClassConstraintComponentEnumLiteralDeclaration_7; }
+		
+		//'sh:hasClass'
+		public Keyword getHasClassConstraintComponentShHasClassKeyword_7_0() { return cHasClassConstraintComponentShHasClassKeyword_7_0; }
+		
 		//NodeKindConstraintComponent='sh:nodeKind'
-		public EnumLiteralDeclaration getNodeKindConstraintComponentEnumLiteralDeclaration_7() { return cNodeKindConstraintComponentEnumLiteralDeclaration_7; }
+		public EnumLiteralDeclaration getNodeKindConstraintComponentEnumLiteralDeclaration_8() { return cNodeKindConstraintComponentEnumLiteralDeclaration_8; }
 		
 		//'sh:nodeKind'
-		public Keyword getNodeKindConstraintComponentShNodeKindKeyword_7_0() { return cNodeKindConstraintComponentShNodeKindKeyword_7_0; }
+		public Keyword getNodeKindConstraintComponentShNodeKindKeyword_8_0() { return cNodeKindConstraintComponentShNodeKindKeyword_8_0; }
 		
 		//NodeConstraintComponent='sh:node'
-		public EnumLiteralDeclaration getNodeConstraintComponentEnumLiteralDeclaration_8() { return cNodeConstraintComponentEnumLiteralDeclaration_8; }
+		public EnumLiteralDeclaration getNodeConstraintComponentEnumLiteralDeclaration_9() { return cNodeConstraintComponentEnumLiteralDeclaration_9; }
 		
 		//'sh:node'
-		public Keyword getNodeConstraintComponentShNodeKeyword_8_0() { return cNodeConstraintComponentShNodeKeyword_8_0; }
+		public Keyword getNodeConstraintComponentShNodeKeyword_9_0() { return cNodeConstraintComponentShNodeKeyword_9_0; }
 		
 		//DatatypeConstraintComponent='sh:datatype'
-		public EnumLiteralDeclaration getDatatypeConstraintComponentEnumLiteralDeclaration_9() { return cDatatypeConstraintComponentEnumLiteralDeclaration_9; }
+		public EnumLiteralDeclaration getDatatypeConstraintComponentEnumLiteralDeclaration_10() { return cDatatypeConstraintComponentEnumLiteralDeclaration_10; }
 		
 		//'sh:datatype'
-		public Keyword getDatatypeConstraintComponentShDatatypeKeyword_9_0() { return cDatatypeConstraintComponentShDatatypeKeyword_9_0; }
+		public Keyword getDatatypeConstraintComponentShDatatypeKeyword_10_0() { return cDatatypeConstraintComponentShDatatypeKeyword_10_0; }
 		
 		//PatternConstraintComponent='sh:pattern'
-		public EnumLiteralDeclaration getPatternConstraintComponentEnumLiteralDeclaration_10() { return cPatternConstraintComponentEnumLiteralDeclaration_10; }
+		public EnumLiteralDeclaration getPatternConstraintComponentEnumLiteralDeclaration_11() { return cPatternConstraintComponentEnumLiteralDeclaration_11; }
 		
 		//'sh:pattern'
-		public Keyword getPatternConstraintComponentShPatternKeyword_10_0() { return cPatternConstraintComponentShPatternKeyword_10_0; }
+		public Keyword getPatternConstraintComponentShPatternKeyword_11_0() { return cPatternConstraintComponentShPatternKeyword_11_0; }
 		
 		//ClosedConstraintComponent='sh:closed'
-		public EnumLiteralDeclaration getClosedConstraintComponentEnumLiteralDeclaration_11() { return cClosedConstraintComponentEnumLiteralDeclaration_11; }
+		public EnumLiteralDeclaration getClosedConstraintComponentEnumLiteralDeclaration_12() { return cClosedConstraintComponentEnumLiteralDeclaration_12; }
 		
 		//'sh:closed'
-		public Keyword getClosedConstraintComponentShClosedKeyword_11_0() { return cClosedConstraintComponentShClosedKeyword_11_0; }
+		public Keyword getClosedConstraintComponentShClosedKeyword_12_0() { return cClosedConstraintComponentShClosedKeyword_12_0; }
 		
 		//ClosedConstraintComponent_ignore='sh:ignoredProperties'
-		public EnumLiteralDeclaration getClosedConstraintComponent_ignoreEnumLiteralDeclaration_12() { return cClosedConstraintComponent_ignoreEnumLiteralDeclaration_12; }
+		public EnumLiteralDeclaration getClosedConstraintComponent_ignoreEnumLiteralDeclaration_13() { return cClosedConstraintComponent_ignoreEnumLiteralDeclaration_13; }
 		
 		//'sh:ignoredProperties'
-		public Keyword getClosedConstraintComponent_ignoreShIgnoredPropertiesKeyword_12_0() { return cClosedConstraintComponent_ignoreShIgnoredPropertiesKeyword_12_0; }
+		public Keyword getClosedConstraintComponent_ignoreShIgnoredPropertiesKeyword_13_0() { return cClosedConstraintComponent_ignoreShIgnoredPropertiesKeyword_13_0; }
 		
 		//PredicatePath='sh:path'
-		public EnumLiteralDeclaration getPredicatePathEnumLiteralDeclaration_13() { return cPredicatePathEnumLiteralDeclaration_13; }
+		public EnumLiteralDeclaration getPredicatePathEnumLiteralDeclaration_14() { return cPredicatePathEnumLiteralDeclaration_14; }
 		
 		//'sh:path'
-		public Keyword getPredicatePathShPathKeyword_13_0() { return cPredicatePathShPathKeyword_13_0; }
+		public Keyword getPredicatePathShPathKeyword_14_0() { return cPredicatePathShPathKeyword_14_0; }
 		
 		//InversePath='sh:inversePath'
-		public EnumLiteralDeclaration getInversePathEnumLiteralDeclaration_14() { return cInversePathEnumLiteralDeclaration_14; }
+		public EnumLiteralDeclaration getInversePathEnumLiteralDeclaration_15() { return cInversePathEnumLiteralDeclaration_15; }
 		
 		//'sh:inversePath'
-		public Keyword getInversePathShInversePathKeyword_14_0() { return cInversePathShInversePathKeyword_14_0; }
+		public Keyword getInversePathShInversePathKeyword_15_0() { return cInversePathShInversePathKeyword_15_0; }
 		
 		//Property='sh:property'
-		public EnumLiteralDeclaration getPropertyEnumLiteralDeclaration_15() { return cPropertyEnumLiteralDeclaration_15; }
+		public EnumLiteralDeclaration getPropertyEnumLiteralDeclaration_16() { return cPropertyEnumLiteralDeclaration_16; }
 		
 		//'sh:property'
-		public Keyword getPropertyShPropertyKeyword_15_0() { return cPropertyShPropertyKeyword_15_0; }
+		public Keyword getPropertyShPropertyKeyword_16_0() { return cPropertyShPropertyKeyword_16_0; }
 		
 		//Name='sh:name'
-		public EnumLiteralDeclaration getNameEnumLiteralDeclaration_16() { return cNameEnumLiteralDeclaration_16; }
+		public EnumLiteralDeclaration getNameEnumLiteralDeclaration_17() { return cNameEnumLiteralDeclaration_17; }
 		
 		//'sh:name'
-		public Keyword getNameShNameKeyword_16_0() { return cNameShNameKeyword_16_0; }
+		public Keyword getNameShNameKeyword_17_0() { return cNameShNameKeyword_17_0; }
 		
 		//Message='sh:message'
-		public EnumLiteralDeclaration getMessageEnumLiteralDeclaration_17() { return cMessageEnumLiteralDeclaration_17; }
+		public EnumLiteralDeclaration getMessageEnumLiteralDeclaration_18() { return cMessageEnumLiteralDeclaration_18; }
 		
 		//'sh:message'
-		public Keyword getMessageShMessageKeyword_17_0() { return cMessageShMessageKeyword_17_0; }
+		public Keyword getMessageShMessageKeyword_18_0() { return cMessageShMessageKeyword_18_0; }
 		
 		//EqualsConstraintComponent='sh:equals'
-		public EnumLiteralDeclaration getEqualsConstraintComponentEnumLiteralDeclaration_18() { return cEqualsConstraintComponentEnumLiteralDeclaration_18; }
+		public EnumLiteralDeclaration getEqualsConstraintComponentEnumLiteralDeclaration_19() { return cEqualsConstraintComponentEnumLiteralDeclaration_19; }
 		
 		//'sh:equals'
-		public Keyword getEqualsConstraintComponentShEqualsKeyword_18_0() { return cEqualsConstraintComponentShEqualsKeyword_18_0; }
+		public Keyword getEqualsConstraintComponentShEqualsKeyword_19_0() { return cEqualsConstraintComponentShEqualsKeyword_19_0; }
 		
 		//MinExclusiveConstraintComponent='sh:minExclusive'
-		public EnumLiteralDeclaration getMinExclusiveConstraintComponentEnumLiteralDeclaration_19() { return cMinExclusiveConstraintComponentEnumLiteralDeclaration_19; }
+		public EnumLiteralDeclaration getMinExclusiveConstraintComponentEnumLiteralDeclaration_20() { return cMinExclusiveConstraintComponentEnumLiteralDeclaration_20; }
 		
 		//'sh:minExclusive'
-		public Keyword getMinExclusiveConstraintComponentShMinExclusiveKeyword_19_0() { return cMinExclusiveConstraintComponentShMinExclusiveKeyword_19_0; }
+		public Keyword getMinExclusiveConstraintComponentShMinExclusiveKeyword_20_0() { return cMinExclusiveConstraintComponentShMinExclusiveKeyword_20_0; }
 		
 		//MinInclusiveConstraintComponent='sh:minInclusive'
-		public EnumLiteralDeclaration getMinInclusiveConstraintComponentEnumLiteralDeclaration_20() { return cMinInclusiveConstraintComponentEnumLiteralDeclaration_20; }
+		public EnumLiteralDeclaration getMinInclusiveConstraintComponentEnumLiteralDeclaration_21() { return cMinInclusiveConstraintComponentEnumLiteralDeclaration_21; }
 		
 		//'sh:minInclusive'
-		public Keyword getMinInclusiveConstraintComponentShMinInclusiveKeyword_20_0() { return cMinInclusiveConstraintComponentShMinInclusiveKeyword_20_0; }
+		public Keyword getMinInclusiveConstraintComponentShMinInclusiveKeyword_21_0() { return cMinInclusiveConstraintComponentShMinInclusiveKeyword_21_0; }
 		
 		//MaxExclusiveConstraintComponent='sh:maxExclusive'
-		public EnumLiteralDeclaration getMaxExclusiveConstraintComponentEnumLiteralDeclaration_21() { return cMaxExclusiveConstraintComponentEnumLiteralDeclaration_21; }
+		public EnumLiteralDeclaration getMaxExclusiveConstraintComponentEnumLiteralDeclaration_22() { return cMaxExclusiveConstraintComponentEnumLiteralDeclaration_22; }
 		
 		//'sh:maxExclusive'
-		public Keyword getMaxExclusiveConstraintComponentShMaxExclusiveKeyword_21_0() { return cMaxExclusiveConstraintComponentShMaxExclusiveKeyword_21_0; }
+		public Keyword getMaxExclusiveConstraintComponentShMaxExclusiveKeyword_22_0() { return cMaxExclusiveConstraintComponentShMaxExclusiveKeyword_22_0; }
 		
 		//MaxInclusiveConstraintComponent='sh:maxInclusive'
-		public EnumLiteralDeclaration getMaxInclusiveConstraintComponentEnumLiteralDeclaration_22() { return cMaxInclusiveConstraintComponentEnumLiteralDeclaration_22; }
+		public EnumLiteralDeclaration getMaxInclusiveConstraintComponentEnumLiteralDeclaration_23() { return cMaxInclusiveConstraintComponentEnumLiteralDeclaration_23; }
 		
 		//'sh:maxInclusive'
-		public Keyword getMaxInclusiveConstraintComponentShMaxInclusiveKeyword_22_0() { return cMaxInclusiveConstraintComponentShMaxInclusiveKeyword_22_0; }
+		public Keyword getMaxInclusiveConstraintComponentShMaxInclusiveKeyword_23_0() { return cMaxInclusiveConstraintComponentShMaxInclusiveKeyword_23_0; }
 		
 		//MaxLengthConstraintComponent='sh:maxLength'
-		public EnumLiteralDeclaration getMaxLengthConstraintComponentEnumLiteralDeclaration_23() { return cMaxLengthConstraintComponentEnumLiteralDeclaration_23; }
+		public EnumLiteralDeclaration getMaxLengthConstraintComponentEnumLiteralDeclaration_24() { return cMaxLengthConstraintComponentEnumLiteralDeclaration_24; }
 		
 		//'sh:maxLength'
-		public Keyword getMaxLengthConstraintComponentShMaxLengthKeyword_23_0() { return cMaxLengthConstraintComponentShMaxLengthKeyword_23_0; }
+		public Keyword getMaxLengthConstraintComponentShMaxLengthKeyword_24_0() { return cMaxLengthConstraintComponentShMaxLengthKeyword_24_0; }
 		
 		//MinLengthConstraintComponent='sh:minLength'
-		public EnumLiteralDeclaration getMinLengthConstraintComponentEnumLiteralDeclaration_24() { return cMinLengthConstraintComponentEnumLiteralDeclaration_24; }
+		public EnumLiteralDeclaration getMinLengthConstraintComponentEnumLiteralDeclaration_25() { return cMinLengthConstraintComponentEnumLiteralDeclaration_25; }
 		
 		//'sh:minLength'
-		public Keyword getMinLengthConstraintComponentShMinLengthKeyword_24_0() { return cMinLengthConstraintComponentShMinLengthKeyword_24_0; }
+		public Keyword getMinLengthConstraintComponentShMinLengthKeyword_25_0() { return cMinLengthConstraintComponentShMinLengthKeyword_25_0; }
 		
 		//QualifiedValueShape='sh:qualifiedValueShape'
-		public EnumLiteralDeclaration getQualifiedValueShapeEnumLiteralDeclaration_25() { return cQualifiedValueShapeEnumLiteralDeclaration_25; }
+		public EnumLiteralDeclaration getQualifiedValueShapeEnumLiteralDeclaration_26() { return cQualifiedValueShapeEnumLiteralDeclaration_26; }
 		
 		//'sh:qualifiedValueShape'
-		public Keyword getQualifiedValueShapeShQualifiedValueShapeKeyword_25_0() { return cQualifiedValueShapeShQualifiedValueShapeKeyword_25_0; }
+		public Keyword getQualifiedValueShapeShQualifiedValueShapeKeyword_26_0() { return cQualifiedValueShapeShQualifiedValueShapeKeyword_26_0; }
 		
 		//QualifiedMaxCount='sh:qualifiedMaxCount'
-		public EnumLiteralDeclaration getQualifiedMaxCountEnumLiteralDeclaration_26() { return cQualifiedMaxCountEnumLiteralDeclaration_26; }
+		public EnumLiteralDeclaration getQualifiedMaxCountEnumLiteralDeclaration_27() { return cQualifiedMaxCountEnumLiteralDeclaration_27; }
 		
 		//'sh:qualifiedMaxCount'
-		public Keyword getQualifiedMaxCountShQualifiedMaxCountKeyword_26_0() { return cQualifiedMaxCountShQualifiedMaxCountKeyword_26_0; }
+		public Keyword getQualifiedMaxCountShQualifiedMaxCountKeyword_27_0() { return cQualifiedMaxCountShQualifiedMaxCountKeyword_27_0; }
 		
 		//QualifiedMinCount='sh:qualifiedMinCount'
-		public EnumLiteralDeclaration getQualifiedMinCountEnumLiteralDeclaration_27() { return cQualifiedMinCountEnumLiteralDeclaration_27; }
+		public EnumLiteralDeclaration getQualifiedMinCountEnumLiteralDeclaration_28() { return cQualifiedMinCountEnumLiteralDeclaration_28; }
 		
 		//'sh:qualifiedMinCount'
-		public Keyword getQualifiedMinCountShQualifiedMinCountKeyword_27_0() { return cQualifiedMinCountShQualifiedMinCountKeyword_27_0; }
+		public Keyword getQualifiedMinCountShQualifiedMinCountKeyword_28_0() { return cQualifiedMinCountShQualifiedMinCountKeyword_28_0; }
 		
 		//InstanceOf='a'
-		public EnumLiteralDeclaration getInstanceOfEnumLiteralDeclaration_28() { return cInstanceOfEnumLiteralDeclaration_28; }
+		public EnumLiteralDeclaration getInstanceOfEnumLiteralDeclaration_29() { return cInstanceOfEnumLiteralDeclaration_29; }
 		
 		//'a'
-		public Keyword getInstanceOfAKeyword_28_0() { return cInstanceOfAKeyword_28_0; }
+		public Keyword getInstanceOfAKeyword_29_0() { return cInstanceOfAKeyword_29_0; }
 		
 		//RdfsLabel='rdfs:label'
-		public EnumLiteralDeclaration getRdfsLabelEnumLiteralDeclaration_29() { return cRdfsLabelEnumLiteralDeclaration_29; }
+		public EnumLiteralDeclaration getRdfsLabelEnumLiteralDeclaration_30() { return cRdfsLabelEnumLiteralDeclaration_30; }
 		
 		//'rdfs:label'
-		public Keyword getRdfsLabelRdfsLabelKeyword_29_0() { return cRdfsLabelRdfsLabelKeyword_29_0; }
+		public Keyword getRdfsLabelRdfsLabelKeyword_30_0() { return cRdfsLabelRdfsLabelKeyword_30_0; }
 		
 		//Description='sh:description'
-		public EnumLiteralDeclaration getDescriptionEnumLiteralDeclaration_30() { return cDescriptionEnumLiteralDeclaration_30; }
+		public EnumLiteralDeclaration getDescriptionEnumLiteralDeclaration_31() { return cDescriptionEnumLiteralDeclaration_31; }
 		
 		//'sh:description'
-		public Keyword getDescriptionShDescriptionKeyword_30_0() { return cDescriptionShDescriptionKeyword_30_0; }
+		public Keyword getDescriptionShDescriptionKeyword_31_0() { return cDescriptionShDescriptionKeyword_31_0; }
 	}
 	
 	private final GraphElements pGraph;
@@ -1155,16 +1163,16 @@ public class TurtleGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	//	MinCountConstraintComponent='sh:minCount' | MaxCountConstraintComponent='sh:maxCount' |
 	//	AndConstraintComponent='sh:and' | OrConstraintComponent='sh:or' | NotConstraintComponent='sh:not' |
 	//	ClassConstraintComponent="sh:class" | HasValueConstraintComponent='sh:hasValue' |
-	//	NodeKindConstraintComponent='sh:nodeKind' | NodeConstraintComponent='sh:node' |
-	//	DatatypeConstraintComponent='sh:datatype' | PatternConstraintComponent='sh:pattern' |
-	//	ClosedConstraintComponent='sh:closed' | ClosedConstraintComponent_ignore='sh:ignoredProperties' |
-	//	PredicatePath='sh:path' | InversePath='sh:inversePath' | Property='sh:property' | Name='sh:name' |
-	//	Message='sh:message' | EqualsConstraintComponent='sh:equals' | MinExclusiveConstraintComponent='sh:minExclusive' |
-	//	MinInclusiveConstraintComponent='sh:minInclusive' | MaxExclusiveConstraintComponent='sh:maxExclusive' |
-	//	MaxInclusiveConstraintComponent='sh:maxInclusive' | MaxLengthConstraintComponent='sh:maxLength' |
-	//	MinLengthConstraintComponent='sh:minLength' | QualifiedValueShape='sh:qualifiedValueShape' |
-	//	QualifiedMaxCount='sh:qualifiedMaxCount' | QualifiedMinCount='sh:qualifiedMinCount' | InstanceOf='a' |
-	//	RdfsLabel='rdfs:label' | Description='sh:description';
+	//	HasClassConstraintComponent='sh:hasClass' | NodeKindConstraintComponent='sh:nodeKind' |
+	//	NodeConstraintComponent='sh:node' | DatatypeConstraintComponent='sh:datatype' |
+	//	PatternConstraintComponent='sh:pattern' | ClosedConstraintComponent='sh:closed' |
+	//	ClosedConstraintComponent_ignore='sh:ignoredProperties' | PredicatePath='sh:path' | InversePath='sh:inversePath' |
+	//	Property='sh:property' | Name='sh:name' | Message='sh:message' | EqualsConstraintComponent='sh:equals' |
+	//	MinExclusiveConstraintComponent='sh:minExclusive' | MinInclusiveConstraintComponent='sh:minInclusive' |
+	//	MaxExclusiveConstraintComponent='sh:maxExclusive' | MaxInclusiveConstraintComponent='sh:maxInclusive' |
+	//	MaxLengthConstraintComponent='sh:maxLength' | MinLengthConstraintComponent='sh:minLength' |
+	//	QualifiedValueShape='sh:qualifiedValueShape' | QualifiedMaxCount='sh:qualifiedMaxCount' |
+	//	QualifiedMinCount='sh:qualifiedMinCount' | InstanceOf='a' | RdfsLabel='rdfs:label' | Description='sh:description';
 	public PropertyTypeElements getPropertyTypeAccess() {
 		return ePropertyType;
 	}

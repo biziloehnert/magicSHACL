@@ -78,7 +78,8 @@ enum PropertyType:
 	OrConstraintComponent='sh:or' | 
 	NotConstraintComponent='sh:not' |
 	ClassConstraintComponent="sh:class" |
-	HasValueConstraintComponent='sh:hasValue' | 
+	HasValueConstraintComponent='sh:hasValue' |
+	HasClassConstraintComponent='sh:hasClass' | 
 	NodeKindConstraintComponent='sh:nodeKind' |
 	NodeConstraintComponent='sh:node' | 
 	DatatypeConstraintComponent='sh:datatype' | 

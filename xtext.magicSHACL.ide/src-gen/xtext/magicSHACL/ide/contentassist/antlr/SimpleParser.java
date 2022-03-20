@@ -43,9 +43,9 @@ public class SimpleParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getShapeConstraintAccess().getGroup_2_1(), "rule__ShapeConstraint__Group_2_1__0");
 			builder.put(grammarAccess.getShapeNameAccess().getGroup(), "rule__ShapeName__Group__0");
 			builder.put(grammarAccess.getShapeExpressionAccess().getGroup_0(), "rule__ShapeExpression__Group_0__0");
+			builder.put(grammarAccess.getShapeExpressionAccess().getGroup_0_1(), "rule__ShapeExpression__Group_0_1__0");
 			builder.put(grammarAccess.getShapeExpressionAccess().getGroup_1(), "rule__ShapeExpression__Group_1__0");
-			builder.put(grammarAccess.getShapeExpressionAccess().getGroup_2(), "rule__ShapeExpression__Group_2__0");
-			builder.put(grammarAccess.getShapeExpressionAccess().getGroup_2_1(), "rule__ShapeExpression__Group_2_1__0");
+			builder.put(grammarAccess.getShapeExpressionAccess().getGroup_1_1(), "rule__ShapeExpression__Group_1_1__0");
 			builder.put(grammarAccess.getValueAccess().getGroup(), "rule__Value__Group__0");
 			builder.put(grammarAccess.getGraphAccess().getShapesGraphAssignment_1(), "rule__Graph__ShapesGraphAssignment_1");
 			builder.put(grammarAccess.getShapesGraphAccess().getShapeConstraintsAssignment_1(), "rule__ShapesGraph__ShapeConstraintsAssignment_1");
@@ -54,12 +54,11 @@ public class SimpleParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getShapeConstraintAccess().getTargetsAssignment_2_0_0(), "rule__ShapeConstraint__TargetsAssignment_2_0_0");
 			builder.put(grammarAccess.getShapeConstraintAccess().getShapeExpressionsAssignment_2_1_1(), "rule__ShapeConstraint__ShapeExpressionsAssignment_2_1_1");
 			builder.put(grammarAccess.getShapeNameAccess().getNameAssignment_1(), "rule__ShapeName__NameAssignment_1");
-			builder.put(grammarAccess.getShapeExpressionAccess().getValuesAssignment_0_1(), "rule__ShapeExpression__ValuesAssignment_0_1");
-			builder.put(grammarAccess.getShapeExpressionAccess().getTypeAssignment_1_0(), "rule__ShapeExpression__TypeAssignment_1_0");
-			builder.put(grammarAccess.getShapeExpressionAccess().getValuesAssignment_1_1(), "rule__ShapeExpression__ValuesAssignment_1_1");
-			builder.put(grammarAccess.getShapeExpressionAccess().getValuesAssignment_2_0(), "rule__ShapeExpression__ValuesAssignment_2_0");
-			builder.put(grammarAccess.getShapeExpressionAccess().getTypeAssignment_2_1_0(), "rule__ShapeExpression__TypeAssignment_2_1_0");
-			builder.put(grammarAccess.getShapeExpressionAccess().getValuesAssignment_2_1_1(), "rule__ShapeExpression__ValuesAssignment_2_1_1");
+			builder.put(grammarAccess.getShapeExpressionAccess().getTypeAssignment_0_1_0(), "rule__ShapeExpression__TypeAssignment_0_1_0");
+			builder.put(grammarAccess.getShapeExpressionAccess().getValuesAssignment_0_1_1(), "rule__ShapeExpression__ValuesAssignment_0_1_1");
+			builder.put(grammarAccess.getShapeExpressionAccess().getValuesAssignment_1_0(), "rule__ShapeExpression__ValuesAssignment_1_0");
+			builder.put(grammarAccess.getShapeExpressionAccess().getTypeAssignment_1_1_0(), "rule__ShapeExpression__TypeAssignment_1_1_0");
+			builder.put(grammarAccess.getShapeExpressionAccess().getValuesAssignment_1_1_1(), "rule__ShapeExpression__ValuesAssignment_1_1_1");
 			builder.put(grammarAccess.getValueAccess().getNameAssignment_1(), "rule__Value__NameAssignment_1");
 		}
 	}

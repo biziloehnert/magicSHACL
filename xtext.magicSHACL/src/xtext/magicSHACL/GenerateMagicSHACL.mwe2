@@ -2,11 +2,20 @@ module xtext.magicSHACL.GenerateMagicSHACL
 
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
+import org.eclipse.emf.mwe.utils.StandaloneSetup
+
 
 var rootPath = ".."
+var runtimeProject = "../xtext.magicSHACL"
 
 Workflow {
-	
+	bean = StandaloneSetup {
+		scanClassPath = true
+		//platformUri = "${runtimeProject}/.."
+		registerGeneratedEPackage = "magicSHACL.MagicSHACLPackage"
+		registerGenModelFile = "platform:/resource/MagicSHACL/model/magicSHACL.genmodel"
+		registerEcoreFile = "platform:/resource/MagicSHACL/model/magicSHACL.ecore"
+	} 
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {
@@ -51,6 +60,7 @@ Workflow {
 				generateDeprecationValidation = true
 			}
 			generator = {
+				generateJavaMain = true
 				generateXtendStub = true
 			}
 			junitSupport = {
@@ -78,6 +88,7 @@ Workflow {
 				generateDeprecationValidation = true
 			}
 			generator = {
+				generateJavaMain = true
 				generateXtendStub = true
 			}
 			junitSupport = {
