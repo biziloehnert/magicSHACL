@@ -59,6 +59,7 @@
     <eLiterals name="QualifiedValueShape" value="30" literal="sh:qualifiedValueShape"/>
     <eLiterals name="QualifiedMinCount" value="31" literal="sh:qualifiedMinCount"/>
     <eLiterals name="QualifiedMaxCount" value="32" literal="sh:qualifiedMaxCount"/>
+    <eLiterals name="HasClassConstraintComponent" value="33" literal="sh:hasClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Namespace">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
